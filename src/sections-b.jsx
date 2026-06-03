@@ -202,6 +202,10 @@ function About() {
             </div>
           </div>
         </div>
+        <div className="section-head center reveal">
+          <span className="eyebrow">Our Objectives</span>
+          <h2>What We Strive to Achieve</h2>
+        </div>
         <div className="obj-grid">
           {OBJECTIVES.map((o, i) => (
             <div className={"obj-card reveal d" + (i + 1)} key={o.title}>
