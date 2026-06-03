@@ -113,6 +113,24 @@ function Contact() {
   );
 }
 
+/* ======================= PRE-FOOTER CTA ======================= */
+function PreFooterCta() {
+  const go = (e, id) => { e.preventDefault(); document.getElementById(id)?.scrollIntoView(); };
+  return (
+    <section className="prefooter-cta">
+      <div className="wrap">
+        <div className="prefooter-inner reveal">
+          <h2>Ready to get certified?</h2>
+          <p>Join the diverse businesses we've helped earn certifications and win opportunities.</p>
+          <a href="#contact" className="btn btn-light" onClick={(e) => go(e, "contact")}>
+            Get Certified {Ic.arrow}
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ======================= FOOTER ======================= */
 function Footer() {
   const go = (e, id) => { e.preventDefault(); document.getElementById(id)?.scrollIntoView(); };
@@ -121,16 +139,9 @@ function Footer() {
       <div className="wrap">
         <div className="footer-grid">
           <div className="f-brand">
-            <div className="brand">
-              <span className="brand-mark">
-                <svg viewBox="0 0 40 40" fill="none">
-                  <path d="M20 8.5 28.6 13.3v9.5L20 27.5l-8.6-4.7v-9.5L20 8.5Z" fill="#1a9c3e"/>
-                  <path d="M16 14.6h5.1c2 0 3.3 1.1 3.3 2.9 0 1.3-.7 2.2-1.9 2.6l2.2 3.6h-2.5l-1.9-3.2H18v3.2h-2V14.6Zm2 4.1h2.8c.9 0 1.4-.4 1.4-1.2s-.5-1.1-1.4-1.1H18v2.3Z" fill="#fff"/>
-                </svg>
-              </span>
-              <span className="brand-text">
-                <span className="name">RMO Global</span>
-                <span className="tag">Diversity Solutions</span>
+            <div className="brand footer-brand">
+              <span className="brand-logo-wrap footer-brand-logo">
+                <img className="brand-logo" src="RMO_Logo.jpg" alt="R Mo Global Diversity Solutions" />
               </span>
             </div>
             <p className="f-about">
@@ -185,4 +196,4 @@ function ToTop() {
   );
 }
 
-Object.assign(window, { Contact, Footer, ToTop });
+Object.assign(window, { Contact, Footer, ToTop, PreFooterCta });

@@ -3,25 +3,8 @@ const { useState: useStateB, useEffect: useEffectB, useRef: useRefB } = React;
 
 /* ======================= TEAM ======================= */
 const LEADERS = [
-  { name: "Ranjani Mohana", role: "Chief Executive Officer & President" },
-  { name: "Roshini Chandran", role: "Advisor" },
-];
-const MEMBERS = [
-  { name: "Priya Saravanan", role: "Sr. Certification Specialist" },
-  { name: "Maria Rama Iseman", role: "Certification Assistant" },
-  { name: "Lloura Morales", role: "Admin Assistant" },
-  { name: "Marian Salino", role: "Social Media Assistant" },
-  { name: "Ramnik Singh", role: "Web Maintenance" },
-  { name: "Rajesh", role: "CPA" },
-  { name: "Eunice Lorainne Acebuque", role: "Marketing Assistant" },
-  { name: "Anjelica Espina", role: "MRP Assistant" },
-  { name: "Marla Balladores", role: "Resource Admin Assistant" },
-  { name: "Princess Mendez", role: "Certification Assistant" },
-  { name: "Shylet Lomuntad", role: "Bookkeeper / Accounting" },
-  { name: "Nikka Grajo", role: "Certification Assistant" },
-  { name: "Abegael Mariano", role: "Certification Assistant" },
-  { name: "Jullie Anne de la Cruz", role: "Creative Designer" },
-  { name: "Nisha Rawat", role: "Certification Assistant" },
+  { name: "Ranjani Mohana", role: "Chief Executive Officer & President", image: "CEO.jpg" },
+  { name: "Roshini Chandran", role: "Advisor", image: "ADVISOR.jpg" },
 ];
 
 function Team() {
@@ -31,12 +14,12 @@ function Team() {
         <div className="section-head center reveal">
           <span className="eyebrow">The people</span>
           <h2>A team that knows certification inside out</h2>
-          <p>Specialists across certification, procurement, finance and design — working together for you.</p>
+          <p>Meet the leadership behind RMO Global Diversity Solutions.</p>
         </div>
         <div className="leaders">
           {LEADERS.map((l, i) => (
             <div className={"leader reveal d" + (i + 1)} key={l.name}>
-              <Avatar name={l.name} />
+              <Avatar name={l.name} src={l.image} alt={l.name} />
               <div>
                 <span className="role-pill">{i === 0 ? "Leadership" : "Advisory"}</span>
                 <h3>{l.name}</h3>
@@ -45,14 +28,10 @@ function Team() {
             </div>
           ))}
         </div>
-        <div className="team-grid">
-          {MEMBERS.map((m, i) => (
-            <div className={"member reveal d" + ((i % 4) + 1)} key={m.name}>
-              <Avatar name={m.name} />
-              <div className="m-name">{m.name}</div>
-              <div className="m-role">{m.role}</div>
-            </div>
-          ))}
+        <div className="team-cta reveal">
+          <a href="team.html" className="btn btn-ghost">
+            Meet the team {Ic.arrow}
+          </a>
         </div>
       </div>
     </section>
@@ -92,8 +71,11 @@ function Testimonials() {
         </blockquote>
         <div className="testi-foot reveal d1">
           <div className="testi-author">
-            <div className="a-name">{t.name}</div>
-            <div className="a-role">{t.role}</div>
+            <Avatar name={t.name} className="testi-av" />
+            <div>
+              <div className="a-name">{t.name}</div>
+              <div className="a-role">{t.role}</div>
+            </div>
           </div>
           <div className="testi-nav">
             <button aria-label="Previous" onClick={() => go(i - 1)}>{Ic.chevL}</button>
@@ -111,43 +93,88 @@ function Testimonials() {
 }
 
 /* ======================= ABOUT (mission + vision) ======================= */
+const OBJECTIVES = [
+  {
+    ic: Ic.badge,
+    title: "For Diverse Businesses",
+    items: [
+      "Support businesses in obtaining and maintaining diversity certifications.",
+      "Guide clients to design and implement measurable social and economic impact strategies.",
+      "Equip suppliers with tools to showcase their strengths and compete successfully in government and corporate markets.",
+    ],
+  },
+  {
+    ic: Ic.handshake,
+    title: "For Corporates & Government",
+    items: [
+      "Assist in certifying and developing their diverse supplier base.",
+      "Strengthen corporate supplier diversity programs by aligning with impact-driven strategies.",
+      "Provide insights and visibility to help corporates meet and exceed diversity spend goals.",
+    ],
+  },
+  {
+    ic: Ic.rocket,
+    title: "For R Mo Team",
+    items: [
+      "Invest in continuous learning and professional growth of our global team.",
+      "Foster innovation and process excellence to better serve clients.",
+      "Build a culture of collaboration, integrity, and social responsibility.",
+    ],
+  },
+];
+
 function About() {
   return (
     <section className="about pad-y" id="about">
-      <div className="wrap about-grid">
-        <div className="about-intro reveal">
-          <span className="eyebrow">About us</span>
-          <h2>Impacting diversity through thoughts, actions &amp; progress.</h2>
-          <p>
-            RMO Global Diversity Solutions exists to level the playing field for diverse
-            businesses. We turn the complex world of certification and procurement into a
-            clear path forward — so underrepresented founders can compete, win, and grow.
-          </p>
-          <p className="about-tag">&ldquo;Diversity isn't a checkbox. It's an opportunity.&rdquo;</p>
+      <div className="wrap">
+        <div className="about-grid">
+          <div className="about-intro reveal">
+            <span className="eyebrow">About us</span>
+            <h2>Impacting diversity through thoughts, actions &amp; progress.</h2>
+            <p>
+              RMO Global Diversity Solutions exists to level the playing field for diverse
+              businesses. We turn the complex world of certification and procurement into a
+              clear path forward — so underrepresented founders can compete, win, and grow.
+            </p>
+            <p className="about-tag">&ldquo;Empowering businesses to certify, impact &amp; thrive.&rdquo;</p>
+          </div>
+          <div className="mv-stack">
+            <div className="mv-card reveal d1">
+              <div className="mv-head">
+                <span className="mv-ic">{Ic.target}</span>
+                <h3>Our Mission</h3>
+              </div>
+              <p>
+                R Mo equips diverse businesses with the certifications, strategies, and
+                visibility they need to succeed. We guide them in building social and economic
+                impact, and connect them to government and corporate opportunities that drive growth.
+              </p>
+            </div>
+            <div className="mv-card accent reveal d2">
+              <div className="mv-head">
+                <span className="mv-ic">{Ic.eye}</span>
+                <h3>Our Vision</h3>
+              </div>
+              <p>
+                R Mo envisions being the trusted bridge between businesses and opportunities—empowering
+                them with certifications, elevating their economic and social impact, and positioning
+                them to thrive in government and corporate markets.
+              </p>
+            </div>
+          </div>
         </div>
-        <div className="mv-stack">
-          <div className="mv-card reveal d1">
-            <div className="mv-head">
-              <span className="mv-ic">{Ic.target}</span>
-              <h3>Our Mission</h3>
+        <div className="obj-grid">
+          {OBJECTIVES.map((o, i) => (
+            <div className={"obj-card reveal d" + (i + 1)} key={o.title}>
+              <div className="obj-head">
+                <span className="obj-ic">{o.ic}</span>
+                <h4>{o.title}</h4>
+              </div>
+              <ul>
+                {o.items.map((item) => <li key={item}>{item}</li>)}
+              </ul>
             </div>
-            <p>
-              To empower minority-, women-, and veteran-owned businesses by simplifying the
-              certification process and connecting them to real procurement opportunities —
-              with the professionalism, patience and partnership every client deserves.
-            </p>
-          </div>
-          <div className="mv-card accent reveal d2">
-            <div className="mv-head">
-              <span className="mv-ic">{Ic.eye}</span>
-              <h3>Our Vision</h3>
-            </div>
-            <p>
-              To be the catalyst for diversified businesses to successfully venture into the
-              corporate and government markets — building a more inclusive economy where every
-              qualified business has a seat at the table.
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </section>

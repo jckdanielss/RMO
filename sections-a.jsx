@@ -26,9 +26,29 @@ const Ic = {
   fb: <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>,
 };
 
-function Avatar({ name, className }) {
+function Avatar({ name, className, src, alt }) {
   const initials = name.split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0]).join("").toUpperCase();
-  return <div className={"avatar " + (className || "")}>{initials}</div>;
+  return (
+    <div className={"avatar " + (className || "")}>
+      {src ? <img src={src} alt={alt || name} /> : initials}
+    </div>
+  );
+}
+
+function StatNum({ target, suffix }) {
+  const [val, setVal] = useState(0);
+  useEffect(() => {
+    const dur = 1400;
+    let start = null;
+    const id = requestAnimationFrame(function step(ts) {
+      if (!start) start = ts;
+      const p = Math.min((ts - start) / dur, 1);
+      setVal(Math.round(p * target));
+      if (p < 1) requestAnimationFrame(step);
+    });
+    return () => cancelAnimationFrame(id);
+  }, [target]);
+  return React.createElement(React.Fragment, null, val, suffix);
 }
 
 /* ======================= NAV ======================= */
@@ -40,16 +60,8 @@ const NAV_LINKS = [
 function Brand({ dark }) {
   return (
     <a href="#top" className="brand">
-      <span className="brand-mark">
-        <svg viewBox="0 0 40 40" fill="none">
-          <path d="M20 3 33.4 10.5v15L20 33 6.6 25.5v-15L20 3Z" fill="#1a9c3e" opacity=".14"/>
-          <path d="M20 8.5 28.6 13.3v9.5L20 27.5l-8.6-4.7v-9.5L20 8.5Z" fill="#1a9c3e"/>
-          <path d="M16 14.6h5.1c2 0 3.3 1.1 3.3 2.9 0 1.3-.7 2.2-1.9 2.6l2.2 3.6h-2.5l-1.9-3.2H18v3.2h-2V14.6Zm2 4.1h2.8c.9 0 1.4-.4 1.4-1.2s-.5-1.1-1.4-1.1H18v2.3Z" fill="#fff"/>
-        </svg>
-      </span>
-      <span className="brand-text">
-        <span className="name">RMO Global</span>
-        <span className="tag">Diversity Solutions</span>
+      <span className={"brand-logo-wrap" + (dark ? " on-dark" : "")}>
+        <img className="brand-logo" src="RMO_Logo.jpg" alt="R Mo Global Diversity Solutions" />
       </span>
     </a>
   );
@@ -101,7 +113,7 @@ function Hero() {
   return (
     <header className="hero" id="top">
       <div className="hero-bg">
-        <image-slot id="hero-photo" fit="cover" placeholder="Drop hero photo — growth / sprout image"></image-slot>
+        <img src="hero_section_plant.jpg" alt="Young plant sprouting from soil" />
       </div>
       <div className="wrap">
         <div className="hero-content">
@@ -111,8 +123,8 @@ function Hero() {
           </span>
           <h1>Turn diversity into <span className="accent">real opportunities.</span></h1>
           <p className="sub">
-            We help minority-, women-, and veteran-owned businesses earn the certifications
-            that open doors to corporate and government contracts — and we guide you through
+            We help minority, women, and veteran-owned businesses earn the certifications
+            that open doors to corporate and government contracts and we guide you through
             every step.
           </p>
           <div className="hero-actions">
@@ -124,9 +136,9 @@ function Hero() {
             </a>
           </div>
           <div className="hero-stats">
-            <div className="stat"><div className="num">5+</div><div className="lbl">Certifications managed</div></div>
-            <div className="stat"><div className="num">20+</div><div className="lbl">Specialists on the team</div></div>
-            <div className="stat"><div className="num">100%</div><div className="lbl">Focused on diversity</div></div>
+            <div className="stat"><div className="num"><StatNum target={5} suffix="+" /></div><div className="lbl">Certifications managed</div></div>
+            <div className="stat"><div className="num"><StatNum target={20} suffix="+" /></div><div className="lbl">Specialists on the team</div></div>
+            <div className="stat"><div className="num"><StatNum target={100} suffix="%" /></div><div className="lbl">Focused on diversity</div></div>
           </div>
         </div>
       </div>
@@ -159,6 +171,7 @@ function Services() {
               <div className="ic">{s.ic}</div>
               <h3>{s.t}</h3>
               <p>{s.d}</p>
+              <span className="card-arrow">{Ic.arrow}</span>
             </article>
           ))}
         </div>
