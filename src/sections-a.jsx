@@ -219,7 +219,7 @@ function Brand({ dark }) {
   return (
     <a href="#top" className="brand">
       <span className={"brand-logo-wrap" + (dark ? " on-dark" : "")}>
-        <img className="brand-logo" src="RMO_Logo-removebg-preview.png" alt="R Mo Global Diversity Solutions" />
+        <img className="brand-logo" src="assets/brand/RMO_Logo-removebg-preview.png" alt="R Mo Global Diversity Solutions" />
       </span>
     </a>
   );
@@ -271,7 +271,7 @@ function Hero() {
   return (
     <header className="hero" id="top">
       <div className="hero-bg">
-        <img src="hero_section_plant.jpg" alt="Young plant sprouting from soil" />
+        <img src="assets/site/hero_section_plant.jpg" alt="Young plant sprouting from soil" />
       </div>
       <div className="wrap">
         <div className="hero-content">

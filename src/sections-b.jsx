@@ -3,8 +3,16 @@ const { useState: useStateB, useEffect: useEffectB, useRef: useRefB } = React;
 
 /* ======================= TEAM ======================= */
 const LEADERS = [
-  { name: "Ranjani Mohana", role: "Chief Executive Officer & President", image: "CEO.jpg" },
-  { name: "Roshini Chandran", role: "Advisor", image: "ADVISOR.jpg" },
+  {
+    name: "Ranjani Mohana",
+    role: "Chief Executive Officer (CEO) President",
+    image: "rmollc_har_extracted_images/rmollc_har_extracted_images/team_images/Ranjani-300-dpi-300x212-150x150-1.jpg",
+  },
+  {
+    name: "Roshini Chandran",
+    role: "Advisor",
+    image: "rmollc_har_extracted_images/rmollc_har_extracted_images/team_images/Roshini-1-300x200-1-150x150-1.jpg",
+  },
 ];
 
 function Team() {

@@ -141,7 +141,7 @@ function Footer() {
           <div className="f-brand">
             <div className="brand footer-brand">
               <span className="brand-logo-wrap footer-brand-logo">
-                <img className="brand-logo" src="RMO_Logo-removebg-preview.png" alt="R Mo Global Diversity Solutions" />
+                <img className="brand-logo" src="assets/brand/RMO_Logo-removebg-preview.png" alt="R Mo Global Diversity Solutions" />
               </span>
             </div>
             <p className="f-about">

@@ -523,7 +523,7 @@ section { scroll-margin-top: 80px; }
   overflow: hidden;
   background:
     linear-gradient(115deg, rgba(8,46,22,.92) 0%, rgba(8,46,22,.78) 42%, rgba(8,46,22,.34) 100%),
-    url("hero_section_plant.jpg") center/cover no-repeat;
+    url("../assets/site/hero_section_plant.jpg") center/cover no-repeat;
   color: #fff;
 }
 .team-directory-overlay {
@@ -564,11 +564,18 @@ section { scroll-margin-top: 80px; }
 .team-directory-main {
   padding-block: clamp(56px, 8vw, 100px);
 }
+.team-directory-roster-shell {
+  display: grid;
+  gap: 34px;
+}
+.team-directory-roster-head {
+  max-width: 760px;
+}
 .team-directory-section + .team-directory-section {
   margin-top: clamp(44px, 6vw, 68px);
 }
 .team-directory-section-head {
-  max-width: 700px;
+  max-width: 720px;
   margin-bottom: 24px;
 }
 .team-directory-section-head p {
@@ -576,33 +583,152 @@ section { scroll-margin-top: 80px; }
   color: var(--muted);
   font-size: 16px;
 }
-.team-directory-leadership {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 22px;
-}
-.team-directory-grid {
+.team-directory-member-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  gap: 24px;
 }
-.team-directory-member {
-  padding: 24px 18px;
+.team-directory-member-grid-leadership {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-.team-directory-member .avatar {
-  width: 64px;
-  height: 64px;
-  font-size: 22px;
-  margin: 0 auto 14px;
+.team-member-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 28px 22px 26px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: rgba(255,255,255,.96);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
 }
-.team-directory-member h3 {
-  font-size: 16px;
-  color: var(--ink);
+.team-member-card.is-clickable {
+  appearance: none;
+  cursor: pointer;
 }
-.team-directory-member p {
-  margin-top: 4px;
+.team-member-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+.team-member-card.is-clickable:hover {
+  border-color: rgba(26,156,62,.42);
+}
+.team-member-card.is-clickable:focus-visible,
+.team-modal-close:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(26,156,62,.16);
+}
+.team-member-avatar {
+  width: 152px;
+  height: 152px;
+  padding: 0;
+  border: 0;
+  background:
+    radial-gradient(circle at top, rgba(127,240,160,.25), rgba(127,240,160,0) 58%),
+    linear-gradient(180deg, #f9fdf9 0%, #edf6ee 100%);
+  box-shadow: inset 0 0 0 1px rgba(18,114,46,.08);
+}
+.team-member-avatar img {
+  object-fit: cover;
+}
+.team-member-copy {
+  display: grid;
+  gap: 10px;
+}
+.team-member-name {
+  font-size: clamp(21px, 2vw, 26px);
+}
+.team-member-role {
+  font-size: clamp(16px, 1.7vw, 18px);
+  line-height: 1.5;
+  color: #5a6760;
+  font-style: italic;
+}
+.team-member-bio-tag {
+  display: inline-flex;
+  justify-content: center;
+  padding: 8px 14px;
+  margin: 2px auto 0;
+  border-radius: 999px;
+  background: var(--green-tint);
+  color: var(--green-dark);
   font-size: 13px;
-  color: var(--muted);
+  font-weight: 700;
+}
+.team-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 140;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(8,46,22,.58);
+  backdrop-filter: blur(10px);
+}
+.team-modal {
+  position: relative;
+  width: min(760px, 100%);
+  max-height: min(88vh, 900px);
+  overflow: auto;
+  border-radius: 30px;
+  background: #fff;
+  box-shadow: 0 24px 80px rgba(8,46,22,.28);
+}
+.team-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(20,32,26,.08);
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 700;
+}
+.team-modal-head {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  align-items: center;
+  gap: 28px;
+  padding: 32px 32px 20px;
+  background:
+    radial-gradient(circle at top left, rgba(127,240,160,.22), rgba(127,240,160,0) 46%),
+    linear-gradient(180deg, #f7fbf8 0%, #ffffff 100%);
+}
+.team-member-avatar-lg {
+  width: 190px;
+  height: 190px;
+}
+.team-modal-copy {
+  display: grid;
+  gap: 12px;
+  text-align: left;
+}
+.team-modal-copy h2 {
+  font-size: clamp(28px, 3vw, 38px);
+}
+.team-modal-copy p {
+  font-size: 18px;
+  line-height: 1.55;
+  color: #5a6760;
+  font-style: italic;
+}
+.team-modal-body {
+  padding: 0 32px 32px;
+}
+.team-modal-body p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--body);
+}
+.team-modal-body p + p {
+  margin-top: 16px;
 }
 
 /* ============================================================
@@ -950,8 +1076,8 @@ section { scroll-margin-top: 80px; }
   .cert-chip { width: 230px; min-width: 230px; }
   .team-grid { grid-template-columns: repeat(3, 1fr); }
   .leaders { grid-template-columns: 1fr; }
-  .team-directory-leadership,
-  .team-directory-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .team-directory-member-grid,
+  .team-directory-member-grid-leadership { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about-grid, .contact-grid { grid-template-columns: 1fr; }
   .obj-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -1090,8 +1216,31 @@ section { scroll-margin-top: 80px; }
   .team-directory-intro h1 {
     font-size: clamp(32px, 10vw, 44px);
   }
-  .team-directory-leadership,
-  .team-directory-grid { grid-template-columns: 1fr; }
+  .team-directory-member-grid,
+  .team-directory-member-grid-leadership { grid-template-columns: 1fr; }
+  .team-member-avatar {
+    width: 138px;
+    height: 138px;
+  }
+  .team-modal {
+    border-radius: 24px;
+  }
+  .team-modal-head {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 72px 24px 18px;
+  }
+  .team-modal-copy {
+    text-align: center;
+  }
+  .team-member-avatar-lg {
+    width: 164px;
+    height: 164px;
+    margin: 0 auto;
+  }
+  .team-modal-body {
+    padding: 0 24px 24px;
+  }
   .brand-logo-wrap { padding: 6px 8px; }
   .brand-logo { height: 26px; max-width: 58vw; }
   .footer-brand .brand-logo { height: 38px; }
