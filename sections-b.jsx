@@ -1,4 +1,4 @@
-/* global React, Ic, Avatar */
+/* global React, Ic, Avatar, LogoCarousel */
 const { useState: useStateB, useEffect: useEffectB, useRef: useRefB } = React;
 
 /* ======================= TEAM ======================= */
@@ -39,16 +39,47 @@ function Team() {
 }
 
 /* ======================= TESTIMONIALS ======================= */
+const SCRAPED_ROOT_B = "rmollc_scraped_data/rmollc_scrape/";
 const TESTIMONIALS = [
   {
-    quote: "It is with great pleasure to write a statement of recommendation for Ranjani and her team at R Mo Business Solution. They were able to support me in obtaining my 8(a) certification from the SBA. Their professionalism and patience made a very daunting process \u201cdoable!\u201d",
+    quote: "Ranjani helped us get certified as MBE through WRMSDC. Her attention to detail and ability to guide us through the process was commendable. Because of her help, we were able to complete the process within three months and become a proud MBE. I highly recommend her services to any business.",
+    name: "Laura Gordon",
+    role: "CEO at Red Oak Technologies",
+  },
+  {
+    quote: "Ranjani was so helpful in guiding my company through the process of getting certified as a woman-owned business. She is extremely knowledgeable about all of the steps involved. She saved me hundreds of hours that would have eaten up my time if I had tried to do it on my own. I would highly recommend her services!",
+    name: "Thuy Fontelera",
+    role: "Principal, Founder at Element Structural Engineers Inc",
+  },
+  {
+    quote: "It is with great pleasure to write a statement of recommendation for Ranjani and her team at R Mo Business Solution. They were able to support me in obtaining my 8(a) certification from the SBA. Their professionalism and patience made a very daunting process doable!",
     name: "Lark Hilliard",
     role: "President & CFO, Hilliard Architects",
   },
   {
-    quote: "RMO guided us through every form, deadline and requirement. What looked impossible on our own became a clear, manageable path \u2014 and we came out the other side fully certified.",
+    quote: "It is with great pleasure to write a statement of recommendation for Ranjani and her team at R Mo Business Solution. They were able to support me in obtaining my 8(a) certification from the SBA. Their professionalism and patience made a very daunting process doable!",
     name: "Brian James",
     role: "Vice-President, James Consolidated",
+  },
+  {
+    quote: "I had worked with Roshini while getting our business certifications. She is an excellent person to work with, very prompt in responses and reliable. An excellent communicator and team player, she comes across as a true professional. I would highly recommend her to anyone looking to get their business certifications.",
+    name: "Jayashree (Jaya) Srikanthan",
+    role: "Founder, Talent Junction, LLC",
+  },
+  {
+    quote: "Ranjani has been a great support to me from the day I started my business two years ago. She has helped my company become both Certified Minority Business Enterprise and Small Business Enterprise certified. She has not only helped my company with the certifications but also continues to support us.",
+    name: "Maurice Webb",
+    role: "Business Advisor at SBDC Silicon Valley",
+  },
+  {
+    quote: "Ranjani is the expert on getting certifications to compete for government and corporate contracts. She explains this complicated process, gets the work done quickly, and assists in securing the certification and, in my case, a contract.",
+    name: "Ivette Santaella",
+    role: "Attorney at Blackwell Santaella & Jahangiri LLP",
+  },
+  {
+    quote: "Ranjani worked very hard to partner with KeenAlignment and get us our WBEC certification. She is diligent, persevering, and unstoppable. She models the behavior we all want in top performers. We could not have gotten certification without her!",
+    name: "Margareth Graziano",
+    role: "Corporate Culture Transformation Expert, Margareth Graziano",
   },
 ];
 
@@ -66,7 +97,7 @@ function Testimonials() {
         <div className="section-head reveal">
           <span className="eyebrow">In their words</span>
         </div>
-        <blockquote className="testi-quote reveal d1" key={i}>
+        <blockquote className="testi-quote" key={i}>
           <span className="mark">&ldquo;</span>{t.quote}<span className="mark">&rdquo;</span>
         </blockquote>
         <div className="testi-foot reveal d1">
@@ -183,11 +214,30 @@ function About() {
 
 /* ======================= CERTIFICATIONS ======================= */
 const CERTS = [
-  { mark: "WRMSDC", name: "Minority Supplier Development" },
-  { mark: "USPAACC", name: "Certified Asian American Business" },
-  { mark: "SBA 8(a)", name: "8(a) Business Development" },
-  { mark: "DBE", name: "Disadvantaged Business Enterprise" },
-  { mark: "CA.GOV", name: "CA Small Business Certified" },
+  {
+    name: "SBA 8(a) Certified",
+    imageSrc: SCRAPED_ROOT_B + "images/certifications/download-2-q16jpe99t657zno4ea3c2xc48r9to4vfa7slo6hm2o.png",
+  },
+  {
+    name: "DBE Certified",
+    imageSrc: SCRAPED_ROOT_B + "images/certifications/dbe-logo-q16jpdbfmc3xo1phjropifknndeggfroy3546wj08w.png",
+  },
+  {
+    name: "CA.Gov Certified",
+    imageSrc: SCRAPED_ROOT_B + "images/certifications/CA.Gov_.Certified-1920w-q16k8qrohemoypkef55vwjkof9wt3uoixz7ea7sw00.png",
+  },
+  {
+    name: "WBENC Certified Women's Business Enterprise",
+    imageSrc: SCRAPED_ROOT_B + "images/certifications/certified-wbenc-womens-business-enterprise-logo-vector-q16jpg4y6u7smvle3awl7wv1fj0k3j2vyh3kmqetq8.png",
+  },
+  {
+    name: "WRMSDC",
+    imageSrc: SCRAPED_ROOT_B + "images/certifications/jmxkKun__400x400-q16jpg4y6u7smvle3awl7wv1fj0k3j2vyh3kmqetq8.png",
+  },
+  {
+    name: "USPAACC Certified Asian American Business",
+    imageSrc: SCRAPED_ROOT_B + "images/certifications/download-1-q16jpf74006ib9mr8shynf3ku556vtz5mcg35gg7wg.png",
+  },
 ];
 
 function Certifications() {
@@ -199,13 +249,18 @@ function Certifications() {
           <h2>Our certifications</h2>
           <p>We hold — and help you obtain — the certifications that matter most to buyers.</p>
         </div>
-        <div className="logo-row reveal d1">
-          {CERTS.map((c) => (
-            <div className="logo-chip cert-chip" key={c.mark}>
-              <span className="ct-mark">{c.mark}</span>
-              <span className="ct-name">{c.name}</span>
-            </div>
-          ))}
+        <div className="reveal d1">
+          <LogoCarousel
+            items={CERTS}
+            className="certs-carousel"
+            speed={28}
+            renderItem={(cert) => (
+              <article className="logo-chip cert-chip" title={cert.name}>
+                <img src={cert.imageSrc} alt={cert.name} draggable="false" />
+                <span className="ct-name">{cert.name}</span>
+              </article>
+            )}
+          />
         </div>
       </div>
     </section>

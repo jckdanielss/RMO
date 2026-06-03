@@ -1,0 +1,154 @@
+{
+  "source": "https://rmollc.com/",
+  "clients": [
+    {
+      "name": "Meta",
+      "alt": "meta-1-1",
+      "url": "https://rmollc.com/wp-content/uploads/2023/10/meta-1-1.png",
+      "local_path": "images/clients/meta-1-1.png",
+      "download_status": "downloaded"
+    },
+    {
+      "name": "CDW",
+      "alt": "logo-1-3",
+      "url": "https://rmollc.com/wp-content/uploads/2023/10/logo-1-3.png",
+      "local_path": "images/clients/logo-1-3.png",
+      "download_status": "downloaded"
+    },
+    {
+      "name": "CBRE",
+      "alt": "unnamed (1)",
+      "url": "https://rmollc.com/wp-content/uploads/2023/11/unnamed-1.png",
+      "local_path": "images/clients/unnamed-1.png",
+      "download_status": "downloaded"
+    },
+    {
+      "name": "Google",
+      "alt": "google-1",
+      "url": "https://rmollc.com/wp-content/uploads/2023/10/google-1.png",
+      "local_path": "images/clients/google-1.png",
+      "download_status": "downloaded"
+    },
+    {
+      "name": "EU based Pharmaceutical Company",
+      "alt": "eu-based-1",
+      "url": "https://rmollc.com/wp-content/uploads/2023/10/eu-based-1.jpg",
+      "local_path": "images/clients/eu-based-1.jpg",
+      "download_status": "downloaded"
+    },
+    {
+      "name": "FHLBank San Francisco",
+      "alt": "bank-1-1",
+      "url": "https://rmollc.com/wp-content/uploads/2023/10/bank-1-1.png",
+      "local_path": "images/clients/bank-1-1.png",
+      "download_status": "downloaded"
+    },
+    {
+      "name": "California Water Service",
+      "alt": "water-1",
+      "url": "https://rmollc.com/wp-content/uploads/2023/10/water-1.png",
+      "local_path": "images/clients/water-1.png",
+      "download_status": "downloaded"
+    },
+    {
+      "name": "San Jose Water Company",
+      "alt": "San_Jose_Water_Company-logo",
+      "url": "https://rmollc.com/wp-content/uploads/2023/10/San_Jose_Water_Company-logo.png",
+      "local_path": "images/clients/San_Jose_Water_Company-logo.png",
+      "download_status": "downloaded"
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Laura Gordon",
+      "title": "CEO at Red Oak Technologies",
+      "text": "Ranjani helped us get certified as MBE through WRSDMC. Here attention to details and ability to guide us through the process was commendable. Because of her help, we were able to complete the process with in three months and a proud MBE. I highly recommend her services to any business."
+    },
+    {
+      "name": "Thuy Fontelera",
+      "title": "Principal, Founder at Element Structural Engineers Inc",
+      "text": "Ranjani was so helpful in guiding my company through the process of getting certified as a woman-owned business. She is extremely knowledgeable about all of the steps involved. She saved me hundreds of hours that would have eaten up my time if I had tried to do it on my own. I would highly recommend her services!"
+    },
+    {
+      "name": "Lark Hilliard",
+      "title": "President & CFO, Hilliard Architects",
+      "text": "It is with great pleasure to write a statement of recommendation for Ranjani and her team at R Mo Business Solution. They were able to support me in obtaining my 8a certification from SBA. Their professionalism and patience made a very daunting process “doable!”"
+    },
+    {
+      "name": "Brian James",
+      "title": "Vice-President, James Consolidated",
+      "text": "It is with great pleasure to write a statement of recommendation for Ranjani and her team at R Mo Business Solution. They were able to support me in obtaining my 8a certification from SBA. Their professionalism and patience made a very daunting process “doable!”"
+    },
+    {
+      "name": "Jayashree (Jaya)",
+      "title": "Srikanthan Founder, Talent Junction, LLC",
+      "text": "I had worked with Roshini while getting our business certifications. She is an excellent person to work with, very prompt in responses and reliable. Excellent communicator and a team player. One would get a sense of dealing with a thorough professional. Would highly recommend her to anyone looking for getting their business certifications."
+    },
+    {
+      "name": "Maurice Webb",
+      "title": "Business Advisor at SBDC Silicon Valley",
+      "text": "Ranjani has been a great support to me from the day I started my business 2 years ago. She has helped my company become a Certified Minority(MBE) and Small Business Enterprise certified(SBE). She has not only helped my company with the certifications but also continues to."
+    },
+    {
+      "name": "Ivette Santaella",
+      "title": "Attorney at Blackwell Santaella & Jahangiri LLP",
+      "text": "Ranjani is the expert on getting certifications to compete for government and corporate contracts. She explains this complicated process, gets the work time quickly and assists in getting the certification, and in my case, a contract."
+    },
+    {
+      "name": "Margareth Graziano",
+      "title": "Corporate Culture Transformation Expert, Margareth Graziano",
+      "text": "Ranjani worked very hard to partner with KeenAlignment and get us our WBEC. certification. She is diligent, persevering and unstoppable. She models the behavior we all want in top performers. We couldn’t have gotten certification without her!"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "SBA 8(a) Certified",
+      "alt": "download-2-q16jpe99t657zno4ea3c2xc48r9to4vfa7slo6hm2o",
+      "url": "https://rmollc.com/wp-content/uploads/2023/10/download-2-q16jpe99t657zno4ea3c2xc48r9to4vfa7slo6hm2o.png",
+      "local_path": "images/certifications/download-2-q16jpe99t657zno4ea3c2xc48r9to4vfa7slo6hm2o.png",
+      "download_status": "downloaded"
+    },
+    {
+      "name": "DBE Certified",
+      "alt": "dbe-logo-q16jpdbfmc3xo1phjropifknndeggfroy3546wj08w",
+      "url": "https://rmollc.com/wp-content/uploads/2023/10/dbe-logo-q16jpdbfmc3xo1phjropifknndeggfroy3546wj08w.png",
+      "local_path": "images/certifications/dbe-logo-q16jpdbfmc3xo1phjropifknndeggfroy3546wj08w.png",
+      "download_status": "downloaded"
+    },
+    {
+      "name": "CA.Gov Certified",
+      "alt": "CA.Gov_.Certified-1920w-q16k8qrohemoypkef55vwjkof9wt3uoixz7ea7sw00",
+      "url": "https://rmollc.com/wp-content/uploads/2023/10/CA.Gov_.Certified-1920w-q16k8qrohemoypkef55vwjkof9wt3uoixz7ea7sw00.png",
+      "local_path": "images/certifications/CA.Gov_.Certified-1920w-q16k8qrohemoypkef55vwjkof9wt3uoixz7ea7sw00.png",
+      "download_status": "downloaded"
+    },
+    {
+      "name": "WBENC Certified Women’s Business Enterprise",
+      "alt": "certified-wbenc-womens-business-enterprise-logo-vector-q16jpg4y6u7smvle3awl7wv1fj0k3j2vyh3kmqetq8",
+      "url": "https://rmollc.com/wp-content/uploads/2023/10/certified-wbenc-womens-business-enterprise-logo-vector-q16jpg4y6u7smvle3awl7wv1fj0k3j2vyh3kmqetq8.png",
+      "local_path": "images/certifications/certified-wbenc-womens-business-enterprise-logo-vector-q16jpg4y6u7smvle3awl7wv1fj0k3j2vyh3kmqetq8.png",
+      "download_status": "downloaded"
+    },
+    {
+      "name": "WRMSDC",
+      "alt": "jmxkKun__400x400-q16jpg4y6u7smvle3awl7wv1fj0k3j2vyh3kmqetq8",
+      "url": "https://rmollc.com/wp-content/uploads/2023/10/jmxkKun__400x400-q16jpg4y6u7smvle3awl7wv1fj0k3j2vyh3kmqetq8.png",
+      "local_path": "images/certifications/jmxkKun__400x400-q16jpg4y6u7smvle3awl7wv1fj0k3j2vyh3kmqetq8.png",
+      "download_status": "downloaded"
+    },
+    {
+      "name": "USPAACC Certified Asian American Business",
+      "alt": "download-1-q16jpf74006ib9mr8shynf3ku556vtz5mcg35gg7wg",
+      "url": "https://rmollc.com/wp-content/uploads/2023/10/download-1-q16jpf74006ib9mr8shynf3ku556vtz5mcg35gg7wg.png",
+      "local_path": "images/certifications/download-1-q16jpf74006ib9mr8shynf3ku556vtz5mcg35gg7wg.png",
+      "download_status": "downloaded"
+    },
+    {
+      "name": "RMO Global Diversity Solutions",
+      "alt": "Image",
+      "url": "https://rmollc.com/wp-content/uploads/2023/10/RMO-Global-Diversity-3.png",
+      "local_path": "images/certifications/RMO-Global-Diversity-3.png",
+      "download_status": "downloaded"
+    }
+  ]
+}

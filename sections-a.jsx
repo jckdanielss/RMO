@@ -51,17 +51,175 @@ function StatNum({ target, suffix }) {
   return React.createElement(React.Fragment, null, val, suffix);
 }
 
+function wrapOffset(value, width) {
+  if (!width) return 0;
+  const next = value % width;
+  return next < 0 ? next + width : next;
+}
+
+function LogoCarousel({ items, renderItem, className, speed = 28 }) {
+  const viewportRef = useRef(null);
+  const trackRef = useRef(null);
+  const groupRef = useRef(null);
+  const frameRef = useRef(0);
+  const setWidthRef = useRef(0);
+  const rawOffsetRef = useRef(0);
+  const dragRef = useRef(null);
+  const suppressClickRef = useRef(false);
+  const [hovered, setHovered] = useState(false);
+  const [dragging, setDragging] = useState(false);
+
+  const renderTrack = () => {
+    if (!trackRef.current) return;
+    const width = setWidthRef.current;
+    const visualOffset = width ? wrapOffset(rawOffsetRef.current, width) : rawOffsetRef.current;
+    trackRef.current.style.transform = "translate3d(" + (-visualOffset) + "px, 0, 0)";
+  };
+
+  const setRawOffset = (value) => {
+    rawOffsetRef.current = value;
+    renderTrack();
+  };
+
+  useEffect(() => {
+    const measure = () => {
+      if (!groupRef.current) return;
+      setWidthRef.current = groupRef.current.offsetWidth;
+      renderTrack();
+    };
+
+    measure();
+    const onResize = () => measure();
+    window.addEventListener("resize", onResize);
+    const timeout = window.setTimeout(measure, 120);
+
+    return () => {
+      window.removeEventListener("resize", onResize);
+      window.clearTimeout(timeout);
+    };
+  }, [items.length]);
+
+  useEffect(() => {
+    let lastTs = null;
+
+    const tick = (ts) => {
+      if (lastTs == null) lastTs = ts;
+      const dt = ts - lastTs;
+
+      if (!hovered && !dragging && setWidthRef.current) {
+        setRawOffset(rawOffsetRef.current + (speed * dt) / 1000);
+      }
+
+      lastTs = ts;
+      frameRef.current = requestAnimationFrame(tick);
+    };
+
+    frameRef.current = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frameRef.current);
+  }, [dragging, hovered, speed, items.length]);
+
+  const finishDrag = (pointerId) => {
+    const drag = dragRef.current;
+    if (!drag || drag.pointerId !== pointerId) return;
+    if (drag.moved) suppressClickRef.current = true;
+    dragRef.current = null;
+    setDragging(false);
+    viewportRef.current?.releasePointerCapture?.(pointerId);
+  };
+
+  const onPointerDown = (e) => {
+    if (e.button !== 0) return;
+    dragRef.current = {
+      pointerId: e.pointerId,
+      startX: e.clientX,
+      startOffset: rawOffsetRef.current,
+      moved: false,
+    };
+    suppressClickRef.current = false;
+    viewportRef.current?.setPointerCapture?.(e.pointerId);
+  };
+
+  const onPointerMove = (e) => {
+    const drag = dragRef.current;
+    if (!drag || drag.pointerId !== e.pointerId) return;
+
+    const delta = e.clientX - drag.startX;
+    if (!drag.moved && Math.abs(delta) > 4) {
+      drag.moved = true;
+      setDragging(true);
+    }
+
+    if (drag.moved) {
+      setRawOffset(drag.startOffset - delta);
+    }
+  };
+
+  const onClickCapture = (e) => {
+    if (!suppressClickRef.current) return;
+    e.preventDefault();
+    e.stopPropagation();
+    suppressClickRef.current = false;
+  };
+
+  if (!items.length) return null;
+
+  return (
+    <div className={"logo-carousel " + (className || "") + (dragging ? " dragging" : "")}>
+      <div
+        className="logo-carousel-viewport"
+        ref={viewportRef}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={(e) => finishDrag(e.pointerId)}
+        onPointerCancel={(e) => finishDrag(e.pointerId)}
+        onClickCapture={onClickCapture}
+      >
+        <div className="logo-carousel-track" ref={trackRef}>
+          <div className="logo-carousel-group" ref={groupRef}>
+            {items.map((item, i) => (
+              <div className="logo-carousel-item" key={item.name + "-base-" + i}>
+                {renderItem(item, i)}
+              </div>
+            ))}
+          </div>
+          <div className="logo-carousel-group" aria-hidden="true">
+            {items.map((item, i) => (
+              <div className="logo-carousel-item" key={item.name + "-clone-" + i}>
+                {renderItem(item, i)}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 /* ======================= NAV ======================= */
 const NAV_LINKS = [
   ["Services", "services"], ["Clients", "clients"], ["Team", "team"],
   ["Certifications", "certifications"], ["About", "about"], ["Contact", "contact"],
 ];
 
+const SCRAPED_ROOT = "rmollc_scraped_data/rmollc_scrape/";
+const CLIENTS = [
+  { name: "Meta", alt: "Meta logo", imageSrc: SCRAPED_ROOT + "images/clients/meta-1-1.png" },
+  { name: "CDW", alt: "CDW logo", imageSrc: SCRAPED_ROOT + "images/clients/logo-1-3.png" },
+  { name: "CBRE", alt: "CBRE logo", imageSrc: SCRAPED_ROOT + "images/clients/unnamed-1.png" },
+  { name: "Google", alt: "Google logo", imageSrc: SCRAPED_ROOT + "images/clients/google-1.png" },
+  { name: "EU based Pharmaceutical Company", alt: "EU based Pharmaceutical Company logo", imageSrc: SCRAPED_ROOT + "images/clients/eu-based-1.jpg" },
+  { name: "FHLBank San Francisco", alt: "FHLBank San Francisco logo", imageSrc: SCRAPED_ROOT + "images/clients/bank-1-1.png" },
+  { name: "California Water Service", alt: "California Water Service logo", imageSrc: SCRAPED_ROOT + "images/clients/water-1.png" },
+  { name: "San Jose Water Company", alt: "San Jose Water Company logo", imageSrc: SCRAPED_ROOT + "images/clients/San_Jose_Water_Company-logo.png" },
+];
+
 function Brand({ dark }) {
   return (
     <a href="#top" className="brand">
       <span className={"brand-logo-wrap" + (dark ? " on-dark" : "")}>
-        <img className="brand-logo" src="RMO_Logo.jpg" alt="R Mo Global Diversity Solutions" />
+        <img className="brand-logo" src="RMO_Logo-removebg-preview.png" alt="R Mo Global Diversity Solutions" />
       </span>
     </a>
   );
@@ -180,12 +338,6 @@ function Services() {
   );
 }
 
-/* ======================= CLIENTS ======================= */
-const CLIENTS = [
-  { mark: "CDW" }, { mark: "CBRE" }, { mark: "Google" },
-  { small: "EU-based Pharmaceutical Company" },
-];
-
 function Clients() {
   return (
     <section className="clients pad-y" id="clients">
@@ -194,16 +346,22 @@ function Clients() {
           <span className="eyebrow">Trusted by</span>
           <h2>Corporate clients we've supported</h2>
         </div>
-        <div className="logo-row reveal d1">
-          {CLIENTS.map((c, i) => (
-            <div className="logo-chip" key={i}>
-              {c.mark ? <span className="wordmark">{c.mark}</span> : <span className="small">{c.small}</span>}
-            </div>
-          ))}
+        <div className="reveal d1">
+          <LogoCarousel
+            items={CLIENTS}
+            className="clients-carousel"
+            speed={34}
+            renderItem={(client) => (
+              <article className="logo-chip client-chip" title={client.name}>
+                <img src={client.imageSrc} alt={client.alt || client.name} draggable="false" />
+                <span className="logo-caption">{client.name}</span>
+              </article>
+            )}
+          />
         </div>
       </div>
     </section>
   );
 }
 
-Object.assign(window, { Ic, Avatar, Nav, Hero, Services, Clients });
+Object.assign(window, { Ic, Avatar, Nav, Hero, Services, Clients, LogoCarousel });
