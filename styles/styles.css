@@ -786,8 +786,7 @@ section { scroll-margin-top: 80px; }
   color: #fff;
   position: relative;
   overflow: hidden;
-  padding-block: clamp(48px, 6vw, 84px);
-  --testi-lines: 5;
+  padding-block: clamp(48px, 6vw, 80px);
 }
 .testi::before {
   content: "";
@@ -810,20 +809,20 @@ section { scroll-margin-top: 80px; }
 .testi-quote {
   display: block;
   align-self: start;
-  min-height: calc(1.45em * 8); /* reserves space for the longest testimonial (~8 lines) */
-  margin: 14px 0 0;
+  min-height: calc(1.45em * 7);
+  margin: 10px 0 0;
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(16px, 2vw, 24px);
+  font-size: clamp(17px, 1.9vw, 26px);
   line-height: 1.45;
   letter-spacing: -0.02em;
   color: #fff;
-  max-width: 780px;
+  max-width: 860px;
   text-wrap: balance;
   animation: testiFadeIn .45s ease forwards;
 }
 .testi-quote .mark { color: #7ff0a0; }
-.testi-foot { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 26px; flex-wrap: wrap; }
+.testi-foot { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 18px; flex-wrap: wrap; }
 .testi-author .a-name { font-family: var(--font-display); font-weight: 700; font-size: 18px; color:#fff; }
 .testi-author .a-role { font-size: 14px; color: rgba(255,255,255,.7); margin-top: 2px; }
 .testi-nav { display: flex; gap: 10px; }
@@ -839,7 +838,7 @@ section { scroll-margin-top: 80px; }
 .testi-nav button:hover { background: rgba(255,255,255,.22); transform: translateY(-2px); }
 .testi-nav button:focus-visible { box-shadow: 0 0 0 2px rgba(255,255,255,.5); }
 .testi-nav button svg { width: 18px; height: 18px; }
-.testi-dots { display: flex; gap: 8px; margin-top: 28px; }
+.testi-dots { display: flex; gap: 8px; margin-top: 20px; }
 .testi-dots span { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.3); transition: width .25s ease, background .25s ease; cursor: pointer; }
 .testi-dots span.on { width: 26px; background: #7ff0a0; }
 
@@ -1221,7 +1220,6 @@ section { scroll-margin-top: 80px; }
     justify-content: center;
   }
   .testi {
-    --testi-lines: 8;
     padding-block: 40px 44px;
   }
   .testi .wrap {
