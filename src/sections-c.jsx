@@ -37,7 +37,6 @@ function Contact() {
     <section className="contact pad-y" id="contact">
       <div className="wrap contact-grid">
         <div className="contact-info reveal">
-          <span className="eyebrow">Get in touch</span>
           <h2>Looking for collaboration?</h2>
           <p className="lead">
             Whether you're starting your certification journey or chasing your next contract,
@@ -120,8 +119,10 @@ function PreFooterCta() {
     <section className="prefooter-cta">
       <div className="wrap">
         <div className="prefooter-inner reveal">
-          <h2>Ready to get certified?</h2>
-          <p>Join the diverse businesses we've helped earn certifications and win opportunities.</p>
+          <div className="prefooter-text">
+            <h2>Ready to get certified?</h2>
+            <p>Join the diverse businesses we've helped earn certifications and win opportunities.</p>
+          </div>
           <a href="#contact" className="btn btn-light" onClick={(e) => go(e, "contact")}>
             Get Certified {Ic.arrow}
           </a>
@@ -145,13 +146,13 @@ function Footer() {
               </span>
             </div>
             <p className="f-about">
-              Impacting diversity through thoughts, actions &amp; progress — the catalyst for
-              diverse businesses entering the corporate and government markets.
+               Our vision is to be the catalyst for diversified businesses to successfully venture into the Government & Corporate Sectors
             </p>
           </div>
           <div className="f-col">
             <h4>Contact</h4>
-            <div className="f-line"><span className="lab">Collaboration</span>info@rmollc.com</div>
+            <div className="f-line"><span className="lab">Phone</span><a href="tel:9252550177" style={{color:"rgba(255,255,255,.7)"}}>925 255 0177</a></div>
+            <div className="f-line"><span className="lab">Email</span><a href="mailto:info@rmollc.com" style={{color:"rgba(255,255,255,.7)"}}>info@rmollc.com</a></div>
             <a href="#contact" onClick={(e) => go(e, "contact")}>Send a message</a>
             <a href="#about" onClick={(e) => go(e, "about")}>About us</a>
           </div>
@@ -173,9 +174,9 @@ function Footer() {
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} RMO Global Diversity Solutions. All rights reserved.</span>
           <div className="socials">
-            <a href="#" aria-label="LinkedIn">{Ic.linkedin}</a>
-            <a href="#" aria-label="X">{Ic.x}</a>
-            <a href="#" aria-label="Facebook">{Ic.fb}</a>
+            <a href="https://www.linkedin.com/company/r-mo-llc/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">{Ic.linkedin}</a>
+            <a href="https://twitter.com/rmollc" target="_blank" rel="noopener noreferrer" aria-label="X">{Ic.x}</a>
+            <a href="https://www.facebook.com/rmollc" target="_blank" rel="noopener noreferrer" aria-label="Facebook">{Ic.fb}</a>
           </div>
         </div>
       </div>

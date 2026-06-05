@@ -20,13 +20,12 @@ function Team() {
     <section className="team pad-y" id="team">
       <div className="wrap">
         <div className="section-head center reveal">
-          <span className="eyebrow">The people</span>
           <h2>A team that knows certification inside out</h2>
           <p>Meet the leadership behind RMO Global Diversity Solutions.</p>
         </div>
-        <div className="leaders">
+        <div className="leaders reveal">
           {LEADERS.map((l, i) => (
-            <div className={"leader reveal d" + (i + 1)} key={l.name}>
+            <div className="leader" key={l.name}>
               <Avatar name={l.name} src={l.image} alt={l.name} />
               <div>
                 <span className="role-pill">{i === 0 ? "Leadership" : "Advisory"}</span>
@@ -100,15 +99,12 @@ function Testimonials() {
   const go = (idx) => { setI((idx + n) % n); reset(); };
   const t = TESTIMONIALS[i];
   return (
-    <section className="testi pad-y">
+    <section className="testi pad-y" id="testi">
       <div className="wrap">
-        <div className="section-head reveal">
-          <span className="eyebrow">In their words</span>
-        </div>
         <blockquote className="testi-quote" key={i}>
           <span className="mark">&ldquo;</span>{t.quote}<span className="mark">&rdquo;</span>
         </blockquote>
-        <div className="testi-foot reveal d1">
+        <div className="testi-foot">
           <div className="testi-author">
             <Avatar name={t.name} className="testi-av" />
             <div>
@@ -120,11 +116,6 @@ function Testimonials() {
             <button aria-label="Previous" onClick={() => go(i - 1)}>{Ic.chevL}</button>
             <button aria-label="Next" onClick={() => go(i + 1)}>{Ic.chevR}</button>
           </div>
-        </div>
-        <div className="testi-dots">
-          {TESTIMONIALS.map((_, d) => (
-            <span key={d} className={d === i ? "on" : ""} onClick={() => go(d)} />
-          ))}
         </div>
       </div>
     </section>
@@ -166,49 +157,40 @@ function About() {
   return (
     <section className="about pad-y" id="about">
       <div className="wrap">
-        <div className="about-grid">
-          <div className="about-intro reveal">
-            <span className="eyebrow">About us</span>
-            <h2>Impacting diversity through thoughts, actions &amp; progress.</h2>
+        <div className="about-intro reveal">
+          <p className="about-tag">&ldquo;Empowering businesses to certify, impact &amp; thrive.&rdquo;</p>
+        </div>
+        <div className="mv-stack reveal">
+          <div className="mv-card">
+            <div className="mv-head">
+              <span className="mv-ic">{Ic.target}</span>
+              <h3>Our Mission</h3>
+            </div>
             <p>
-              RMO Global Diversity Solutions exists to level the playing field for diverse
-              businesses. We turn the complex world of certification and procurement into a
-              clear path forward — so underrepresented founders can compete, win, and grow.
+              R Mo equips diverse businesses with the certifications, strategies, and
+              visibility they need to succeed. We guide them in building social and economic
+              impact, and connect them to government and corporate opportunities that drive growth.
             </p>
-            <p className="about-tag">&ldquo;Empowering businesses to certify, impact &amp; thrive.&rdquo;</p>
           </div>
-          <div className="mv-stack">
-            <div className="mv-card reveal d1">
-              <div className="mv-head">
-                <span className="mv-ic">{Ic.target}</span>
-                <h3>Our Mission</h3>
-              </div>
-              <p>
-                R Mo equips diverse businesses with the certifications, strategies, and
-                visibility they need to succeed. We guide them in building social and economic
-                impact, and connect them to government and corporate opportunities that drive growth.
-              </p>
+          <div className="mv-card accent">
+            <div className="mv-head">
+              <span className="mv-ic">{Ic.eye}</span>
+              <h3>Our Vision</h3>
             </div>
-            <div className="mv-card accent reveal d2">
-              <div className="mv-head">
-                <span className="mv-ic">{Ic.eye}</span>
-                <h3>Our Vision</h3>
-              </div>
-              <p>
-                R Mo envisions being the trusted bridge between businesses and opportunities—empowering
-                them with certifications, elevating their economic and social impact, and positioning
-                them to thrive in government and corporate markets.
-              </p>
-            </div>
+            <p>
+              R Mo envisions being the trusted bridge between businesses and opportunities—empowering
+              them with certifications, elevating their economic and social impact, and positioning
+              them to thrive in government and corporate markets.
+            </p>
           </div>
         </div>
-        <div className="section-head center reveal">
-          <span className="eyebrow">Our Objectives</span>
+        <div className="section-head center reveal obj-section-head">
+          <span className="eyebrow eyebrow-lg">Objectives</span>
           <h2>What We Strive to Achieve</h2>
         </div>
-        <div className="obj-grid">
+        <div className="obj-grid reveal">
           {OBJECTIVES.map((o, i) => (
-            <div className={"obj-card reveal d" + (i + 1)} key={o.title}>
+            <div className="obj-card" key={o.title}>
               <div className="obj-head">
                 <span className="obj-ic">{o.ic}</span>
                 <h4>{o.title}</h4>
@@ -257,7 +239,6 @@ function Certifications() {
     <section className="certs pad-y" id="certifications">
       <div className="wrap">
         <div className="section-head center reveal">
-          <span className="eyebrow">Recognized &amp; certified</span>
           <h2>Our certifications</h2>
           <p>We hold — and help you obtain — the certifications that matter most to buyers.</p>
         </div>

@@ -18,6 +18,7 @@ const Ic = {
   eye: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>,
   menu: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>,
   close: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>,
+  chevDown: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>,
   up: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 14 6-6 6 6"/></svg>,
   chevL: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>,
   chevR: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>,
@@ -198,9 +199,25 @@ function LogoCarousel({ items, renderItem, className, speed = 28 }) {
 }
 
 /* ======================= NAV ======================= */
-const NAV_LINKS = [
-  ["Services", "services"], ["Clients", "clients"], ["Team", "team"],
-  ["Certifications", "certifications"], ["About", "about"], ["Contact", "contact"],
+const COMPANY_LINKS = [
+  ["Capability Statement", "#"],
+  ["History", "#"],
+  ["Team", "#team"],
+  ["Vision and Mission", "#about"],
+  ["Benefits", "#"],
+  ["R M O Clients", "#clients"],
+  ["Testimonials", "#testi"],
+  ["R MO Non Profit Support", "#"],
+  ["R Mo Non-Profit Affiliations", "#"],
+  ["Market Ready Program Series", "#"],
+];
+const SERVICES_NAV_LINKS = [
+  ["Diversity Certifications", "#services"],
+  ["Contract Opportunities", "#services"],
+  ["Information Technology Services", "#services"],
+  ["Start Up Guidance", "#services"],
+  ["Supplier Diversity Management", "#services"],
+  ["Consulting Agreement", "#services"],
 ];
 
 const SCRAPED_ROOT = "rmollc_scraped_data/rmollc_scrape/";
@@ -215,10 +232,10 @@ const CLIENTS = [
   { name: "San Jose Water Company", alt: "San Jose Water Company logo", imageSrc: SCRAPED_ROOT + "images/clients/San_Jose_Water_Company-logo.png" },
 ];
 
-function Brand({ dark }) {
+function Brand() {
   return (
     <a href="#top" className="brand">
-      <span className={"brand-logo-wrap" + (dark ? " on-dark" : "")}>
+      <span className="brand-logo-wrap">
         <img className="brand-logo" src="assets/brand/RMO_Logo-removebg-preview.png" alt="R Mo Global Diversity Solutions" />
       </span>
     </a>
@@ -228,26 +245,62 @@ function Brand({ dark }) {
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [dropdown, setDropdown] = useState(null);
+
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  const go = (e, id) => { e.preventDefault(); setOpen(false); document.getElementById(id)?.scrollIntoView(); };
+
+  const go = (e, href) => {
+    const id = href && href !== "#" ? href.replace("#", "") : null;
+    if (!id) return;
+    e.preventDefault();
+    setOpen(false);
+    setDropdown(null);
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <React.Fragment>
-      <nav className={"nav on-dark" + (scrolled ? " scrolled" : "")}>
+      <nav className="nav">
         <div className="wrap nav-inner">
-          <Brand dark={!scrolled} />
+          <Brand />
           <div className="nav-links">
-            {NAV_LINKS.map(([label, id]) => (
-              <a key={id} href={"#" + id} onClick={(e) => go(e, id)}>{label}</a>
-            ))}
+            <div
+              className={"nav-dd" + (dropdown === "company" ? " open" : "")}
+              onMouseEnter={() => setDropdown("company")}
+              onMouseLeave={() => setDropdown(null)}
+            >
+              <button className="nav-dd-trigger">Company {Ic.chevDown}</button>
+              <div className="nav-dd-menu">
+                {COMPANY_LINKS.map(([label, href]) => (
+                  <a key={label} href={href} onClick={(e) => go(e, href)}>{label}</a>
+                ))}
+              </div>
+            </div>
+            <div
+              className={"nav-dd" + (dropdown === "services" ? " open" : "")}
+              onMouseEnter={() => setDropdown("services")}
+              onMouseLeave={() => setDropdown(null)}
+            >
+              <button className="nav-dd-trigger">Services {Ic.chevDown}</button>
+              <div className="nav-dd-menu">
+                {SERVICES_NAV_LINKS.map(([label, href]) => (
+                  <a key={label} href={href} onClick={(e) => go(e, href)}>{label}</a>
+                ))}
+              </div>
+            </div>
+            <a href="#contact" onClick={(e) => go(e, "#contact")}>Contact Us</a>
+            <a href="#">Blogs</a>
+            <a href="#">FAQs</a>
+            <a href="#">Calendar</a>
           </div>
           <div className="nav-cta">
-            <a href="#contact" className="btn btn-primary" onClick={(e) => go(e, "contact")}>
-              Get Certified {Ic.arrow}
+            <a href="#contact" className="btn btn-primary" onClick={(e) => go(e, "#contact")}>
+              GET IN TOUCH
             </a>
             <button className="nav-toggle" aria-label="Menu" onClick={() => setOpen(o => !o)}>
               {open ? Ic.close : Ic.menu}
@@ -255,11 +308,25 @@ function Nav() {
           </div>
         </div>
       </nav>
+
       <div className={"mobile-menu" + (open ? " open" : "")}>
-        {NAV_LINKS.map(([label, id]) => (
-          <a key={id} href={"#" + id} onClick={(e) => go(e, id)}>{label}</a>
-        ))}
-        <a href="#contact" className="btn btn-primary" onClick={(e) => go(e, "contact")}>Get Certified</a>
+        <div className="mobile-dd-group">
+          <span className="mobile-dd-label">Company</span>
+          {COMPANY_LINKS.map(([label, href]) => (
+            <a key={label} href={href} className="mobile-dd-item" onClick={(e) => go(e, href)}>{label}</a>
+          ))}
+        </div>
+        <div className="mobile-dd-group">
+          <span className="mobile-dd-label">Services</span>
+          {SERVICES_NAV_LINKS.map(([label, href]) => (
+            <a key={label} href={href} className="mobile-dd-item" onClick={(e) => go(e, href)}>{label}</a>
+          ))}
+        </div>
+        <a href="#contact" onClick={(e) => go(e, "#contact")}>Contact Us</a>
+        <a href="#">Blogs</a>
+        <a href="#">FAQs</a>
+        <a href="#">Calendar</a>
+        <a href="#contact" className="btn btn-primary" onClick={(e) => go(e, "#contact")}>GET IN TOUCH</a>
       </div>
     </React.Fragment>
   );
@@ -275,10 +342,6 @@ function Hero() {
       </div>
       <div className="wrap">
         <div className="hero-content">
-          <span className="hero-badge">
-            <span className="dot">{Ic.check}</span>
-            Diversity &amp; procurement certified
-          </span>
           <h1>Turn diversity into <span className="accent">real opportunities.</span></h1>
           <p className="sub">
             We help minority, women, and veteran-owned businesses earn the certifications
@@ -294,9 +357,8 @@ function Hero() {
             </a>
           </div>
           <div className="hero-stats">
-            <div className="stat"><div className="num"><StatNum target={5} suffix="+" /></div><div className="lbl">Certifications managed</div></div>
-            <div className="stat"><div className="num"><StatNum target={20} suffix="+" /></div><div className="lbl">Specialists on the team</div></div>
-            <div className="stat"><div className="num"><StatNum target={100} suffix="%" /></div><div className="lbl">Focused on diversity</div></div>
+            <div className="stat"><span className="num"><StatNum target={700} suffix="+" /></span><span className="lbl">Certifications managed</span></div>
+            <div className="stat"><span className="num"><StatNum target={20} suffix="+" /></span><span className="lbl">Specialists on the team</span></div>
           </div>
         </div>
       </div>
@@ -319,17 +381,15 @@ function Services() {
     <section className="services pad-y" id="services">
       <div className="wrap">
         <div className="section-head center reveal">
-          <span className="eyebrow">What we do</span>
-          <h2>Services built around your certification journey</h2>
-          <p>Everything you need to get certified, stay compliant, and win work — under one roof.</p>
+          <h1>Services</h1>
         </div>
-        <div className="cards">
+        <div className="cards reveal">
           {SERVICES.map((s, i) => (
-            <article className={"card reveal d" + ((i % 3) + 1)} key={s.t}>
-              <div className="ic">{s.ic}</div>
+            <article className="card" key={s.t}>
+              <span className="card-num">{"0" + (i + 1)}</span>
               <h3>{s.t}</h3>
               <p>{s.d}</p>
-              <span className="card-arrow">{Ic.arrow}</span>
+              <span className="card-arrow">Learn more {Ic.arrow}</span>
             </article>
           ))}
         </div>
@@ -343,7 +403,6 @@ function Clients() {
     <section className="clients pad-y" id="clients">
       <div className="wrap">
         <div className="section-head center reveal">
-          <span className="eyebrow">Trusted by</span>
           <h2>Corporate clients we've supported</h2>
         </div>
         <div className="reveal d1">
