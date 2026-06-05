@@ -226,22 +226,25 @@ section { scroll-margin-top: 80px; }
 .nav-dd.open .nav-dd-trigger svg { transform: rotate(180deg); }
 .nav-dd-menu {
   display: none;
-  position: absolute; top: calc(100% + 6px); left: 0;
+  position: absolute; top: 100%; left: 0;
+  padding: 10px 6px 6px; /* top padding bridges the visual gap without breaking hover */
+  min-width: 220px;
+  z-index: 200;
+}
+.nav-dd-menu-inner {
   background: var(--green-deep);
   border-radius: 12px;
   padding: 6px;
-  min-width: 220px;
   box-shadow: 0 16px 40px rgba(8,46,22,.28);
-  z-index: 200;
 }
 .nav-dd.open .nav-dd-menu { display: block; }
-.nav-dd-menu a {
+.nav-dd-menu-inner a {
   display: block; padding: 10px 14px;
   color: rgba(255,255,255,.88); font-size: 14px; font-weight: 500;
   border-radius: 8px;
   transition: background .15s ease, color .15s ease;
 }
-.nav-dd-menu a:hover { background: rgba(255,255,255,.12); color: #fff; }
+.nav-dd-menu-inner a:hover { background: rgba(255,255,255,.12); color: #fff; }
 
 .nav-cta { display: flex; align-items: center; gap: 12px; }
 .nav-toggle {
@@ -796,7 +799,7 @@ section { scroll-margin-top: 80px; }
   position: relative;
   z-index: 1;
   display: grid;
-  align-content: start;
+  grid-template-rows: auto auto auto;
 }
 .testi .eyebrow { color: #7ff0a0; }
 .testi .eyebrow::before { background: #7ff0a0; }
@@ -806,6 +809,8 @@ section { scroll-margin-top: 80px; }
 }
 .testi-quote {
   display: block;
+  align-self: start;
+  min-height: calc(1.45em * 8); /* reserves space for the longest testimonial (~8 lines) */
   margin: 14px 0 0;
   font-family: var(--font-display);
   font-weight: 500;
@@ -828,9 +833,11 @@ section { scroll-margin-top: 80px; }
   border: 1px solid rgba(255,255,255,.28);
   color: #fff;
   display: grid; place-items: center;
+  outline: none;
   transition: background .18s ease, transform .18s ease;
 }
 .testi-nav button:hover { background: rgba(255,255,255,.22); transform: translateY(-2px); }
+.testi-nav button:focus-visible { box-shadow: 0 0 0 2px rgba(255,255,255,.5); }
 .testi-nav button svg { width: 18px; height: 18px; }
 .testi-dots { display: flex; gap: 8px; margin-top: 28px; }
 .testi-dots span { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.3); transition: width .25s ease, background .25s ease; cursor: pointer; }

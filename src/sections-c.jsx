@@ -166,7 +166,7 @@ function Footer() {
           <div className="f-col">
             <h4>Useful Links</h4>
             <a href="#top" onClick={(e) => go(e, "top")}>Home</a>
-            <a href="#team" onClick={(e) => go(e, "team")}>Team</a>
+            <a href="team.html" onClick={(e) => go(e, "team")}>Team</a>
             <a href="#clients" onClick={(e) => go(e, "clients")}>Clients</a>
             <a href="#certifications" onClick={(e) => go(e, "certifications")}>Certifications</a>
           </div>

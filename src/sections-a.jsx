@@ -202,7 +202,7 @@ function LogoCarousel({ items, renderItem, className, speed = 28 }) {
 const COMPANY_LINKS = [
   ["Capability Statement", "#"],
   ["History", "#"],
-  ["Team", "#team"],
+  ["Team", "team.html"],
   ["Vision and Mission", "#about"],
   ["Benefits", "#"],
   ["R M O Clients", "#clients"],
@@ -255,12 +255,12 @@ function Nav() {
   }, []);
 
   const go = (e, href) => {
-    const id = href && href !== "#" ? href.replace("#", "") : null;
-    if (!id) return;
+    if (!href || href === "#") return;
+    if (!href.startsWith("#")) { setOpen(false); setDropdown(null); return; }
     e.preventDefault();
     setOpen(false);
     setDropdown(null);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById(href.slice(1))?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -276,9 +276,11 @@ function Nav() {
             >
               <button className="nav-dd-trigger">Company {Ic.chevDown}</button>
               <div className="nav-dd-menu">
-                {COMPANY_LINKS.map(([label, href]) => (
-                  <a key={label} href={href} onClick={(e) => go(e, href)}>{label}</a>
-                ))}
+                <div className="nav-dd-menu-inner">
+                  {COMPANY_LINKS.map(([label, href]) => (
+                    <a key={label} href={href} onClick={(e) => go(e, href)}>{label}</a>
+                  ))}
+                </div>
               </div>
             </div>
             <div
@@ -288,9 +290,11 @@ function Nav() {
             >
               <button className="nav-dd-trigger">Services {Ic.chevDown}</button>
               <div className="nav-dd-menu">
-                {SERVICES_NAV_LINKS.map(([label, href]) => (
-                  <a key={label} href={href} onClick={(e) => go(e, href)}>{label}</a>
-                ))}
+                <div className="nav-dd-menu-inner">
+                  {SERVICES_NAV_LINKS.map(([label, href]) => (
+                    <a key={label} href={href} onClick={(e) => go(e, href)}>{label}</a>
+                  ))}
+                </div>
               </div>
             </div>
             <a href="#contact" onClick={(e) => go(e, "#contact")}>Contact Us</a>

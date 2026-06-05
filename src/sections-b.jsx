@@ -117,6 +117,11 @@ function Testimonials() {
             <button aria-label="Next" onClick={() => go(i + 1)}>{Ic.chevR}</button>
           </div>
         </div>
+        <div className="testi-dots">
+          {TESTIMONIALS.map((_, idx) => (
+            <span key={idx} className={idx === i ? "on" : ""} onClick={() => go(idx)} aria-label={"Testimonial " + (idx + 1)} />
+          ))}
+        </div>
       </div>
     </section>
   );
