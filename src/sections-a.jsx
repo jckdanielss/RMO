@@ -293,12 +293,12 @@ function Nav() {
         <div className="wrap nav-inner">
           <Brand />
           <div className="nav-links">
-            <a href="#top" onClick={(e) => go(e, "#top")}>Home</a>
+            <a href="index.html" onClick={(e) => go(e, "index.html")}>Home</a>
             <NavDropdown id="about" label="About Us" links={ABOUT_LINKS} />
             <NavDropdown id="pro-services" label="Services" links={PROFESSIONAL_SERVICES_LINKS} />
-            <a href="#">FAQ</a>
-            <a href="#">Blog</a>
-            <a href="#">Calendar</a>
+            <a href="faq.html">FAQ</a>
+            <a href="blog.html">Blog</a>
+            <a href="calendar.html">Calendar</a>
             <a href="#contact" onClick={(e) => go(e, "#contact")}>Contact Us</a>
           </div>
           <div className="nav-cta">
