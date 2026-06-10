@@ -243,11 +243,11 @@ function Certifications() {
   return (
     <section className="certs pad-y" id="certifications">
       <div className="wrap">
-        <div className="section-head center reveal">
+        {/* <div className="section-head center reveal">
           <h2>Our certifications</h2>
           <p>We hold — and help you obtain — the certifications that matter most to buyers.</p>
-        </div>
-        <div className="reveal d1">
+        </div> */}
+        {/* <div className="reveal d1">
           <LogoCarousel
             items={CERTS}
             className="certs-carousel"
@@ -259,7 +259,7 @@ function Certifications() {
               </article>
             )}
           />
-        </div>
+        </div> */}
       </div>
     </section>
   );

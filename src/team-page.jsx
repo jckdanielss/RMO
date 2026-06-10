@@ -31,17 +31,20 @@ const TEAM_IMAGE_BY_NAME = {
 const TEAM_MEMBERS = [
   {
     name: "Ranjani Mohana",
-    role: "Chief Executive Officer(CEO) President",
+    role: "Chief Executive Officer (CEO) & President",
+    linkedin: "#",
     bio: [],
   },
   {
     name: "Roshini Chandran",
     role: "Advisor",
+    linkedin: "#",
     bio: [],
   },
   {
     name: "Priya Saravanan",
     role: "Sr. Certification Specialist",
+    linkedin: "#",
     bio: [
       "Spending two decades in Education and Publication field, Priya has an extensive and rich experience in Teaching, Editing and Writing Food & Health Articles in Fitness Magazines. She has curated and published a health book named Mellinam.",
       "Proud Moment - Connect with my Readers: Even after quitting my Editor job, she was offered an opportunity to stay connected with the 90,000 readers of Mellinam by contributing an article per month for the monthly magazine.",
@@ -52,6 +55,7 @@ const TEAM_MEMBERS = [
   {
     name: "Maria Rama Iseman",
     role: "Certification Assistant",
+    linkedin: "#",
     bio: [
       "I am a dedicated and detail-oriented person with extensive experience as a training specialist in customer service. In this role, I honed my skills in improving customer experience, effective time management, and fostering strong people and communication skills. My expertise extends to complaint resolution, ensuring customer satisfaction, and driving impactful results.",
       "Recognized for my contributions, I am proud to have been honored as a Game Changer awardee, reflecting my ability to innovate and exceed expectations.",
@@ -61,16 +65,18 @@ const TEAM_MEMBERS = [
   {
     name: "Lloura Morales",
     role: "Admin Assistant",
+    linkedin: "#",
     bio: [
-      "For years, I've thrived in fast-paced environments where quick thinking and calm under pressure were part of the daily grind. From handling teams to handling tasks, I've learned that being reliable, organized, and adaptable isn't just helpful - it's essential.",
-      "Now, I'm channelling all that energy and experience into the virtual world. I'm stepping into the VA space with a mind-set that's all about getting things done - smoothly, efficiently, and with a touch of calm in the chaos.",
+      "For years, I've thrived in fast-paced environments where quick thinking and calm under pressure were part of the daily grind. From handling teams to handling tasks, I've learned that being reliable, organized, and adaptable isn't just helpful — it's essential.",
+      "Now, I'm channelling all that energy and experience into the virtual world. I'm stepping into the VA space with a mind-set that's all about getting things done — smoothly, efficiently, and with a touch of calm in the chaos.",
       "I'm a big believer in growth, professionalism, and the power of making someone's day easier. Behind the scenes, I'm the one making sure no detail is missed and everything runs like clockwork.",
-      "So if you're looking for someone who's got the drive, the discipline, and the heart to help you stay on top of your game - I'm ready when you are.",
+      "So if you're looking for someone who's got the drive, the discipline, and the heart to help you stay on top of your game — I'm ready when you are.",
     ],
   },
   {
     name: "Marian Salino",
     role: "Social Media Assistant",
+    linkedin: "#",
     bio: [
       "Marian is a creative individual with a passion for art, playing games, and interior design. She loves to plan and is organized in her approach to life.",
       "She also has a soft spot for dogs and cats and enjoys spending time with them.",
@@ -80,46 +86,54 @@ const TEAM_MEMBERS = [
   {
     name: "Ramnik Singh",
     role: "Web Maintenance",
+    linkedin: "#",
     bio: [],
   },
   {
     name: "Rajesh",
     role: "CPA",
+    linkedin: "#",
     bio: [],
   },
   {
     name: "Eunice Lorainne Acebuque",
     role: "Marketing Assistant",
+    linkedin: "#",
     bio: [],
   },
   {
     name: "Anjelica Espina",
     role: "MRP Assistant",
+    linkedin: "#",
     bio: [],
   },
   {
     name: "Marla Balladores",
     role: "Resource Admin Assistant",
+    linkedin: "#",
     bio: [
       "For the past 13 years, I've been rocking the BPO world, and let me tell you, it's been a rollercoaster of awesome! Each year feels like a chapter in the adventure book of my life. Along the way, I've not only mastered the art of customer service but also stumbled upon the secrets of becoming the superhero version of myself.",
-      "Balancing headsets and capes aside, my true passion lies in helping folks navigate the maze of challenges. I'm like a problem-solving wizard - minus the pointy hat.",
-      "And when I'm not donning my professional cape, you'll catch me globe-trotting, soaking up the wonders of this world. But let me spill the real tea - my heart belongs to my ride-or-die crew, my friends, and my family.",
+      "Balancing headsets and capes aside, my true passion lies in helping folks navigate the maze of challenges. I'm like a problem-solving wizard — minus the pointy hat.",
+      "And when I'm not donning my professional cape, you'll catch me globe-trotting, soaking up the wonders of this world. But let me spill the real tea — my heart belongs to my ride-or-die crew, my friends, and my family.",
       "They're not just important; they're my world. When they're in the picture, I'm convinced that everything, yes, everything, is possible.",
     ],
   },
   {
     name: "Princess Mendez",
     role: "Certification Assistant",
+    linkedin: "#",
     bio: [],
   },
   {
     name: "Shylet Lomuntad",
-    role: "Bookkeeper/Accounting Assistant",
+    role: "Bookkeeper / Accounting Assistant",
+    linkedin: "#",
     bio: [],
   },
   {
     name: "Nikka Grajo",
     role: "Certification Assistant",
+    linkedin: "#",
     bio: [
       "Nikka spent eight years in the education industry and is now ready to take on new challenges by pursuing another career. She finds great fulfillment in working as a Virtual Assistant where she can stay organized, engage with colleagues, and contribute to team goals. She truly enjoys cooking and baking as her favorite ways to express her love for her family and friends.",
     ],
@@ -127,6 +141,7 @@ const TEAM_MEMBERS = [
   {
     name: "Abegael Mariano",
     role: "Certification Assistant",
+    linkedin: "#",
     bio: [
       "With over a decade of versatile experience across multiple industries, I have cultivated and refined my expertise in digital marketing, administrative support, sales, and customer relations. My passion for continuous learning drives me to embrace challenges, recognizing that the journey of improvement is boundless and perpetual.",
       "Outside my professional pursuits, I identify myself as a thalassophile and selenophile. Additionally, my leisure activities include indulging in the joy of reading books, enjoying Korean series or movies, and creating the best memories with my loved ones.",
@@ -135,6 +150,7 @@ const TEAM_MEMBERS = [
   {
     name: "Chidire Chukwudi",
     role: "Admin Assistant",
+    linkedin: "#",
     bio: [
       "Chidire is a dedicated and resourceful Executive Virtual Assistant with a passion for providing high-level administrative support. She thrives on organizing and managing tasks that allow executives to focus on what matters most.",
       "Outside of her professional work, Chidire enjoys exploring new technologies, reading about personal development, and honing her skills in culinary arts.",
@@ -145,19 +161,20 @@ const TEAM_MEMBERS = [
   {
     name: "Nisha Rawat",
     role: "Certification Assistant",
+    linkedin: "#",
     bio: [
-      "Nisha is a self-starter, an avid reader and an enthusiastic learner, a girl who \"DARES TO DREAM\".",
-      "1. NISHA loves learning new things and is spontaneous and has an enthusiasm for adventure.",
-      "3. She has good presentation skills and knows how to get the task done in the given time. Allowing the caravan of her thoughts to flow through her resplendent imagination she loves writing.",
-      "4. She is a highly motivated legal consultant with a keen interest in corporate, who is proactive in gaining expertise in the same. She has an experience of 2 years in legal consulting and corporate jobs.",
-      "5. NISHA's major section of achievements can be seen in debates, declamations, and various other public speaking events!",
-      "6. Beyond this she is disciplined, punctual and ever creative.",
-      "7. For this lucky seven NISHA shares the BEST; she believes in seeing beyond the horizon.",
+      "Nisha is a self-starter, an avid reader and an enthusiastic learner — a girl who \"DARES TO DREAM\".",
+      "Nisha loves learning new things and is spontaneous and has an enthusiasm for adventure.",
+      "She has good presentation skills and knows how to get the task done in the given time. Allowing the caravan of her thoughts to flow through her resplendent imagination, she loves writing.",
+      "She is a highly motivated legal consultant with a keen interest in corporate law, who is proactive in gaining expertise in the same. She has an experience of 2 years in legal consulting and corporate jobs.",
+      "Nisha's major section of achievements can be seen in debates, declamations, and various other public speaking events.",
+      "Beyond this she is disciplined, punctual, and ever creative — always believing in seeing beyond the horizon.",
     ],
   },
   {
     name: "Carla Mahinay",
     role: "Prospect Assistant",
+    linkedin: "#",
     bio: [
       "I have been a committed and enthusiastic virtual assistant for more than three years, and I truly love what I do! Over the years, my broad experience, diverse skill set, and expertise have all helped me to become a proficient and effective virtual assistant.",
       "I take great delight in knowing that the job I've done for someone has assisted them in reaching their goals and objectives.",
@@ -167,6 +184,7 @@ const TEAM_MEMBERS = [
   {
     name: "Rachelle Sorronda",
     role: "Executive Assistant",
+    linkedin: "#",
     bio: [
       "Rachelle is a dedicated professional with over 7 years of experience in the BPO industry, specializing in customer service, lead generation, client management, and operations leadership.",
     ],
@@ -174,67 +192,87 @@ const TEAM_MEMBERS = [
   {
     name: "Shenie Canama",
     role: "Accounting Assistant",
+    linkedin: "#",
     bio: [],
   },
   {
     name: "Jullie Anne de la Cruz",
     role: "Creative Designer",
+    linkedin: "#",
     bio: [],
   },
 ].map((member) => ({
   ...member,
-  role: member.role.replace(/([A-Za-z])\(/g, "$1 (").replace(/\s+/g, " ").trim(),
   image: TEAM_IMAGE_BY_NAME[member.name] || "",
   hasBio: member.bio.length > 0,
 }));
 
+const ORG_CHART_TIERS = [
+  {
+    label: "Leadership",
+    type: "leadership",
+    roles: [
+      { title: "Chief Executive Officer (CEO) & President" },
+      { title: "Advisor" },
+    ],
+  },
+  {
+    label: "Department Leads",
+    type: "lead",
+    roles: [
+      { title: "Sr. Certification Specialist", dept: "Certification" },
+      { title: "CPA", dept: "Finance & Operations" },
+      { title: "Marketing Assistant", dept: "Marketing" },
+    ],
+  },
+];
+
 const TEAM_GROUPS = [
   {
     title: "Leadership",
-    description: "The strategic leaders guiding RMO's direction, relationships, and long-term growth.",
+    description: "The founding leaders guiding RMO's strategic direction, client relationships, and long-term organizational growth.",
     layout: "leadership",
     members: ["Ranjani Mohana", "Roshini Chandran"],
   },
   {
-    title: "Certification Team",
-    description: "Certification-focused staff supporting documentation, coordination, and day-to-day client progress.",
-    members: [
-      "Priya Saravanan",
-      "Maria Rama Iseman",
-      "Princess Mendez",
-      "Nikka Grajo",
-      "Abegael Mariano",
-      "Nisha Rawat",
-    ],
+    title: "Certification",
+    description: "Specialists managing certification documentation, client coordination, and compliance milestones across all active programs.",
+    lead: "Priya Saravanan",
+    members: ["Priya Saravanan", "Maria Rama Iseman", "Princess Mendez", "Nikka Grajo", "Abegael Mariano", "Nisha Rawat"],
   },
   {
     title: "Finance, Operations & Administration",
-    description: "Operational, financial, and executive support roles that keep delivery organized and dependable.",
-    members: [
-      "Rajesh",
-      "Shylet Lomuntad",
-      "Shenie Canama",
-      "Lloura Morales",
-      "Chidire Chukwudi",
-      "Rachelle Sorronda",
-      "Marla Balladores",
-      "Ramnik Singh",
-    ],
+    description: "Financial, operational, and executive support roles ensuring RMO's delivery infrastructure runs precisely and reliably.",
+    lead: "Rajesh",
+    members: ["Rajesh", "Shylet Lomuntad", "Shenie Canama", "Lloura Morales", "Chidire Chukwudi", "Rachelle Sorronda", "Marla Balladores", "Ramnik Singh"],
   },
   {
-    title: "Client Growth & Program Support",
-    description: "Support roles focused on client services, pipeline growth, and market-readiness initiatives.",
-    members: ["Anjelica Espina", "Carla Mahinay"],
+    title: "Marketing",
+    description: "Outreach, market development, and program support that drive pipeline growth and connect clients to new opportunities.",
+    lead: "Eunice Lorainne Acebuque",
+    members: ["Eunice Lorainne Acebuque", "Anjelica Espina", "Carla Mahinay"],
   },
   {
-    title: "Marketing & Communications",
-    description: "Team members supporting brand communication, outreach, and social media presence.",
-    members: ["Marian Salino", "Eunice Lorainne Acebuque", "Jullie Anne de la Cruz"],
+    title: "Social Media & Design",
+    description: "Brand presence, content creation, and creative design that amplify RMO's voice across every channel.",
+    members: ["Marian Salino", "Jullie Anne de la Cruz"],
   },
 ];
 
 const MEMBERS_BY_NAME = Object.fromEntries(TEAM_MEMBERS.map((member) => [member.name, member]));
-const TEAM_BIO_COUNT = TEAM_MEMBERS.filter((member) => member.hasBio).length;
+
+const LINKEDIN_ICON = (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M20.447 20.452H16.89v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a1.984 1.984 0 1 1 0-3.968 1.984 1.984 0 0 1 0 3.968zm1.957 13.019H3.379V9h3.915v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+  </svg>
+);
+
+function OrgChart() {
+  return (
+    <section className="org-chart-section">
+    </section>
+  );
+}
 
 function Avatar({ member, className = "" }) {
   const initials = member.name
@@ -252,33 +290,47 @@ function Avatar({ member, className = "" }) {
   );
 }
 
-function TeamMemberCard({ member, onOpen }) {
-  const content = (
-    <React.Fragment>
+function TeamMemberCard({ member, onOpen, isLead }) {
+  const handleCardClick = member.hasBio ? () => onOpen(member) : undefined;
+  const handleKeyDown = member.hasBio
+    ? (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(member); } }
+    : undefined;
+
+  return (
+    <article
+      className={["team-member-card", isLead ? "is-lead" : "", member.hasBio ? "has-bio" : ""].filter(Boolean).join(" ")}
+      onClick={handleCardClick}
+      onKeyDown={handleKeyDown}
+      tabIndex={member.hasBio ? 0 : undefined}
+      role={member.hasBio ? "button" : undefined}
+      aria-haspopup={member.hasBio ? "dialog" : undefined}
+      aria-label={member.hasBio ? `Read ${member.name}'s bio` : undefined}
+    >
+      {isLead && (
+        <span className="team-lead-badge" aria-label="Department Lead">
+          Department Lead
+        </span>
+      )}
       <Avatar member={member} />
       <div className="team-member-copy">
         <h3 className="team-member-name">{member.name}</h3>
         <p className="team-member-role">{member.role}</p>
-        {member.hasBio ? <span className="team-member-bio-tag">View bio</span> : null}
       </div>
-    </React.Fragment>
+      <div className="team-member-actions">
+        <a
+          href={member.linkedin}
+          target={member.linkedin !== "#" ? "_blank" : undefined}
+          rel="noopener noreferrer"
+          className="btn-linkedin"
+          aria-label={`Connect with ${member.name} on LinkedIn`}
+          onClick={(e) => e.stopPropagation()}
+        >
+          {LINKEDIN_ICON}
+          LinkedIn
+        </a>
+      </div>
+    </article>
   );
-
-  if (member.hasBio) {
-    return (
-      <button
-        type="button"
-        className="team-member-card is-clickable"
-        onClick={() => onOpen(member)}
-        aria-haspopup="dialog"
-        aria-label={`Open bio for ${member.name}`}
-      >
-        {content}
-      </button>
-    );
-  }
-
-  return <article className="team-member-card">{content}</article>;
 }
 
 function BioModal({ member, onClose }) {
@@ -297,13 +349,13 @@ function BioModal({ member, onClose }) {
         onClick={(event) => event.stopPropagation()}
       >
         <button type="button" className="team-modal-close" onClick={onClose} aria-label="Close bio modal">
-          x
+          ×
         </button>
 
         <div className="team-modal-head">
           <Avatar member={member} className="team-member-avatar-lg" />
           <div className="team-modal-copy">
-            <span className="role-pill">Team bio</span>
+            <span className="role-pill">About</span>
             <h2 id="team-modal-title">{member.name}</h2>
             <p>{member.role}</p>
           </div>
@@ -351,21 +403,20 @@ function TeamDirectory() {
           <div className="team-directory-topbar">
             <a href="index.html" className="brand team-directory-brand">
               <span className="brand-logo-wrap">
-                <img className="brand-logo" src="assets/brand/RMO_Logo.jpg" alt="R Mo Global Diversity Solutions" />
+                <img className="brand-logo" src="assets/brand/RMO_Logo.jpg" alt="RMO Global Diversity Solutions" />
               </span>
             </a>
             <a href="index.html#team" className="btn btn-light">Back to home</a>
           </div>
 
           <div className="team-directory-intro">
-            <span className="hero-badge">
-              <span className="dot">1</span>
-              Team directory
-            </span>
-            <h1>Team Members</h1>
+            <span className="eyebrow">RMO Global Diversity Solutions</span>
+            <h1>Our Team</h1>
             <p>
-              Browse the approved RMO roster below. Members with biographies open in a modal
-              instead of sending visitors to a separate profile page.
+              RMO is built on a foundation of specialized talent and cross-functional expertise.
+              Our certified professionals in compliance, finance, operations, and marketing are
+              united by one goal — helping your business navigate certifications, access new
+              opportunities, and grow with confidence.
             </p>
           </div>
         </div>
@@ -373,16 +424,9 @@ function TeamDirectory() {
 
       <main className="team-directory-main">
         <div className="wrap">
-          <section className="team-directory-roster-shell">
-            <div className="section-head center team-directory-roster-head">
-              <span className="eyebrow">Our team</span>
-              <h2>Approved team hierarchy</h2>
-              <p>
-                {TEAM_MEMBERS.length} approved team members are listed here, and {TEAM_BIO_COUNT} of
-                them currently include a bio.
-              </p>
-            </div>
+          <OrgChart />
 
+          <section className="team-directory-roster-shell">
             {TEAM_GROUPS.map((group) => (
               <section className="team-directory-section" key={group.title}>
                 <div className="team-directory-section-head">
@@ -402,6 +446,7 @@ function TeamDirectory() {
                       key={memberName}
                       member={MEMBERS_BY_NAME[memberName]}
                       onOpen={setSelectedMember}
+                      isLead={group.lead === memberName}
                     />
                   ))}
                 </div>

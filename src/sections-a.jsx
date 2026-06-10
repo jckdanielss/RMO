@@ -185,13 +185,15 @@ function LogoCarousel({ items, renderItem, className, speed = 28 }) {
               </div>
             ))}
           </div>
-          <div className="logo-carousel-group" aria-hidden="true">
-            {items.map((item, i) => (
-              <div className="logo-carousel-item" key={item.name + "-clone-" + i}>
-                {renderItem(item, i)}
-              </div>
-            ))}
-          </div>
+          {[1, 2, 3].map((cloneIdx) => (
+            <div className="logo-carousel-group" aria-hidden="true" key={"clone-group-" + cloneIdx}>
+              {items.map((item, i) => (
+                <div className="logo-carousel-item" key={item.name + "-clone" + cloneIdx + "-" + i}>
+                  {renderItem(item, i)}
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -199,25 +201,25 @@ function LogoCarousel({ items, renderItem, className, speed = 28 }) {
 }
 
 /* ======================= NAV ======================= */
-const COMPANY_LINKS = [
-  ["Capability Statement", "#"],
+const ABOUT_LINKS = [
+  ["Vision", "#about"],
   ["History", "#"],
   ["Team", "team.html"],
-  ["Vision and Mission", "#about"],
-  ["Benefits", "#"],
-  ["R M O Clients", "#clients"],
-  ["Testimonials", "#testi"],
-  ["R MO Non Profit Support", "#"],
-  ["R Mo Non-Profit Affiliations", "#"],
-  ["Market Ready Program Series", "#"],
 ];
-const SERVICES_NAV_LINKS = [
+const PROFESSIONAL_SERVICES_LINKS = [
+  { type: "group", label: "Professional Services" },
   ["Diversity Certifications", "#services"],
-  ["Contract Opportunities", "#services"],
-  ["Information Technology Services", "#services"],
-  ["Start Up Guidance", "#services"],
-  ["Supplier Diversity Management", "#services"],
+  ["Procurement Support", "#services"],
   ["Consulting Agreement", "#services"],
+  ["Start-Up Guidance", "#services"],
+  ["Recertification & Renewals", "#services"],
+  ["Information Technology", "#services"],
+  { type: "group", label: "Business Growth" },
+  ["Market Ready Program (MRP)", "#"],
+  ["Speaker Series", "#"],
+  ["Impact Reports", "#"],
+  { type: "divider" },
+  ["Capability Statement", "#"],
 ];
 
 const SCRAPED_ROOT = "rmollc_scraped_data/rmollc_scrape/";
@@ -263,44 +265,41 @@ function Nav() {
     document.getElementById(href.slice(1))?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const renderNavDdItems = (links) => links.map((item, i) => {
+    if (item.type === "group") return <span key={"g" + i} className="nav-dd-group-label">{item.label}</span>;
+    if (item.type === "divider") return <hr key={"d" + i} className="nav-dd-divider" />;
+    const [lbl, href] = item;
+    return <a key={lbl} href={href} onClick={(e) => go(e, href)}>{lbl}</a>;
+  });
+
+  const NavDropdown = ({ id, label, links }) => (
+    <div
+      className={"nav-dd" + (dropdown === id ? " open" : "")}
+      onMouseEnter={() => setDropdown(id)}
+      onMouseLeave={() => setDropdown(null)}
+    >
+      <button className="nav-dd-trigger">{label} {Ic.chevDown}</button>
+      <div className="nav-dd-menu">
+        <div className="nav-dd-menu-inner">
+          {renderNavDdItems(links)}
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <React.Fragment>
       <nav className="nav">
         <div className="wrap nav-inner">
           <Brand />
           <div className="nav-links">
-            <div
-              className={"nav-dd" + (dropdown === "company" ? " open" : "")}
-              onMouseEnter={() => setDropdown("company")}
-              onMouseLeave={() => setDropdown(null)}
-            >
-              <button className="nav-dd-trigger">Company {Ic.chevDown}</button>
-              <div className="nav-dd-menu">
-                <div className="nav-dd-menu-inner">
-                  {COMPANY_LINKS.map(([label, href]) => (
-                    <a key={label} href={href} onClick={(e) => go(e, href)}>{label}</a>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div
-              className={"nav-dd" + (dropdown === "services" ? " open" : "")}
-              onMouseEnter={() => setDropdown("services")}
-              onMouseLeave={() => setDropdown(null)}
-            >
-              <button className="nav-dd-trigger">Services {Ic.chevDown}</button>
-              <div className="nav-dd-menu">
-                <div className="nav-dd-menu-inner">
-                  {SERVICES_NAV_LINKS.map(([label, href]) => (
-                    <a key={label} href={href} onClick={(e) => go(e, href)}>{label}</a>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <a href="#contact" onClick={(e) => go(e, "#contact")}>Contact Us</a>
-            <a href="#">Blogs</a>
-            <a href="#">FAQs</a>
+            <a href="#top" onClick={(e) => go(e, "#top")}>Home</a>
+            <NavDropdown id="about" label="About Us" links={ABOUT_LINKS} />
+            <NavDropdown id="pro-services" label="Services" links={PROFESSIONAL_SERVICES_LINKS} />
+            <a href="#">FAQ</a>
+            <a href="#">Blog</a>
             <a href="#">Calendar</a>
+            <a href="#contact" onClick={(e) => go(e, "#contact")}>Contact Us</a>
           </div>
           <div className="nav-cta">
             <a href="#contact" className="btn btn-primary" onClick={(e) => go(e, "#contact")}>
@@ -314,22 +313,23 @@ function Nav() {
       </nav>
 
       <div className={"mobile-menu" + (open ? " open" : "")}>
+        <a href="#top" onClick={(e) => go(e, "#top")}>Home</a>
         <div className="mobile-dd-group">
-          <span className="mobile-dd-label">Company</span>
-          {COMPANY_LINKS.map(([label, href]) => (
+          <span className="mobile-dd-label">About Us</span>
+          {ABOUT_LINKS.map(([label, href]) => (
             <a key={label} href={href} className="mobile-dd-item" onClick={(e) => go(e, href)}>{label}</a>
           ))}
         </div>
         <div className="mobile-dd-group">
           <span className="mobile-dd-label">Services</span>
-          {SERVICES_NAV_LINKS.map(([label, href]) => (
+          {PROFESSIONAL_SERVICES_LINKS.filter(item => Array.isArray(item)).map(([label, href]) => (
             <a key={label} href={href} className="mobile-dd-item" onClick={(e) => go(e, href)}>{label}</a>
           ))}
         </div>
-        <a href="#contact" onClick={(e) => go(e, "#contact")}>Contact Us</a>
-        <a href="#">Blogs</a>
-        <a href="#">FAQs</a>
+        <a href="#">FAQ</a>
+        <a href="#">Blog</a>
         <a href="#">Calendar</a>
+        <a href="#contact" onClick={(e) => go(e, "#contact")}>Contact Us</a>
         <a href="#contact" className="btn btn-primary" onClick={(e) => go(e, "#contact")}>GET IN TOUCH</a>
       </div>
     </React.Fragment>
@@ -339,69 +339,57 @@ function Nav() {
 /* ======================= HERO ======================= */
 const HERO_SLIDES = [
   {
-    img: "carousel/diversity.jpg",
+    img: "https://i.postimg.cc/vTTQ9zfp/diverseoffice.png",
     alt: "Diverse business professionals in a meeting",
-    heading: "Earn Your Diversity Certification",
-    accent: "Open Corporate & Government Doors.",
-    sub: "Certification paperwork is complicated. We handle the application, documentation, and certifying body communication so you get approved faster.",
-    learnHref: "#services",
-    contactHref: "#contact",
+    heading: "Diversity Certifications",
+    sub: "Taking your business to the next level.",
+    btnLabel: "Learn More",
+    btnHref: "#services",
   },
   {
-    img: "carousel/business_growth.jpg",
-    alt: "Business growth strategy session",
-    heading: "Programs Built for",
-    accent: "Sustainable Growth.",
-    sub: "Certification opens the door. Our programs show you what to do once you're inside — from landing your first contract to building a pipeline.",
-    learnHref: "#services",
-    contactHref: "#contact",
+    img: "https://i.postimg.cc/65j4nkHc/MARKETREADYIMG.png",
+    alt: "Market ready business professionals",
+    heading: "Become Market-Ready",
+    sub: "Build confidence, sharpen your pitch, and stand out.",
+    btnLabel: "Our Mission",
+    btnHref: "#about",
   },
   {
-    img: "carousel/market_ready_program.jpg",
-    alt: "Workshop participants preparing for market entry",
-    heading: "Get Market-Ready",
-    accent: "With the MRP.",
-    sub: "A certification without a pitch is just paper. MRP teaches you how to present your business, connect with buyers, and turn your certification into contracts.",
-    learnHref: "#services",
-    contactHref: "#contact",
+    img: "https://i.postimg.cc/HsVkDV20/Gemini-Generated-Image-b0bfqlb0bfqlb0bf.png",
+    alt: "Community impact and empowerment",
+    heading: "Driving Impact",
+    sub: "Empowering businesses, strengthening communities.",
+    btnLabel: "Get Started",
+    btnHref: "#contact",
   },
-  {
-    img: "carousel/impact_reports.jpg",
-    alt: "Impact report data and visualizations",
-    heading: "Measurable Impact,",
-    accent: "Documented Results.",
-    sub: "Corporations ask for impact data. We help you collect it, format it, and build the reports that corporate and government clients actually request.",
-    learnHref: "#about",
-    contactHref: "#contact",
-  },
-  {
-    img: "carousel/rfd_bid_package.jpg",
-    alt: "RFP documents and bid preparation",
-    heading: "Win More Contracts With",
-    accent: "Expert Bid Support.",
-    sub: "Most bids lose on compliance and formatting, not capability. We review the requirements, flag the risks, and help you put together a package that makes the cut.",
-    learnHref: "#services",
-    contactHref: "#contact",
-  },
-  {
-    img: "carousel/startup_guidance.jpg",
-    alt: "Entrepreneurs collaborating at a workspace",
-    heading: "Launch With Confidence —",
-    accent: "Startup Guidance.",
-    sub: "Starting a business that qualifies for certifications requires a different kind of setup. We walk you through entity structure, documentation, and first steps toward eligibility.",
-    learnHref: "#services",
-    contactHref: "#contact",
-  },
+];
+
+const CERT_LOGOS = [
+  { name: "Cert 1",  src: "https://i.postimg.cc/1nkjNQyD/1.png" },
+  { name: "Cert 2",  src: "https://i.postimg.cc/xNV613PR/10.png" },
+  { name: "Cert 3",  src: "https://i.postimg.cc/30jn40SH/11.png" },
+  { name: "Cert 4",  src: "https://i.postimg.cc/XX5h6pgL/2.png" },
+  { name: "Cert 5",  src: "https://i.postimg.cc/HrYPM31v/3.png" },
+  { name: "Cert 6",  src: "https://i.postimg.cc/56Mr4b7V/4.png" },
+  { name: "Cert 7",  src: "https://i.postimg.cc/XpczXmmy/5.png" },
+  { name: "Cert 8",  src: "https://i.postimg.cc/LJxQ3fH9/6.png" },
+  { name: "Cert 9",  src: "https://i.postimg.cc/bGdCCJJQ/7.png" },
+  { name: "Cert 10", src: "https://i.postimg.cc/njDdxPqr/8.png" },
+  { name: "Cert 11", src: "https://i.postimg.cc/cKjDVSgP/9.png" },
 ];
 
 function Hero() {
   const [active, setActive] = React.useState(0);
+  const [animKey, setAnimKey] = React.useState(0);
   const timerRef = React.useRef(null);
   const n = HERO_SLIDES.length;
 
   const resetTimer = React.useCallback(() => {
     clearInterval(timerRef.current);
-    timerRef.current = setInterval(() => setActive(p => (p + 1) % n), 10000);
+    timerRef.current = setInterval(() => {
+      setActive(p => (p + 1) % n);
+      setAnimKey(k => k + 1);
+    }, 8000);
   }, [n]);
 
   React.useEffect(() => {
@@ -409,62 +397,93 @@ function Hero() {
     return () => clearInterval(timerRef.current);
   }, [resetTimer]);
 
-  const goTo = (idx) => { setActive((idx + n) % n); resetTimer(); };
-  const go = (e, id) => { e.preventDefault(); document.getElementById(id)?.scrollIntoView(); };
+  const goTo = (idx) => {
+    setActive((idx + n) % n);
+    setAnimKey(k => k + 1);
+    resetTimer();
+  };
+
+  const go = (e, href) => {
+    if (!href || href === "#") return;
+    if (!href.startsWith("#")) return;
+    e.preventDefault();
+    document.getElementById(href.slice(1))?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
-    <header className="hero" id="top">
-      <div className="hero-carousel-bg" aria-hidden="true">
+    <header className="hero hero-v2" id="top">
+      {/* Slide backgrounds */}
+      <div className="hero-v2-track" aria-hidden="true">
         {HERO_SLIDES.map((s, i) => (
           <div
             key={i}
-            className={"hero-slide-bg" + (i === active ? " active" : "")}
+            className={"hero-v2-slide-bg" + (i === active ? " active" : "")}
             style={{ backgroundImage: "url('" + s.img + "')" }}
           />
         ))}
+        <div className="hero-v2-overlay" />
       </div>
-      <div className="hero-overlay" aria-hidden="true" />
-      <div className="wrap">
-        <div className="hero-content hero-carousel-content" key={active}>
-          <h1>
-            {HERO_SLIDES[active].heading}{" "}
-            <span className="accent">{HERO_SLIDES[active].accent}</span>
-          </h1>
-          <p className="sub">{HERO_SLIDES[active].sub}</p>
-          <div className="hero-actions">
+
+      {/* Slide content */}
+      <div className="hero-v2-content-wrap">
+        <div className="hero-v2-content" key={animKey}>
+          <h1 className="hero-v2-heading">{HERO_SLIDES[active].heading}</h1>
+          <p className="hero-v2-sub">{HERO_SLIDES[active].sub}</p>
+          <div className="hero-v2-actions">
             <a
-              href={HERO_SLIDES[active].learnHref}
-              className="btn btn-primary"
-              onClick={(e) => go(e, HERO_SLIDES[active].learnHref.replace("#", ""))}
+              href={HERO_SLIDES[active].btnHref}
+              className="hero-v2-btn"
+              onClick={(e) => go(e, HERO_SLIDES[active].btnHref)}
             >
-              Learn More {Ic.arrow}
+              {HERO_SLIDES[active].btnLabel}
             </a>
             <a
-              href={HERO_SLIDES[active].contactHref}
-              className="btn btn-light"
-              onClick={(e) => go(e, HERO_SLIDES[active].contactHref.replace("#", ""))}
+              href="#contact"
+              className="hero-v2-btn hero-v2-btn-outline"
+              onClick={(e) => go(e, "#contact")}
             >
               Contact Us
             </a>
           </div>
         </div>
       </div>
-      <button className="hero-nav hero-nav-prev" aria-label="Previous slide" onClick={() => goTo(active - 1)}>
+
+      {/* Prev / Next */}
+      <button className="hero-v2-nav hero-v2-prev" aria-label="Previous slide" onClick={() => goTo(active - 1)}>
         {Ic.chevL}
       </button>
-      <button className="hero-nav hero-nav-next" aria-label="Next slide" onClick={() => goTo(active + 1)}>
+      <button className="hero-v2-nav hero-v2-next" aria-label="Next slide" onClick={() => goTo(active + 1)}>
         {Ic.chevR}
       </button>
-      <div className="hero-dots" role="tablist">
+
+      {/* Dots */}
+      <div className="hero-v2-dots" role="tablist">
         {HERO_SLIDES.map((_, i) => (
-          <span
+          <button
             key={i}
             role="tab"
+            aria-label={"Slide " + (i + 1)}
             aria-selected={i === active}
-            className={i === active ? "on" : ""}
+            className={"hero-v2-dot" + (i === active ? " active" : "")}
             onClick={() => goTo(i)}
           />
         ))}
+      </div>
+
+      {/* Certification logo strip */}
+      <div className="hero-cert-strip">
+        <div className="hero-cert-strip-fade hero-cert-strip-fade-l" aria-hidden="true" />
+        <div className="hero-cert-strip-fade hero-cert-strip-fade-r" aria-hidden="true" />
+        <LogoCarousel
+          items={CERT_LOGOS}
+          className="hero-cert-carousel"
+          speed={40}
+          renderItem={(logo) => (
+            <div className="hero-cert-logo-chip">
+              <img src={logo.src} alt={logo.name} draggable="false" />
+            </div>
+          )}
+        />
       </div>
     </header>
   );
@@ -472,12 +491,21 @@ function Hero() {
 
 /* ======================= SERVICES ======================= */
 const SERVICES = [
-  { ic: Ic.badge, t: "Diversity Certification", d: "Guidance through MBE, WBE, 8(a), DBE and more — from eligibility to approval." },
-  { ic: Ic.doc, t: "Procurement", d: "RFP, contract and bidding support so you can compete for and win opportunities." },
-  { ic: Ic.chip, t: "Information Technology", d: "IT services and digital support tailored to growing, diverse businesses." },
-  { ic: Ic.handshake, t: "Consulting Agreement", d: "Ongoing advisory partnerships that keep your business compliant and competitive." },
-  { ic: Ic.rocket, t: "Start-Up Guidance", d: "Practical help to launch, structure and position a new business for success." },
-  { ic: Ic.refresh, t: "Recertification & Renewals", d: "We track deadlines and manage renewals so your certifications never lapse." },
+  {
+    ic: Ic.badge,
+    t: "Get Certified",
+    d: "We simplify the certification process so you can focus on running your business. From guiding you through complex requirements to ensuring your applications are accurate and complete, we help you achieve certifications faster and with less stress — opening doors to new opportunities.",
+  },
+  {
+    ic: Ic.rocket,
+    t: "Get Market Ready",
+    d: "Certification is just the beginning. Our Market Ready Program equips you with the tools to present your business with confidence, leverage your certification effectively, and connect with peers, corporates, and experts. From mastering your pitch to understanding how to activate your certification, we help you turn recognition into results.",
+  },
+  {
+    ic: Ic.target,
+    t: "Driving Impact",
+    d: "Beyond certification and preparation, we create lasting social and economic impact. By empowering small and diverse businesses, strengthening supplier diversity, and fostering inclusive growth, we help build stronger communities and supply chains. The result: more opportunities, greater visibility, and a measurable difference in the marketplace.",
+  },
 ];
 
 function Services() {
@@ -485,12 +513,12 @@ function Services() {
     <section className="services pad-y" id="services">
       <div className="wrap">
         <div className="section-head center reveal">
-          <h1>Services</h1>
+          <h1>Our Services</h1>
         </div>
         <div className="cards reveal">
           {SERVICES.map((s, i) => (
             <article className="card" key={s.t}>
-              <span className="card-num">{"0" + (i + 1)}</span>
+              
               <h3>{s.t}</h3>
               <p>{s.d}</p>
               <span className="card-arrow">Learn more {Ic.arrow}</span>
@@ -507,7 +535,7 @@ function Clients() {
     <section className="clients pad-y" id="clients">
       <div className="wrap">
         <div className="section-head center reveal">
-          <h2>Corporate clients we've supported</h2>
+          <h2>Corporate clients</h2>
         </div>
         <div className="reveal d1">
           <LogoCarousel
