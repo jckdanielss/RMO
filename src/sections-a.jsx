@@ -238,7 +238,7 @@ function Brand() {
   return (
     <a href="#top" className="brand">
       <span className="brand-logo-wrap">
-        <img className="brand-logo" src="assets/brand/RMO_Logo-removebg-preview.png" alt="R Mo Global Diversity Solutions" />
+        <img className="brand-logo" src="assets/brand/RMO_Logo-removebg-preview.png" alt="RMO Global Diversity Solutions" />
       </span>
     </a>
   );
@@ -351,7 +351,7 @@ const HERO_SLIDES = [
     alt: "Market ready business professionals",
     heading: "Become Market-Ready",
     sub: "Build confidence, sharpen your pitch, and stand out.",
-    btnLabel: "Our Mission",
+    btnLabel: "Learn More",
     btnHref: "#about",
   },
   {
@@ -513,7 +513,7 @@ function Services() {
     <section className="services pad-y" id="services">
       <div className="wrap">
         <div className="section-head center reveal">
-          <h1>Our Services</h1>
+          <h2>Our Services</h2>
         </div>
         <div className="cards reveal">
           {SERVICES.map((s, i) => (
@@ -535,7 +535,7 @@ function Clients() {
     <section className="clients pad-y" id="clients">
       <div className="wrap">
         <div className="section-head center reveal">
-          <h2>Corporate clients</h2>
+          <h2>Our Clients</h2>
         </div>
         <div className="reveal d1">
           <LogoCarousel

@@ -64,11 +64,11 @@ function Contact() {
               <div className="sent-banner">
                 <span className="check">{Ic.check}</span>
                 <div>
-                  <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: 18 }}>Message sent — thank you!</div>
-                  <div style={{ fontSize: 14, marginTop: 2 }}>We've received your note and will reply to {form.email} shortly.</div>
+                  <div className="sent-banner-title">Message sent — thank you!</div>
+                  <div className="sent-banner-subtitle">We've received your note and will reply to {form.email} shortly.</div>
                 </div>
               </div>
-              <button className="btn btn-ghost" style={{ marginTop: 20 }}
+              <button className="btn btn-ghost"
                 onClick={() => { setSent(false); setForm({ name: "", email: "", message: "", captcha: "" }); setTouched({}); newCaptcha(); }}>
                 Send another message
               </button>
@@ -98,11 +98,11 @@ function Contact() {
                 <button type="button" className="refresh" aria-label="New question" onClick={newCaptcha}>{Ic.refresh}</button>
               </div>
               {touched.captcha && errors.captcha && (
-                <div className="form-msg bad" style={{ marginTop: -8, marginBottom: 14 }}>{errors.captcha}</div>
+                <div className="form-msg bad">{errors.captcha}</div>
               )}
               <div className="form-actions">
                 <button type="submit" className="btn btn-primary">Send email {Ic.arrow}</button>
-                <span style={{ fontSize: 13.5, color: "var(--muted)" }}>We never share your details.</span>
+                <span className="form-disclaimer">We never share your details.</span>
               </div>
             </form>
           )}
@@ -142,7 +142,7 @@ function Footer() {
           <div className="f-brand">
             <div className="brand footer-brand">
               <span className="brand-logo-wrap footer-brand-logo">
-                <img className="brand-logo" src="assets/brand/RMO_Logo-removebg-preview.png" alt="R Mo Global Diversity Solutions" />
+                <img className="brand-logo" src="assets/brand/RMO_Logo-removebg-preview.png" alt="RMO Global Diversity Solutions" />
               </span>
             </div>
             <p className="f-about">
@@ -151,8 +151,8 @@ function Footer() {
           </div>
           <div className="f-col">
             <h4>Contact</h4>
-            <div className="f-line"><span className="lab">Phone</span><a href="tel:9252550177" style={{color:"rgba(255,255,255,.7)"}}>925 255 0177</a></div>
-            <div className="f-line"><span className="lab">Email</span><a href="mailto:info@rmollc.com" style={{color:"rgba(255,255,255,.7)"}}>info@rmollc.com</a></div>
+            <div className="f-line"><span className="lab">Phone</span><a href="tel:9252550177" className="footer-muted-text">925 255 0177</a></div>
+            <div className="f-line"><span className="lab">Email</span><a href="mailto:info@rmollc.com" className="footer-muted-text">info@rmollc.com</a></div>
             <a href="#contact" onClick={(e) => go(e, "contact")}>Send a message</a>
             <a href="#about" onClick={(e) => go(e, "about")}>About us</a>
           </div>
@@ -168,7 +168,6 @@ function Footer() {
             <a href="#top" onClick={(e) => go(e, "top")}>Home</a>
             <a href="team.html" onClick={(e) => go(e, "team")}>Team</a>
             <a href="#clients" onClick={(e) => go(e, "clients")}>Clients</a>
-            <a href="#certifications" onClick={(e) => go(e, "certifications")}>Certifications</a>
           </div>
         </div>
         <div className="footer-bottom">

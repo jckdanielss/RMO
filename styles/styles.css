@@ -7,7 +7,6 @@
   --green-dark:   #12722e;
   --green-deep:   #0c4f20;
   --green-tint:   #eef7f0;
-  --green-tint-2: #f6faf7;
 
   /* ink + neutrals (warm, faintly green) */
   --ink:    #14201a;
@@ -17,10 +16,14 @@
   --bg:     #ffffff;
   --bg-soft:#f6faf7;
 
-  --radius:   18px;
-  --radius-sm:12px;
+  --radius:    18px;
+  --radius-sm: 12px;
+  --radius-lg: 26px;
   --shadow:   0 1px 2px rgba(20,32,26,.04), 0 8px 30px rgba(20,32,26,.06);
   --shadow-lg:0 4px 14px rgba(20,32,26,.08), 0 24px 60px rgba(12,79,32,.10);
+
+  --dur-fast: 0.18s;
+  --dur-base: 0.22s;
 
   --maxw: 1180px;
   --pad: clamp(20px, 5vw, 64px);
@@ -507,15 +510,15 @@ section { scroll-margin-top: 80px; }
   font-weight: 600;
   cursor: pointer;
   text-decoration: none;
-  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
-  background: #f97316;
+  transition: transform var(--dur-fast) ease, box-shadow var(--dur-fast) ease, background var(--dur-fast) ease;
+  background: var(--green);
   color: #fff;
   border: 2px solid transparent;
 }
 .hero-v2-btn:hover {
-  background: #ea6d10;
+  background: var(--green-dark);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(249,115,22,.4);
+  box-shadow: 0 6px 20px rgba(26,156,62,.32);
 }
 .hero-v2-btn-outline {
   background: transparent;
@@ -549,7 +552,7 @@ section { scroll-margin-top: 80px; }
   background: rgba(255,255,255,.28);
   transform: translateY(calc(-50% - 2px));
 }
-.hero-v2-nav:focus-visible { box-shadow: 0 0 0 2px rgba(249,115,22,.7); }
+.hero-v2-nav:focus-visible { box-shadow: 0 0 0 2px rgba(26,156,62,.7); }
 .hero-v2-nav svg { width: 22px; height: 22px; }
 .hero-v2-prev { left: clamp(12px, 2.5vw, 36px); }
 .hero-v2-next { right: clamp(12px, 2.5vw, 36px); }
@@ -574,7 +577,7 @@ section { scroll-margin-top: 80px; }
 .hero-v2-dot.active {
   width: 28px;
   border-radius: 5px;
-  background: #f97316;
+  background: #7ff0a0;
 }
 
 /* Certification logo strip */
@@ -749,7 +752,7 @@ section { scroll-margin-top: 80px; }
   border-radius: var(--radius-sm);
   padding: 0 24px;
   text-align: center;
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  transition: transform var(--dur-base) ease, box-shadow var(--dur-base) ease, border-color var(--dur-base) ease;
 }
 .logo-chip:hover { box-shadow: 0 4px 14px rgba(26,156,62,.16), 0 0 0 3px rgba(26,156,62,.12); border-color: var(--green); }
 .logo-chip img {
@@ -820,7 +823,7 @@ section { scroll-margin-top: 80px; }
   border-radius: var(--radius);
   padding: 32px 28px;
   text-align: center;
-  transition: box-shadow .2s ease, transform .2s ease;
+  transition: box-shadow var(--dur-base) ease, transform var(--dur-base) ease;
 }
 .leader:hover { box-shadow: var(--shadow-lg); }
 .avatar {
@@ -867,7 +870,7 @@ section { scroll-margin-top: 80px; }
   border-radius: var(--radius-sm);
   padding: 24px 16px;
   text-align: center;
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  transition: transform var(--dur-base) ease, box-shadow var(--dur-base) ease, border-color var(--dur-base) ease;
 }
 .member:hover { box-shadow: var(--shadow); border-color: var(--green); }
 .member .avatar { width: 64px; height: 64px; font-size: 22px; margin: 0 auto 14px; }
@@ -900,20 +903,19 @@ section { scroll-margin-top: 80px; }
 .team-directory-shell {
   position: relative;
   z-index: 1;
-  padding-block: 28px 84px;
-}
-.team-directory-topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  padding-block: 80px 84px;
 }
 .team-directory-brand {
   display: inline-flex;
 }
 .team-directory-intro {
   max-width: 720px;
-  padding-top: 72px;
+  padding-top: 32px;
+}
+.team-directory-back {
+  display: inline-flex;
+  margin-bottom: 28px;
+  font-size: 14px;
 }
 .team-directory-intro h1 {
   color: #fff;
@@ -964,11 +966,11 @@ section { scroll-margin-top: 80px; }
   gap: 14px;
   padding: 20px 18px 18px;
   border: 1px solid var(--line);
-  border-radius: 20px;
+  border-radius: var(--radius);
   background: rgba(255,255,255,.96);
   box-shadow: var(--shadow);
   text-align: center;
-  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  transition: transform var(--dur-base) ease, box-shadow var(--dur-base) ease, border-color var(--dur-base) ease;
 }
 .team-member-card:hover {
   box-shadow: var(--shadow-lg);
@@ -1147,7 +1149,7 @@ section { scroll-margin-top: 80px; }
 .btn-linkedin:hover {
   background: #d4e4f7;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(10,102,194,.18);
+  box-shadow: var(--shadow);
 }
 .btn-linkedin:focus-visible {
   outline: none;
@@ -1174,7 +1176,7 @@ section { scroll-margin-top: 80px; }
   width: min(760px, 100%);
   max-height: min(88vh, 900px);
   overflow: auto;
-  border-radius: 30px;
+  border-radius: var(--radius-lg);
   background: #fff;
   box-shadow: 0 24px 80px rgba(8,46,22,.28);
 }
@@ -1323,7 +1325,7 @@ section { scroll-margin-top: 80px; }
   border-radius: var(--radius);
   padding: 24px;
   position: relative;
-  transition: box-shadow .2s ease, transform .2s ease;
+  transition: box-shadow var(--dur-base) ease, transform var(--dur-base) ease;
 }
 .mv-card:hover { box-shadow: var(--shadow-lg); }
 .mv-card.accent { background: var(--green-deep); border-color: transparent; }
@@ -1401,7 +1403,7 @@ section { scroll-margin-top: 80px; }
 .form-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 .form-msg { font-size: 14px; font-weight: 600; }
 .form-msg.ok { color: var(--green-dark); }
-.form-msg.bad { color: #d6453d; }
+.form-msg.bad { color: #d6453d; margin-top: -8px; margin-bottom: 14px; }
 .sent-banner {
   display: flex; align-items: center; gap: 14px;
   background: var(--green-tint);
@@ -1509,7 +1511,7 @@ section { scroll-margin-top: 80px; }
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 28px;
-  transition: box-shadow .2s ease, transform .2s ease;
+  transition: box-shadow var(--dur-base) ease, transform var(--dur-base) ease;
 }
 .obj-card:hover { box-shadow: var(--shadow); border-color: var(--green); }
 .obj-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
@@ -1696,12 +1698,8 @@ section { scroll-margin-top: 80px; }
   .testi-dots {
     flex-wrap: wrap;
   }
-  .team-directory-topbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
   .team-directory-intro {
-    padding-top: 48px;
+    padding-top: 20px;
   }
   .team-directory-intro h1 {
     font-size: clamp(32px, 10vw, 44px);
@@ -1736,3 +1734,19 @@ section { scroll-margin-top: 80px; }
   .brand-logo { height: 22px; max-width: 52vw; }
   .footer-brand .brand-logo { height: 38px; }
 }
+
+/* ============================================================
+   COMPONENT UTILITY — replaces inline styles in JSX
+   ============================================================ */
+.sent-banner-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+}
+.sent-banner-subtitle {
+  font-size: 14px;
+  margin-top: 2px;
+}
+.sent-banner .btn-ghost { margin-top: 20px; }
+.footer-muted-text { color: rgba(255,255,255,.7); }
+.form-disclaimer { font-size: 13.5px; color: var(--muted); }

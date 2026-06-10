@@ -395,27 +395,21 @@ function TeamDirectory() {
     };
   }, [selectedMember]);
 
+  const MainNav = window.Nav;
+
   return (
     <div className="team-directory-page">
+      {MainNav && <MainNav />}
       <header className="team-directory-hero">
         <div className="team-directory-overlay" />
         <div className="wrap team-directory-shell">
-          <div className="team-directory-topbar">
-            <a href="index.html" className="brand team-directory-brand">
-              <span className="brand-logo-wrap">
-                <img className="brand-logo" src="assets/brand/RMO_Logo.jpg" alt="RMO Global Diversity Solutions" />
-              </span>
-            </a>
-            <a href="index.html#team" className="btn btn-light">Back to home</a>
-          </div>
-
           <div className="team-directory-intro">
-            <span className="eyebrow">RMO Global Diversity Solutions</span>
+            <span className="">RMO Global Diversity Solutions</span>
             <h1>Our Team</h1>
             <p>
               RMO is built on a foundation of specialized talent and cross-functional expertise.
               Our certified professionals in compliance, finance, operations, and marketing are
-              united by one goal — helping your business navigate certifications, access new
+              united by one goal  helping your business navigate certifications, access new
               opportunities, and grow with confidence.
             </p>
           </div>

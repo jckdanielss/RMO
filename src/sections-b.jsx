@@ -59,12 +59,12 @@ const TESTIMONIALS = [
     role: "Principal, Founder at Element Structural Engineers Inc",
   },
   {
-    quote: "It is with great pleasure to write a statement of recommendation for Ranjani and her team at R Mo Business Solution. They were able to support me in obtaining my 8(a) certification from the SBA. Their professionalism and patience made a very daunting process doable!",
+    quote: "It is with great pleasure to write a statement of recommendation for Ranjani and her team at RMO Global Diversity Solutions. They were able to support me in obtaining my 8(a) certification from the SBA. Their professionalism and patience made a very daunting process doable!",
     name: "Lark Hilliard",
     role: "President & CFO, Hilliard Architects",
   },
   {
-    quote: "It is with great pleasure to write a statement of recommendation for Ranjani and her team at R Mo Business Solution. They were able to support me in obtaining my 8(a) certification from the SBA. Their professionalism and patience made a very daunting process doable!",
+    quote: "It is with great pleasure to write a statement of recommendation for Ranjani and her team at RMO Global Diversity Solutions. They were able to support me in obtaining my 8(a) certification from the SBA. Their professionalism and patience made a very daunting process doable!",
     name: "Brian James",
     role: "Vice-President, James Consolidated",
   },
@@ -149,7 +149,7 @@ const OBJECTIVES = [
   },
   {
     ic: Ic.rocket,
-    title: "For R Mo Team",
+    title: "For the RMO Team",
     items: [
       "Invest in continuous learning and professional growth of our global team.",
       "Foster innovation and process excellence to better serve clients.",
@@ -172,7 +172,7 @@ function About() {
               <h3>Our Mission</h3>
             </div>
             <p>
-              R Mo equips diverse businesses with the certifications, strategies, and
+              RMO equips diverse businesses with the certifications, strategies, and
               visibility they need to succeed. We guide them in building social and economic
               impact, and connect them to government and corporate opportunities that drive growth.
             </p>
@@ -183,7 +183,7 @@ function About() {
               <h3>Our Vision</h3>
             </div>
             <p>
-              R Mo envisions being the trusted bridge between businesses and opportunities—empowering
+              RMO envisions being the trusted bridge between businesses and opportunities—empowering
               them with certifications, elevating their economic and social impact, and positioning
               them to thrive in government and corporate markets.
             </p>
