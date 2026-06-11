@@ -140,11 +140,6 @@ function Footer() {
       <div className="wrap">
         <div className="footer-grid">
           <div className="f-brand">
-            <div className="brand footer-brand">
-              <span className="brand-logo-wrap footer-brand-logo">
-                <img className="brand-logo" src="assets/brand/RMO_Logo-removebg-preview.png" alt="RMO Global Diversity Solutions" />
-              </span>
-            </div>
             <p className="f-about">
                Our vision is to be the catalyst for diversified businesses to successfully venture into the Government & Corporate Sectors
             </p>

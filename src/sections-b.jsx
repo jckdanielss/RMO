@@ -19,9 +19,8 @@ function Team() {
   return (
     <section className="team pad-y" id="team">
       <div className="wrap">
-        <div className="section-head center reveal">
-          <h2>A team that knows certification inside out</h2>
-          <p>Meet the leadership behind RMO Global Diversity Solutions.</p>
+        <div className="section-head center reveal" ps="5">
+          <h2>Meet Our Leadership Team</h2>
         </div>
         <div className="leaders reveal">
           {LEADERS.map((l, i) => (

@@ -241,7 +241,7 @@ const TEAM_GROUPS = [
     members: ["Priya Saravanan", "Maria Rama Iseman", "Princess Mendez", "Nikka Grajo", "Abegael Mariano", "Nisha Rawat"],
   },
   {
-    title: "Finance, Operations & Administration",
+    title: "Administration",
     description: "Financial, operational, and executive support roles ensuring RMO's delivery infrastructure runs precisely and reliably.",
     lead: "Rajesh",
     members: ["Rajesh", "Shylet Lomuntad", "Shenie Canama", "Lloura Morales", "Chidire Chukwudi", "Rachelle Sorronda", "Marla Balladores", "Ramnik Singh"],
@@ -306,11 +306,11 @@ function TeamMemberCard({ member, onOpen, isLead }) {
       aria-haspopup={member.hasBio ? "dialog" : undefined}
       aria-label={member.hasBio ? `Read ${member.name}'s bio` : undefined}
     >
-      {isLead && (
+      {/* {isLead && (
         <span className="team-lead-badge" aria-label="Department Lead">
           Department Lead
         </span>
-      )}
+      )} */}
       <Avatar member={member} />
       <div className="team-member-copy">
         <h3 className="team-member-name">{member.name}</h3>

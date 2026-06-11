@@ -351,7 +351,7 @@ const HERO_SLIDES = [
     alt: "Market ready business professionals",
     heading: "Become Market-Ready",
     sub: "Build confidence, sharpen your pitch, and stand out.",
-    btnLabel: "Learn More",
+    btnLabel: "Our mission",
     btnHref: "#about",
   },
   {
@@ -382,6 +382,7 @@ function Hero() {
   const [active, setActive] = React.useState(0);
   const [animKey, setAnimKey] = React.useState(0);
   const timerRef = React.useRef(null);
+  const touchStartX = React.useRef(null);
   const n = HERO_SLIDES.length;
 
   const resetTimer = React.useCallback(() => {
@@ -410,10 +411,22 @@ function Hero() {
     document.getElementById(href.slice(1))?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const onTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const onTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const delta = e.changedTouches[0].clientX - touchStartX.current;
+    touchStartX.current = null;
+    if (Math.abs(delta) < 40) return;
+    goTo(delta < 0 ? active + 1 : active - 1);
+  };
+
   return (
     <header className="hero hero-v2" id="top">
       {/* Slide backgrounds */}
-      <div className="hero-v2-track" aria-hidden="true">
+      <div className="hero-v2-track" aria-hidden="true" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
         {HERO_SLIDES.map((s, i) => (
           <div
             key={i}
@@ -437,13 +450,13 @@ function Hero() {
             >
               {HERO_SLIDES[active].btnLabel}
             </a>
-            <a
+            {/* <a
               href="#contact"
               className="hero-v2-btn hero-v2-btn-outline"
               onClick={(e) => go(e, "#contact")}
             >
               Contact Us
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
@@ -521,7 +534,10 @@ function Services() {
               
               <h3>{s.t}</h3>
               <p>{s.d}</p>
-              <span className="card-arrow">Learn more {Ic.arrow}</span>
+              <button className="btn" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
+                learn more
+              </button>
+              {/* <span className="card-arrow">Learn more {Ic.arrow}</span> */}
             </article>
           ))}
         </div>
