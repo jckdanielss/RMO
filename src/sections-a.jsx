@@ -538,7 +538,7 @@ function Services() {
               <h3>{s.t}</h3>
               <p>{s.d}</p>
               <button className="btn" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
-                learn more
+                Learn More
               </button>
               {/* <span className="card-arrow">Learn more {Ic.arrow}</span> */}
             </article>
