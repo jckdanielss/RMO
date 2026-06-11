@@ -208,18 +208,18 @@ const ABOUT_LINKS = [
 ];
 const PROFESSIONAL_SERVICES_LINKS = [
   { type: "group", label: "Professional Services" },
-  ["Diversity Certifications", "#services"],
-  ["Procurement Support", "#services"],
-  ["Consulting Agreement", "#services"],
-  ["Start-Up Guidance", "#services"],
-  ["Recertification & Renewals", "#services"],
-  ["Information Technology", "#services"],
+  ["Diversity Certifications", "services.html#professional-services"],
+  ["Procurement Support", "services.html#professional-services"],
+  ["Consulting Agreement", "services.html#professional-services"],
+  ["Recertification & Renewals", "services.html#professional-services"],
+  ["Information Technology", "services.html#professional-services"],
   { type: "group", label: "Business Growth" },
-  ["Market Ready Program (MRP)", "#"],
-  ["Speaker Series", "#"],
-  ["Impact Reports", "#"],
+  ["Market Ready Program (MRP)", "services.html#business-growth"],
+  ["Speaker Series", "services.html#business-growth"],
+  ["Impact Reports", "services.html#business-growth"],
+  ["Start-Up Guidance", "services.html#business-growth"],
   { type: "divider" },
-  ["Capability Statement", "#"],
+  ["Capability Statement", "services.html"],
 ];
 
 const SCRAPED_ROOT = "rmollc_scraped_data/rmollc_scrape/";
@@ -272,13 +272,16 @@ function Nav() {
     return <a key={lbl} href={href} onClick={(e) => go(e, href)}>{lbl}</a>;
   });
 
-  const NavDropdown = ({ id, label, links }) => (
+  const NavDropdown = ({ id, label, href, links }) => (
     <div
       className={"nav-dd" + (dropdown === id ? " open" : "")}
       onMouseEnter={() => setDropdown(id)}
       onMouseLeave={() => setDropdown(null)}
     >
-      <button className="nav-dd-trigger">{label} {Ic.chevDown}</button>
+      {href
+        ? <a href={href} className="nav-dd-trigger" onClick={(e) => go(e, href)}>{label} {Ic.chevDown}</a>
+        : <button className="nav-dd-trigger">{label} {Ic.chevDown}</button>
+      }
       <div className="nav-dd-menu">
         <div className="nav-dd-menu-inner">
           {renderNavDdItems(links)}
@@ -295,7 +298,7 @@ function Nav() {
           <div className="nav-links">
             <a href="index.html" onClick={(e) => go(e, "index.html")}>Home</a>
             <NavDropdown id="about" label="About Us" links={ABOUT_LINKS} />
-            <NavDropdown id="pro-services" label="Services" links={PROFESSIONAL_SERVICES_LINKS} />
+            <NavDropdown id="pro-services" label="Services" href="services.html" links={PROFESSIONAL_SERVICES_LINKS} />
             <a href="faq.html">FAQ</a>
             <a href="blog.html">Blog</a>
             <a href="calendar.html">Calendar</a>
@@ -321,7 +324,7 @@ function Nav() {
           ))}
         </div>
         <div className="mobile-dd-group">
-          <span className="mobile-dd-label">Services</span>
+          <a href="services.html" className="mobile-dd-label mobile-dd-label-link">Services</a>
           {PROFESSIONAL_SERVICES_LINKS.filter(item => Array.isArray(item)).map(([label, href]) => (
             <a key={label} href={href} className="mobile-dd-item" onClick={(e) => go(e, href)}>{label}</a>
           ))}
