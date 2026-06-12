@@ -5,7 +5,7 @@ const { useState: useStateB, useEffect: useEffectB, useRef: useRefB } = React;
 const LEADERS = [
   {
     name: "Ranjani Mohana",
-    role: "Chief Executive Officer (CEO) President",
+    role: "Certification Lady / CEO",
     image: "rmollc_har_extracted_images/rmollc_har_extracted_images/team_images/Ranjani-300-dpi-300x212-150x150-1.jpg",
   },
   {
@@ -20,7 +20,7 @@ function Team() {
     <section className="team pad-y" id="team">
       <div className="wrap">
         <div className="section-head center reveal" ps="5">
-          <h2>Meet Our Leadership Team</h2>
+          <h2>Leadership Team</h2>
         </div>
         <div className="leaders reveal">
           {LEADERS.map((l, i) => (
@@ -58,12 +58,12 @@ const TESTIMONIALS = [
     role: "Principal, Founder at Element Structural Engineers Inc",
   },
   {
-    quote: "It is with great pleasure to write a statement of recommendation for Ranjani and her team at RMO Global Diversity Solutions. They were able to support me in obtaining my 8(a) certification from the SBA. Their professionalism and patience made a very daunting process doable!",
+    quote: "It is with great pleasure to write a statement of recommendation for Ranjani and her team at R Mo Global Diversity Solutions. They were able to support me in obtaining my 8(a) certification from the SBA. Their professionalism and patience made a very daunting process doable!",
     name: "Lark Hilliard",
     role: "President & CFO, Hilliard Architects",
   },
   {
-    quote: "It is with great pleasure to write a statement of recommendation for Ranjani and her team at RMO Global Diversity Solutions. They were able to support me in obtaining my 8(a) certification from the SBA. Their professionalism and patience made a very daunting process doable!",
+    quote: "It is with great pleasure to write a statement of recommendation for Ranjani and her team at R Mo Global Diversity Solutions. They were able to support me in obtaining my 8(a) certification from the SBA. Their professionalism and patience made a very daunting process doable!",
     name: "Brian James",
     role: "Vice-President, James Consolidated",
   },
@@ -148,7 +148,7 @@ const OBJECTIVES = [
   },
   {
     ic: Ic.rocket,
-    title: "For the RMO Team",
+    title: "For the R Mo Team",
     items: [
       "Invest in continuous learning and professional growth of our global team.",
       "Foster innovation and process excellence to better serve clients.",
@@ -161,9 +161,6 @@ function About() {
   return (
     <section className="about pad-y" id="about">
       <div className="wrap">
-        <div className="about-intro reveal">
-          <p className="about-tag">&ldquo;Empowering businesses to certify, impact &amp; thrive.&rdquo;</p>
-        </div>
         <div className="mv-stack reveal">
           <div className="mv-card">
             <div className="mv-head">
@@ -171,7 +168,7 @@ function About() {
               <h3>Our Mission</h3>
             </div>
             <p>
-              RMO equips diverse businesses with the certifications, strategies, and
+              R Mo equips diverse businesses with the certifications, strategies, and
               visibility they need to succeed. We guide them in building social and economic
               impact, and connect them to government and corporate opportunities that drive growth.
             </p>
@@ -182,7 +179,7 @@ function About() {
               <h3>Our Vision</h3>
             </div>
             <p>
-              RMO envisions being the trusted bridge between businesses and opportunities—empowering
+              R Mo envisions being the trusted bridge between businesses and opportunities—empowering
               them with certifications, elevating their economic and social impact, and positioning
               them to thrive in government and corporate markets.
             </p>
@@ -191,6 +188,9 @@ function About() {
         <div className="section-head center reveal obj-section-head">
           <span className="eyebrow eyebrow-lg">Objectives</span>
           <h2>What We Strive to Achieve</h2>
+        </div>
+        <div className="about-intro reveal" style={{ marginTop: "clamp(20px,3vw,36px)", marginBottom: "clamp(20px,3vw,36px)" }}>
+          <p className="about-tag">&ldquo;Empowering businesses to certify, impact &amp; thrive.&rdquo;</p>
         </div>
         <div className="obj-grid reveal">
           {OBJECTIVES.map((o, i) => (
@@ -239,29 +239,7 @@ const CERTS = [
 ];
 
 function Certifications() {
-  return (
-    <section className="certs pad-y" id="certifications">
-      <div className="wrap">
-        {/* <div className="section-head center reveal">
-          <h2>Our certifications</h2>
-          <p>We hold — and help you obtain — the certifications that matter most to buyers.</p>
-        </div> */}
-        {/* <div className="reveal d1">
-          <LogoCarousel
-            items={CERTS}
-            className="certs-carousel"
-            speed={28}
-            renderItem={(cert) => (
-              <article className="logo-chip cert-chip" title={cert.name}>
-                <img src={cert.imageSrc} alt={cert.name} draggable="false" />
-                <span className="ct-name">{cert.name}</span>
-              </article>
-            )}
-          />
-        </div> */}
-      </div>
-    </section>
-  );
+  return null;
 }
 
 Object.assign(window, { Team, Testimonials, About, Certifications });

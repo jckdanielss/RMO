@@ -238,7 +238,7 @@ function Brand() {
   return (
     <a href="#top" className="brand">
       <span className="brand-logo-wrap">
-        <img className="brand-logo" src="assets/brand/RMO_Logo-removebg-preview.png" alt="RMO Global Diversity Solutions" />
+        <img className="brand-logo" src="assets/brand/RMO_Logo-removebg-preview.png" alt="R Mo Global Diversity Solutions" />
       </span>
     </a>
   );
@@ -296,7 +296,6 @@ function Nav() {
         <div className="wrap nav-inner">
           <Brand />
           <div className="nav-links">
-            <a href="index.html" onClick={(e) => go(e, "index.html")}>Home</a>
             <NavDropdown id="about" label="About Us" links={ABOUT_LINKS} />
             <NavDropdown id="pro-services" label="Services" href="services.html" links={PROFESSIONAL_SERVICES_LINKS} />
             <a href="faq.html">FAQ</a>
@@ -316,7 +315,6 @@ function Nav() {
       </nav>
 
       <div className={"mobile-menu" + (open ? " open" : "")}>
-        <a href="#top" onClick={(e) => go(e, "#top")}>Home</a>
         <div className="mobile-dd-group">
           <span className="mobile-dd-label">About Us</span>
           {ABOUT_LINKS.map(([label, href]) => (

@@ -62,7 +62,7 @@ const GROWTH_PROGRAMS = [
   },
 ];
 
-const WHY_RMO = [
+const WHY_R_MO = [
   {
     ic: Ic.badge,
     title: "Deep Certification Expertise",
@@ -153,19 +153,19 @@ function BusinessGrowth() {
   );
 }
 
-function WhyRMO() {
+function WhyRMo() {
   return (
     <section className="about pad-y" id="why-rmo">
       <div className="wrap">
         <div className="section-head center reveal">
-          <span className="eyebrow">Why Work With RMO</span>
+          <span className="eyebrow">Why Work With R Mo</span>
           <h2>What We Bring to Every Engagement</h2>
           <p>
             We've helped dozens of diverse businesses get certified, get ready, and get results.
           </p>
         </div>
         <div className="obj-grid reveal d1">
-          {WHY_RMO.map((item) => (
+          {WHY_R_MO.map((item) => (
             <div className="obj-card" key={item.title}>
               <div className="obj-head">
                 <span className="obj-ic">{item.ic}</span>
@@ -218,7 +218,7 @@ function ServicesPage() {
       <main className="services-page">
         <ProfessionalServices />
         <BusinessGrowth />
-        <WhyRMO />
+        <WhyRMo />
         <ContactCta />
       </main>
       {SiteFooter && <SiteFooter />}

@@ -37,25 +37,13 @@ function Contact() {
     <section className="contact pad-y" id="contact">
       <div className="wrap contact-grid">
         <div className="contact-info reveal">
-          <h2>Looking for collaboration?</h2>
+          <h2>Ready to get certified?</h2>
           <p className="lead">
-            Whether you're starting your certification journey or chasing your next contract,
-            we'd love to help. Send a note and our team will get back to you.
+            Join the diverse businesses we've helped earn certifications and win opportunities.
           </p>
-          <div className="contact-list">
-            <div className="row">
-              <span className="ci">{Ic.mail}</span>
-              <div><div className="lbl">Email</div><div className="val">info@rmollc.com</div></div>
-            </div>
-            <div className="row">
-              <span className="ci">{Ic.clock}</span>
-              <div><div className="lbl">Response time</div><div className="val">Within 1–2 business days</div></div>
-            </div>
-            <div className="row">
-              <span className="ci">{Ic.badge}</span>
-              <div><div className="lbl">Specialty</div><div className="val">Diversity certification &amp; procurement</div></div>
-            </div>
-          </div>
+          <a href="#contact" className="btn btn-primary" style={{ marginTop: "24px", display: "inline-flex", alignItems: "center", gap: "8px" }}>
+            Get Certified {Ic.arrow}
+          </a>
         </div>
 
         <div className="reveal d1">
@@ -160,13 +148,12 @@ function Footer() {
           </div>
           <div className="f-col">
             <h4>Useful Links</h4>
-            <a href="index.html" onClick={(e) => go(e, "top")}>Home</a>
             <a href="team.html" onClick={(e) => go(e, "team")}>Team</a>
             <a href="#clients" onClick={(e) => go(e, "clients")}>Clients</a>
           </div>
         </div>
         <div className="footer-bottom">
-          <span>© {new Date().getFullYear()} RMO Global Diversity Solutions. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} R Mo Global Diversity Solutions. All rights reserved.</span>
           <div className="socials">
             <a href="https://www.linkedin.com/company/r-mo-llc/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">{Ic.linkedin}</a>
             <a href="https://twitter.com/rmollc" target="_blank" rel="noopener noreferrer" aria-label="X">{Ic.x}</a>

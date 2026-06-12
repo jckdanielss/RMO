@@ -31,7 +31,7 @@ const TEAM_IMAGE_BY_NAME = {
 const TEAM_MEMBERS = [
   {
     name: "Ranjani Mohana",
-    role: "Chief Executive Officer (CEO) & President",
+    role: "Certification Lady / CEO",
     linkedin: "#",
     bio: [],
   },
@@ -103,7 +103,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Anjelica Espina",
-    role: "MRP Assistant",
+    role: "MRP Lead",
     linkedin: "#",
     bio: [],
   },
@@ -212,7 +212,7 @@ const ORG_CHART_TIERS = [
     label: "Leadership",
     type: "leadership",
     roles: [
-      { title: "Chief Executive Officer (CEO) & President" },
+      { title: "Certification Lady / CEO" },
       { title: "Advisor" },
     ],
   },
@@ -230,31 +230,26 @@ const ORG_CHART_TIERS = [
 const TEAM_GROUPS = [
   {
     title: "Leadership",
-    description: "The founding leaders guiding RMO's strategic direction, client relationships, and long-term organizational growth.",
     layout: "leadership",
     members: ["Ranjani Mohana", "Roshini Chandran"],
   },
   {
     title: "Certification",
-    description: "Specialists managing certification documentation, client coordination, and compliance milestones across all active programs.",
     lead: "Priya Saravanan",
     members: ["Priya Saravanan", "Maria Rama Iseman", "Princess Mendez", "Nikka Grajo", "Abegael Mariano", "Nisha Rawat"],
   },
   {
     title: "Administration",
-    description: "Financial, operational, and executive support roles ensuring RMO's delivery infrastructure runs precisely and reliably.",
     lead: "Rajesh",
-    members: ["Rajesh", "Shylet Lomuntad", "Shenie Canama", "Lloura Morales", "Chidire Chukwudi", "Rachelle Sorronda", "Marla Balladores", "Ramnik Singh"],
+    members: [ "Rachelle Sorronda","Rajesh", "Shylet Lomuntad", "Shenie Canama", "Lloura Morales", "Chidire Chukwudi", "Marla Balladores", "Ramnik Singh"],
   },
   {
     title: "Marketing",
-    description: "Outreach, market development, and program support that drive pipeline growth and connect clients to new opportunities.",
     lead: "Eunice Lorainne Acebuque",
     members: ["Eunice Lorainne Acebuque", "Anjelica Espina", "Carla Mahinay"],
   },
   {
     title: "Social Media & Design",
-    description: "Brand presence, content creation, and creative design that amplify RMO's voice across every channel.",
     members: ["Marian Salino", "Jullie Anne de la Cruz"],
   },
 ];
@@ -404,10 +399,10 @@ function TeamDirectory() {
         <div className="team-directory-overlay" />
         <div className="wrap team-directory-shell">
           <div className="team-directory-intro">
-            <span className="">RMO Global Diversity Solutions</span>
+            <span className="">R Mo Global Diversity Solutions</span>
             <h1>Our Team</h1>
             <p>
-              RMO is built on a foundation of specialized talent and cross-functional expertise.
+              R Mo is built on a foundation of specialized talent and cross-functional expertise.
               Our certified professionals in compliance, finance, operations, and marketing are
               united by one goal  helping your business navigate certifications, access new
               opportunities, and grow with confidence.

@@ -33,7 +33,6 @@ function App() {
         <Certifications />
         <Contact />
       </main>
-      <PreFooterCta />
       <Footer />
       <ToTop />
     </React.Fragment>
