@@ -202,8 +202,8 @@ function LogoCarousel({ items, renderItem, className, speed = 28 }) {
 
 /* ======================= NAV ======================= */
 const ABOUT_LINKS = [
-  ["Vision", "#about"],
-  ["History", "#"],
+  ["Vision", "index.html#about"],
+  ["History", "#history"],
   ["Team", "team.html"],
 ];
 const PROFESSIONAL_SERVICES_LINKS = [
@@ -244,6 +244,18 @@ function Nav() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (!hash) return;
+    const el = document.getElementById(hash.slice(1));
+    if (el) { el.scrollIntoView({ behavior: "smooth" }); return; }
+    // Element may not be rendered yet — retry after a short delay
+    const t = setTimeout(() => {
+      document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: "smooth" });
+    }, 300);
+    return () => clearTimeout(t);
   }, []);
 
   const go = (e, href) => {
