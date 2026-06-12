@@ -1,0 +1,130 @@
+/* global React, ReactDOM, Ic */
+const { useEffect: useEffectPS } = React;
+
+function useScrollRevealPS() {
+  useEffectPS(() => {
+    const els = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) { els.forEach(e => e.classList.add("in")); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    els.forEach(e => io.observe(e));
+    return () => io.disconnect();
+  }, []);
+}
+
+const CERT_LEVELS = ["Local", "County", "State", "National", "Federal", "Global"];
+
+const PRO_SERVICE_LIST = [
+  {
+    ic: Ic.badge,
+    title: "Diversity Certification",
+    desc: "We walk you through the full application eligibility check, required documents, submission. We cover every certifying body across all six levels.",
+    sub: CERT_LEVELS,
+    subLabel: "Levels we cover:",
+    subType: "tags",
+  },
+  {
+    ic: Ic.doc,
+    title: "Capability Statement",
+    desc: "We write and design the document procurement officers actually read built around your specific strengths, past performance, and differentiators.",
+    sub: null,
+    subType: null,
+  },
+  {
+    ic: Ic.target,
+    title: "RFP / Bid Package Assistance",
+    desc: "Most bids are lost in the writing, not the work. We build RFP responses that are accurate, tight, and ready to submit.",
+    sub: null,
+    subType: null,
+  },
+  {
+    ic: Ic.eye,
+    title: "Impact Reports",
+    desc: "We put numbers to what you do economic impact, social outcomes, community reach documented in a format that wins over corporate partners and government buyers.",
+    sub: null,
+    subType: null,
+  },
+  {
+    ic: Ic.rocket,
+    title: "Start-Up Guidance",
+    desc: "New to this? We help you get the structure right, choose the certifications worth pursuing first, and build a foundation that holds as you grow.",
+    sub: null,
+    subType: null,
+  },
+];
+
+function ProServicesPage() {
+  useScrollRevealPS();
+  const MainNav = window.Nav;
+  const SiteFooter = window.Footer;
+  const SiteToTop = window.ToTop;
+
+  return (
+    <React.Fragment>
+      {MainNav && <MainNav />}
+      <main>
+        <section className="svc-page-hero">
+          <div className="wrap">
+            <nav className="svc-breadcrumb reveal" aria-label="Breadcrumb">
+              <a href="services.html">Services</a>
+              <span className="svc-breadcrumb-sep" aria-hidden="true">/</span>
+              <span aria-current="page">Professional Services</span>
+            </nav>
+            <div className="reveal d1">
+              <h1>Professional Services</h1>
+              <p className="svc-page-lead">
+                Certifications, documentation, bid packages. The paperwork-heavy side of growing a diverse business. We handle it.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="pad-y">
+          <div className="wrap">
+            <div className="svc-card-grid reveal d1">
+              {PRO_SERVICE_LIST.map((s) => (
+                <div className="svc-detail-card" key={s.title}>
+                  <div className="svc-detail-icon">
+                    <span className="svc-icon-wrap">{s.ic}</span>
+                  </div>
+                  <div className="svc-detail-body">
+                    <h2>{s.title}</h2>
+                    <p>{s.desc}</p>
+                    {s.sub && s.subType === "tags" && (
+                      <div className="svc-sub-group">
+                        {s.subLabel && <span className="svc-sub-label">{s.subLabel}</span>}
+                        <div className="svc-sub-tags">
+                          {s.sub.map(tag => <span key={tag} className="svc-sub-tag">{tag}</span>)}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="prefooter-cta">
+          <div className="wrap">
+            <div className="prefooter-inner reveal">
+              <div className="prefooter-text">
+                <h2>Ready to get certified?</h2>
+                <p>Tell us about your business and we'll find the right path forward.</p>
+              </div>
+              <div className="prefooter-actions">
+                <a href="index.html#contact" className="btn btn-light">Contact Us {Ic.arrow}</a>
+                <a href="calendar.html" className="btn btn-light">Schedule a Call</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      {SiteFooter && <SiteFooter />}
+      {SiteToTop && <SiteToTop />}
+    </React.Fragment>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("pro-services-root")).render(<ProServicesPage />);

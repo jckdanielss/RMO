@@ -207,19 +207,8 @@ const ABOUT_LINKS = [
   ["Team", "team.html"],
 ];
 const PROFESSIONAL_SERVICES_LINKS = [
-  { type: "group", label: "Professional Services" },
-  ["Diversity Certifications", "services.html#professional-services"],
-  ["Procurement Support", "services.html#professional-services"],
-  ["Consulting Agreement", "services.html#professional-services"],
-  ["Recertification & Renewals", "services.html#professional-services"],
-  ["Information Technology", "services.html#professional-services"],
-  { type: "group", label: "Business Growth" },
-  ["Market Ready Program (MRP)", "services.html#business-growth"],
-  ["Speaker Series", "services.html#business-growth"],
-  ["Impact Reports", "services.html#business-growth"],
-  ["Start-Up Guidance", "services.html#business-growth"],
-  { type: "divider" },
-  ["Capability Statement", "services.html"],
+  ["Professional Services", "services/professional-services.html"],
+  ["Business Growth Programs", "services/business-growth-programs.html"],
 ];
 
 const SCRAPED_ROOT = "rmollc_scraped_data/rmollc_scrape/";
@@ -236,7 +225,7 @@ const CLIENTS = [
 
 function Brand() {
   return (
-    <a href="#top" className="brand">
+    <a href="index.html" className="brand">
       <span className="brand-logo-wrap">
         <img className="brand-logo" src="assets/brand/RMO_Logo-removebg-preview.png" alt="R Mo Global Diversity Solutions" />
       </span>
@@ -248,6 +237,7 @@ function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [dropdown, setDropdown] = useState(null);
+  const [mobileServOpen, setMobileServOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -322,9 +312,16 @@ function Nav() {
           ))}
         </div>
         <div className="mobile-dd-group">
-          <a href="services.html" className="mobile-dd-label mobile-dd-label-link">Services</a>
-          {PROFESSIONAL_SERVICES_LINKS.filter(item => Array.isArray(item)).map(([label, href]) => (
-            <a key={label} href={href} className="mobile-dd-item" onClick={(e) => go(e, href)}>{label}</a>
+          <div className="mobile-acc-row">
+            <a href="services.html" className="mobile-dd-label mobile-dd-label-link">Services</a>
+            <button
+              className={"mobile-acc-btn" + (mobileServOpen ? " open" : "")}
+              aria-label="Toggle services sub-menu"
+              onClick={() => setMobileServOpen(o => !o)}
+            >{Ic.chevDown}</button>
+          </div>
+          {mobileServOpen && PROFESSIONAL_SERVICES_LINKS.map(([label, href]) => (
+            <a key={label} href={href} className="mobile-dd-item">{label}</a>
           ))}
         </div>
         <a href="#">FAQ</a>
@@ -425,6 +422,7 @@ function Hero() {
   };
 
   return (
+    <React.Fragment>
     <header className="hero hero-v2" id="top">
       {/* Slide backgrounds */}
       <div className="hero-v2-track" aria-hidden="true" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
@@ -484,22 +482,22 @@ function Hero() {
         ))}
       </div>
 
-      {/* Certification logo strip */}
-      <div className="hero-cert-strip">
-        <div className="hero-cert-strip-fade hero-cert-strip-fade-l" aria-hidden="true" />
-        <div className="hero-cert-strip-fade hero-cert-strip-fade-r" aria-hidden="true" />
-        <LogoCarousel
-          items={CERT_LOGOS}
-          className="hero-cert-carousel"
-          speed={40}
-          renderItem={(logo) => (
-            <div className="hero-cert-logo-chip">
-              <img src={logo.src} alt={logo.name} draggable="false" />
-            </div>
-          )}
-        />
-      </div>
     </header>
+    <div className="hero-cert-strip">
+      <div className="hero-cert-strip-fade hero-cert-strip-fade-l" aria-hidden="true" />
+      <div className="hero-cert-strip-fade hero-cert-strip-fade-r" aria-hidden="true" />
+      <LogoCarousel
+        items={CERT_LOGOS}
+        className="hero-cert-carousel"
+        speed={40}
+        renderItem={(logo) => (
+          <div className="hero-cert-logo-chip">
+            <img src={logo.src} alt={logo.name} draggable="false" />
+          </div>
+        )}
+      />
+    </div>
+    </React.Fragment>
   );
 }
 

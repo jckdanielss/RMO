@@ -5,7 +5,7 @@ const { useState: useStateB, useEffect: useEffectB, useRef: useRefB } = React;
 const LEADERS = [
   {
     name: "Ranjani Mohana",
-    role: "Certification Lady / CEO",
+    role: "The Certification Lady / CEO",
     image: "rmollc_har_extracted_images/rmollc_har_extracted_images/team_images/Ranjani-300-dpi-300x212-150x150-1.jpg",
   },
   {

@@ -31,7 +31,7 @@ const TEAM_IMAGE_BY_NAME = {
 const TEAM_MEMBERS = [
   {
     name: "Ranjani Mohana",
-    role: "Certification Lady / CEO",
+    role: "The Certification Lady / CEO",
     linkedin: "#",
     bio: [],
   },
@@ -212,7 +212,7 @@ const ORG_CHART_TIERS = [
     label: "Leadership",
     type: "leadership",
     roles: [
-      { title: "Certification Lady / CEO" },
+      { title: "The Certification Lady / CEO" },
       { title: "Advisor" },
     ],
   },
