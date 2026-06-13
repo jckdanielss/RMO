@@ -1,4 +1,4 @@
-/* global React, ReactDOM */
+/* global React, ReactDOM, Nav */
 
 const { useEffect, useState } = React;
 
@@ -390,11 +390,9 @@ function TeamDirectory() {
     };
   }, [selectedMember]);
 
-  const MainNav = window.Nav;
-
   return (
     <div className="team-directory-page">
-      {MainNav && <MainNav />}
+      <Nav />
       <header className="team-directory-hero">
         <div className="team-directory-overlay" />
         <div className="wrap team-directory-shell">

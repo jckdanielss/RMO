@@ -246,18 +246,6 @@ function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    const hash = window.location.hash;
-    if (!hash) return;
-    const el = document.getElementById(hash.slice(1));
-    if (el) { el.scrollIntoView({ behavior: "smooth" }); return; }
-    // Element may not be rendered yet — retry after a short delay
-    const t = setTimeout(() => {
-      document.getElementById(hash.slice(1))?.scrollIntoView({ behavior: "smooth" });
-    }, 300);
-    return () => clearTimeout(t);
-  }, []);
-
   const go = (e, href) => {
     if (!href || href === "#") return;
     if (!href.startsWith("#")) { setOpen(false); setDropdown(null); return; }
@@ -303,7 +291,6 @@ function Nav() {
             <a href="faq.html">FAQ</a>
             <a href="blog.html">Blog</a>
             <a href="calendar.html">Calendar</a>
-            <a href="#contact" onClick={(e) => go(e, "#contact")}>Contact Us</a>
           </div>
           <div className="nav-cta">
             <a href="#contact" className="btn btn-primary" onClick={(e) => go(e, "#contact")}>

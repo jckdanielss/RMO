@@ -1,4 +1,4 @@
-/* global React, ReactDOM, Ic */
+/* global React, ReactDOM, Ic, Nav, Footer, ToTop, PreFooterCta */
 const { useEffect: useEffectBG } = React;
 
 function useScrollRevealBG() {
@@ -45,13 +45,10 @@ const GROWTH_PROGRAM_LIST = [
 
 function BizGrowthPage() {
   useScrollRevealBG();
-  const MainNav = window.Nav;
-  const SiteFooter = window.Footer;
-  const SiteToTop = window.ToTop;
 
   return (
     <React.Fragment>
-      {MainNav && <MainNav />}
+      <Nav />
       <main>
         <section className="svc-page-hero">
           <div className="wrap">
@@ -97,24 +94,10 @@ function BizGrowthPage() {
             </div>
           </div>
         </section>
-
-        <section className="prefooter-cta">
-          <div className="wrap">
-            <div className="prefooter-inner reveal">
-              <div className="prefooter-text">
-                <h2>Ready to grow?</h2>
-                <p>Join the businesses we've helped turn certification into real opportunity.</p>
-              </div>
-              <div className="prefooter-actions">
-                <a href="index.html#contact" className="btn btn-light">Contact Us {Ic.arrow}</a>
-                <a href="calendar.html" className="btn btn-light">Schedule a Call</a>
-              </div>
-            </div>
-          </div>
-        </section>
       </main>
-      {SiteFooter && <SiteFooter />}
-      {SiteToTop && <SiteToTop />}
+      <PreFooterCta />
+      <Footer />
+      <ToTop />
     </React.Fragment>
   );
 }

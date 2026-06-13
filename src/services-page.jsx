@@ -1,4 +1,4 @@
-/* global React, ReactDOM, Ic */
+/* global React, ReactDOM, Ic, Nav, Footer, ToTop */
 const { useEffect: useEffectSvc } = React;
 
 function useScrollRevealSvc() {
@@ -68,18 +68,15 @@ function ServicesLanding() {
 
 function ServicesPage() {
   useScrollRevealSvc();
-  const MainNav = window.Nav;
-  const SiteFooter = window.Footer;
-  const SiteToTop = window.ToTop;
 
   return (
     <React.Fragment>
-      {MainNav && <MainNav />}
+      <Nav />
       <main className="services-page">
         <ServicesLanding />
       </main>
-      {SiteFooter && <SiteFooter />}
-      {SiteToTop && <SiteToTop />}
+      <Footer />
+      <ToTop />
     </React.Fragment>
   );
 }

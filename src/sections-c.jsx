@@ -42,7 +42,7 @@ function Contact() {
             Join the diverse businesses we've helped earn certifications and win opportunities.
           </p>
           <a href="#contact" className="btn btn-primary" style={{ marginTop: "24px", display: "inline-flex", alignItems: "center", gap: "8px" }}>
-            Get Certified {Ic.arrow}
+            Contact Us {Ic.arrow}
           </a>
         </div>
 
@@ -89,7 +89,7 @@ function Contact() {
                 <div className="form-msg bad">{errors.captcha}</div>
               )}
               <div className="form-actions">
-                <button type="submit" className="btn btn-primary">Send email {Ic.arrow}</button>
+                <button type="submit" className="btn btn-primary">Send message {Ic.arrow}</button>
                 <span className="form-disclaimer">We never share your details.</span>
               </div>
             </form>

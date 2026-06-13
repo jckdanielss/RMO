@@ -161,6 +161,9 @@ function About() {
   return (
     <section className="about pad-y" id="about">
       <div className="wrap">
+        <div className="about-intro reveal" style={{ marginBottom: "clamp(20px,3vw,36px)" }}>
+          <p className="about-tag">&ldquo;Empowering businesses to certify, impact &amp; thrive.&rdquo;</p>
+        </div>
         <div className="mv-stack reveal">
           <div className="mv-card">
             <div className="mv-head">
@@ -188,9 +191,6 @@ function About() {
         <div className="section-head center reveal obj-section-head">
           <span className="eyebrow eyebrow-lg">Objectives</span>
           <h2>What We Strive to Achieve</h2>
-        </div>
-        <div className="about-intro reveal" style={{ marginTop: "clamp(20px,3vw,36px)", marginBottom: "clamp(20px,3vw,36px)" }}>
-          <p className="about-tag">&ldquo;Empowering businesses to certify, impact &amp; thrive.&rdquo;</p>
         </div>
         <div className="obj-grid reveal">
           {OBJECTIVES.map((o, i) => (
