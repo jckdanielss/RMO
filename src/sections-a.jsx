@@ -211,6 +211,18 @@ const PROFESSIONAL_SERVICES_LINKS = [
   ["Business Growth Programs", "services/business-growth-programs.html"],
 ];
 
+function contactHrefForCurrentPage() {
+  const page = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
+  return page === "index.html" || page === "contact-us.html" ? "#contact" : "contact-us.html#contact";
+}
+
+function goToContact(e) {
+  const href = contactHrefForCurrentPage();
+  if (href !== "#contact") return;
+  e.preventDefault();
+  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+}
+
 const SCRAPED_ROOT = "rmollc_scraped_data/rmollc_scrape/";
 const CLIENTS = [
   { name: "Meta", alt: "Meta logo", imageSrc: SCRAPED_ROOT + "images/clients/meta-1-1.png" },
@@ -248,6 +260,11 @@ function Nav() {
 
   const go = (e, href) => {
     if (!href || href === "#") return;
+    if (href === "#contact") {
+      setOpen(false);
+      setDropdown(null);
+      return goToContact(e);
+    }
     if (!href.startsWith("#")) { setOpen(false); setDropdown(null); return; }
     e.preventDefault();
     setOpen(false);
@@ -293,7 +310,7 @@ function Nav() {
             <a href="calendar.html">Calendar</a>
           </div>
           <div className="nav-cta">
-            <a href="#contact" className="btn btn-primary" onClick={(e) => go(e, "#contact")}>
+            <a href={contactHrefForCurrentPage()} className="btn btn-primary" onClick={(e) => go(e, "#contact")}>
               GET IN TOUCH
             </a>
             <button className="nav-toggle" aria-label="Menu" onClick={() => setOpen(o => !o)}>
@@ -326,8 +343,8 @@ function Nav() {
         <a href="#">FAQ</a>
         <a href="#">Blog</a>
         <a href="#">Calendar</a>
-        <a href="#contact" onClick={(e) => go(e, "#contact")}>Contact Us</a>
-        <a href="#contact" className="btn btn-primary" onClick={(e) => go(e, "#contact")}>GET IN TOUCH</a>
+        <a href={contactHrefForCurrentPage()} onClick={(e) => go(e, "#contact")}>Contact Us</a>
+        <a href={contactHrefForCurrentPage()} className="btn btn-primary" onClick={(e) => go(e, "#contact")}>GET IN TOUCH</a>
       </div>
     </React.Fragment>
   );
