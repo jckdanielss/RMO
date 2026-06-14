@@ -167,19 +167,17 @@ function Footer() {
             <div className="f-line"><span className="lab">Phone</span><a href="tel:9252550177" className="footer-muted-text">925 255 0177</a></div>
             <div className="f-line"><span className="lab">Email</span><a href="mailto:info@rmollc.com" className="footer-muted-text">info@rmollc.com</a></div>
             <a href={footerContactHref()} onClick={goToFooterContact}>Send a message</a>
-            <a href="#about" onClick={(e) => go(e, "about")}>About us</a>
           </div>
           <div className="f-col">
             <h4>Services</h4>
-            <a href="#services" onClick={(e) => go(e, "services")}>Diversity Certification</a>
-            <a href="#services" onClick={(e) => go(e, "services")}>Procurement</a>
-            <a href="#services" onClick={(e) => go(e, "services")}>IT Services</a>
-            <a href="#services" onClick={(e) => go(e, "services")}>Start-Up Guidance</a>
+            <a href="services/professional-services.html">Professional Services</a>
+            <a href="services/business-growth-programs.html">Business Growth Programs</a>
+
           </div>
           <div className="f-col">
             <h4>Useful Links</h4>
-            <a href="team.html" onClick={(e) => go(e, "team")}>Team</a>
-            <a href="#clients" onClick={(e) => go(e, "clients")}>Clients</a>
+            <a href="team.html">Team</a>
+            <a href="blog.html">Clients</a>
           </div>
         </div>
         <div className="footer-bottom">
