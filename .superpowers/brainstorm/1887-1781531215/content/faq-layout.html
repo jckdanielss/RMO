@@ -1,0 +1,113 @@
+<h2>FAQ Page Layout</h2>
+<p class="subtitle">Which overall layout approach fits best for RMO's FAQs page?</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#f6faf7;padding:18px;font-family:sans-serif;">
+      <div style="background:#1a9c3e;color:#fff;padding:6px 12px;border-radius:6px;font-size:11px;font-weight:700;letter-spacing:1px;display:inline-block;margin-bottom:10px;">FAQ</div>
+      <div style="font-size:18px;font-weight:800;color:#14201a;margin-bottom:12px;">Frequently Asked Questions</div>
+      <!-- Category tabs -->
+      <div style="display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap;">
+        <span style="background:#1a9c3e;color:#fff;padding:4px 10px;border-radius:20px;font-size:10px;font-weight:600;">All</span>
+        <span style="background:#e5ece7;color:#3c4a42;padding:4px 10px;border-radius:20px;font-size:10px;">Services</span>
+        <span style="background:#e5ece7;color:#3c4a42;padding:4px 10px;border-radius:20px;font-size:10px;">Pricing</span>
+        <span style="background:#e5ece7;color:#3c4a42;padding:4px 10px;border-radius:20px;font-size:10px;">Process</span>
+      </div>
+      <!-- Accordion items -->
+      <div style="border:1px solid #e5ece7;border-radius:10px;overflow:hidden;">
+        <div style="padding:10px 14px;background:#fff;border-bottom:1px solid #e5ece7;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:12px;font-weight:600;color:#14201a;">What services does RMO offer?</span>
+          <span style="color:#1a9c3e;font-size:14px;font-weight:700;">+</span>
+        </div>
+        <div style="padding:10px 14px;background:#eef7f0;border-bottom:1px solid #e5ece7;">
+          <span style="font-size:11px;color:#3c4a42;">RMO provides diversity consulting, training, compliance services...</span>
+        </div>
+        <div style="padding:10px 14px;background:#fff;border-bottom:1px solid #e5ece7;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:12px;font-weight:600;color:#14201a;">How long does the process take?</span>
+          <span style="color:#1a9c3e;font-size:14px;">+</span>
+        </div>
+        <div style="padding:10px 14px;background:#fff;display:flex;justify-content:space-between;align-items:center;">
+          <span style="font-size:12px;font-weight:600;color:#14201a;">Do you work with small businesses?</span>
+          <span style="color:#1a9c3e;font-size:14px;">+</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Categorized Accordion</h3>
+      <p>Filter tabs across the top, click-to-expand accordion answers. Familiar and scannable.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#f6faf7;padding:18px;font-family:sans-serif;">
+      <div style="display:flex;gap:12px;min-height:120px;">
+        <!-- Sidebar -->
+        <div style="width:90px;flex-shrink:0;">
+          <div style="font-size:10px;font-weight:700;color:#6c7a72;letter-spacing:1px;margin-bottom:8px;">TOPICS</div>
+          <div style="background:#eef7f0;border-left:3px solid #1a9c3e;padding:5px 8px;font-size:10px;font-weight:600;color:#1a9c3e;margin-bottom:4px;border-radius:0 4px 4px 0;">General</div>
+          <div style="padding:5px 8px;font-size:10px;color:#6c7a72;margin-bottom:4px;">Services</div>
+          <div style="padding:5px 8px;font-size:10px;color:#6c7a72;margin-bottom:4px;">Pricing</div>
+          <div style="padding:5px 8px;font-size:10px;color:#6c7a72;margin-bottom:4px;">Process</div>
+        </div>
+        <!-- Main content -->
+        <div style="flex:1;">
+          <div style="font-size:13px;font-weight:800;color:#14201a;margin-bottom:8px;">General</div>
+          <div style="border:1px solid #e5ece7;border-radius:8px;overflow:hidden;">
+            <div style="padding:8px 12px;background:#fff;border-bottom:1px solid #e5ece7;display:flex;justify-content:space-between;">
+              <span style="font-size:11px;font-weight:600;color:#14201a;">What does RMO stand for?</span>
+              <span style="color:#1a9c3e;">+</span>
+            </div>
+            <div style="padding:8px 12px;background:#eef7f0;border-bottom:1px solid #e5ece7;">
+              <span style="font-size:10px;color:#3c4a42;">RMO stands for Representing Minority Owned businesses...</span>
+            </div>
+            <div style="padding:8px 12px;background:#fff;display:flex;justify-content:space-between;">
+              <span style="font-size:11px;font-weight:600;color:#14201a;">Are you certified?</span>
+              <span style="color:#1a9c3e;">+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Sidebar Navigation</h3>
+      <p>Left sidebar with topic categories, accordion answers on the right. Good for many questions.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#f6faf7;padding:18px;font-family:sans-serif;">
+      <div style="font-size:18px;font-weight:800;color:#14201a;margin-bottom:4px;text-align:center;">Got Questions?</div>
+      <div style="font-size:11px;color:#6c7a72;text-align:center;margin-bottom:12px;">We have answers.</div>
+      <!-- Card grid of topics -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+        <div style="background:#fff;border:1px solid #e5ece7;border-radius:8px;padding:10px;text-align:center;">
+          <div style="font-size:18px;margin-bottom:4px;">🏢</div>
+          <div style="font-size:11px;font-weight:700;color:#14201a;">Services</div>
+          <div style="font-size:10px;color:#6c7a72;">4 questions</div>
+        </div>
+        <div style="background:#fff;border:1px solid #e5ece7;border-radius:8px;padding:10px;text-align:center;">
+          <div style="font-size:18px;margin-bottom:4px;">💰</div>
+          <div style="font-size:11px;font-weight:700;color:#14201a;">Pricing</div>
+          <div style="font-size:10px;color:#6c7a72;">3 questions</div>
+        </div>
+        <div style="background:#fff;border:1px solid #e5ece7;border-radius:8px;padding:10px;text-align:center;">
+          <div style="font-size:18px;margin-bottom:4px;">⚙️</div>
+          <div style="font-size:11px;font-weight:700;color:#14201a;">Process</div>
+          <div style="font-size:10px;color:#6c7a72;">5 questions</div>
+        </div>
+        <div style="background:#fff;border:1px solid #e5ece7;border-radius:8px;padding:10px;text-align:center;">
+          <div style="font-size:18px;margin-bottom:4px;">📋</div>
+          <div style="font-size:11px;font-weight:700;color:#14201a;">General</div>
+          <div style="font-size:10px;color:#6c7a72;">6 questions</div>
+        </div>
+      </div>
+      <div style="font-size:10px;color:#6c7a72;text-align:center;">Click a topic → see its questions</div>
+    </div>
+    <div class="card-body">
+      <h3>C — Topic Cards First</h3>
+      <p>Visual category cards as entry point (like the blog), then drill into accordion answers per topic.</p>
+    </div>
+  </div>
+
+</div>
