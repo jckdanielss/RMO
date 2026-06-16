@@ -7,8 +7,8 @@ const FAQ_DATA = [
     label: "General",
     items: [
       {
-        q: "What is RMO Global Diversity Solutions?",
-        a: "RMO Global Diversity Solutions is a certified minority and women-owned consulting firm. We help organizations build inclusive supply chains, meet diversity compliance requirements, and connect with certified diverse suppliers.",
+        q: "What is R Mo Global Diversity Solutions?",
+        a: "R Mo Global Diversity Solutions is a certified minority and women-owned consulting firm. We help organizations build inclusive supply chains, meet diversity compliance requirements, and connect with certified diverse suppliers.",
       },
       {
         q: "Who do you work with?",
@@ -19,7 +19,7 @@ const FAQ_DATA = [
         a: "Our primary focus is domestic, but we have supported organizations with international operations that need to align their U.S. supplier diversity goals with broader global sourcing strategies.",
       },
       {
-        q: "How do I get started with RMO?",
+        q: "How do I get started with R Mo?",
         a: "Fill out the contact form on our website or reach out directly by email. We'll schedule an initial call to understand your goals and outline how we can help.",
       },
     ],
@@ -29,8 +29,8 @@ const FAQ_DATA = [
     label: "Certifications",
     items: [
       {
-        q: "What certifications does RMO hold?",
-        a: "RMO is certified as a Women-Owned Small Business (WOSB), a Minority Business Enterprise (MBE), and holds additional state and federal certifications that qualify us to support government and corporate supplier diversity initiatives.",
+        q: "What certifications does R Mo hold?",
+        a: "R Mo is certified as a Women-Owned Small Business (WOSB), a Minority Business Enterprise (MBE), and holds additional state and federal certifications that qualify us to support government and corporate supplier diversity initiatives.",
       },
       {
         q: "What does it mean to be WOSB certified?",
@@ -38,7 +38,7 @@ const FAQ_DATA = [
       },
       {
         q: "How do your certifications benefit my organization?",
-        a: "Partnering with a certified diverse supplier like RMO helps your organization meet supplier diversity spend goals, satisfy contract compliance requirements, and demonstrate commitment to equitable procurement practices.",
+        a: "Partnering with a certified diverse supplier like R Mo helps your organization meet supplier diversity spend goals, satisfy contract compliance requirements, and demonstrate commitment to equitable procurement practices.",
       },
     ],
   },
