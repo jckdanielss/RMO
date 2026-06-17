@@ -138,7 +138,7 @@ const CATEGORIES = [
     id: "new_clients",
     label: "New Clients",
     data: NEW_CLIENTS_DATA,
-    image: null,
+    image: "blogs/new_clients_white_background.jpeg",
     accent: "#1a9c3e",
     bg: "linear-gradient(150deg,#0c4f20 0%,#1a9c3e 100%)",
     icon: (
@@ -157,7 +157,7 @@ const CATEGORIES = [
     id: "renewal_clients",
     label: "Renewal Clients",
     data: [],
-    image: null,
+    image: "blogs/renewal_clients_on_white_background.jpeg",
     accent: "#2563eb",
     bg: "linear-gradient(150deg,#1e3a8a 0%,#3b82f6 100%)",
     icon: (
@@ -173,7 +173,7 @@ const CATEGORIES = [
     id: "networking_events",
     label: "Networking Events",
     data: [],
-    image: null,
+    image: "blogs/networking_events.jpeg",
     accent: "#7c3aed",
     bg: "linear-gradient(150deg,#4c1d95 0%,#8b5cf6 100%)",
     icon: (
@@ -194,7 +194,7 @@ const CATEGORIES = [
     id: "motivational_quotes",
     label: "Motivational Quotes",
     data: [],
-    image: null,
+    image: "blogs/motivational_quotes.jpeg",
     accent: "#b45309",
     bg: "linear-gradient(150deg,#78350f 0%,#d97706 100%)",
     icon: (
