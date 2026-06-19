@@ -16,7 +16,6 @@ const TEAM_IMAGE_BY_NAME = {
   "Eunice Lorainne Acebuque": `${TEAM_ASSET_ROOT}/team_images/unnamed-12.jpg`,
   "Anjelica Espina": `${TEAM_ASSET_ROOT}/other_images/Photo-Anjelica-Espina-1-e1706703331948.png`,
   "Marla Balladores": `${TEAM_ASSET_ROOT}/team_images/Balladores-Marla-1-2048x1991.jpg`,
-  "Princess Mendez": `${TEAM_ASSET_ROOT}/team_images/121c35f1-5a05-4c08-9895-39c673b9138c.jpg`,
   "Shylet Lomuntad": `${TEAM_ASSET_ROOT}/team_images/49dd6e32-9993-4a26-be02-fbe29a50ffa6.jpg`,
   "Nikka Grajo": `${TEAM_ASSET_ROOT}/team_images/Picture2766.jpg`,
   "Abegael Mariano": `${TEAM_ASSET_ROOT}/team_images/unnamed4.png`,
@@ -117,12 +116,6 @@ const TEAM_MEMBERS = [
       "And when I'm not donning my professional cape, you'll catch me globe-trotting, soaking up the wonders of this world. But let me spill the real tea — my heart belongs to my ride-or-die crew, my friends, and my family.",
       "They're not just important; they're my world. When they're in the picture, I'm convinced that everything, yes, everything, is possible.",
     ],
-  },
-  {
-    name: "Princess Mendez",
-    role: "Certification Assistant",
-    linkedin: "#",
-    bio: [],
   },
   {
     name: "Shylet Lomuntad",
@@ -236,7 +229,7 @@ const TEAM_GROUPS = [
   {
     title: "Certification",
     lead: "Priya Saravanan",
-    members: ["Priya Saravanan", "Maria Rama Iseman", "Princess Mendez", "Nikka Grajo", "Abegael Mariano", "Nisha Rawat"],
+    members: ["Priya Saravanan", "Maria Rama Iseman", "Nikka Grajo", "Abegael Mariano", "Nisha Rawat"],
   },
   {
     title: "Administration",
