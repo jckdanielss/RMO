@@ -21,6 +21,8 @@ const TEAM_IMAGE_BY_NAME = {
   "Abegael Mariano": `${TEAM_ASSET_ROOT}/team_images/unnamed4.png`,
   "Chidire Chukwudi": `${TEAM_ASSET_ROOT}/other_images/rmo3.jpg`,
   "Nisha Rawat": `${TEAM_ASSET_ROOT}/team_images/unnamed-2-1.png`,
+  "Febie Jean Cañetan": `${TEAM_ASSET_ROOT}/team_images/Febie.jpeg`,
+  // "Ioena Gabrielle Dayo": `${TEAM_ASSET_ROOT}/team_images/unnamed-2-1.png`,
   "Carla Mahinay": `${TEAM_ASSET_ROOT}/team_images/Picture1.png`,
   "Rachelle Sorronda": `${TEAM_ASSET_ROOT}/team_images/Picture1.jpg`,
   "Jullie Anne de la Cruz": `${TEAM_ASSET_ROOT}/team_images/d2d64c64-3821-4074-9f39-db308619a5b7.jpg`,
@@ -165,6 +167,18 @@ const TEAM_MEMBERS = [
     ],
   },
   {
+    name: "Febie Jean Cañetan",
+    role: "Certification Assistant",
+    linkedin: "#",
+    bio: [],
+  },
+  {
+    name: "Ioena Gabrielle Dayo",
+    role: "Certification Assistant",
+    linkedin: "#",
+    bio: [],
+  },
+  {
     name: "Carla Mahinay",
     role: "Prospect Assistant",
     linkedin: "#",
@@ -229,7 +243,7 @@ const TEAM_GROUPS = [
   {
     title: "Certification",
     lead: "Priya Saravanan",
-    members: ["Priya Saravanan", "Maria Rama Iseman", "Nikka Grajo", "Abegael Mariano", "Nisha Rawat"],
+    members: ["Priya Saravanan", "Maria Rama Iseman", "Nikka Grajo", "Abegael Mariano", "Nisha Rawat","Febie Jean Cañetan","Ioena Gabrielle Dayo"],
   },
   {
     title: "Administration",

@@ -361,7 +361,7 @@ const HERO_SLIDES = [
     btnHref: "#services",
   },
   {
-    img: "https://i.postimg.cc/65j4nkHc/MARKETREADYIMG.png",
+    img: "carousel/market_ready_program.jpg",
     alt: "Market ready business professionals",
     heading: "Become Market-Ready",
     sub: "Build confidence, sharpen your pitch, and stand out.",
@@ -373,6 +373,22 @@ const HERO_SLIDES = [
     alt: "Community impact and empowerment",
     heading: "Driving Impact",
     sub: "Empowering businesses, strengthening communities.",
+    btnLabel: "Get Started",
+    btnHref: "#contact",
+  },
+  {
+    img: "carousel/startup_guidance.jpg",
+    alt: "Startup Guidance",
+    heading: "Startup Guidance",
+    sub: "Guiding you through the journey from idea to execution.",
+    btnLabel: "Get Started",
+    btnHref: "#contact",
+  },
+  {
+    img: "carousel/rfd_bid_package.jpg",
+    alt: "RFD Bid Package",
+    heading: "RFD Bid Package",
+    sub: "Comprehensive support for your RFD bid submissions.",
     btnLabel: "Get Started",
     btnHref: "#contact",
   },
@@ -533,6 +549,16 @@ const SERVICES = [
     ic: Ic.target,
     t: "Driving Impact",
     d: "Beyond certification and preparation, we create lasting social and economic impact. By empowering small and diverse businesses, strengthening supplier diversity, and fostering inclusive growth, we help build stronger communities and supply chains. The result: more opportunities, greater visibility, and a measurable difference in the marketplace.",
+  },
+  {
+    ic: Ic.target,
+    t: "Startup Guidance",
+    d: "Guiding you through the journey from idea to execution. Our startup guidance services provide mentorship, resources, and strategic advice to help you navigate the challenges of starting and growing your business. We focus on building a strong foundation for long-term success.",
+  },
+  {
+    ic: Ic.target,
+    t: "RFD Bid Package",
+    d: "Comprehensive support for your RFD bid submissions. We assist you in preparing and submitting competitive bids for RFD opportunities, ensuring that your proposals are well-crafted, compliant, and compelling. Our goal is to maximize your chances of success in securing valuable contracts.",
   },
 ];
 
