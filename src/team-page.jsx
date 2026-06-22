@@ -272,6 +272,17 @@ const LINKEDIN_ICON = (
 function OrgChart() {
   return (
     <section className="org-chart-section">
+      <div className="org-chart-section-head">
+        <span className="eyebrow">Structure</span>
+        <h2>Organizational Chart</h2>
+      </div>
+      <div className="org-chart-wrap org-chart-image-wrap">
+        <img
+          src="assets/team/Organizational_Chart_1.png"
+          alt="R Mo Global Diversity Solutions Organizational Chart"
+          className="org-chart-image"
+        />
+      </div>
     </section>
   );
 }
