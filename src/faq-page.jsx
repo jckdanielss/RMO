@@ -64,6 +64,40 @@ const FAQ_DATA = [
       },
     ],
   },
+  {
+    id: "market-ready",
+    label: "Market Ready Program",
+    items: [
+      {
+        q: "What is the Market Ready Program?",
+        a: "The Market Ready Program is a structured readiness initiative designed to help diverse suppliers position themselves competitively in corporate and government supply chains. It covers business assessment, capability development, and procurement matchmaking.",
+      },
+      {
+        q: "Who is the Market Ready Program for?",
+        a: "The program is designed for small and diverse businesses — including MBE, WBE, WOSB, and SDVOB certified firms — that want to break into new markets, respond to larger RFPs, or strengthen their supplier profile.",
+      },
+      {
+        q: "What does the program include?",
+        a: "Participants receive a business readiness assessment, one-on-one coaching sessions, help with capability statements and pitch materials, guidance on certification pathways, and introductions to relevant procurement opportunities.",
+      },
+      {
+        q: "How long does the Market Ready Program take?",
+        a: "The core program runs eight to twelve weeks, depending on where your business is starting from. We offer an accelerated track for businesses that are already partially market-ready.",
+      },
+      {
+        q: "Is there a cost to participate?",
+        a: "Program fees vary based on scope and business size. Some cohorts are offered at reduced or no cost through partnerships with corporate sponsors and government agencies. Contact us to find out what options are currently available.",
+      },
+      {
+        q: "What do I need to apply?",
+        a: "You'll need to be an active business with at least one diversity certification or be actively pursuing one. We'll ask for a brief overview of your business, your target markets, and your current challenges during the intake process.",
+      },
+      {
+        q: "Will this program guarantee contracts?",
+        a: "No program can guarantee contracts, and we won't claim otherwise. What we do guarantee is that participants leave with stronger positioning, better materials, and real connections to procurement decision-makers.",
+      },
+    ],
+  },
 ];
 
 function FaqItem({ id, q, a }) {
@@ -238,39 +272,6 @@ function FaqPage() {
               top: "100px",
             }}
           >
-            <p style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "1.5px", textTransform: "uppercase", color: "var(--muted)", marginBottom: "10px" }}>
-              Topics
-            </p>
-            {FAQ_DATA.map((cat) => {
-              const isActive = activeTopic === cat.id;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => scrollTo(cat.id)}
-                  style={{
-                    display: "block",
-                    width: "100%",
-                    textAlign: "left",
-                    padding: "9px 14px",
-                    marginBottom: "4px",
-                    background: isActive ? "var(--green-tint)" : "transparent",
-                    borderLeft: isActive ? "3px solid var(--green)" : "3px solid transparent",
-                    borderRight: "none",
-                    borderTop: "none",
-                    borderBottom: "none",
-                    borderRadius: "0 var(--radius-sm) var(--radius-sm) 0",
-                    color: isActive ? "var(--green-dark)" : "var(--muted)",
-                    fontWeight: isActive ? 700 : 500,
-                    fontSize: "14px",
-                    cursor: "pointer",
-                    transition: "all var(--dur-base)",
-                  }}
-                >
-                  {cat.label}
-                </button>
-              );
-            })}
-
             {/* CTA card */}
             <div
               style={{

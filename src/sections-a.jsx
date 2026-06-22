@@ -381,7 +381,7 @@ const HERO_SLIDES = [
     alt: "Startup Guidance",
     heading: "Startup Guidance",
     sub: "Guiding you through the journey from idea to execution.",
-    btnLabel: "Get Started",
+    btnLabel: "Learn More",
     btnHref: "#contact",
   },
   {

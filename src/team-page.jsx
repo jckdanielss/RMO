@@ -411,22 +411,6 @@ function TeamDirectory() {
   return (
     <div className="team-directory-page">
       <Nav />
-      <header className="team-directory-hero">
-        <div className="team-directory-overlay" />
-        <div className="wrap team-directory-shell">
-          <div className="team-directory-intro">
-            <span className="">R Mo Global Diversity Solutions</span>
-            <h1>Our Team</h1>
-            <p>
-              R Mo is built on a foundation of specialized talent and cross-functional expertise.
-              Our certified professionals in compliance, finance, operations, and marketing are
-              united by one goal  helping your business navigate certifications, access new
-              opportunities, and grow with confidence.
-            </p>
-          </div>
-        </div>
-      </header>
-
       <main className="team-directory-main">
         <div className="wrap">
           <OrgChart />
