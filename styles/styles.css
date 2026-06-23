@@ -1027,58 +1027,6 @@ section { scroll-margin-top: 80px; }
 .team-directory-member-grid-leadership {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-.team-member-card {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  padding: 20px 18px 18px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: rgba(255,255,255,.96);
-  box-shadow: var(--shadow);
-  text-align: center;
-  transition: transform var(--dur-base) ease, box-shadow var(--dur-base) ease, border-color var(--dur-base) ease;
-}
-.team-member-card:hover {
-  box-shadow: var(--shadow-lg);
-}
-.team-member-card.has-bio {
-  cursor: pointer;
-}
-.team-member-card.has-bio:hover {
-  border-color: rgba(26,156,62,.38);
-}
-.team-member-card.has-bio:focus-visible,
-.team-modal-close:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 4px rgba(26,156,62,.16);
-}
-.team-member-avatar {
-  width: 108px;
-  height: 108px;
-  padding: 0;
-  border: 0;
-  background: #ffffff;
-}
-.team-member-avatar img {
-  object-fit: cover;
-}
-.team-member-copy {
-  display: grid;
-  gap: 10px;
-  flex: 1;
-}
-.team-member-name {
-  font-size: clamp(16px, 1.5vw, 19px);
-}
-.team-member-role {
-  font-size: clamp(13px, 1.3vw, 15px);
-  line-height: 1.45;
-  color: #5a6760;
-  font-style: italic;
-}
 /* ============================================================
    TEAM DIRECTORY — ORG CHART
    ============================================================ */
@@ -1190,33 +1138,8 @@ section { scroll-margin-top: 80px; }
 }
 
 /* ============================================================
-   TEAM DIRECTORY — LEAD BADGE + LINKEDIN BUTTON
+   TEAM DIRECTORY — LINKEDIN BUTTON
    ============================================================ */
-.team-lead-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--green-dark);
-  background: var(--green-tint);
-  border: 1px solid rgba(26,156,62,.24);
-  padding: 5px 12px;
-  border-radius: 999px;
-}
-.team-member-card.is-lead {
-  border-color: rgba(26,156,62,.28);
-}
-.team-member-actions {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
-  margin-top: 4px;
-}
 .btn-linkedin {
   display: inline-flex;
   align-items: center;
@@ -1246,77 +1169,226 @@ section { scroll-margin-top: 80px; }
   height: 14px;
   flex: none;
 }
-.team-modal-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 140;
+/* ============================================================
+   TEAM CAROUSEL — flat strip drag-snap
+   ============================================================ */
+.team-carousel-wrap {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 70px;
+}
+.tc-title {
+  font-size: clamp(3.5rem, 10vw, 7.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  font-family: "Arial Black", "Arial Bold", Arial, sans-serif;
+  background: linear-gradient(to bottom, rgba(8,46,22,.28) 30%, rgba(8,46,22,0) 76%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+.tc-container {
+  width: 100%;
+  max-width: 1200px;
+  height: 450px;
+  position: relative;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+}
+.tc-container:active { cursor: grabbing; }
+/* flat flex strip — JS sets transform: translateX() directly */
+.tc-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  will-change: transform;
+}
+/* cards are flex items; JS sets scale/opacity/filter inline */
+.tc-card {
+  flex-shrink: 0;
+  width: 280px;
+  height: 380px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,.15);
+  cursor: pointer;
+  background: #e8ede9;
+}
+.tc-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  display: block;
+  pointer-events: none;
+}
+.tc-initials {
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
-  background: rgba(8,46,22,.58);
-  backdrop-filter: blur(10px);
+  font-size: 4rem;
+  font-weight: 700;
+  color: rgba(255,255,255,.9);
+  background: linear-gradient(135deg, var(--green-deep), #0a4020);
 }
-.team-modal {
-  position: relative;
-  width: min(760px, 100%);
-  max-height: min(88vh, 900px);
-  overflow: auto;
-  border-radius: var(--radius-lg);
-  background: #fff;
-  box-shadow: 0 24px 80px rgba(8,46,22,.28);
-}
-.team-modal-close {
+/* nav arrows */
+.tc-arrow {
   position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(8,46,22,.6);
+  color: #fff;
   width: 42px;
   height: 42px;
-  border: 0;
   border-radius: 50%;
-  background: rgba(20,32,26,.08);
-  color: var(--ink);
-  font-size: 16px;
-  font-weight: 700;
-}
-.team-modal-head {
-  display: grid;
-  grid-template-columns: 190px minmax(0, 1fr);
+  border: none;
+  display: flex;
   align-items: center;
-  gap: 28px;
-  padding: 32px 32px 20px;
-  background:
-    radial-gradient(circle at top left, rgba(127,240,160,.22), rgba(127,240,160,0) 46%),
-    linear-gradient(180deg, #f7fbf8 0%, #ffffff 100%);
+  justify-content: center;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 20;
+  transition: background .25s ease, transform .25s ease;
+  padding-bottom: 3px;
 }
-.team-member-avatar-lg {
-  width: 190px;
-  height: 190px;
+.tc-arrow:hover { background: rgba(8,46,22,.9); transform: translateY(-50%) scale(1.1); }
+.tc-arrow--left  { left: 16px;  padding-right: 3px; }
+.tc-arrow--right { right: 16px; padding-left: 3px; }
+/* member info below carousel */
+.tc-info {
+  text-align: center;
+  margin-top: 40px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .35s ease, transform .35s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
 }
-.team-modal-copy {
-  display: grid;
-  gap: 12px;
-  text-align: left;
+.tc-info--visible { opacity: 1; transform: translateY(0); }
+.tc-name {
+  color: var(--green-deep);
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  margin: 0;
 }
-.team-modal-copy h2 {
-  font-size: clamp(28px, 3vw, 38px);
+.tc-name::before,
+.tc-name::after {
+  content: "";
+  position: absolute;
+  top: 55%;
+  width: 80px;
+  height: 2px;
+  background: var(--green-deep);
+  opacity: .5;
 }
-.team-modal-copy p {
-  font-size: 18px;
-  line-height: 1.55;
-  color: #5a6760;
-  font-style: italic;
+.tc-name::before { right: calc(100% + 14px); }
+.tc-name::after  { left:  calc(100% + 14px); }
+.tc-role {
+  color: var(--muted);
+  font-size: clamp(.85rem, 1.4vw, 1.1rem);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin: 4px 0 10px;
 }
-.team-modal-body {
-  padding: 0 32px 32px;
+.tc-linkedin { margin-top: 4px; }
+/* dots */
+.tc-dots {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+  max-width: 560px;
+  padding: 0 16px;
 }
-.team-modal-body p {
-  font-size: 17px;
-  line-height: 1.8;
-  color: var(--body);
+.tc-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(8,46,22,.18);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background .25s ease, transform .25s ease;
+  flex-shrink: 0;
 }
-.team-modal-body p + p {
-  margin-top: 16px;
+.tc-dot--active {
+  background: var(--green-deep);
+  transform: scale(1.35);
+}
+/* ── responsive ── */
+@media (max-width: 640px) {
+  .tc-container { height: 340px; }
+  .tc-title { font-size: clamp(2.8rem, 12vw, 4rem); }
+  .tc-name::before,
+  .tc-name::after { width: 40px; }
+}
+@media (max-width: 420px) {
+  .tc-container { height: 280px; }
+  .tc-arrow { width: 34px; height: 34px; font-size: 1.4rem; }
+}
+
+/* ============================================================
+   BRANCH FILTER
+   ============================================================ */
+.team-roster-section { margin-top: clamp(44px, 6vw, 68px); }
+.team-roster-head { max-width: 720px; margin-bottom: 28px; }
+.branch-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 2em;
+}
+.branch-filter__btn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.8);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .18s ease, border-color .18s ease, color .18s ease, transform .18s ease;
+  white-space: nowrap;
+}
+.branch-filter__btn:hover {
+  border-color: var(--green);
+  color: var(--green-deep);
+  transform: translateY(-1px);
+}
+.branch-filter__btn--active {
+  background: var(--green-deep);
+  border-color: var(--green-deep);
+  color: #fff;
+}
+.branch-filter__btn--active:hover {
+  color: #fff;
+  transform: none;
 }
 
 /* ============================================================
@@ -1679,8 +1751,6 @@ section { scroll-margin-top: 80px; }
   .cert-chip { width: 230px; min-width: 230px; }
   .team-grid { grid-template-columns: repeat(3, 1fr); }
   .leaders { grid-template-columns: 1fr; }
-  .team-directory-member-grid,
-  .team-directory-member-grid-leadership { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .org-chart-roles { gap: 8px; }
   .org-chart-role { min-width: 130px; padding: 12px 14px; }
   .contact-grid { grid-template-columns: 1fr; }
@@ -1802,32 +1872,7 @@ section { scroll-margin-top: 80px; }
   .team-directory-intro h1 {
     font-size: clamp(32px, 10vw, 44px);
   }
-  .team-directory-member-grid,
-  .team-directory-member-grid-leadership { grid-template-columns: 1fr; }
   .org-chart-role { min-width: 110px; font-size: 12px; }
-  .team-member-avatar {
-    width: 96px;
-    height: 96px;
-  }
-  .team-modal {
-    border-radius: 24px;
-  }
-  .team-modal-head {
-    grid-template-columns: 1fr;
-    text-align: center;
-    padding: 72px 24px 18px;
-  }
-  .team-modal-copy {
-    text-align: center;
-  }
-  .team-member-avatar-lg {
-    width: 164px;
-    height: 164px;
-    margin: 0 auto;
-  }
-  .team-modal-body {
-    padding: 0 24px 24px;
-  }
   .brand-logo-wrap { padding: 4px 6px; }
   .brand-logo { height: 22px; max-width: 52vw; }
   .footer-brand .brand-logo { height: 38px; }

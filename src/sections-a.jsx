@@ -386,8 +386,8 @@ const HERO_SLIDES = [
   },
   {
     img: "carousel/rfd_bid_package.jpg",
-    alt: "RFD Bid Package",
-    heading: "RFD Bid Package",
+    alt: "RFD Bidding",
+    heading: "RFD Bidding",
     sub: "Comprehensive support for your RFD bid submissions.",
     btnLabel: "Get Started",
     btnHref: "#contact",
