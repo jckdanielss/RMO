@@ -8,19 +8,23 @@ const FAQ_DATA = [
     items: [
       {
         q: "What is R Mo Global Diversity Solutions?",
-        a: "R Mo Global Diversity Solutions is a certified minority and women-owned consulting firm. We help organizations build inclusive supply chains, meet diversity compliance requirements, and connect with certified diverse suppliers.",
+        a: "R Mo Global Diversity Solutions is a certified minority and women-owned consulting firm specializing in diversity certifications and supplier development. We help diverse businesses obtain certifications, build market readiness, and connect with government and corporate procurement opportunities.",
       },
       {
         q: "Who do you work with?",
-        a: "We work with corporations, government agencies, and nonprofits looking to strengthen their supplier diversity programs. Our clients range from Fortune 500 companies to emerging small businesses seeking certification and growth support.",
-      },
-      {
-        q: "Do you work with clients outside the U.S.?",
-        a: "Our primary focus is domestic, but we have supported organizations with international operations that need to align their U.S. supplier diversity goals with broader global sourcing strategies.",
+        a: "We work with small and diverse businesses — including minority-owned, women-owned, veteran-owned, and disadvantaged business enterprises — seeking certifications, market access, or procurement support. We also support corporations and government agencies looking to strengthen their supplier diversity programs.",
       },
       {
         q: "How do I get started with R Mo?",
-        a: "Fill out the contact form on our website or reach out directly by email. We'll schedule an initial call to understand your goals and outline how we can help.",
+        a: "Fill out the contact form on our website or reach out directly by email. We'll schedule a complimentary discovery call to understand your goals and determine the best path forward — no commitment required.",
+      },
+      {
+        q: "Do you offer a free initial consultation?",
+        a: "Yes. The first call is always complimentary. We use it to understand your situation and identify which certifications or programs are the right fit before any commitment is made.",
+      },
+      {
+        q: "How long does an engagement typically take?",
+        a: "It depends on the service. Certification support timelines vary by certifying body — typically one to six months. The Market Ready Program runs eight to twelve weeks. We outline timelines clearly before any work begins.",
       },
     ],
   },
@@ -29,38 +33,36 @@ const FAQ_DATA = [
     label: "Certifications",
     items: [
       {
-        q: "What certifications does R Mo hold?",
-        a: "R Mo is certified as a Women-Owned Small Business (WOSB), a Minority Business Enterprise (MBE), and holds additional state and federal certifications that qualify us to support government and corporate supplier diversity initiatives.",
+        q: "What types of certifications can R Mo help me obtain?",
+        a: "We assist with a wide range of diversity certifications including MBE (Minority Business Enterprise), WBE (Women's Business Enterprise), WOSB (Women-Owned Small Business), DBE (Disadvantaged Business Enterprise), SBA 8(a), SDVOB (Service-Disabled Veteran-Owned Business), LGBTBE, and various state and local certifications. During your consultation, we'll identify which certifications best align with your target markets.",
       },
       {
-        q: "What does it mean to be WOSB certified?",
-        a: "WOSB certification is issued by the U.S. Small Business Administration and confirms that a business is at least 51% owned and controlled by one or more women. It opens access to federal set-aside contracts reserved for women-owned firms.",
+        q: "Am I eligible to apply for a diversity certification?",
+        a: "Eligibility depends on the certification type. Generally, your business must be at least 51% owned and actively managed by individuals from a qualifying group — such as women, minorities, or veterans. We conduct a full eligibility assessment during your initial consultation so you pursue only the certifications you qualify for.",
       },
       {
-        q: "How do your certifications benefit my organization?",
-        a: "Partnering with a certified diverse supplier like R Mo helps your organization meet supplier diversity spend goals, satisfy contract compliance requirements, and demonstrate commitment to equitable procurement practices.",
-      },
-    ],
-  },
-  {
-    id: "process",
-    label: "Process",
-    items: [
-      {
-        q: "What happens after I reach out?",
-        a: "We respond within one business day to schedule a discovery call. From there, we assess your needs, propose a scope of work, and move into onboarding once we're aligned.",
+        q: "What documents do I need to prepare?",
+        a: "Requirements vary by certification, but commonly needed documents include business formation records (articles of incorporation or operating agreement), proof of ownership, federal tax returns, financial statements, government-issued ID, and a biography or resume for the principal owner. We provide a personalized document checklist during onboarding so nothing is missed.",
       },
       {
-        q: "How long does an engagement typically take?",
-        a: "It depends on scope. A targeted certification consultation may take a few weeks. A full supplier diversity program build-out typically runs three to six months. We outline timelines clearly before any work begins.",
+        q: "How long does the certification process take?",
+        a: "Timelines vary by certifying body and how complete your application is. Some state-level certifications can be approved in 30 to 60 days. Federal certifications such as SBA 8(a) may take three to six months or longer. Our team works to streamline your application and minimize delays at every stage.",
       },
       {
-        q: "Do you offer a free initial consultation?",
-        a: "Yes. The first call is always complimentary. We use it to understand your situation and determine whether we're the right fit before any commitment is made.",
+        q: "Can R Mo manage the entire certification process on my behalf?",
+        a: "Yes. Our team handles everything from eligibility assessment and document preparation to application submission and follow-up with the certifying body. You focus on running your business — we manage the paperwork and process from start to finish.",
       },
       {
-        q: "Can we customize the scope of work?",
-        a: "Every engagement is tailored. We don't sell fixed packages — we scope based on your specific goals, capacity, and timeline.",
+        q: "What are the benefits of becoming certified?",
+        a: "Certification unlocks access to set-aside contracts at the federal, state, and corporate levels; eligibility for supplier diversity programs; increased visibility in procurement databases; and a competitive advantage when responding to RFPs that require diverse supplier participation. Many of our clients secure their first government or corporate contract directly as a result of their certification.",
+      },
+      {
+        q: "What if my application is denied?",
+        a: "Denials are often due to incomplete documentation or technical deficiencies — not ineligibility. We review the denial notice, identify the specific issues, and work with you to address them before resubmitting. We have successfully appealed and resubmitted on behalf of many clients.",
+      },
+      {
+        q: "How much does certification support cost?",
+        a: "Fees vary based on the number and complexity of certifications you are pursuing. We provide a clear, flat-fee proposal before any work begins. Your initial consultation is always free. Contact us to get a quote tailored to your situation.",
       },
     ],
   },
@@ -70,27 +72,31 @@ const FAQ_DATA = [
     items: [
       {
         q: "What is the Market Ready Program?",
-        a: "The Market Ready Program is a structured readiness initiative designed to help diverse suppliers position themselves competitively in corporate and government supply chains. It covers business assessment, capability development, and procurement matchmaking.",
+        a: "The Market Ready Program is a structured readiness initiative designed to help diverse suppliers position themselves competitively in corporate and government supply chains. It covers business assessment, capability development, pitch preparation, and procurement matchmaking.",
       },
       {
         q: "Who is the Market Ready Program for?",
-        a: "The program is designed for small and diverse businesses — including MBE, WBE, WOSB, and SDVOB certified firms — that want to break into new markets, respond to larger RFPs, or strengthen their supplier profile.",
+        a: "The program is designed for small and diverse businesses — including MBE, WBE, WOSB, and SDVOB certified firms — that want to break into new markets, respond to larger RFPs, or strengthen their supplier profile. You do not need to already be certified to apply.",
       },
       {
         q: "What does the program include?",
-        a: "Participants receive a business readiness assessment, one-on-one coaching sessions, help with capability statements and pitch materials, guidance on certification pathways, and introductions to relevant procurement opportunities.",
+        a: "Participants receive a business readiness assessment, one-on-one coaching sessions, help building capability statements and pitch materials, guidance on certification pathways, and introductions to relevant procurement opportunities and decision-makers.",
+      },
+      {
+        q: "What outcomes can I expect?",
+        a: "By the end of the program, you will have a polished capability statement, a clear understanding of which procurement channels to target, a stronger grasp of how to respond to RFPs, and direct connections to buyers and supplier diversity managers at corporations and government agencies.",
       },
       {
         q: "How long does the Market Ready Program take?",
-        a: "The core program runs eight to twelve weeks, depending on where your business is starting from. We offer an accelerated track for businesses that are already partially market-ready.",
+        a: "The core program runs eight to twelve weeks, depending on where your business is starting from. An accelerated track is available for businesses that are already partially market-ready.",
+      },
+      {
+        q: "What do I need to apply?",
+        a: "You need to be an active business with at least one diversity certification or be actively pursuing one. During intake, we'll ask for a brief overview of your business, your target markets, and your current challenges.",
       },
       {
         q: "Is there a cost to participate?",
         a: "Program fees vary based on scope and business size. Some cohorts are offered at reduced or no cost through partnerships with corporate sponsors and government agencies. Contact us to find out what options are currently available.",
-      },
-      {
-        q: "What do I need to apply?",
-        a: "You'll need to be an active business with at least one diversity certification or be actively pursuing one. We'll ask for a brief overview of your business, your target markets, and your current challenges during the intake process.",
       },
       {
         q: "Will this program guarantee contracts?",
@@ -98,11 +104,44 @@ const FAQ_DATA = [
       },
     ],
   },
+  {
+    id: "speaker-series",
+    label: "Speaker Series",
+    items: [
+      {
+        q: "What is the R Mo Speaker Series?",
+        a: "The R Mo Speaker Series is a recurring educational program featuring procurement leaders, certified diverse business owners, and subject-matter experts. Each session delivers practical insights on navigating government and corporate supply chains, understanding certification pathways, and building a competitive business profile.",
+      },
+      {
+        q: "Who should attend?",
+        a: "The Speaker Series is designed for diverse business owners, entrepreneurs, and professionals looking to break into government and corporate procurement markets. It is especially valuable for businesses that are newly certified, actively pursuing certification, or seeking their first major contract.",
+      },
+      {
+        q: "What topics are covered?",
+        a: "Topics rotate each session but regularly include: how to leverage your certification to win contracts, navigating federal and state RFP processes, building a winning capability statement, supplier diversity trends, and real-world success stories from certified business owners.",
+      },
+      {
+        q: "How often does the Speaker Series run?",
+        a: "Sessions are held periodically throughout the year. Visit our Calendar page or follow us on LinkedIn to stay informed about upcoming events and registration openings.",
+      },
+      {
+        q: "How do I register for an event?",
+        a: "Registration details are listed on our Calendar page. Most events require advance sign-up as spaces are limited to ensure an interactive experience. We recommend registering early.",
+      },
+      {
+        q: "Is there a cost to attend?",
+        a: "Many sessions are offered at no cost or for a nominal fee. Pricing details are listed on each event's registration page. Some events are sponsored and offered free to qualifying diverse business owners.",
+      },
+      {
+        q: "Can I speak at or sponsor a Speaker Series event?",
+        a: "We welcome speakers and sponsors who align with our mission of empowering diverse businesses. If you're interested in presenting, partnering, or sponsoring an upcoming session, reach out through our Contact page and we'll be in touch.",
+      },
+    ],
+  },
 ];
 
 function FaqItem({ id, q, a }) {
   const [open, setOpen] = useState(false);
-  const bodyRef = useRef(null);
 
   return (
     <div
@@ -112,10 +151,13 @@ function FaqItem({ id, q, a }) {
         overflow: "hidden",
         marginBottom: "10px",
         background: "#fff",
+        transition: "border-color 0.2s ease",
+        ...(open ? { borderColor: "var(--green)" } : {}),
       }}
     >
       <button
         onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
         style={{
           width: "100%",
           display: "flex",
@@ -154,7 +196,7 @@ function FaqItem({ id, q, a }) {
       </button>
       <div
         style={{
-          maxHeight: open ? "400px" : "0",
+          maxHeight: open ? "600px" : "0",
           overflow: "hidden",
           transition: "max-height 0.3s ease",
         }}
@@ -162,12 +204,11 @@ function FaqItem({ id, q, a }) {
         <p
           style={{
             margin: 0,
-            padding: "0 20px 18px",
+            padding: "14px 20px 18px",
             fontSize: "15px",
             color: "var(--body)",
             lineHeight: 1.7,
             borderTop: "1px solid var(--line)",
-            paddingTop: "14px",
           }}
         >
           {a}
@@ -179,7 +220,7 @@ function FaqItem({ id, q, a }) {
 
 function FaqCategory({ category, sectionRef }) {
   return (
-    <section ref={sectionRef} id={category.id} style={{ marginBottom: "40px" }}>
+    <section ref={sectionRef} id={category.id} style={{ marginBottom: "48px" }}>
       <h2
         style={{
           fontSize: "18px",
@@ -213,8 +254,7 @@ function FaqPage() {
     setActiveTopic(id);
     const el = sectionRefs.current[id] && sectionRefs.current[id].current;
     if (el) {
-      const offset = 100;
-      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      const top = el.getBoundingClientRect().top + window.scrollY - 100;
       window.scrollTo({ top, behavior: "smooth" });
     }
   }
@@ -272,16 +312,41 @@ function FaqPage() {
               top: "100px",
             }}
           >
+            {/* <nav style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+              {FAQ_DATA.map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => scrollTo(cat.id)}
+                  style={{
+                    display: "block",
+                    width: "100%",
+                    textAlign: "left",
+                    padding: "9px 12px",
+                    background: activeTopic === cat.id ? "var(--green-tint)" : "transparent",
+                    border: "none",
+                    borderRadius: "var(--radius-sm)",
+                    cursor: "pointer",
+                    fontSize: "14px",
+                    fontWeight: activeTopic === cat.id ? 600 : 400,
+                    color: activeTopic === cat.id ? "var(--green)" : "var(--body)",
+                    transition: "background 0.15s ease, color 0.15s ease",
+                  }}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </nav> */}
+
             {/* CTA card */}
             <div
               style={{
-                marginTop: "28px",
+                marginTop: "24px",
                 background: "var(--green)",
                 borderRadius: "var(--radius-sm)",
                 padding: "18px 16px",
               }}
             >
-              <p style={{ fontSize: "13px", fontWeight: 600, color: "#eef7f0", marginBottom: "6px", lineHeight: 1.4 }}>
+              <p style={{ fontSize: "13px", fontWeight: 600, color: "#eef7f0", marginBottom: "8px", lineHeight: 1.4 }}>
                 Still have questions?
               </p>
               <a
