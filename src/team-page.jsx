@@ -50,7 +50,7 @@ const TEAM_MEMBERS = [
   { name: "Nisha Rawat",             role: "Certification Assistant",            linkedin: "#", bio: [] },
   { name: "Febie Jean Cañetan",      role: "Certification Assistant",            linkedin: "#", bio: [] },
   { name: "Ioena Gabrielle Dayo",    role: "Certification Assistant",            linkedin: "#", bio: [] },
-  { name: "Carla Mahinay",           role: "Prospect Assistant",                 linkedin: "#", bio: [] },
+  { name: "Carla Mahinay",           role: "Admin Lead",                 linkedin: "#", bio: [] },
   { name: "Rachelle Sorronda",       role: "Executive Assistant",                linkedin: "#", bio: [] },
   { name: "Shenie Canama",           role: "Accounting Assistant",               linkedin: "#", bio: [] },
   { name: "Jullie Anne de la Cruz",  role: "Creative Designer",                  linkedin: "#", bio: [] },

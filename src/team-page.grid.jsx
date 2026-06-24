@@ -181,7 +181,7 @@ const TEAM_MEMBERS = [
   },
   {
     name: "Carla Mahinay",
-    role: "Prospect Assistant",
+    role: "Admin Lead",
     linkedin: "#",
     bio: [
       "I have been a committed and enthusiastic virtual assistant for more than three years, and I truly love what I do! Over the years, my broad experience, diverse skill set, and expertise have all helped me to become a proficient and effective virtual assistant.",

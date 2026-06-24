@@ -354,7 +354,7 @@ function Nav() {
 /* ======================= HERO ======================= */
 const HERO_SLIDES = [
   {
-    img: "https://i.postimg.cc/vTTQ9zfp/diverseoffice.png",
+    img: "carousel/diversity.jpg",
     alt: "Diverse business professionals in a meeting",
     heading: "Diversity Certifications",
     sub: "We handle the complexity. You focus on winning contracts.",
