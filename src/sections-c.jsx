@@ -172,11 +172,6 @@ function Footer() {
       <div className="wrap">
         <div className="footer-grid">
           <div className="f-brand">
-            <a href="index.html" className="brand footer-brand" style={{ marginBottom: "16px", display: "inline-flex" }}>
-              <span className="brand-logo-wrap footer-brand-logo">
-                <img className="brand-logo" src="assets/brand/RMO_Logo-removebg-preview.png" alt="R Mo Global Diversity Solutions" loading="lazy" />
-              </span>
-            </a>
             <p className="f-about">
               Our vision is to be the catalyst for diversified businesses to successfully venture into the Government &amp; Corporate Sectors
             </p>
