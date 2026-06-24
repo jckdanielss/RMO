@@ -12,6 +12,7 @@ const Ic = {
   rocket: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09Z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2Z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>,
   refresh: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"/></svg>,
   mail: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>,
+  phone: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>,
   pin: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>,
   clock: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>,
   target: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg>,
@@ -340,9 +341,9 @@ function Nav() {
             <a key={label} href={href} className="mobile-dd-item">{label}</a>
           ))}
         </div>
-        <a href="#">FAQ</a>
-        <a href="#">Blog</a>
-        <a href="#">Calendar</a>
+        <a href="faq.html">FAQ</a>
+        <a href="blog.html">Blog</a>
+        <a href="calendar.html">Calendar</a>
         <a href={contactHrefForCurrentPage()} onClick={(e) => go(e, "#contact")}>Contact Us</a>
         <a href={contactHrefForCurrentPage()} className="btn btn-primary" onClick={(e) => go(e, "#contact")}>GET IN TOUCH</a>
       </div>
@@ -356,8 +357,8 @@ const HERO_SLIDES = [
     img: "https://i.postimg.cc/vTTQ9zfp/diverseoffice.png",
     alt: "Diverse business professionals in a meeting",
     heading: "Diversity Certifications",
-    sub: "Taking your business to the next level.",
-    btnLabel: "Learn More",
+    sub: "We handle the complexity. You focus on winning contracts.",
+    btnLabel: "Explore Services",
     btnHref: "#services",
   },
   {
@@ -365,7 +366,7 @@ const HERO_SLIDES = [
     alt: "Market ready business professionals",
     heading: "Become Market-Ready",
     sub: "Build confidence, sharpen your pitch, and stand out.",
-    btnLabel: "Our mission",
+    btnLabel: "Our Mission",
     btnHref: "#about",
   },
   {
@@ -380,16 +381,16 @@ const HERO_SLIDES = [
     img: "carousel/startup_guidance.jpg",
     alt: "Startup Guidance",
     heading: "Startup Guidance",
-    sub: "Guiding you through the journey from idea to execution.",
-    btnLabel: "Learn More",
+    sub: "Strategic mentorship from your first idea to your first contract.",
+    btnLabel: "Get Guidance",
     btnHref: "#contact",
   },
   {
     img: "carousel/rfd_bid_package.jpg",
-    alt: "RFD Bidding",
-    heading: "RFD Bidding",
-    sub: "Comprehensive support for your RFD bid submissions.",
-    btnLabel: "Get Started",
+    alt: "Win Government Contracts",
+    heading: "Win Government Contracts",
+    sub: "From proposal writing to submission — expert bid support at every step.",
+    btnLabel: "Get Bid Support",
     btnHref: "#contact",
   },
 ];
@@ -479,15 +480,8 @@ function Hero() {
               className="hero-v2-btn"
               onClick={(e) => go(e, HERO_SLIDES[active].btnHref)}
             >
-              {HERO_SLIDES[active].btnLabel}
+              {HERO_SLIDES[active].btnLabel} {Ic.arrow}
             </a>
-            {/* <a
-              href="#contact"
-              className="hero-v2-btn hero-v2-btn-outline"
-              onClick={(e) => go(e, "#contact")}
-            >
-              Contact Us
-            </a> */}
           </div>
         </div>
       </div>
@@ -524,7 +518,7 @@ function Hero() {
         speed={40}
         renderItem={(logo) => (
           <div className="hero-cert-logo-chip">
-            <img src={logo.src} alt={logo.name} draggable="false" />
+            <img src={logo.src} alt={logo.name} draggable="false" loading="lazy" />
           </div>
         )}
       />
@@ -538,27 +532,32 @@ const SERVICES = [
   {
     ic: Ic.badge,
     t: "Get Certified",
-    d: "We simplify the certification process so you can focus on running your business. From guiding you through complex requirements to ensuring your applications are accurate and complete, we help you achieve certifications faster and with less stress — opening doors to new opportunities.",
+    d: "We guide you through complex certification requirements and ensure complete, accurate applications so you earn certifications faster and open doors to new opportunities.",
+    href: "services/professional-services.html",
   },
   {
     ic: Ic.rocket,
     t: "Get Market Ready",
-    d: "Certification is just the beginning. Our Market Ready Program equips you with the tools to present your business with confidence, leverage your certification effectively, and connect with peers, corporates, and experts. From mastering your pitch to understanding how to activate your certification, we help you turn recognition into results.",
+    d: "Our Market Ready Program equips you with tools, connections, and confidence to present your business effectively, leverage your certification, and turn recognition into real results.",
+    href: "services/business-growth-programs.html",
   },
   {
-    ic: Ic.target,
+    ic: Ic.handshake,
     t: "Driving Impact",
-    d: "Beyond certification and preparation, we create lasting social and economic impact. By empowering small and diverse businesses, strengthening supplier diversity, and fostering inclusive growth, we help build stronger communities and supply chains. The result: more opportunities, greater visibility, and a measurable difference in the marketplace.",
+    d: "We create lasting economic and social impact by empowering diverse businesses, strengthening supplier diversity, and fostering inclusive growth across communities and supply chains.",
+    href: "services.html",
   },
   {
     ic: Ic.target,
     t: "Startup Guidance",
-    d: "Guiding you through the journey from idea to execution. Our startup guidance services provide mentorship, resources, and strategic advice to help you navigate the challenges of starting and growing your business. We focus on building a strong foundation for long-term success.",
+    d: "From idea to execution — strategic mentorship and resources to navigate startup challenges and build a strong foundation for lasting business success.",
+    href: "services.html",
   },
   {
-    ic: Ic.target,
+    ic: Ic.doc,
     t: "RFD Bid Package",
-    d: "Comprehensive support for your RFD bid submissions. We assist you in preparing and submitting competitive bids for RFD opportunities, ensuring that your proposals are well-crafted, compliant, and compelling. Our goal is to maximize your chances of success in securing valuable contracts.",
+    d: "Expert support for your RFD bid submissions — well-crafted, fully compliant proposals that maximize your chances of securing valuable government and corporate contracts.",
+    href: "services.html",
   },
 ];
 
@@ -567,18 +566,19 @@ function Services() {
     <section className="services pad-y" id="services">
       <div className="wrap">
         <div className="section-head center reveal">
+          <span className="eyebrow">What We Do</span>
           <h2>Our Services</h2>
+          <p>From your first certification to your first government contract — we guide you at every step.</p>
         </div>
-        <div className="cards reveal">
+        <div className="cards">
           {SERVICES.map((s, i) => (
-            <article className="card" key={s.t}>
-              
+            <article className={"card reveal d" + (i + 1)} key={s.t}>
+              <span className="card-ic">{s.ic}</span>
               <h3>{s.t}</h3>
               <p>{s.d}</p>
-              <button className="btn" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
-                Learn More
-              </button>
-              {/* <span className="card-arrow">Learn more {Ic.arrow}</span> */}
+              <a className="btn card-cta" href={s.href}>
+                Learn More {Ic.arrow}
+              </a>
             </article>
           ))}
         </div>
@@ -592,7 +592,9 @@ function Clients() {
     <section className="clients pad-y" id="clients">
       <div className="wrap">
         <div className="section-head center reveal">
+          <span className="eyebrow">Who We Serve</span>
           <h2>Our Clients</h2>
+          <p>Working with leading organizations across government and corporate sectors.</p>
         </div>
         <div className="reveal d1">
           <LogoCarousel
@@ -601,7 +603,7 @@ function Clients() {
             speed={34}
             renderItem={(client) => (
               <article className="logo-chip client-chip" title={client.name}>
-                <img src={client.imageSrc} alt={client.alt || client.name} draggable="false" />
+                <img src={client.imageSrc} alt={client.alt || client.name} draggable="false" loading="lazy" />
                 <span className="logo-caption">{client.name}</span>
               </article>
             )}

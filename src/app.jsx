@@ -12,7 +12,7 @@ function useScrollReveal() {
       entries.forEach(en => {
         if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
       });
-    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    }, { threshold: 0.06, rootMargin: "0px 0px 0px 0px" });
     els.forEach(e => io.observe(e));
     return () => io.disconnect();
   }, []);

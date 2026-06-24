@@ -65,18 +65,18 @@ function ContactForm() {
           <div className="field-row">
             <div className={fieldCls("name")}>
               <label>Your name</label>
-              <input type="text" placeholder="Jane Doe" value={form.name} onChange={set("name")} onBlur={blur("name")} />
+              <input type="text" name="name" autoComplete="name" placeholder="Jane Doe" value={form.name} onChange={set("name")} onBlur={blur("name")} />
               <span className="err">{errors.name}</span>
             </div>
             <div className={fieldCls("email")}>
               <label>Email address</label>
-              <input type="email" placeholder="jane@company.com" value={form.email} onChange={set("email")} onBlur={blur("email")} />
+              <input type="email" name="email" autoComplete="email" placeholder="jane@company.com" value={form.email} onChange={set("email")} onBlur={blur("email")} />
               <span className="err">{errors.email}</span>
             </div>
           </div>
           <div className={fieldCls("message")}>
             <label>Your message</label>
-            <textarea placeholder="Tell us about your business and what you're looking for..." value={form.message} onChange={set("message")} onBlur={blur("message")} />
+            <textarea name="message" autoComplete="off" placeholder="Tell us about your business and what you're looking for..." value={form.message} onChange={set("message")} onBlur={blur("message")} />
             <span className="err">{errors.message}</span>
           </div>
           <div className={"captcha" + (touched.captcha && errors.captcha ? " " : "")}>
@@ -102,13 +102,27 @@ function Contact() {
     <section className="contact pad-y" id="contact">
       <div className="wrap contact-grid">
         <div className="contact-info reveal">
+          <span className="eyebrow">Get In Touch</span>
           <h2>Ready to get certified?</h2>
           <p className="lead">
             Join the diverse businesses we've helped earn certifications and win opportunities.
           </p>
-          <a href="contact-us.html#contact" className="btn btn-primary" style={{ marginTop: "24px", display: "inline-flex", alignItems: "center", gap: "8px" }}>
-            Contact Us {Ic.arrow}
-          </a>
+          <div className="contact-list">
+            <div className="row">
+              <span className="ci">{Ic.mail}</span>
+              <div>
+                <span className="lbl">Email</span>
+                <a href="mailto:info@rmollc.com" className="val">info@rmollc.com</a>
+              </div>
+            </div>
+            <div className="row">
+              <span className="ci">{Ic.phone}</span>
+              <div>
+                <span className="lbl">Phone</span>
+                <a href="tel:9252550177" className="val">925 255 0177</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className="reveal d1">
@@ -138,11 +152,11 @@ function PreFooterCta() {
       <div className="wrap">
         <div className="prefooter-inner reveal">
           <div className="prefooter-text">
-            <h2>Ready to get certified?</h2>
-            <p>Join the diverse businesses we've helped earn certifications and win opportunities.</p>
+            <h2>Not sure where to start?</h2>
+            <p>Book a free consultation — we'll map out the right certification path for your business, no commitment required.</p>
           </div>
           <a href={footerContactHref()} className="btn btn-light" onClick={goToFooterContact}>
-            Contact Us {Ic.arrow}
+            Book a Free Consultation {Ic.arrow}
           </a>
         </div>
       </div>
@@ -158,8 +172,13 @@ function Footer() {
       <div className="wrap">
         <div className="footer-grid">
           <div className="f-brand">
+            <a href="index.html" className="brand footer-brand" style={{ marginBottom: "16px", display: "inline-flex" }}>
+              <span className="brand-logo-wrap footer-brand-logo">
+                <img className="brand-logo" src="assets/brand/RMO_Logo-removebg-preview.png" alt="R Mo Global Diversity Solutions" loading="lazy" />
+              </span>
+            </a>
             <p className="f-about">
-              Our vision is to be the catalyst for diversified businesses to successfully venture into the Government & Corporate Sectors
+              Our vision is to be the catalyst for diversified businesses to successfully venture into the Government &amp; Corporate Sectors
             </p>
           </div>
           <div className="f-col">
@@ -177,7 +196,8 @@ function Footer() {
           <div className="f-col">
             <h4>Useful Links</h4>
             <a href="team.html">Team</a>
-            <a href="blog.html">Clients</a>
+            <a href="blog.html">Blog</a>
+            <a href="faq.html">FAQ</a>
           </div>
         </div>
         <div className="footer-bottom">

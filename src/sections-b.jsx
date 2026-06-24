@@ -19,8 +19,10 @@ function Team() {
   return (
     <section className="team pad-y" id="team">
       <div className="wrap">
-        <div className="section-head center reveal" ps="5">
+        <div className="section-head center reveal">
+          <span className="eyebrow">The People Behind R Mo</span>
           <h2>Leadership Team</h2>
+          <p>A global team of certification specialists backing every engagement.</p>
         </div>
         <div className="leaders reveal">
           {LEADERS.map((l, i) => (
@@ -34,9 +36,14 @@ function Team() {
             </div>
           ))}
         </div>
+        <div className="team-scale reveal">
+          <div className="team-scale-stat"><span className="num">20+</span><span className="lbl">Specialists</span></div>
+          <div className="team-scale-stat"><span className="num">5</span><span className="lbl">Departments</span></div>
+          <div className="team-scale-stat"><span className="num">Global</span><span className="lbl">Delivery</span></div>
+        </div>
         <div className="team-cta reveal">
           <a href="team.html" className="btn btn-ghost">
-            Meet the team {Ic.arrow}
+            Meet the full team {Ic.arrow}
           </a>
         </div>
       </div>
@@ -100,25 +107,37 @@ function Testimonials() {
   return (
     <section className="testi pad-y" id="testi">
       <div className="wrap">
-        <blockquote className="testi-quote" key={i}>
-          <span className="mark">&ldquo;</span>{t.quote}<span className="mark">&rdquo;</span>
-        </blockquote>
-        <div className="testi-foot">
-          <div className="testi-author">
-            <Avatar name={t.name} className="testi-av" />
-            <div>
-              <div className="a-name">{t.name}</div>
-              <div className="a-role">{t.role}</div>
+        <div className="testi-head">
+          <span className="eyebrow">Client Stories</span>
+          <h2>What Our Clients Say</h2>
+        </div>
+        <div aria-live="polite" aria-atomic="true">
+          <blockquote className="testi-quote" key={i}>
+            <span className="mark">&ldquo;</span>{t.quote}<span className="mark">&rdquo;</span>
+          </blockquote>
+          <div className="testi-foot">
+            <div className="testi-author">
+              <Avatar name={t.name} className="testi-av" />
+              <div>
+                <div className="a-name">{t.name}</div>
+                <div className="a-role">{t.role}</div>
+              </div>
             </div>
-          </div>
-          <div className="testi-nav">
-            <button aria-label="Previous" onClick={() => go(i - 1)}>{Ic.chevL}</button>
-            <button aria-label="Next" onClick={() => go(i + 1)}>{Ic.chevR}</button>
+            <div className="testi-nav">
+              <button aria-label="Previous testimonial" onClick={() => go(i - 1)}>{Ic.chevL}</button>
+              <button aria-label="Next testimonial" onClick={() => go(i + 1)}>{Ic.chevR}</button>
+            </div>
           </div>
         </div>
         <div className="testi-dots">
           {TESTIMONIALS.map((_, idx) => (
-            <span key={idx} className={idx === i ? "on" : ""} onClick={() => go(idx)} aria-label={"Testimonial " + (idx + 1)} />
+            <button
+              key={idx}
+              className={idx === i ? "on" : ""}
+              onClick={() => go(idx)}
+              aria-label={"Go to testimonial " + (idx + 1)}
+              aria-pressed={idx === i}
+            />
           ))}
         </div>
       </div>
@@ -161,6 +180,9 @@ function About() {
   return (
     <section className="about pad-y" id="about">
       <div className="wrap">
+        <div className="section-head center reveal" style={{ marginBottom: "clamp(16px,2.5vw,28px)" }}>
+          <span className="eyebrow">About R Mo</span>
+        </div>
         <div className="about-intro reveal" style={{ marginBottom: "clamp(20px,3vw,36px)" }}>
           <p className="about-tag">&ldquo;Empowering businesses to certify, impact &amp; thrive.&rdquo;</p>
         </div>
@@ -168,7 +190,7 @@ function About() {
           <div className="mv-card">
             <div className="mv-head">
               <span className="mv-ic">{Ic.target}</span>
-              <h3>Our Mission</h3>
+              <h3>Mission</h3>
             </div>
             <p>
               R Mo equips diverse businesses with the certifications, strategies, and
@@ -179,7 +201,7 @@ function About() {
           <div className="mv-card accent">
             <div className="mv-head">
               <span className="mv-ic">{Ic.eye}</span>
-              <h3>Our Vision</h3>
+              <h3>Vision</h3>
             </div>
             <p>
               R Mo envisions being the trusted bridge between businesses and opportunities—empowering
@@ -189,8 +211,8 @@ function About() {
           </div>
         </div>
         <div className="section-head center reveal obj-section-head">
-          <span className="eyebrow eyebrow-lg">Objectives</span>
-          {/* <h2>What We Strive to Achieve</h2> */}
+          <span className="eyebrow">Objectives</span>
+          <h2>What We Strive to Achieve</h2>
         </div>
         <div className="obj-grid reveal">
           {OBJECTIVES.map((o, i) => (
