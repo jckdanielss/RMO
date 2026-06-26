@@ -24,7 +24,7 @@ const TEAM_IMAGE_BY_NAME = {
   "Nisha Rawat": `${TEAM_ASSET_ROOT}/team_images/unnamed-2-1.png`,
   "Febie Jean Cañetan": `${TEAM_ASSET_ROOT}/team_images/Febie.jpeg`,
   "Carla Mahinay": `${TEAM_ASSET_ROOT}/team_images/Picture1.png`,
-  "Leona Gabrielle Dayo": "assets/team/WhatsApp_Image_2026-06-25_at_11.02.43_PM.png",
+  "Ieona Gabrielle Dayo": "assets/team/WhatsApp_Image_2026-06-25_at_11.02.43_PM.png",
   "Rachelle Sorronda": `${TEAM_ASSET_ROOT}/team_images/Picture1.jpg`,
   "Jullie Anne de la Cruz": `${TEAM_ASSET_ROOT}/team_images/d2d64c64-3821-4074-9f39-db308619a5b7.jpg`,
   "Shenie Canama": "assets/team/shenie.png",
@@ -174,7 +174,7 @@ const TEAM_MEMBERS = [
     bio: [],
   },
   {
-    name: "Leona Gabrielle Dayo",
+    name: "Ieona Gabrielle Dayo",
     role: "Certification Assistant",
     linkedin: "#",
     bio: [],
@@ -244,7 +244,7 @@ const TEAM_GROUPS = [
   {
     title: "Certification",
     lead: "Priya Saravanan",
-    members: ["Priya Saravanan", "Maria Rama Iseman", "Nikka Grajo", "Abegael Mariano", "Nisha Rawat","Febie Jean Cañetan","Leona Gabrielle Dayo"],
+    members: ["Priya Saravanan", "Maria Rama Iseman", "Nikka Grajo", "Abegael Mariano", "Nisha Rawat","Febie Jean Cañetan","Ieona Gabrielle Dayo"],
   },
   {
     title: "Administration",
