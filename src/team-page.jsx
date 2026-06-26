@@ -1,6 +1,6 @@
 /* global React, ReactDOM, Nav */
 
-const { useEffect, useState, useRef, useCallback, useLayoutEffect } = React;
+const { useState, useEffect, useRef, useCallback } = React;
 
 /* ─── Data ──────────────────────────────────────────────────────────────── */
 
@@ -144,135 +144,139 @@ function BranchFilter({ active, onChange }) {
 
 /* ─── TeamCarousel ───────────────────────────────────────────────────────── */
 
-const CARD_W  = 280;
-const CARD_H  = 380;
-const GAP     = 24;
-const STRIDE  = CARD_W + GAP;
-const SNAP    = "transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94)";
-const BUFFER  = 3; // cloned cards on each side for infinite loop
+const CARD_W    = 280;
+const GAP       = 24;
+const STRIDE    = CARD_W + GAP;
+const SNAP      = "transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94)";
+const SNAP_CARD = "transform 0.55s ease, opacity 0.55s ease, filter 0.55s ease";
+const BUF       = 3; // clone count on each side
 
 function TeamCarousel({ members }) {
   const total    = members.length;
-  /* extended track: [last BUFFER] + [all] + [first BUFFER] */
   const extended = [
-    ...members.slice(-BUFFER),
+    ...members.slice(-BUF),
     ...members,
-    ...members.slice(0, BUFFER),
+    ...members.slice(0, BUF),
   ];
 
-  /* start at the first real card (after the left clones) */
-  const [currentIndex, setCurrentIndex] = useState(BUFFER);
+  /* only React state needed: what to show in the info panel */
+  const [infoMember, setInfoMember] = useState(members[0]);
 
-  const containerRef  = useRef(null);
-  const trackRef      = useRef(null);
-  const animateNext   = useRef(false); // controls whether the next index-change animates
+  const containerRef = useRef(null);
+  const trackRef     = useRef(null);
+  const cardRefs     = useRef([]);
 
-  const drag = useRef({
-    active:      false,
-    didMove:     false,
-    startX:      0,
-    containerW:  0,
-    currentIdx:  BUFFER,
-    isAnimating: false,
-  });
-  drag.current.currentIdx = currentIndex;
+  /* all mutable animation state lives here — never causes re-renders */
+  const s = useRef({ idx: BUF, containerW: 0, isAnimating: false,
+                     active: false, didMove: false, startX: 0 });
 
-  const moveTrack = (idx, delta, animated) => {
-    if (!trackRef.current || !drag.current.containerW) return;
-    const x = drag.current.containerW / 2 - CARD_W / 2 - idx * STRIDE + delta;
+  /* ── pure DOM helpers ─────────────────────────────────────────────── */
+
+  const moveTrack = useCallback((idx, delta, animated) => {
+    if (!trackRef.current || !s.current.containerW) return;
+    const x = s.current.containerW / 2 - CARD_W / 2 - idx * STRIDE + delta;
     trackRef.current.style.transition = animated ? SNAP : "none";
     trackRef.current.style.transform  = `translateX(${x}px)`;
-  };
+  }, []);
+
+  const styleCards = useCallback((idx, animated) => {
+    cardRefs.current.forEach((card, i) => {
+      if (!card) return;
+      const d = Math.abs(i - idx);
+      card.style.transition = animated ? SNAP_CARD : "none";
+      card.style.transform  = `scale(${d === 0 ? 1.1 : d === 1 ? 0.92 : d === 2 ? 0.82 : 0.74})`;
+      card.style.opacity    = String(d === 0 ? 1 : d === 1 ? 0.85 : d === 2 ? 0.65 : 0.4);
+      card.style.filter     = d === 0 ? "none" : `grayscale(${Math.min(d * 45, 100)}%)`;
+      card.style.zIndex     = String(10 - Math.min(d, 10));
+    });
+  }, []);
+
+  /* ── navigation ───────────────────────────────────────────────────── */
+
+  const navigate = useCallback((newIdx) => {
+    if (s.current.isAnimating) return;
+    s.current.isAnimating = true;
+    s.current.idx = newIdx;
+
+    moveTrack(newIdx, 0, true);
+    styleCards(newIdx, true);
+
+    /* show correct member in info panel */
+    const ri = ((newIdx - BUF) % total + total) % total;
+    setInfoMember(members[ri]);
+
+    setTimeout(() => {
+      s.current.isAnimating = false;
+      /* if we landed in clone territory, silently snap to real zone */
+      let real = s.current.idx;
+      while (real < BUF)          real += total;
+      while (real >= BUF + total) real -= total;
+      if (real !== s.current.idx) {
+        /* disable transitions on track AND every card at the same time,
+           force a CSS-engine flush, then reposition — one atomic paint */
+        if (trackRef.current) trackRef.current.style.transition = "none";
+        cardRefs.current.forEach(c => { if (c) c.style.transition = "none"; });
+        void trackRef.current.offsetWidth; /* flush */
+        moveTrack(real, 0, false);
+        styleCards(real, false);
+        s.current.idx = real;
+      }
+    }, 600);
+  }, [moveTrack, styleCards, total, members]);
+
+  /* ── measure & init ───────────────────────────────────────────────── */
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
     const measure = () => {
-      drag.current.containerW = el.offsetWidth;
-      moveTrack(drag.current.currentIdx, 0, false);
+      s.current.containerW = el.offsetWidth;
+      moveTrack(s.current.idx, 0, false);
+      styleCards(s.current.idx, false);
     };
     measure();
     const ro = new ResizeObserver(measure);
     ro.observe(el);
     return () => ro.disconnect();
-  }, []);
+  }, [moveTrack, styleCards]);
 
-  /* animate (or silently jump) whenever index changes — useLayoutEffect fires
-     before the browser paints, so card styles and track position are always in
-     sync in the same frame (prevents the flicker on infinite-loop wrap) */
-  useLayoutEffect(() => {
-    moveTrack(currentIndex, 0, animateNext.current);
-    animateNext.current = true;
-  }, [currentIndex]);
-
-  /* after an animated move, silently teleport from clone zone to real zone */
-  const wrapIfNeeded = useCallback((idx) => {
-    if (idx < BUFFER) {
-      const real = idx + total;
-      animateNext.current = false;
-      drag.current.currentIdx = real;
-      setCurrentIndex(real);
-    } else if (idx >= total + BUFFER) {
-      const real = idx - total;
-      animateNext.current = false;
-      drag.current.currentIdx = real;
-      setCurrentIndex(real);
-    }
-  }, [total]);
-
-  const navigate = useCallback((newIndex) => {
-    const d = drag.current;
-    if (d.isAnimating) return;
-    d.isAnimating  = true;
-    animateNext.current = true;
-    setCurrentIndex(newIndex);
-    setTimeout(() => {
-      d.isAnimating = false;
-      wrapIfNeeded(newIndex);
-    }, 600);
-  }, [wrapIfNeeded]);
+  /* ── pointer + keyboard ───────────────────────────────────────────── */
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    const cx  = (e) => e.touches        ? e.touches[0].clientX        : e.clientX;
-    const ecx = (e) => e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+    const cx  = e => e.touches        ? e.touches[0].clientX        : e.clientX;
+    const ecx = e => e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
 
-    const onDown = (e) => {
-      const d = drag.current;
-      if (d.isAnimating) return;
+    const onDown = e => {
+      if (s.current.isAnimating) return;
       if (e.target.closest(".tc-arrow,.tc-dot,.tc-dots,.btn-linkedin")) return;
       if (e.type === "mousedown") e.preventDefault();
-      d.active  = true;
-      d.didMove = false;
-      d.startX  = cx(e);
+      s.current.active  = true;
+      s.current.didMove = false;
+      s.current.startX  = cx(e);
     };
-
-    const onMove = (e) => {
-      const d = drag.current;
-      if (!d.active) return;
-      const delta = cx(e) - d.startX;
-      if (Math.abs(delta) > 4) d.didMove = true;
-      moveTrack(d.currentIdx, delta, false);
+    const onMove = e => {
+      if (!s.current.active) return;
+      const delta = cx(e) - s.current.startX;
+      if (Math.abs(delta) > 4) s.current.didMove = true;
+      moveTrack(s.current.idx, delta, false);
     };
-
-    const onUp = (e) => {
-      const d = drag.current;
-      if (!d.active) return;
-      d.active = false;
-      const diff = d.startX - ecx(e);
+    const onUp = e => {
+      if (!s.current.active) return;
+      s.current.active = false;
+      const diff = s.current.startX - ecx(e);
       if (Math.abs(diff) > 50) {
-        const steps  = Math.max(1, Math.round(Math.abs(diff) / STRIDE));
-        navigate(d.currentIdx + (diff > 0 ? steps : -steps));
+        const steps = Math.max(1, Math.round(Math.abs(diff) / STRIDE));
+        navigate(s.current.idx + (diff > 0 ? steps : -steps));
       } else {
-        moveTrack(d.currentIdx, 0, true);
+        moveTrack(s.current.idx, 0, true);
       }
     };
-
-    const onKey = (e) => {
-      if (e.key === "ArrowLeft")  navigate(drag.current.currentIdx - 1);
-      if (e.key === "ArrowRight") navigate(drag.current.currentIdx + 1);
+    const onKey = e => {
+      if (e.key === "ArrowLeft")  navigate(s.current.idx - 1);
+      if (e.key === "ArrowRight") navigate(s.current.idx + 1);
     };
 
     container.addEventListener("mousedown",  onDown);
@@ -291,40 +295,29 @@ function TeamCarousel({ members }) {
       window.removeEventListener("touchend",   onUp);
       window.removeEventListener("keydown",    onKey);
     };
-  }, [navigate]);
-
-  const cardStyle = (i) => {
-    const d = Math.abs(i - currentIndex);
-    return {
-      transform:  `scale(${d === 0 ? 1.1 : d === 1 ? 0.92 : d === 2 ? 0.82 : 0.74})`,
-      opacity:    d === 0 ? 1 : d === 1 ? 0.85 : d === 2 ? 0.65 : 0.4,
-      filter:     d === 0 ? "none" : `grayscale(${Math.min(d * 45, 100)}%)`,
-      zIndex:     10 - Math.min(d, 10),
-      transition: `${SNAP}, opacity 0.55s ease, filter 0.55s ease`,
-    };
-  };
-
-  const handleCardClick = (i) => {
-    if (drag.current.didMove) { drag.current.didMove = false; return; }
-    navigate(i);
-  };
-
-  /* map extended index back to real member */
-  const realIndex = ((currentIndex - BUFFER) % total + total) % total;
-  const current   = members[realIndex];
+  }, [navigate, moveTrack]);
 
   return (
     <div className="team-carousel-wrap">
       <h1 className="tc-title" aria-hidden="true">OUR TEAM</h1>
 
       <div className="tc-container" ref={containerRef}>
-        <button type="button" className="tc-arrow tc-arrow--left"  onClick={() => navigate(currentIndex - 1)} aria-label="Previous member">&#8249;</button>
+        <button type="button" className="tc-arrow tc-arrow--left"
+          onClick={() => navigate(s.current.idx - 1)} aria-label="Previous member">&#8249;</button>
 
         <div className="tc-track" ref={trackRef}>
           {extended.map((member, i) => {
-            const initials = member.name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
+            const initials = member.name.split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0]).join("").toUpperCase();
             return (
-              <div key={`${i}-${member.name}`} className="tc-card" style={cardStyle(i)} onClick={() => handleCardClick(i)}>
+              <div
+                key={`${i}-${member.name}`}
+                className="tc-card"
+                ref={el => { cardRefs.current[i] = el; }}
+                onClick={() => {
+                  if (s.current.didMove) { s.current.didMove = false; return; }
+                  navigate(i);
+                }}
+              >
                 {member.image
                   ? <img src={member.image} alt={member.name} draggable="false" />
                   : <div className="tc-initials">{initials}</div>
@@ -334,18 +327,19 @@ function TeamCarousel({ members }) {
           })}
         </div>
 
-        <button type="button" className="tc-arrow tc-arrow--right" onClick={() => navigate(currentIndex + 1)} aria-label="Next member">&#8250;</button>
+        <button type="button" className="tc-arrow tc-arrow--right"
+          onClick={() => navigate(s.current.idx + 1)} aria-label="Next member">&#8250;</button>
       </div>
 
       <div className="tc-info tc-info--visible">
-        <h2 className="tc-name">{current.name}</h2>
-        <p className="tc-role">{current.role}</p>
+        <h2 className="tc-name">{infoMember.name}</h2>
+        <p className="tc-role">{infoMember.role}</p>
         <a
-          href={current.linkedin}
-          target={current.linkedin !== "#" ? "_blank" : undefined}
+          href={infoMember.linkedin}
+          target={infoMember.linkedin !== "#" ? "_blank" : undefined}
           rel="noopener noreferrer"
           className="btn-linkedin tc-linkedin"
-          aria-label={`Connect with ${current.name} on LinkedIn`}
+          aria-label={`Connect with ${infoMember.name} on LinkedIn`}
         >
           {LINKEDIN_ICON}
           LinkedIn
@@ -358,10 +352,10 @@ function TeamCarousel({ members }) {
             key={i}
             type="button"
             role="tab"
-            className={["tc-dot", i === realIndex ? "tc-dot--active" : ""].filter(Boolean).join(" ")}
-            onClick={() => navigate(i + BUFFER)}
+            className={["tc-dot", m.name === infoMember.name ? "tc-dot--active" : ""].filter(Boolean).join(" ")}
+            onClick={() => navigate(i + BUF)}
             aria-label={m.name}
-            aria-selected={i === realIndex}
+            aria-selected={m.name === infoMember.name}
           />
         ))}
       </div>
