@@ -1,6 +1,6 @@
 /* global React, ReactDOM, Nav */
 
-const { useEffect, useState, useRef, useCallback } = React;
+const { useEffect, useState, useRef, useCallback, useLayoutEffect } = React;
 
 /* ─── Data ──────────────────────────────────────────────────────────────── */
 
@@ -25,7 +25,7 @@ const TEAM_IMAGE_BY_NAME = {
   "Nisha Rawat": `${TEAM_ASSET_ROOT}/team_images/unnamed-2-1.png`,
   "Febie Jean Cañetan": `${TEAM_ASSET_ROOT}/team_images/Febie.jpeg`,
   "Carla Mahinay": `${TEAM_ASSET_ROOT}/team_images/Picture1.png`,
-  // "Ioena Gabrielle Dayo": `${TEAM_ASSET_ROOT}/team_images/unnamed-2-1.png`,
+  "Leona Gabrielle Dayo": "assets/team/WhatsApp_Image_2026-06-25_at_11.02.43_PM.png",
   "Rachelle Sorronda": `${TEAM_ASSET_ROOT}/team_images/Picture1.jpg`,
   "Jullie Anne de la Cruz": `${TEAM_ASSET_ROOT}/team_images/d2d64c64-3821-4074-9f39-db308619a5b7.jpg`,
   "Shenie Canama": "assets/team/shenie.png",
@@ -49,7 +49,7 @@ const TEAM_MEMBERS = [
   { name: "Chidire Chukwudi",        role: "Admin Assistant",                    linkedin: "#", bio: [] },
   { name: "Nisha Rawat",             role: "Certification Assistant",            linkedin: "#", bio: [] },
   { name: "Febie Jean Cañetan",      role: "Certification Assistant",            linkedin: "#", bio: [] },
-  { name: "Ioena Gabrielle Dayo",    role: "Certification Assistant",            linkedin: "#", bio: [] },
+  { name: "Leona Gabrielle Dayo",    role: "Certification Assistant",            linkedin: "#", bio: [] },
   { name: "Carla Mahinay",           role: "Admin Lead",                 linkedin: "#", bio: [] },
   { name: "Rachelle Sorronda",       role: "Executive Assistant",                linkedin: "#", bio: [] },
   { name: "Shenie Canama",           role: "Accounting Assistant",               linkedin: "#", bio: [] },
@@ -66,7 +66,7 @@ const TEAM_GROUPS = [
   },
   {
     title: "Certification",
-    members: ["Priya Saravanan", "Maria Rama Iseman", "Nikka Grajo", "Abegael Mariano", "Nisha Rawat", "Febie Jean Cañetan", "Ioena Gabrielle Dayo"],
+    members: ["Priya Saravanan", "Maria Rama Iseman", "Nikka Grajo", "Abegael Mariano", "Nisha Rawat", "Febie Jean Cañetan", "Leona Gabrielle Dayo"],
   },
   {
     title: "Administration",
@@ -144,34 +144,39 @@ function BranchFilter({ active, onChange }) {
 
 /* ─── TeamCarousel ───────────────────────────────────────────────────────── */
 
-const CARD_W = 280;
-const CARD_H = 380;
-const GAP    = 24;
-const STRIDE = CARD_W + GAP;
-const SNAP   = "transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94)";
+const CARD_W  = 280;
+const CARD_H  = 380;
+const GAP     = 24;
+const STRIDE  = CARD_W + GAP;
+const SNAP    = "transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94)";
+const BUFFER  = 3; // cloned cards on each side for infinite loop
 
 function TeamCarousel({ members }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const total    = members.length;
+  /* extended track: [last BUFFER] + [all] + [first BUFFER] */
+  const extended = [
+    ...members.slice(-BUFFER),
+    ...members,
+    ...members.slice(0, BUFFER),
+  ];
 
-  const containerRef = useRef(null);
-  const trackRef     = useRef(null);
+  /* start at the first real card (after the left clones) */
+  const [currentIndex, setCurrentIndex] = useState(BUFFER);
 
-  /* single ref holds all mutable drag/animation state — no React state
-     updates during drag so the DOM update loop is synchronous */
+  const containerRef  = useRef(null);
+  const trackRef      = useRef(null);
+  const animateNext   = useRef(false); // controls whether the next index-change animates
+
   const drag = useRef({
     active:      false,
     didMove:     false,
     startX:      0,
     containerW:  0,
-    currentIdx:  0,
+    currentIdx:  BUFFER,
     isAnimating: false,
   });
   drag.current.currentIdx = currentIndex;
 
-  const total = members.length;
-  drag.current.total = total;
-
-  /* translate the track to center card at `idx`, optionally animated */
   const moveTrack = (idx, delta, animated) => {
     if (!trackRef.current || !drag.current.containerW) return;
     const x = drag.current.containerW / 2 - CARD_W / 2 - idx * STRIDE + delta;
@@ -179,7 +184,6 @@ function TeamCarousel({ members }) {
     trackRef.current.style.transform  = `translateX(${x}px)`;
   };
 
-  /* measure container and re-center without animation */
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
@@ -191,25 +195,43 @@ function TeamCarousel({ members }) {
     const ro = new ResizeObserver(measure);
     ro.observe(el);
     return () => ro.disconnect();
-  }, []); // intentionally empty — refs are always fresh
+  }, []);
 
-  /* animate to new index after React re-renders it */
-  useEffect(() => {
-    moveTrack(currentIndex, 0, true);
+  /* animate (or silently jump) whenever index changes — useLayoutEffect fires
+     before the browser paints, so card styles and track position are always in
+     sync in the same frame (prevents the flicker on infinite-loop wrap) */
+  useLayoutEffect(() => {
+    moveTrack(currentIndex, 0, animateNext.current);
+    animateNext.current = true;
   }, [currentIndex]);
+
+  /* after an animated move, silently teleport from clone zone to real zone */
+  const wrapIfNeeded = useCallback((idx) => {
+    if (idx < BUFFER) {
+      const real = idx + total;
+      animateNext.current = false;
+      drag.current.currentIdx = real;
+      setCurrentIndex(real);
+    } else if (idx >= total + BUFFER) {
+      const real = idx - total;
+      animateNext.current = false;
+      drag.current.currentIdx = real;
+      setCurrentIndex(real);
+    }
+  }, [total]);
 
   const navigate = useCallback((newIndex) => {
     const d = drag.current;
     if (d.isAnimating) return;
-    const idx = Math.max(0, Math.min(total - 1, newIndex));
-    if (idx === d.currentIdx) { moveTrack(d.currentIdx, 0, true); return; }
-    d.isAnimating = true;
-    setCurrentIndex(idx);
-    setTimeout(() => { d.isAnimating = false; }, 600);
-  }, [total]);
+    d.isAnimating  = true;
+    animateNext.current = true;
+    setCurrentIndex(newIndex);
+    setTimeout(() => {
+      d.isAnimating = false;
+      wrapIfNeeded(newIndex);
+    }, 600);
+  }, [wrapIfNeeded]);
 
-  /* all pointer/keyboard events attached directly to the DOM so drag
-     tracking never goes through React state (no batching delay) */
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -222,9 +244,9 @@ function TeamCarousel({ members }) {
       if (d.isAnimating) return;
       if (e.target.closest(".tc-arrow,.tc-dot,.tc-dots,.btn-linkedin")) return;
       if (e.type === "mousedown") e.preventDefault();
-      d.active   = true;
-      d.didMove  = false;
-      d.startX   = cx(e);
+      d.active  = true;
+      d.didMove = false;
+      d.startX  = cx(e);
     };
 
     const onMove = (e) => {
@@ -242,10 +264,10 @@ function TeamCarousel({ members }) {
       const diff = d.startX - ecx(e);
       if (Math.abs(diff) > 50) {
         const steps  = Math.max(1, Math.round(Math.abs(diff) / STRIDE));
-        const target = Math.max(0, Math.min(d.total - 1, d.currentIdx + (diff > 0 ? steps : -steps)));
-        navigate(target);
+        navigate(d.currentIdx + (diff > 0 ? steps : -steps));
+      } else {
+        moveTrack(d.currentIdx, 0, true);
       }
-      else moveTrack(d.currentIdx, 0, true); /* snap back */
     };
 
     const onKey = (e) => {
@@ -271,14 +293,13 @@ function TeamCarousel({ members }) {
     };
   }, [navigate]);
 
-  /* visual style per card based on distance from center */
   const cardStyle = (i) => {
     const d = Math.abs(i - currentIndex);
     return {
       transform:  `scale(${d === 0 ? 1.1 : d === 1 ? 0.92 : d === 2 ? 0.82 : 0.74})`,
       opacity:    d === 0 ? 1 : d === 1 ? 0.85 : d === 2 ? 0.65 : 0.4,
       filter:     d === 0 ? "none" : `grayscale(${Math.min(d * 45, 100)}%)`,
-      zIndex:     10 - d,
+      zIndex:     10 - Math.min(d, 10),
       transition: `${SNAP}, opacity 0.55s ease, filter 0.55s ease`,
     };
   };
@@ -288,7 +309,9 @@ function TeamCarousel({ members }) {
     navigate(i);
   };
 
-  const current = members[currentIndex];
+  /* map extended index back to real member */
+  const realIndex = ((currentIndex - BUFFER) % total + total) % total;
+  const current   = members[realIndex];
 
   return (
     <div className="team-carousel-wrap">
@@ -298,10 +321,10 @@ function TeamCarousel({ members }) {
         <button type="button" className="tc-arrow tc-arrow--left"  onClick={() => navigate(currentIndex - 1)} aria-label="Previous member">&#8249;</button>
 
         <div className="tc-track" ref={trackRef}>
-          {members.map((member, i) => {
+          {extended.map((member, i) => {
             const initials = member.name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
             return (
-              <div key={member.name} className="tc-card" style={cardStyle(i)} onClick={() => handleCardClick(i)}>
+              <div key={`${i}-${member.name}`} className="tc-card" style={cardStyle(i)} onClick={() => handleCardClick(i)}>
                 {member.image
                   ? <img src={member.image} alt={member.name} draggable="false" />
                   : <div className="tc-initials">{initials}</div>
@@ -335,10 +358,10 @@ function TeamCarousel({ members }) {
             key={i}
             type="button"
             role="tab"
-            className={["tc-dot", i === currentIndex ? "tc-dot--active" : ""].filter(Boolean).join(" ")}
-            onClick={() => navigate(i)}
+            className={["tc-dot", i === realIndex ? "tc-dot--active" : ""].filter(Boolean).join(" ")}
+            onClick={() => navigate(i + BUFFER)}
             aria-label={m.name}
-            aria-selected={i === currentIndex}
+            aria-selected={i === realIndex}
           />
         ))}
       </div>
