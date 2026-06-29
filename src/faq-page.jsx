@@ -45,20 +45,8 @@ const FAQ_DATA = [
         a: "Requirements vary by certification, but commonly needed documents include business formation records (articles of incorporation or operating agreement), proof of ownership, federal tax returns, financial statements, government-issued ID, and a biography or resume for the principal owner. We provide a personalized document checklist during onboarding so nothing is missed.",
       },
       {
-        q: "How long does the certification process take?",
-        a: "Timelines vary by certifying body and how complete your application is. Some state-level certifications can be approved in 30 to 60 days. Federal certifications such as SBA 8(a) may take three to six months or longer. Our team works to streamline your application and minimize delays at every stage.",
-      },
-      {
         q: "Can R Mo manage the entire certification process on my behalf?",
         a: "Yes. Our team handles everything from eligibility assessment and document preparation to application submission and follow-up with the certifying body. You focus on running your business — we manage the paperwork and process from start to finish.",
-      },
-      {
-        q: "What are the benefits of becoming certified?",
-        a: "Certification unlocks access to set-aside contracts at the federal, state, and corporate levels; eligibility for supplier diversity programs; increased visibility in procurement databases; and a competitive advantage when responding to RFPs that require diverse supplier participation. Many of our clients secure their first government or corporate contract directly as a result of their certification.",
-      },
-      {
-        q: "What if my application is denied?",
-        a: "Denials are often due to incomplete documentation or technical deficiencies — not ineligibility. We review the denial notice, identify the specific issues, and work with you to address them before resubmitting. We have successfully appealed and resubmitted on behalf of many clients.",
       },
       {
         q: "How much does certification support cost?",
@@ -83,24 +71,12 @@ const FAQ_DATA = [
         a: "Participants receive a business readiness assessment, one-on-one coaching sessions, help building capability statements and pitch materials, guidance on certification pathways, and introductions to relevant procurement opportunities and decision-makers.",
       },
       {
-        q: "What outcomes can I expect?",
-        a: "By the end of the program, you will have a polished capability statement, a clear understanding of which procurement channels to target, a stronger grasp of how to respond to RFPs, and direct connections to buyers and supplier diversity managers at corporations and government agencies.",
-      },
-      {
         q: "How long does the Market Ready Program take?",
         a: "The core program runs eight to twelve weeks, depending on where your business is starting from. An accelerated track is available for businesses that are already partially market-ready.",
       },
       {
-        q: "What do I need to apply?",
-        a: "You need to be an active business with at least one diversity certification or be actively pursuing one. During intake, we'll ask for a brief overview of your business, your target markets, and your current challenges.",
-      },
-      {
         q: "Is there a cost to participate?",
         a: "Program fees vary based on scope and business size. Some cohorts are offered at reduced or no cost through partnerships with corporate sponsors and government agencies. Contact us to find out what options are currently available.",
-      },
-      {
-        q: "Will this program guarantee contracts?",
-        a: "No program can guarantee contracts, and we won't claim otherwise. What we do guarantee is that participants leave with stronger positioning, better materials, and real connections to procurement decision-makers.",
       },
     ],
   },
@@ -128,19 +104,134 @@ const FAQ_DATA = [
         q: "How do I register for an event?",
         a: "Registration details are listed on our Calendar page. Most events require advance sign-up as spaces are limited to ensure an interactive experience. We recommend registering early.",
       },
+    ],
+  },
+  {
+    id: "diversity-certification",
+    label: "Diversity Certification",
+    items: [
       {
-        q: "Is there a cost to attend?",
-        a: "Many sessions are offered at no cost or for a nominal fee. Pricing details are listed on each event's registration page. Some events are sponsored and offered free to qualifying diverse business owners.",
+        q: "Why is diversity certification important?",
+        a: "Many corporations and government agencies actively seek certified suppliers as part of their supplier diversity and inclusion initiatives. Certification can help businesses:",
+        bullets: [
+          "Gain visibility with corporate buyers",
+          "Access supplier diversity opportunities",
+          "Compete for contracts and bids",
+          "Build credibility and trust",
+          "Participate in networking and development programs",
+        ],
       },
       {
-        q: "Can I speak at or sponsor a Speaker Series event?",
-        a: "We welcome speakers and sponsors who align with our mission of empowering diverse businesses. If you're interested in presenting, partnering, or sponsoring an upcoming session, reach out through our Contact page and we'll be in touch.",
+        q: "Who should get certified?",
+        a: "Any qualifying business that wants to grow through corporate, government, or supplier diversity opportunities should consider certification. This includes:",
+        bullets: [
+          "Small businesses",
+          "Consultants",
+          "Service providers",
+          "Manufacturers",
+          "Technology firms",
+          "Construction companies",
+          "Professional service firms",
+          "Global suppliers entering the U.S. market",
+        ],
+      },
+      {
+        q: "What types of diversity certifications are available?",
+        a: "There are many certification programs available depending on your business ownership and goals. Common certifications include:",
+        bullets: [
+          "Minority-Owned Business (MBE)",
+          "Women-Owned Business (WBE/WOSB)",
+          "Disadvantaged Business Enterprise (DBE)",
+          "Veteran-Owned Business (VOSB/SDVOSB)",
+          "LGBTQ+ Certification",
+          "Disability-Owned Business Certification",
+          "Small Business Certifications (SBE/LBE)",
+          "8(a) and HUBZone Certifications",
+          "Global Certifications through WEConnect International and MSDUK",
+        ],
+      },
+      {
+        q: "How long does the certification process take?",
+        a: "The timeline depends on the certification agency and the readiness of your documentation. On average:",
+        bullets: [
+          "Some certifications may take 30–60 days",
+          "Others may take 3–6 months",
+          "Government certifications can sometimes take longer",
+        ],
+        outro: "Proper preparation and accurate documentation can significantly speed up the process.",
+      },
+      {
+        q: "Do certifications need to be renewed?",
+        a: "Yes. Most certifications require annual renewal to maintain active status. Renewals help certification agencies confirm that the business still meets eligibility requirements and remains operational.",
+      },
+      {
+        q: "What documents are typically required?",
+        a: "Requirements vary by certification, but common documents include:",
+        bullets: [
+          "Business licenses",
+          "Tax returns",
+          "Operating agreements or bylaws",
+          "Ownership documents",
+          "Financial statements",
+          "Resumes of owners",
+          "Proof of citizenship or ethnicity (if applicable)",
+        ],
+      },
+      {
+        q: "Will certification guarantee contracts?",
+        a: "Certification does not guarantee contracts or business awards. However, it increases visibility and access to opportunities that may not otherwise be available. Businesses that actively market themselves and build relationships typically gain the most value from certification.",
+      },
+      {
+        q: "Who looks at diversity certifications?",
+        a: "Certified businesses are often reviewed by:",
+        bullets: [
+          "Corporate supplier diversity teams",
+          "Procurement departments",
+          "Government agencies",
+          "Prime contractors",
+          "Purchasing managers",
+          "Diversity councils and industry partners",
+        ],
+      },
+      {
+        q: "Can a business have more than one certification?",
+        a: "Yes. Many businesses qualify for multiple certifications depending on ownership structure, size, location, and industry. For example, a business may simultaneously hold:",
+        bullets: ["WBE", "MBE", "Small Business", "DBE", "Local or state certifications"],
+      },
+      {
+        q: "Are certifications available internationally?",
+        a: "Yes. Some certifications are recognized globally and help businesses connect with international corporate buyers and supplier diversity programs. R Mo supports both U.S. and global certification initiatives.",
+      },
+      {
+        q: "How can R Mo Global Diversity Solutions help?",
+        a: "R Mo Global Diversity Solutions provides end-to-end support throughout the certification journey, including:",
+        bullets: [
+          "Certification eligibility assessment",
+          "Documentation preparation",
+          "Application submission support",
+          "Renewal assistance",
+          "Corporate supplier certification programs",
+          "Procurement readiness guidance",
+          "Market Ready training and mentoring",
+        ],
+      },
+      {
+        q: "What happens after certification?",
+        a: "Certification is only the beginning. Businesses should continue to:",
+        bullets: [
+          "Build relationships with buyers",
+          "Improve capability statements",
+          "Attend networking and procurement events",
+          "Respond to opportunities",
+          "Participate in supplier development programs",
+        ],
+        outro: "R Mo helps businesses become “market ready” after certification to maximize opportunities and growth.",
       },
     ],
   },
 ];
 
-function FaqItem({ id, q, a }) {
+function FaqItem({ id, q, a, bullets, outro }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -196,23 +287,43 @@ function FaqItem({ id, q, a }) {
       </button>
       <div
         style={{
-          maxHeight: open ? "600px" : "0",
+          maxHeight: open ? "2000px" : "0",
           overflow: "hidden",
           transition: "max-height 0.3s ease",
         }}
       >
-        <p
+        <div
           style={{
-            margin: 0,
             padding: "14px 20px 18px",
-            fontSize: "15px",
-            color: "var(--body)",
-            lineHeight: 1.7,
             borderTop: "1px solid var(--line)",
           }}
         >
-          {a}
-        </p>
+          <p style={{ margin: 0, fontSize: "15px", color: "var(--body)", lineHeight: 1.7 }}>
+            {a}
+          </p>
+          {bullets && bullets.length > 0 && (
+            <ul
+              style={{
+                margin: "10px 0 0",
+                paddingLeft: "20px",
+                fontSize: "15px",
+                color: "var(--body)",
+                lineHeight: 1.7,
+              }}
+            >
+              {bullets.map((b, i) => (
+                <li key={i} style={{ marginBottom: "4px" }}>
+                  {b}
+                </li>
+              ))}
+            </ul>
+          )}
+          {outro && (
+            <p style={{ margin: "10px 0 0", fontSize: "15px", color: "var(--body)", lineHeight: 1.7 }}>
+              {outro}
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );
@@ -234,7 +345,14 @@ function FaqCategory({ category, sectionRef }) {
         {category.label}
       </h2>
       {category.items.map((item, i) => (
-        <FaqItem key={i} id={`${category.id}-${i}`} q={item.q} a={item.a} />
+        <FaqItem
+          key={i}
+          id={`${category.id}-${i}`}
+          q={item.q}
+          a={item.a}
+          bullets={item.bullets}
+          outro={item.outro}
+        />
       ))}
     </section>
   );
