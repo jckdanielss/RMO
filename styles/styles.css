@@ -415,6 +415,9 @@ section { scroll-margin-top: 80px; }
    ============================================================ */
 .hero-split {
   position: relative;
+  display: block;
+  height: auto;
+  min-height: 0;
   overflow: hidden;
   background: var(--green-deep);
 }
