@@ -13,6 +13,36 @@ function useScrollRevealMV() {
   }, []);
 }
 
+const MV_OBJECTIVES = [
+  {
+    ic: Ic.badge,
+    title: "For Diverse Businesses",
+    items: [
+      "Support businesses in obtaining and maintaining diversity certifications.",
+      "Guide clients to design and implement measurable social and economic impact strategies.",
+      "Equip suppliers with tools to showcase their strengths and compete successfully in government and corporate markets.",
+    ],
+  },
+  {
+    ic: Ic.handshake,
+    title: "For Corporates & Government",
+    items: [
+      "Assist in certifying and developing their diverse supplier base.",
+      "Strengthen corporate supplier diversity programs by aligning with impact-driven strategies.",
+      "Provide insights and visibility to help corporates meet and exceed diversity spend goals.",
+    ],
+  },
+  {
+    ic: Ic.rocket,
+    title: "For the R Mo Team",
+    items: [
+      "Invest in continuous learning and professional growth of our global team.",
+      "Foster innovation and process excellence to better serve clients.",
+      "Build a culture of collaboration, integrity, and social responsibility.",
+    ],
+  },
+];
+
 function MissionVisionPage() {
   useScrollRevealMV();
 
@@ -56,6 +86,22 @@ function MissionVisionPage() {
                   them to thrive in government and corporate markets.
                 </p>
               </div>
+            </div>
+            <div className="section-head center reveal obj-section-head">
+              <h2>Objectives</h2>
+            </div>
+            <div className="obj-grid reveal">
+              {MV_OBJECTIVES.map((o) => (
+                <div className="obj-card" key={o.title}>
+                  <div className="obj-head">
+                    <span className="obj-ic">{o.ic}</span>
+                    <h4>{o.title}</h4>
+                  </div>
+                  <ul>
+                    {o.items.map((item) => <li key={item}>{item}</li>)}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
         </section>
