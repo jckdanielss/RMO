@@ -456,58 +456,54 @@ function Hero() {
 
   return (
     <React.Fragment>
-    <header className="hero hero-v2" id="top">
-      {/* Slide backgrounds */}
-      <div className="hero-v2-track" aria-hidden="true" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
-        {HERO_SLIDES.map((s, i) => (
-          <div
-            key={i}
-            className={"hero-v2-slide-bg" + (i === active ? " active" : "")}
-            style={{ backgroundImage: "url('" + s.img + "')" }}
-          />
-        ))}
-        <div className="hero-v2-overlay" />
-      </div>
+    <header className="hero hero-split" id="top">
+      <div className="hero-split-inner" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+        <div className="hero-split-text">
+          <div className="hero-split-text-inner" key={animKey}>
+            <h1 className="hero-split-heading">{HERO_SLIDES[active].heading}</h1>
+            <p className="hero-split-sub">{HERO_SLIDES[active].sub}</p>
+            <div className="hero-split-actions">
+              <a
+                href={HERO_SLIDES[active].btnHref}
+                className="hero-split-btn"
+                onClick={(e) => go(e, HERO_SLIDES[active].btnHref)}
+              >
+                {HERO_SLIDES[active].btnLabel} {Ic.arrow}
+              </a>
+            </div>
+          </div>
+        </div>
 
-      {/* Slide content */}
-      <div className="hero-v2-content-wrap">
-        <div className="hero-v2-content" key={animKey}>
-          <h1 className="hero-v2-heading">{HERO_SLIDES[active].heading}</h1>
-          <p className="hero-v2-sub">{HERO_SLIDES[active].sub}</p>
-          <div className="hero-v2-actions">
-            <a
-              href={HERO_SLIDES[active].btnHref}
-              className="hero-v2-btn"
-              onClick={(e) => go(e, HERO_SLIDES[active].btnHref)}
-            >
-              {HERO_SLIDES[active].btnLabel} {Ic.arrow}
-            </a>
+        <div className="hero-split-photo">
+          {HERO_SLIDES.map((s, i) => (
+            <div
+              key={i}
+              className={"hero-split-photo-bg" + (i === active ? " active" : "")}
+              style={{ backgroundImage: "url('" + s.img + "')" }}
+            />
+          ))}
+
+          <button className="hero-split-nav hero-split-prev" aria-label="Previous slide" onClick={() => goTo(active - 1)}>
+            {Ic.chevL}
+          </button>
+          <button className="hero-split-nav hero-split-next" aria-label="Next slide" onClick={() => goTo(active + 1)}>
+            {Ic.chevR}
+          </button>
+
+          <div className="hero-split-dots" role="tablist">
+            {HERO_SLIDES.map((_, i) => (
+              <button
+                key={i}
+                role="tab"
+                aria-label={"Slide " + (i + 1)}
+                aria-selected={i === active}
+                className={"hero-split-dot" + (i === active ? " active" : "")}
+                onClick={() => goTo(i)}
+              />
+            ))}
           </div>
         </div>
       </div>
-
-      {/* Prev / Next */}
-      <button className="hero-v2-nav hero-v2-prev" aria-label="Previous slide" onClick={() => goTo(active - 1)}>
-        {Ic.chevL}
-      </button>
-      <button className="hero-v2-nav hero-v2-next" aria-label="Next slide" onClick={() => goTo(active + 1)}>
-        {Ic.chevR}
-      </button>
-
-      {/* Dots */}
-      <div className="hero-v2-dots" role="tablist">
-        {HERO_SLIDES.map((_, i) => (
-          <button
-            key={i}
-            role="tab"
-            aria-label={"Slide " + (i + 1)}
-            aria-selected={i === active}
-            className={"hero-v2-dot" + (i === active ? " active" : "")}
-            onClick={() => goTo(i)}
-          />
-        ))}
-      </div>
-
     </header>
     <div className="hero-cert-strip">
       <div className="hero-cert-strip-fade hero-cert-strip-fade-l" aria-hidden="true" />
