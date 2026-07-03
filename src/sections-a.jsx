@@ -209,6 +209,7 @@ const ABOUT_LINKS = [
 ];
 const PROFESSIONAL_SERVICES_LINKS = [
   ["Professional Services", "services/professional-services.html"],
+  ["Capability Statement", "capability-statement.html"],
   ["Business Growth Programs", "services/business-growth-programs.html"],
 ];
 
