@@ -203,7 +203,7 @@ function LogoCarousel({ items, renderItem, className, speed = 28 }) {
 
 /* ======================= NAV ======================= */
 const ABOUT_LINKS = [
-  ["Vision", "index.html#about"],
+  ["Mission & Vision", "mission-vision.html"],
   ["History", "history.html"],
   ["Team", "team.html"],
 ];

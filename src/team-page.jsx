@@ -111,9 +111,9 @@ function OrgChart() {
         <span className="eyebrow">Structure</span>
         <h2>Organizational Chart</h2>
       </div>
-      <div className="org-chart-wrap org-chart-image-wrap">
+      <div className="org-chart-image-wrap">
         <img
-          src="assets/team/Organizational_Chart_1.png"
+          src="assets/team/01-28-26_RMo_OrgChart-_Landscape_Border.png"
           alt="R Mo Global Diversity Solutions Organizational Chart"
           className="org-chart-image"
         />
