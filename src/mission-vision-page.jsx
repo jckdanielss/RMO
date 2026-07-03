@@ -43,6 +43,107 @@ const MV_OBJECTIVES = [
   },
 ];
 
+const CORE_COMPETENCIES = [
+  {
+    ic: Ic.badge,
+    title: "Diversity Certifications",
+    desc: "End-to-end support for MBE, WBE, DBE, and other certifications across local, state, and federal levels.",
+  },
+  {
+    ic: Ic.handshake,
+    title: "Supplier Diversity Support",
+    desc: "Helping corporate and government supplier diversity programs certify and develop their diverse supplier base.",
+  },
+  {
+    ic: Ic.rocket,
+    title: "Business Growth Programs",
+    desc: "Market readiness, speaker series, and startup guidance that turn a certification into a contract strategy.",
+  },
+  {
+    ic: Ic.target,
+    title: "Market Readiness",
+    desc: "Sharpening your pitch and positioning so you're ready the moment a buyer takes a meeting.",
+  },
+  {
+    ic: Ic.doc,
+    title: "Procurement Assistance",
+    desc: "Capability statements and RFP/bid packages written the way procurement officers actually read them.",
+  },
+  {
+    ic: Ic.chip,
+    title: "Strategic Business Consulting",
+    desc: "Direct, practical guidance on the certifications, partnerships, and next steps worth pursuing.",
+  },
+];
+
+const GROWTH_PROGRAM_CARDS = [
+  {
+    ic: Ic.rocket,
+    title: "Market Ready Program",
+    desc: "A hands-on program that turns your certification into a contract strategy.",
+  },
+  {
+    ic: Ic.badge,
+    title: "Speaker Series",
+    desc: "Monthly talks with procurement officers, certifying bodies, and business owners who've been through it.",
+  },
+  {
+    ic: Ic.eye,
+    title: "Impact Reports",
+    desc: "Economic impact, social outcomes, and community reach, documented for corporate and government partners.",
+  },
+  {
+    ic: Ic.rocket,
+    title: "Startup Guidance",
+    desc: "Getting the structure right and choosing the certifications worth pursuing first.",
+  },
+];
+
+const CERT_CATEGORIES = [
+  {
+    label: "National Certifications",
+    items: [
+      { abbr: "MBE", name: "National Minority Business Certification (NMSDC)" },
+      { abbr: "WBE", name: "National Women Business Certification (WBENC)" },
+      { abbr: "VBE", name: "National Veteran Business Certification (NVBDC)" },
+      { abbr: "LGBTQ", name: "National LGBTQ Business Certification (NGLCC)" },
+      { abbr: "Disable", name: "National Disabled Business Certification (Disability:IN)" },
+      { abbr: "USPAACC", name: "US Pan Asian American Chamber of Commerce" },
+    ],
+  },
+  {
+    label: "State & California Certifications",
+    items: [
+      { abbr: "SBE", name: "Small Business Enterprise (all US states)" },
+      { abbr: "MBE/WBE", name: "State-qualified certifications" },
+      { abbr: "DVBE", name: "Disabled Veteran Business Enterprise (CA)" },
+      { abbr: "LBE", name: "Local Business Enterprise (San Francisco)" },
+      { abbr: "DGS-MSA / CA-CMAS", name: "California state contracting certifications" },
+      { abbr: "CPUC", name: "California Public Utilities Commission" },
+      { abbr: "SLEB", name: "Small Local Emerging Business (Alameda)" },
+    ],
+  },
+  {
+    label: "Federal Certifications",
+    items: [
+      { abbr: "DBE", name: "Disadvantaged Business Enterprise (DOT)" },
+      { abbr: "8(a)", name: "Small Disadvantaged Business (SDB)" },
+      { abbr: "GSA", name: "General Service Administration Schedules" },
+      { abbr: "SAM", name: "System for Award Management" },
+      { abbr: "WOSB", name: "Federal Women-Owned Small Business" },
+      { abbr: "HUBZone", name: "Federal Underutilized Zone" },
+    ],
+  },
+  {
+    label: "Global Certifications",
+    items: [
+      { abbr: "WBE", name: "WEConnect International Certification" },
+      { abbr: "Disability:IN", name: "Disabled Business Enterprise (Global)" },
+      { abbr: "MBE", name: "Australia, Canada, China, South Africa, UK" },
+    ],
+  },
+];
+
 function MissionVisionPage() {
   useScrollRevealMV();
 
@@ -100,6 +201,78 @@ function MissionVisionPage() {
                   <ul>
                     {o.items.map((item) => <li key={item}>{item}</li>)}
                   </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Core Competencies */}
+        <section className="pad-y" style={{ background: "var(--bg-soft)" }}>
+          <div className="wrap">
+            <div className="section-head center reveal">
+              <span className="eyebrow">Core Competencies</span>
+              <h2>Where We Help</h2>
+            </div>
+            <div className="svc-card-grid reveal d1">
+              {CORE_COMPETENCIES.map((c) => (
+                <div className="svc-detail-card" key={c.title}>
+                  <div className="svc-detail-icon">
+                    <span className="svc-icon-wrap">{c.ic}</span>
+                  </div>
+                  <div className="svc-detail-body">
+                    <h2>{c.title}</h2>
+                    <p>{c.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Business Growth Programs */}
+        <section className="pad-y">
+          <div className="wrap">
+            <div className="section-head reveal">
+              <span className="eyebrow">Business Growth Programs</span>
+              <h2>Turning Certification Into Contracts</h2>
+              <p>Real buyers, sharper pitches, and the relationships that lead to contracts.</p>
+            </div>
+            <div className="svc-card-grid svc-card-grid--2col reveal d1">
+              {GROWTH_PROGRAM_CARDS.map((c) => (
+                <a className="svc-detail-card" href="services/business-growth-programs.html" key={c.title} style={{ display: "flex", textDecoration: "none", color: "inherit" }}>
+                  <div className="svc-detail-icon">
+                    <span className="svc-icon-wrap">{c.ic}</span>
+                  </div>
+                  <div className="svc-detail-body">
+                    <h2>{c.title}</h2>
+                    <p>{c.desc}</p>
+                    <span className="branch-learn-btn" style={{ marginTop: "12px", display: "inline-flex" }}>Learn More {Ic.arrow}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Major Certifications */}
+        <section className="pad-y" style={{ background: "var(--bg-soft)" }}>
+          <div className="wrap">
+            <div className="section-head center reveal">
+              <span className="eyebrow">Major Certifications</span>
+              <h2>300+ Certifications, All Over the Globe</h2>
+            </div>
+            <div className="svc-card-grid svc-card-grid--2col reveal d1">
+              {CERT_CATEGORIES.map((cat) => (
+                <div className="svc-detail-card" key={cat.label} style={{ display: "block" }}>
+                  <div className="svc-detail-body">
+                    <h2>{cat.label}</h2>
+                    <ul style={{ marginTop: "10px", paddingLeft: "18px", fontSize: "14.5px", color: "var(--body)", lineHeight: 1.8 }}>
+                      {cat.items.map((it) => (
+                        <li key={it.abbr + it.name}><strong style={{ color: "var(--ink)" }}>{it.abbr}</strong> — {it.name}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               ))}
             </div>
