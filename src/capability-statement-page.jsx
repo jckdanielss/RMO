@@ -385,7 +385,37 @@ function CapabilityStatementPage() {
           </div>
         </section>
 
-        {/* 7. Capability Statement Download */}
+        {/* 7. Capability Statement Preview */}
+        <section className="pad-y" id="cs-preview">
+          <div className="wrap">
+            <div className="section-head center reveal">
+              <span className="eyebrow">At a Glance</span>
+              <h2>The One-Page Capability Statement</h2>
+              <p>
+                Everything a procurement officer needs on a single page — certifications, differentiators, major clients, and contact details.
+              </p>
+            </div>
+            <a
+              href="capability-statement/RMO-Capability-Statement-June-2026.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="reveal"
+              style={{ display: "block", maxWidth: "820px", margin: "clamp(24px,3vw,36px) auto 0" }}
+            >
+              <img
+                src="capability-statement/RMO-Capability-Statement-June-2026.png"
+                alt="R Mo Global Diversity Solutions capability statement — company facts, certifications, differentiators, and corporate clients"
+                loading="lazy"
+                style={{
+                  width: "100%", height: "auto", display: "block", borderRadius: "12px",
+                  border: "1px solid var(--line)", boxShadow: "0 18px 48px rgba(0,0,0,0.14)",
+                }}
+              />
+            </a>
+          </div>
+        </section>
+
+        {/* 8. Capability Statement Download */}
         <section className="pad-y" id="cs-download">
           <div className="wrap">
             <div className="mv-card accent reveal" style={{ textAlign: "center", padding: "clamp(36px,5vw,56px)" }}>
