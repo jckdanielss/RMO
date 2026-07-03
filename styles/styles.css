@@ -378,6 +378,24 @@ section { scroll-margin-top: 80px; }
 }
 .hero-carousel-content { animation: heroFadeIn .55s cubic-bezier(.16,.8,.3,1) forwards; }
 
+/* Capability statement — image-only page */
+@keyframes csFlashIn {
+  0%   { opacity: 0; transform: scale(.985); }
+  60%  { opacity: 1; }
+  100% { opacity: 1; transform: scale(1); }
+}
+.cs-only { padding: clamp(28px,5vw,64px) 0; }
+.cs-only-inner { max-width: 860px; margin: 0 auto; text-align: center; }
+.cs-flyer {
+  width: 100%; height: auto; display: block; border-radius: 14px;
+  border: 1px solid var(--line); box-shadow: 0 20px 56px rgba(0,0,0,0.16);
+  animation: csFlashIn .6s cubic-bezier(.16,.8,.3,1) both;
+}
+.cs-only-actions { margin-top: clamp(20px,3vw,32px); }
+@media (prefers-reduced-motion: reduce) {
+  .cs-flyer { animation: none; }
+}
+
 .hero-nav {
   position: absolute; top: 50%; transform: translateY(-50%); z-index: 3;
   width: 48px; height: 48px; border-radius: 50%;
