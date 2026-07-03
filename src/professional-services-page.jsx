@@ -25,14 +25,6 @@ const PRO_SERVICE_LIST = [
     subType: "tags",
   },
   {
-    ic: Ic.doc,
-    title: "Capability Statement",
-    desc: "We write and design the document procurement officers actually read built around your specific strengths, past performance, and differentiators.",
-    sub: null,
-    subType: null,
-    href: "capability-statement.html",
-  },
-  {
     ic: Ic.target,
     title: "RFP / Bid Package Assistance",
     desc: "Most bids are lost in the writing, not the work. We build RFP responses that are accurate, tight, and ready to submit.",
