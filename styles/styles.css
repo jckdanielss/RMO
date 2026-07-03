@@ -411,59 +411,56 @@ section { scroll-margin-top: 80px; }
 }
 
 /* ============================================================
-   HERO SPLIT — fixed text panel + rotating photo, cert logo strip
+   HERO EDITORIAL — light panel, framed rotating photo stack
    ============================================================ */
-.hero-split {
+.hero-ed {
   position: relative;
-  display: block;
-  height: auto;
-  min-height: 0;
   overflow: hidden;
-  background: var(--green-deep);
+  background: var(--green-tint);
 }
 
-.hero-split-inner {
-  display: flex;
-  min-height: 82vh;
-}
-
-.hero-split-text {
-  flex: 0 0 45%;
+.hero-ed-inner {
   display: flex;
   align-items: center;
-  padding: clamp(48px, 6vw, 80px) clamp(28px, 5vw, 64px);
+  gap: clamp(24px, 4vw, 56px);
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: clamp(48px, 6vw, 88px) clamp(24px, 5vw, 64px);
+  min-height: 70vh;
 }
 
-.hero-split-text-inner { max-width: 480px; }
+.hero-ed-text { flex: 0 0 42%; }
+.hero-ed-text-inner { max-width: 460px; }
 
-.hero-split-heading {
-  color: #fff;
-  font-size: clamp(30px, 3.4vw, 48px);
+.hero-ed-heading {
+  color: var(--green-deep);
+  font-size: clamp(30px, 3.4vw, 50px);
   font-weight: 800;
   letter-spacing: -0.03em;
-  line-height: 1.08;
+  line-height: 1.06;
   margin: 0 0 18px;
 }
 
-.hero-split-sub {
-  color: rgba(255,255,255,.85);
+.hero-ed-sub {
+  color: var(--body);
   font-size: clamp(15px, 1.4vw, 18px);
   line-height: 1.6;
   margin: 0 0 28px;
-  max-width: 440px;
+  max-width: 420px;
 }
 
-.hero-split-actions {
+.hero-ed-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
+  margin-bottom: 32px;
 }
 
-.hero-split-btn {
+.hero-ed-btn {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 12px 22px;
+  padding: 13px 24px;
   border-radius: 999px;
   font-size: 14px;
   font-weight: 600;
@@ -475,25 +472,75 @@ section { scroll-margin-top: 80px; }
   color: #fff;
   border: 2px solid transparent;
 }
-.hero-split-btn:hover {
+.hero-ed-btn:hover {
   background: var(--green-dark);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(26,156,62,.32);
 }
 
-.hero-split-photo {
-  position: relative;
+/* Control row — arrows flanking dots, under the text */
+.hero-ed-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-ed-nav {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid rgba(12,79,32,.18);
+  color: var(--green-deep);
+  display: grid; place-items: center;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+  outline: none;
+}
+.hero-ed-nav:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(12,79,32,.14); }
+.hero-ed-nav:focus-visible { box-shadow: 0 0 0 2px rgba(26,156,62,.7); }
+.hero-ed-nav svg { width: 18px; height: 18px; }
+
+.hero-ed-dots { display: flex; gap: 8px; align-items: center; }
+.hero-ed-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(12,79,32,.22);
+  border: none; cursor: pointer; padding: 0;
+  transition: width .28s ease, background .28s ease, border-radius .28s ease;
+}
+.hero-ed-dot.active {
+  width: 22px;
+  border-radius: 4px;
+  background: var(--green);
+}
+
+/* Framed rotating photo stack */
+.hero-ed-media {
   flex: 1;
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  min-height: 360px;
+}
+
+.hero-ed-photo-frame {
+  position: relative;
+  width: 78%;
+  height: 82%;
+  min-height: 320px;
+  border-radius: 20px;
   overflow: hidden;
-  background: #0a1a10;
+  box-shadow: 0 24px 60px rgba(12,79,32,.28);
+  z-index: 2;
 }
 
-@keyframes heroSplitZoom {
+@keyframes heroEdZoom {
   from { transform: scale(1); }
-  to   { transform: scale(1.07); }
+  to   { transform: scale(1.06); }
 }
 
-.hero-split-photo-bg {
+.hero-ed-photo-bg {
   position: absolute; inset: 0;
   background-size: cover;
   background-position: center;
@@ -501,72 +548,33 @@ section { scroll-margin-top: 80px; }
   transition: opacity 1.2s ease;
   will-change: opacity, transform;
 }
-.hero-split-photo-bg.active {
+.hero-ed-photo-bg.active {
   opacity: 1;
-  animation: heroSplitZoom 8s ease-out forwards;
+  animation: heroEdZoom 8s ease-out forwards;
 }
 
-/* Nav arrows — confined to the photo panel */
-.hero-split-nav {
+.hero-ed-photo-behind {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 4;
-  width: 48px; height: 48px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.15);
-  border: 1.5px solid rgba(255,255,255,.35);
-  color: #fff;
-  display: grid; place-items: center;
-  cursor: pointer;
-  transition: background .18s ease, transform .22s ease;
-  outline: none;
-  backdrop-filter: blur(6px);
-}
-.hero-split-nav:hover {
-  background: rgba(255,255,255,.28);
-  transform: translateY(calc(-50% - 2px));
-}
-.hero-split-nav:focus-visible { box-shadow: 0 0 0 2px rgba(26,156,62,.7); }
-.hero-split-nav svg { width: 20px; height: 20px; }
-.hero-split-prev { left: clamp(10px, 2vw, 24px); }
-.hero-split-next { right: clamp(10px, 2vw, 24px); }
-
-/* Dots — bottom-right of the photo panel */
-.hero-split-dots {
-  position: absolute;
-  bottom: 18px;
-  right: 18px;
-  z-index: 4;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-.hero-split-dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.4);
-  border: none; cursor: pointer; padding: 0;
-  transition: width .28s ease, background .28s ease, border-radius .28s ease;
-}
-.hero-split-dot.active {
-  width: 22px;
-  border-radius: 4px;
-  background: #7ff0a0;
+  right: 0; bottom: 6%;
+  width: 42%; height: 58%;
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 16px 40px rgba(12,79,32,.22);
+  z-index: 1;
 }
 
 @media (max-width: 760px) {
-  .hero-split-inner { flex-direction: column; min-height: 0; }
-  .hero-split-text { flex: none; width: 100%; padding: 40px clamp(20px, 6vw, 32px); }
-  .hero-split-heading { font-size: clamp(26px, 7.5vw, 38px); }
-  .hero-split-sub { font-size: 15px; margin-bottom: 22px; }
-  .hero-split-photo { flex: none; width: 100%; height: 42vh; min-height: 280px; }
-  .hero-split-nav { display: none; }
-  .hero-split-dots { bottom: 14px; right: 14px; }
+  .hero-ed-inner { flex-direction: column; align-items: stretch; min-height: 0; gap: 28px; }
+  .hero-ed-text { flex: none; width: 100%; }
+  .hero-ed-heading { font-size: clamp(26px, 7.5vw, 38px); }
+  .hero-ed-media { flex: none; width: 100%; min-height: 300px; justify-content: center; }
+  .hero-ed-photo-frame { width: 86%; height: 300px; }
+  .hero-ed-photo-behind { width: 40%; height: 46%; right: 2%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-split-photo-bg { transition: none; animation: none; }
+  .hero-ed-photo-bg { transition: none; animation: none; }
 }
 
 /* Certification logo strip */

@@ -456,49 +456,56 @@ function Hero() {
 
   return (
     <React.Fragment>
-    <header className="hero hero-split" id="top">
-      <div className="hero-split-inner" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
-        <div className="hero-split-text">
-          <div className="hero-split-text-inner" key={animKey}>
-            <h1 className="hero-split-heading">{HERO_SLIDES[active].heading}</h1>
-            <p className="hero-split-sub">{HERO_SLIDES[active].sub}</p>
-            <div className="hero-split-actions">
+    <header className="hero-ed" id="top">
+      <div className="hero-ed-inner" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+        <div className="hero-ed-text">
+          <div className="hero-ed-text-inner" key={animKey}>
+            <h1 className="hero-ed-heading">{HERO_SLIDES[active].heading}</h1>
+            <p className="hero-ed-sub">{HERO_SLIDES[active].sub}</p>
+            <div className="hero-ed-actions">
               <a
                 href={HERO_SLIDES[active].btnHref}
-                className="hero-split-btn"
+                className="hero-ed-btn"
                 onClick={(e) => go(e, HERO_SLIDES[active].btnHref)}
               >
                 {HERO_SLIDES[active].btnLabel} {Ic.arrow}
               </a>
             </div>
+            <div className="hero-ed-controls">
+              <button className="hero-ed-nav" aria-label="Previous slide" onClick={() => goTo(active - 1)}>
+                {Ic.chevL}
+              </button>
+              <div className="hero-ed-dots" role="tablist">
+                {HERO_SLIDES.map((_, i) => (
+                  <button
+                    key={i}
+                    role="tab"
+                    aria-label={"Slide " + (i + 1)}
+                    aria-selected={i === active}
+                    className={"hero-ed-dot" + (i === active ? " active" : "")}
+                    onClick={() => goTo(i)}
+                  />
+                ))}
+              </div>
+              <button className="hero-ed-nav" aria-label="Next slide" onClick={() => goTo(active + 1)}>
+                {Ic.chevR}
+              </button>
+            </div>
           </div>
         </div>
 
-        <div className="hero-split-photo">
-          {HERO_SLIDES.map((s, i) => (
-            <div
-              key={i}
-              className={"hero-split-photo-bg" + (i === active ? " active" : "")}
-              style={{ backgroundImage: "url('" + s.img + "')" }}
-            />
-          ))}
-
-          <button className="hero-split-nav hero-split-prev" aria-label="Previous slide" onClick={() => goTo(active - 1)}>
-            {Ic.chevL}
-          </button>
-          <button className="hero-split-nav hero-split-next" aria-label="Next slide" onClick={() => goTo(active + 1)}>
-            {Ic.chevR}
-          </button>
-
-          <div className="hero-split-dots" role="tablist">
-            {HERO_SLIDES.map((_, i) => (
-              <button
+        <div className="hero-ed-media">
+          <div
+            className="hero-ed-photo-behind"
+            style={{ backgroundImage: "url('" + HERO_SLIDES[(active + 1) % n].img + "')" }}
+            aria-hidden="true"
+          />
+          <div className="hero-ed-photo-frame">
+            {HERO_SLIDES.map((s, i) => (
+              <div
                 key={i}
-                role="tab"
-                aria-label={"Slide " + (i + 1)}
-                aria-selected={i === active}
-                className={"hero-split-dot" + (i === active ? " active" : "")}
-                onClick={() => goTo(i)}
+                className={"hero-ed-photo-bg" + (i === active ? " active" : "")}
+                style={{ backgroundImage: "url('" + s.img + "')" }}
               />
             ))}
           </div>
