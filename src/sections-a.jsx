@@ -209,7 +209,6 @@ const ABOUT_LINKS = [
 ];
 const PROFESSIONAL_SERVICES_LINKS = [
   ["Professional Services", "services/professional-services.html"],
-  ["Capability Statement", "capability-statement.html"],
   ["Business Growth Programs", "services/business-growth-programs.html"],
 ];
 
@@ -307,6 +306,7 @@ function Nav() {
           <div className="nav-links">
             <NavDropdown id="about" label="About Us" links={ABOUT_LINKS} />
             <NavDropdown id="pro-services" label="Services" href="services.html" links={PROFESSIONAL_SERVICES_LINKS} />
+            <a href="capability-statement.html">Capability Statement</a>
             <a href="faq.html">FAQ</a>
             <a href="blog.html">Blog</a>
             <a href="calendar.html">Calendar</a>
@@ -342,6 +342,7 @@ function Nav() {
             <a key={label} href={href} className="mobile-dd-item">{label}</a>
           ))}
         </div>
+        <a href="capability-statement.html">Capability Statement</a>
         <a href="faq.html">FAQ</a>
         <a href="blog.html">Blog</a>
         <a href="calendar.html">Calendar</a>
