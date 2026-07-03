@@ -18,9 +18,9 @@ const BRANCHES = [
     ic: Ic.badge,
     num: "01",
     title: "Professional Services",
-    desc: "Certifications, capability statements, bid packages, impact reports. The documentation side of running a diverse business, done right.",
+    desc: "Certifications, capability statements, bid packages. The documentation side of running a diverse business, done right.",
     href: "services/professional-services.html",
-    tags: ["Diversity Certifications", "Capability Statement", "RFP Assistance", "Impact Reports", "Start-Up Guidance"],
+    tags: ["Diversity Certifications", "Capability Statement", "RFP Assistance"],
     accent: false,
   },
   {
@@ -29,8 +29,17 @@ const BRANCHES = [
     title: "Business Growth Programs",
     desc: "You have the certification. These programs help you use it. We connect you with real buyers, sharpen your pitch, and build the relationships that lead to contracts.",
     href: "services/business-growth-programs.html",
-    tags: ["Market Ready Program", "MRP Speaker Series"],
+    tags: ["Market Ready Program", "Speaker Series", "Impact Reports", "Start-Up Guidance"],
     accent: true,
+  },
+  {
+    ic: Ic.doc,
+    num: "03",
+    title: "Capability Statement",
+    desc: "One document that puts our certifications, competencies, and track record in front of the people who make procurement decisions.",
+    href: "capability-statement.html",
+    tags: ["Organization Overview", "Core Competencies", "Downloadable PDF"],
+    accent: false,
   },
 ];
 
