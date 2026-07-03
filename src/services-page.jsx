@@ -32,15 +32,6 @@ const BRANCHES = [
     tags: ["Market Ready Program", "Speaker Series", "Impact Reports", "Start-Up Guidance"],
     accent: true,
   },
-  {
-    ic: Ic.doc,
-    num: "03",
-    title: "Capability Statement",
-    desc: "One document that puts our certifications, competencies, and track record in front of the people who make procurement decisions.",
-    href: "capability-statement.html",
-    tags: ["Organization Overview", "Core Competencies", "Downloadable PDF"],
-    accent: false,
-  },
 ];
 
 function ServicesLanding() {

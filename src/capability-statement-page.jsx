@@ -102,6 +102,8 @@ function CapabilityStatementPage() {
             <nav className="svc-breadcrumb reveal" aria-label="Breadcrumb">
               <a href="services.html">Services</a>
               <span className="svc-breadcrumb-sep" aria-hidden="true">/</span>
+              <a href="services/professional-services.html">Professional Services</a>
+              <span className="svc-breadcrumb-sep" aria-hidden="true">/</span>
               <span aria-current="page">Capability Statement</span>
             </nav>
             <div className="reveal d1">

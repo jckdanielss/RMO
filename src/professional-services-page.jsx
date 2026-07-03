@@ -30,25 +30,12 @@ const PRO_SERVICE_LIST = [
     desc: "We write and design the document procurement officers actually read built around your specific strengths, past performance, and differentiators.",
     sub: null,
     subType: null,
+    href: "capability-statement.html",
   },
   {
     ic: Ic.target,
     title: "RFP / Bid Package Assistance",
     desc: "Most bids are lost in the writing, not the work. We build RFP responses that are accurate, tight, and ready to submit.",
-    sub: null,
-    subType: null,
-  },
-  {
-    ic: Ic.eye,
-    title: "Impact Reports",
-    desc: "We put numbers to what you do economic impact, social outcomes, community reach documented in a format that wins over corporate partners and government buyers.",
-    sub: null,
-    subType: null,
-  },
-  {
-    ic: Ic.rocket,
-    title: "Start-Up Guidance",
-    desc: "New to this? We help you get the structure right, choose the certifications worth pursuing first, and build a foundation that holds as you grow.",
     sub: null,
     subType: null,
   },
@@ -95,6 +82,11 @@ function ProServicesPage() {
                           {s.sub.map(tag => <span key={tag} className="svc-sub-tag">{tag}</span>)}
                         </div>
                       </div>
+                    )}
+                    {s.href && (
+                      <a href={s.href} className="branch-learn-btn" style={{ marginTop: "16px", display: "inline-flex" }}>
+                        Learn More {Ic.arrow}
+                      </a>
                     )}
                   </div>
                 </div>
