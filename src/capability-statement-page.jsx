@@ -89,6 +89,64 @@ const WHY_PARTNER = [
   { stat: "1", label: "Point of Contact From Application to Contract" },
 ];
 
+const ORG_FACTS = [
+  { label: "Established", value: "2011" },
+  { label: "CAGE", value: "6WA27" },
+  { label: "DUNS", value: "048316894" },
+  { label: "UEI", value: "ZRK1KH84YCJ3" },
+  { label: "NAICS", value: "541611, 541612, 541613, 541618, 561410" },
+];
+
+const CERT_CATEGORIES = [
+  {
+    label: "National Certifications",
+    items: [
+      { abbr: "MBE", name: "National Minority Business Certification (NMSDC)" },
+      { abbr: "WBE", name: "National Women Business Certification (WBENC)" },
+      { abbr: "VBE", name: "National Veteran Business Certification (NVBDC)" },
+      { abbr: "LGBTQ", name: "National LGBTQ Business Certification (NGLCC)" },
+      { abbr: "Disable", name: "National Disabled Business Certification (Disability:IN)" },
+      { abbr: "USPAACC", name: "US Pan Asian American Chamber of Commerce" },
+    ],
+  },
+  {
+    label: "State & California Certifications",
+    items: [
+      { abbr: "SBE", name: "Small Business Enterprise (all US states)" },
+      { abbr: "MBE/WBE", name: "State-qualified certifications" },
+      { abbr: "DVBE", name: "Disabled Veteran Business Enterprise (CA)" },
+      { abbr: "LBE", name: "Local Business Enterprise (San Francisco)" },
+      { abbr: "DGS-MSA / CA-CMAS", name: "California state contracting certifications" },
+      { abbr: "CPUC", name: "California Public Utilities Commission" },
+      { abbr: "SLEB", name: "Small Local Emerging Business (Alameda)" },
+    ],
+  },
+  {
+    label: "Federal Certifications",
+    items: [
+      { abbr: "DBE", name: "Disadvantaged Business Enterprise (DOT)" },
+      { abbr: "8(a)", name: "Small Disadvantaged Business (SDB)" },
+      { abbr: "GSA", name: "General Service Administration Schedules" },
+      { abbr: "SAM", name: "System for Award Management" },
+      { abbr: "WOSB", name: "Federal Women-Owned Small Business" },
+      { abbr: "HUBZone", name: "Federal Underutilized Zone" },
+    ],
+  },
+  {
+    label: "Global Certifications",
+    items: [
+      { abbr: "WBE", name: "WEConnect International Certification" },
+      { abbr: "Disability:IN", name: "Disabled Business Enterprise (Global)" },
+      { abbr: "MBE", name: "Australia, Canada, China, South Africa, UK" },
+    ],
+  },
+];
+
+const CORPORATE_CLIENTS = [
+  "Meta", "CBRE", "Republic Services", "CDW", "Promethean Builders", "Google",
+  "California Water Service", "Autodesk", "FHLBank San Francisco", "San Jose Water Company",
+];
+
 function CapabilityStatementPage() {
   useScrollRevealCS();
 
@@ -114,6 +172,14 @@ function CapabilityStatementPage() {
               <div className="prefooter-actions" style={{ marginTop: "24px" }}>
                 <a href="#cs-download" className="btn btn-primary">Download Capability Statement {Ic.arrow}</a>
                 <a href={contactHrefForCurrentPage()} className="btn btn-light">Contact Us</a>
+              </div>
+              <div style={{
+                display: "flex", flexWrap: "wrap", gap: "10px 28px",
+                marginTop: "28px", fontSize: "13.5px", color: "rgba(255,255,255,0.75)",
+              }}>
+                {ORG_FACTS.map((f) => (
+                  <span key={f.label}><strong style={{ color: "#fff" }}>{f.label}:</strong> {f.value}</span>
+                ))}
               </div>
             </div>
           </div>
@@ -158,6 +224,21 @@ function CapabilityStatementPage() {
               <p>
                 One team handles both the paperwork and the follow-through — certification, capability statements, bid packages, and the growth programs that turn a certification into an actual contract pipeline.
               </p>
+            </div>
+            <div className="mv-card reveal" style={{ marginTop: "clamp(24px,3vw,36px)", display: "flex", gap: "24px", alignItems: "center", flexWrap: "wrap" }}>
+              <img
+                src="rmollc_har_extracted_images/rmollc_har_extracted_images/team_images/Ranjani-300-dpi-300x212-150x150-1.jpg"
+                alt="Ranjani Mohana"
+                style={{ width: "96px", height: "96px", borderRadius: "50%", objectFit: "cover", flexShrink: 0 }}
+              />
+              <div>
+                <p style={{ fontWeight: 700, color: "var(--ink)", fontSize: "16px", marginBottom: "4px" }}>
+                  Ranjani Mohana — <span style={{ color: "var(--green)" }}>"The Certification Lady"</span>
+                </p>
+                <p style={{ color: "var(--body)", fontSize: "15px", lineHeight: 1.7 }}>
+                  In 2011, Ranjani identified how arduous the certification process was for diverse businesses and founded R Mo to fix it. She has since led the certification of over 400 clients.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -259,6 +340,51 @@ function CapabilityStatementPage() {
           </div>
         </section>
 
+        {/* 6b. Certifications We Support */}
+        <section className="pad-y">
+          <div className="wrap">
+            <div className="section-head center reveal">
+              <span className="eyebrow">Major Certifications</span>
+              <h2>300+ Certifications, All Over the Globe</h2>
+            </div>
+            <div className="svc-card-grid svc-card-grid--2col reveal d1">
+              {CERT_CATEGORIES.map((cat) => (
+                <div className="svc-detail-card" key={cat.label} style={{ display: "block" }}>
+                  <div className="svc-detail-body">
+                    <h2>{cat.label}</h2>
+                    <ul style={{ marginTop: "10px", paddingLeft: "18px", fontSize: "14.5px", color: "var(--body)", lineHeight: 1.8 }}>
+                      {cat.items.map((it) => (
+                        <li key={it.abbr + it.name}><strong style={{ color: "var(--ink)" }}>{it.abbr}</strong> — {it.name}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 6c. Corporate Clients */}
+        <section className="pad-y" style={{ background: "var(--bg-soft)" }}>
+          <div className="wrap">
+            <div className="section-head center reveal">
+              <span className="eyebrow">Corporate Clients</span>
+              <h2>Businesses We've Worked With</h2>
+            </div>
+            <div className="reveal d1" style={{
+              display: "flex", flexWrap: "wrap", justifyContent: "center",
+              gap: "12px 20px", marginTop: "clamp(24px,3vw,36px)",
+            }}>
+              {CORPORATE_CLIENTS.map((name) => (
+                <span key={name} style={{
+                  padding: "8px 18px", borderRadius: "999px", border: "1px solid var(--line)",
+                  fontSize: "14px", fontWeight: 600, color: "var(--ink)", background: "#fff",
+                }}>{name}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* 7. Capability Statement Download */}
         <section className="pad-y" id="cs-download">
           <div className="wrap">
@@ -270,8 +396,6 @@ function CapabilityStatementPage() {
               <p style={{ maxWidth: "560px", margin: "0 auto 24px" }}>
                 Download the official R Mo capability statement — certifications, competencies, past performance, and contact details in one procurement-ready PDF.
               </p>
-              {/* ponytail: placeholder path — no PDF has been supplied yet. Drop the real file
-                  at this path and this button works with no code changes. */}
               <a href="capability-statement/RMO-Capability-Statement.pdf" className="btn btn-light" download>
                 Download Capability Statement (PDF) {Ic.arrow}
               </a>
