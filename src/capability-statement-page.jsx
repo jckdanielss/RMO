@@ -1,4 +1,4 @@
-/* global React, ReactDOM, Ic, Nav, Footer, ToTop */
+/* global React, ReactDOM, Nav, Footer, ToTop */
 
 const CS_IMAGE = "capability-statement/RMO-Capability-Statement-June-2026.png";
 
