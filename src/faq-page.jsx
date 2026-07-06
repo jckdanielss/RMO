@@ -28,11 +28,11 @@ const FAQ_DATA = [
       },
     ],
   },
-  {
-    id: "certifications",
-    label: "Certifications",
-    items: [],
-  },
+  // {
+  //   id: "certifications",
+  //   label: "Certifications",
+  //   items: [],
+  // },
   {
     id: "market-ready",
     label: "Market Ready Program",

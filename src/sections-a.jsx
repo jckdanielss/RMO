@@ -372,7 +372,7 @@ const HERO_SLIDES = [
     btnHref: "#about",
   },
   {
-    img: "https://i.postimg.cc/HsVkDV20/Gemini-Generated-Image-b0bfqlb0bfqlb0bf.png",
+    img: "carousel/driving-impact.png",
     alt: "Community impact and empowerment",
     heading: "Driving Impact",
     sub: "Empowering businesses, strengthening communities.",
@@ -389,8 +389,8 @@ const HERO_SLIDES = [
   },
   {
     img: "carousel/rfd_bid_package.jpg",
-    alt: "Win Government Contracts",
-    heading: "Win Government Contracts",
+    alt: "RFD Bidding",
+    heading: "RFD Bidding",
     sub: "From proposal writing to submission — expert bid support at every step.",
     btnLabel: "Get Bid Support",
     btnHref: "#contact",
