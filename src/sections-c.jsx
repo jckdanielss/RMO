@@ -8,8 +8,19 @@ function rndCaptcha() {
   return { a, b };
 }
 
+const US_STATES = [
+  "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut",
+  "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa",
+  "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan",
+  "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire",
+  "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio",
+  "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota",
+  "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia",
+  "Wisconsin", "Wyoming", "District of Columbia",
+];
+
 function ContactForm() {
-  const [form, setForm] = useStateC({ name: "", email: "", message: "", captcha: "" });
+  const [form, setForm] = useStateC({ name: "", email: "", companyName: "", state: "", message: "", captcha: "" });
   const [touched, setTouched] = useStateC({});
   const [sum, setSum] = useStateC(rndCaptcha);
   const [sent, setSent] = useStateC(false);
@@ -17,6 +28,8 @@ function ContactForm() {
   const errors = {
     name: form.name.trim().length < 2 ? "Please enter your name." : "",
     email: !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email) ? "Enter a valid email address." : "",
+    companyName: form.companyName.trim().length < 2 ? "Please enter your company name." : "",
+    state: form.state === "" ? "Please select your state." : "",
     message: form.message.trim().length < 8 ? "Tell us a little more (min 8 characters)." : "",
     captcha: parseInt(form.captcha, 10) !== sum.a + sum.b ? "Incorrect answer." : "",
   };
@@ -30,7 +43,7 @@ function ContactForm() {
 
   const submit = (e) => {
     e.preventDefault();
-    setTouched({ name: true, email: true, message: true, captcha: true });
+    setTouched({ name: true, email: true, companyName: true, state: true, message: true, captcha: true });
     if (Object.values(errors).some(Boolean)) return;
     setSent(true);
   };
@@ -52,7 +65,7 @@ function ContactForm() {
             className="btn btn-ghost"
             onClick={() => {
               setSent(false);
-              setForm({ name: "", email: "", message: "", captcha: "" });
+              setForm({ name: "", email: "", companyName: "", state: "", message: "", captcha: "" });
               setTouched({});
               newCaptcha();
             }}
@@ -72,6 +85,21 @@ function ContactForm() {
               <label>Email address</label>
               <input type="email" name="email" autoComplete="email" placeholder="jane@company.com" value={form.email} onChange={set("email")} onBlur={blur("email")} />
               <span className="err">{errors.email}</span>
+            </div>
+          </div>
+          <div className="field-row">
+            <div className={fieldCls("companyName")}>
+              <label>Company name</label>
+              <input type="text" name="companyName" autoComplete="organization" placeholder="Acme Co." value={form.companyName} onChange={set("companyName")} onBlur={blur("companyName")} />
+              <span className="err">{errors.companyName}</span>
+            </div>
+            <div className={fieldCls("state")}>
+              <label>State</label>
+              <select name="state" autoComplete="address-level1" value={form.state} onChange={set("state")} onBlur={blur("state")}>
+                <option value="">Select a state</option>
+                {US_STATES.map((s) => <option key={s} value={s}>{s}</option>)}
+              </select>
+              <span className="err">{errors.state}</span>
             </div>
           </div>
           <div className={fieldCls("message")}>

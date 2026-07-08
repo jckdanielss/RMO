@@ -1509,7 +1509,7 @@ section { scroll-margin-top: 80px; }
 }
 .field { margin-bottom: 18px; }
 .field label { display: block; font-size: 13.5px; font-weight: 600; color: var(--ink); margin-bottom: 7px; }
-.field input, .field textarea {
+.field input, .field textarea, .field select {
   width: 100%;
   font-family: inherit; font-size: 15px;
   color: var(--ink);
@@ -1520,14 +1520,14 @@ section { scroll-margin-top: 80px; }
   transition: border-color .16s ease, box-shadow .16s ease, background .16s ease;
 }
 .field input::placeholder, .field textarea::placeholder { color: #9aa8a0; }
-.field input:focus, .field textarea:focus {
+.field input:focus, .field textarea:focus, .field select:focus {
   outline: none;
   border-color: var(--green);
   background: #fff;
   box-shadow: 0 0 0 4px rgba(26,156,62,.12);
 }
 .field textarea { resize: vertical; min-height: 120px; }
-.field.invalid input, .field.invalid textarea { border-color: #d6453d; background: #fef5f4; }
+.field.invalid input, .field.invalid textarea, .field.invalid select { border-color: #d6453d; background: #fef5f4; }
 .field .err { font-size: 12.5px; color: #d6453d; margin-top: 6px; display: none; }
 .field.invalid .err { display: block; }
 .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -2264,12 +2264,22 @@ main.services-page {
   gap: 24px;
 }
 .contact-page-map-frame {
+  position: relative;
   min-height: 420px;
   overflow: hidden;
   border-radius: var(--radius-lg);
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
   background: #fff;
+}
+.contact-page-map-shield {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  cursor: default;
+}
+.contact-page-map-cta {
+  justify-self: start;
 }
 .contact-page-copy {
   display: grid;
@@ -2464,9 +2474,11 @@ main.services-page {
 }
 .cs-hero-text { flex: 1 1 420px; }
 .cs-viewer {
-  flex: 0 0 340px;
-  width: 340px;
   display: block;
+  width: 100%;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
   background: #fff;
   border-radius: 12px;
   overflow: hidden;
@@ -2503,18 +2515,88 @@ main.services-page {
   height: auto;
   display: block;
 }
-.cs-viewer-footer {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 10px 12px;
-  font-size: 12.5px;
-  font-weight: 600;
-  color: var(--green-deep);
-  border-top: 1px solid var(--line);
+.cs-viewer-wrap {
+  flex: 0 0 340px;
+  width: 340px;
+  display: grid;
+  gap: 14px;
 }
-.cs-viewer-footer svg { width: 14px; height: 14px; }
+.cs-viewer-cta {
+  width: 100%;
+  justify-content: center;
+  font-size: 16px;
+  padding: 16px 24px;
+}
 @media (max-width: 860px) {
   .cs-hero-inner { flex-direction: column; }
-  .cs-viewer { width: 100%; max-width: 340px; }
+  .cs-viewer-wrap { width: 100%; max-width: 340px; }
+}
+
+/* Capability statement image lightbox */
+.cs-lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(12,26,18,0.82);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(16px,5vw,48px);
+}
+.cs-lightbox-img {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: var(--radius);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  display: block;
+}
+.cs-lightbox-close {
+  position: fixed;
+  top: clamp(12px,3vw,28px);
+  right: clamp(12px,3vw,28px);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}
+.cs-lightbox-close:hover { background: rgba(255,255,255,0.24); }
+
+/* Capability statement download card + QR */
+.cs-download-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(28px,4vw,48px);
+}
+.cs-qr-block {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  background: #fff;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: transform var(--dur-fast) ease;
+}
+.cs-qr-block:hover { transform: translateY(-3px); }
+.cs-qr-block img {
+  width: 128px;
+  height: 128px;
+  border-radius: 8px;
+}
+.cs-qr-block span {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink);
 }

@@ -4,7 +4,7 @@ const { useState, useEffect, useRef } = React;
 const FAQ_DATA = [
   {
     id: "general",
-    label: "General",
+    label: "General Questions",
     items: [
       {
         q: "What is R Mo Global Diversity Solutions?",
@@ -28,125 +28,9 @@ const FAQ_DATA = [
       },
     ],
   },
-  // {
-  //   id: "certifications",
-  //   label: "Certifications",
-  //   items: [],
-  // },
   {
-    id: "market-ready",
-    label: "Market Ready Program",
-    items: [
-      {
-        q: "What is the Market Ready Program (MRP)?",
-        a: "The Market Ready Program (MRP) is designed exclusively for R Mo certified clients to help them move beyond certification and become procurement-ready. The program equips businesses with practical tools, strategies, and confidence to effectively market themselves to corporate buyers and government agencies.",
-      },
-      {
-        q: "Why was the Market Ready Program created?",
-        a: "Many businesses successfully obtain certifications but are unsure how to leverage them. The Market Ready Program bridges that gap by helping certified businesses understand how to maximize the value of their certifications and prepare for meaningful business opportunities.",
-      },
-      {
-        q: "Who can participate in the Market Ready Program?",
-        a: "The program is offered to R Mo certified clients who are committed to growing their business and actively pursuing corporate and government contracting opportunities.",
-      },
-      {
-        q: "What is covered in MRP – Session I?",
-        a: "Session I: Maximizing Your Certification focuses on helping businesses understand how to effectively use their certifications. Topics include:",
-        bullets: [
-          "Understanding supplier diversity programs",
-          "Using certifications strategically",
-          "Building visibility with corporate buyers",
-          "Networking effectively",
-          "Creating a post-certification action plan",
-          "Avoiding common mistakes after certification",
-        ],
-        outro: "Participants leave with practical steps they can immediately implement to increase their visibility and readiness.",
-      },
-      {
-        q: "What is covered in MRP – Session II?",
-        a: "Session II: Capability Statement & Supplier Presentation Readiness helps businesses prepare to professionally introduce themselves to procurement professionals. Participants receive guidance on:",
-        bullets: [
-          "Developing or refining their capability statement",
-          "Creating a compelling elevator pitch",
-          "Presenting their business with confidence",
-          "Highlighting their differentiators and certifications",
-        ],
-      },
-      {
-        q: "What makes Session II unique?",
-        a: "One of the most valuable aspects of Session II is the opportunity for participants to present their capability statement and elevator pitch live during a Zoom session attended by invited corporate representatives and procurement professionals. These corporate guests provide constructive feedback, helping businesses strengthen their presentation and better understand what buyers look for when evaluating suppliers.",
-      },
-      {
-        q: "Is the Market Ready Program included with R Mo certification services?",
-        a: "Yes. The Market Ready Program is one of the ways R Mo continues to support certified clients beyond the certification process by helping them become procurement-ready.",
-      },
-      {
-        q: "What are the benefits of participating in the Market Ready Program?",
-        a: "Participants gain:",
-        bullets: [
-          "Greater confidence when meeting with buyers",
-          "A stronger understanding of procurement expectations",
-          "Improved marketing materials",
-          "Enhanced presentation skills",
-          "Practical strategies for leveraging their certifications",
-          "Valuable feedback from corporate professionals",
-        ],
-      },
-    ],
-  },
-  {
-    id: "speaker-series",
-    label: "Speaker Series",
-    items: [
-      {
-        q: "What is the MRP Speaker Series?",
-        a: "The MRP Speaker Series is a complimentary educational initiative hosted by R Mo Global Diversity Solutions. The series features industry experts, procurement professionals, corporate leaders, and business specialists who share practical knowledge to help businesses grow and succeed.",
-      },
-      {
-        q: "Who can attend the Speaker Series?",
-        a: "The sessions are open to business owners, entrepreneurs, certified suppliers, and businesses interested in learning about supplier diversity, procurement, and business growth.",
-      },
-      {
-        q: "What topics are covered?",
-        a: "Topics vary throughout the year and may include:",
-        bullets: [
-          "Procurement readiness",
-          "Government contracting",
-          "RFP and bid preparation",
-          "Capability statements",
-          "Cybersecurity",
-          "Marketing and branding",
-          "Financial management",
-          "Business certifications",
-          "Supplier diversity trends",
-          "Corporate procurement expectations",
-        ],
-      },
-      {
-        q: "Why should I attend the Speaker Series?",
-        a: "The Speaker Series provides practical insights from experienced professionals and offers attendees the opportunity to stay informed about current trends, best practices, and business opportunities.",
-      },
-      {
-        q: "Is there a cost to attend?",
-        a: "No. The MRP Speaker Series is provided as a complimentary educational resource to support the growth and success of the small business community.",
-      },
-      {
-        q: "How often are Speaker Series sessions held?",
-        a: "Sessions are scheduled throughout the year and feature a variety of speakers and topics relevant to business growth and supplier development.",
-      },
-      {
-        q: "Can I suggest a topic or become a speaker?",
-        a: "Yes. R Mo welcomes suggestions for future topics and speakers. We are always looking to bring valuable, relevant content to our business community.",
-      },
-      {
-        q: "How do I register for upcoming sessions?",
-        a: "Upcoming Speaker Series sessions are listed on our website's Calendar page. Businesses may register online to reserve their spot and receive event details.",
-      },
-    ],
-  },
-  {
-    id: "diversity-certification",
-    label: "Diversity Certification",
+    id: "diversity-certifications",
+    label: "Diversity Certifications",
     items: [
       {
         q: "Why is diversity certification important?",
@@ -197,10 +81,6 @@ const FAQ_DATA = [
           "Government certifications can sometimes take longer",
         ],
         outro: "Proper preparation and accurate documentation can significantly speed up the process.",
-      },
-      {
-        q: "Do certifications need to be renewed?",
-        a: "Yes. Most certifications require annual renewal to maintain active status. Renewals help certification agencies confirm that the business still meets eligibility requirements and remains operational.",
       },
       {
         q: "What documents are typically required?",
@@ -264,6 +144,131 @@ const FAQ_DATA = [
           "Participate in supplier development programs",
         ],
         outro: "R Mo helps businesses become \"market ready\" after certification to maximize opportunities and growth.",
+      },
+    ],
+  },
+  {
+    id: "renewal-certifications",
+    label: "Renewal Certifications",
+    items: [
+      {
+        q: "Do certifications need to be renewed?",
+        a: "Yes. Most certifications require annual renewal to maintain active status. Renewals help certification agencies confirm that the business still meets eligibility requirements and remains operational.",
+      },
+      {
+        q: "Does R Mo help with certification renewals?",
+        a: "Yes. Renewal assistance is one of the ongoing services R Mo provides to certified clients, helping you prepare and submit the documentation needed to keep your certifications active.",
+      },
+    ],
+  },
+  {
+    id: "market-ready",
+    label: "Market Ready Program",
+    items: [
+      {
+        q: "What is the Market Ready Program (MRP)?",
+        a: "The Market Ready Program (MRP) is designed exclusively for R Mo certified clients to help them move beyond certification and become procurement-ready. The program equips businesses with practical tools, strategies, and confidence to effectively market themselves to corporate buyers and government agencies.",
+      },
+      {
+        q: "Why was the Market Ready Program created?",
+        a: "Many businesses successfully obtain certifications but are unsure how to leverage them. The Market Ready Program bridges that gap by helping certified businesses understand how to maximize the value of their certifications and prepare for meaningful business opportunities.",
+      },
+      {
+        q: "Who can participate in the Market Ready Program?",
+        a: "The program is offered to R Mo certified clients who are committed to growing their business and actively pursuing corporate and government contracting opportunities.",
+      },
+      {
+        q: "What is covered in MRP – Session I?",
+        a: "Session I: Maximizing Your Certification focuses on helping businesses understand how to effectively use their certifications. Topics include:",
+        bullets: [
+          "Understanding supplier diversity programs",
+          "Using certifications strategically",
+          "Building visibility with corporate buyers",
+          "Networking effectively",
+          "Creating a post-certification action plan",
+          "Avoiding common mistakes after certification",
+        ],
+        outro: "Participants leave with practical steps they can immediately implement to increase their visibility and readiness.",
+      },
+      {
+        q: "What is covered in MRP – Session II?",
+        a: "Session II: Capability Statement & Supplier Presentation Readiness helps businesses prepare to professionally introduce themselves to procurement professionals. Participants receive guidance on:",
+        bullets: [
+          "Developing or refining their capability statement",
+          "Creating a compelling elevator pitch",
+          "Presenting their business with confidence",
+          "Highlighting their differentiators and certifications",
+        ],
+      },
+      {
+        q: "What makes Session II unique?",
+        a: "One of the most valuable aspects of Session II is the opportunity for participants to present their capability statement and elevator pitch live during a Zoom session attended by invited corporate representatives and procurement professionals. These corporate guests provide constructive feedback, helping businesses strengthen their presentation and better understand what buyers look for when evaluating suppliers.",
+      },
+      {
+        q: "Is the Market Ready Program included with R Mo certification services?",
+        a: "Yes. The Market Ready Program is one of the ways R Mo continues to support certified clients beyond the certification process by helping them become procurement-ready.",
+      },
+      {
+        q: "What are the benefits of participating in the Market Ready Program?",
+        a: "Participants gain:",
+        bullets: [
+          "Greater confidence when meeting with buyers",
+          "A stronger understanding of procurement expectations",
+          "Improved marketing materials",
+          "Enhanced presentation skills",
+          "Practical strategies for leveraging their certifications",
+          "Valuable feedback from corporate professionals",
+        ],
+      },
+    ],
+  },
+  {
+    id: "armo-speaker-series",
+    label: "ARMO Speaker Series",
+    items: [
+      {
+        q: "What is the MRP Speaker Series?",
+        a: "The MRP Speaker Series is a complimentary educational initiative hosted by R Mo Global Diversity Solutions. The series features industry experts, procurement professionals, corporate leaders, and business specialists who share practical knowledge to help businesses grow and succeed.",
+      },
+      {
+        q: "Who can attend the Speaker Series?",
+        a: "The sessions are open to business owners, entrepreneurs, certified suppliers, and businesses interested in learning about supplier diversity, procurement, and business growth.",
+      },
+      {
+        q: "What topics are covered?",
+        a: "Topics vary throughout the year and may include:",
+        bullets: [
+          "Procurement readiness",
+          "Government contracting",
+          "RFP and bid preparation",
+          "Capability statements",
+          "Cybersecurity",
+          "Marketing and branding",
+          "Financial management",
+          "Business certifications",
+          "Supplier diversity trends",
+          "Corporate procurement expectations",
+        ],
+      },
+      {
+        q: "Why should I attend the Speaker Series?",
+        a: "The Speaker Series provides practical insights from experienced professionals and offers attendees the opportunity to stay informed about current trends, best practices, and business opportunities.",
+      },
+      {
+        q: "Is there a cost to attend?",
+        a: "No. The MRP Speaker Series is provided as a complimentary educational resource to support the growth and success of the small business community.",
+      },
+      {
+        q: "How often are Speaker Series sessions held?",
+        a: "Sessions are scheduled throughout the year and feature a variety of speakers and topics relevant to business growth and supplier development.",
+      },
+      {
+        q: "Can I suggest a topic or become a speaker?",
+        a: "Yes. R Mo welcomes suggestions for future topics and speakers. We are always looking to bring valuable, relevant content to our business community.",
+      },
+      {
+        q: "How do I register for upcoming sessions?",
+        a: "Upcoming Speaker Series sessions are listed on our website's Calendar page. Businesses may register online to reserve their spot and receive event details.",
       },
     ],
   },
@@ -442,7 +447,7 @@ function FaqPage() {
             Frequently Asked Questions
           </h1>
           <p style={{ fontSize: "17px", color: "var(--muted)", maxWidth: "520px", lineHeight: 1.6 }}>
-            Browse by topic or scroll through everything below.
+            Browse by topic below.
           </p>
         </div>
       </div>
@@ -468,7 +473,7 @@ function FaqPage() {
               top: "100px",
             }}
           >
-            {/* <nav style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
+            <nav style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
               {FAQ_DATA.map((cat) => (
                 <button
                   key={cat.id}
@@ -491,7 +496,7 @@ function FaqPage() {
                   {cat.label}
                 </button>
               ))}
-            </nav> */}
+            </nav>
 
             {/* CTA card */}
             <div

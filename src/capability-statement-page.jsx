@@ -1,7 +1,36 @@
 /* global React, ReactDOM, Ic, Nav, Footer, ToTop, PreFooterCta, contactHrefForCurrentPage */
-const { useEffect: useEffectCS } = React;
+const { useEffect: useEffectCS, useState: useStateCS } = React;
 
 const CS_IMAGE = "capability-statement/RMO-Capability-Statement-June-2026.png";
+const CS_QR_IMAGE = "assets/qr-contact-us.png";
+
+function CsImageLightbox({ onClose }) {
+  useEffectCS(() => {
+    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  return (
+    <div className="cs-lightbox-backdrop" onClick={onClose}>
+      <button className="cs-lightbox-close" onClick={onClose} aria-label="Close image viewer">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+          <path d="M6 6l12 12M18 6 6 18" />
+        </svg>
+      </button>
+      <img
+        src={CS_IMAGE}
+        alt="R Mo Global Diversity Solutions capability statement — full size"
+        className="cs-lightbox-img"
+        onClick={(e) => e.stopPropagation()}
+      />
+    </div>
+  );
+}
 
 function useScrollRevealCS() {
   useEffectCS(() => {
@@ -37,6 +66,7 @@ const CORPORATE_CLIENTS = [
 
 function CapabilityStatementPage() {
   useScrollRevealCS();
+  const [lightboxOpen, setLightboxOpen] = useStateCS(false);
 
   return (
     <React.Fragment>
@@ -63,26 +93,31 @@ function CapabilityStatementPage() {
                 ))}
               </div>
             </div>
-            <a
-              href={CS_IMAGE}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cs-viewer reveal d2"
-              aria-label="Open full-size capability statement"
-            >
-              <div className="cs-viewer-bar">
-                <span className="cs-viewer-dot" />
-                <span className="cs-viewer-dot" />
-                <span className="cs-viewer-dot" />
-                <span className="cs-viewer-label">RMO-Capability-Statement.png</span>
-              </div>
-              <div className="cs-viewer-body">
-                <img src={CS_IMAGE} alt="R Mo Global Diversity Solutions capability statement preview" loading="lazy" />
-              </div>
-              <div className="cs-viewer-footer">View full size {Ic.arrow}</div>
-            </a>
+            <div className="cs-viewer-wrap reveal d2">
+              <button
+                type="button"
+                className="cs-viewer"
+                onClick={() => setLightboxOpen(true)}
+                aria-label="Open full-size capability statement in image viewer"
+              >
+                <div className="cs-viewer-bar">
+                  <span className="cs-viewer-dot" />
+                  <span className="cs-viewer-dot" />
+                  <span className="cs-viewer-dot" />
+                  <span className="cs-viewer-label">RMO-Capability-Statement.png</span>
+                </div>
+                <div className="cs-viewer-body">
+                  <img src={CS_IMAGE} alt="R Mo Global Diversity Solutions capability statement preview" loading="lazy" />
+                </div>
+              </button>
+              <button type="button" className="btn btn-primary cs-viewer-cta" onClick={() => setLightboxOpen(true)}>
+                View Full Image {Ic.arrow}
+              </button>
+            </div>
           </div>
         </section>
+
+        {lightboxOpen && <CsImageLightbox onClose={() => setLightboxOpen(false)} />}
 
         {/* 2. Who We Are */}
         <section className="pad-y" id="about">
@@ -188,20 +223,26 @@ function CapabilityStatementPage() {
         {/* 5. Download */}
         <section className="pad-y" id="cs-download">
           <div className="wrap">
-            <div className="mv-card accent reveal" style={{ textAlign: "center", padding: "clamp(36px,5vw,56px)" }}>
-              <div className="mv-head" style={{ justifyContent: "center" }}>
-                <span className="mv-ic">{Ic.doc}</span>
-                <h3>Get the Full Capability Statement</h3>
+            <div className="mv-card accent reveal cs-download-card" style={{ padding: "clamp(36px,5vw,56px)" }}>
+              <div style={{ textAlign: "center", flex: "1 1 360px" }}>
+                <div className="mv-head" style={{ justifyContent: "center" }}>
+                  <span className="mv-ic">{Ic.doc}</span>
+                  <h3>Get the Full Capability Statement</h3>
+                </div>
+                <p style={{ maxWidth: "560px", margin: "0 auto 24px" }}>
+                  Download the official R Mo capability statement — certifications, competencies, past performance, and contact details in one procurement-ready PDF.
+                </p>
+                <a href="capability-statement/RMO-Capability-Statement.pdf" className="btn btn-light" download>
+                  Download Capability Statement (PDF) {Ic.arrow}
+                </a>
+                <p style={{ marginTop: "16px", fontSize: "13.5px", opacity: 0.85 }}>
+                  Don't have it yet? <a href={contactHrefForCurrentPage()} style={{ color: "inherit", textDecoration: "underline" }}>Contact us</a> and we'll send it directly.
+                </p>
               </div>
-              <p style={{ maxWidth: "560px", margin: "0 auto 24px" }}>
-                Download the official R Mo capability statement — certifications, competencies, past performance, and contact details in one procurement-ready PDF.
-              </p>
-              <a href="capability-statement/RMO-Capability-Statement.pdf" className="btn btn-light" download>
-                Download Capability Statement (PDF) {Ic.arrow}
+              <a href={contactHrefForCurrentPage()} className="cs-qr-block" aria-label="Scan the QR code to open the Contact Us page">
+                <img src={CS_QR_IMAGE} alt="QR code linking to the R Mo Contact Us page" width="128" height="128" />
+                <span>Scan to contact us</span>
               </a>
-              <p style={{ marginTop: "16px", fontSize: "13.5px", opacity: 0.85 }}>
-                Don't have it yet? <a href={contactHrefForCurrentPage()} style={{ color: "inherit", textDecoration: "underline" }}>Contact us</a> and we'll send it directly.
-              </p>
             </div>
           </div>
         </section>

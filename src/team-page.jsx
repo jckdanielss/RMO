@@ -31,29 +31,32 @@ const TEAM_IMAGE_BY_NAME = {
   "Shenie Canama": "assets/team/shenie.png",
 };
 
+/* Roles and groupings below follow the official org chart
+   (assets/team/01-28-26_RMo_OrgChart-_Landscape_Border.png). */
 const TEAM_MEMBERS = [
-  { name: "Ranjani Mohana",         role: "The Certification Lady / CEO",       linkedin: "#", bio: [] },
-  { name: "Roshini Chandran",        role: "Advisor",                            linkedin: "#", bio: [] },
-  { name: "Priya Saravanan",         role: "Sr. Certification Specialist",       linkedin: "#", bio: [] },
-  { name: "Maria Rama Iseman",       role: "Certification Assistant",            linkedin: "#", bio: [] },
-  { name: "Lloura Morales",          role: "Admin Assistant",                    linkedin: "#", bio: [] },
-  { name: "Marian Salino",           role: "Social Media Assistant",             linkedin: "#", bio: [] },
-  { name: "Ramnik Singh",            role: "Web Maintenance",                    linkedin: "#", bio: [] },
-  { name: "Rajesh",                  role: "CPA",                                linkedin: "#", bio: [] },
-  { name: "Eunice Lorainne Acebuque",role: "Marketing Assistant",                linkedin: "#", bio: [] },
-  { name: "Anjelica Espina",         role: "MRP Lead",                           linkedin: "#", bio: [] },
-  { name: "Marla Balladores",        role: "Resource Admin Assistant",           linkedin: "#", bio: [] },
-  { name: "Shylet Lomuntad",         role: "Bookkeeper / Accounting Assistant",  linkedin: "#", bio: [] },
-  { name: "Nikka Grajo",             role: "Certification Assistant",            linkedin: "#", bio: [] },
-  { name: "Abegael Mariano",         role: "Certification Assistant",            linkedin: "#", bio: [] },
-  { name: "Chidire Chukwudi",        role: "Admin Assistant",                    linkedin: "#", bio: [] },
-  { name: "Nisha Rawat",             role: "Certification Assistant",            linkedin: "#", bio: [] },
-  { name: "Febie Jean Cañetan",      role: "Certification Assistant",            linkedin: "#", bio: [] },
-  { name: "Ieona Gabrielle Dayo",    role: "Certification Assistant",            linkedin: "#", bio: [] },
-  { name: "Carla Mahinay",           role: "Admin Lead",                 linkedin: "#", bio: [] },
-  { name: "Rachelle Sorronda",       role: "Executive Assistant",                linkedin: "#", bio: [] },
-  { name: "Shenie Canama",           role: "Accounting Assistant",               linkedin: "#", bio: [] },
-  { name: "Jullie Anne de la Cruz",  role: "Creative Designer",                  linkedin: "#", bio: [] },
+  { name: "Ranjani Mohana",         role: "The Certification Lady / CEO",           linkedin: "#", bio: [] },
+  { name: "Roshini Chandran",        role: "Advisor / COO",                          linkedin: "#", bio: [] },
+  { name: "Priya Saravanan",         role: "Principal Global Certification Lead",    linkedin: "#", bio: [] },
+  { name: "Maria Rama Iseman",       role: "Certification Assistant",                linkedin: "#", bio: [] },
+  { name: "Lloura Morales",          role: "Admin Assistant",                        linkedin: "#", bio: [] },
+  { name: "Marian Salino",           role: "Social Media Assistant",                 linkedin: "#", bio: [] },
+  { name: "Ramnik Singh",            role: "Web Maintenance",                        linkedin: "#", bio: [] },
+  { name: "Rajesh",                  role: "CPA",                                    linkedin: "#", bio: [] },
+  { name: "Eunice Lorainne Acebuque",role: "MRP Assistant",                          linkedin: "#", bio: [] },
+  { name: "Anjelica Espina",         role: "MRP Lead",                               linkedin: "#", bio: [] },
+  { name: "Marla Balladores",        role: "Resource Admin Assistant",               linkedin: "#", bio: [] },
+  { name: "Shylet Lomuntad",         role: "Accounting / Bookkeeper",                linkedin: "#", bio: [] },
+  { name: "Nikka Grajo",             role: "Certification Assistant",                linkedin: "#", bio: [] },
+  { name: "Abegael Mariano",         role: "Renewals Assistant",                     linkedin: "#", bio: [] },
+  { name: "Chidire Chukwudi",        role: "Admin / Corporate Assistant",            linkedin: "#", bio: [] },
+  { name: "Nisha Rawat",             role: "GSA Lead / Sr. Certification Specialist",linkedin: "#", bio: [] },
+  { name: "Febie Jean Cañetan",      role: "Certification Assistant",                linkedin: "#", bio: [] },
+  { name: "Ieona Gabrielle Dayo",    role: "Certification Assistant",                linkedin: "#", bio: [] },
+  { name: "Carla Mahinay",           role: "Prospect Assistant",                     linkedin: "#", bio: [] },
+  { name: "Rachelle Sorronda",       role: "Executive Assistant",                    linkedin: "#", bio: [] },
+  { name: "Shenie Canama",           role: "Accounting Assistant",                   linkedin: "#", bio: [] },
+  { name: "Jullie Anne de la Cruz",  role: "Creative Designer",                      linkedin: "#", bio: [] },
+  { name: "Maricel Dela Cruz",       role: "Certification Assistant",                linkedin: "#", bio: [] },
 ].map((member) => ({
   ...member,
   image: TEAM_IMAGE_BY_NAME[member.name] || "",
@@ -65,20 +68,36 @@ const TEAM_GROUPS = [
     members: ["Ranjani Mohana", "Roshini Chandran"],
   },
   {
-    title: "Certification",
-    members: ["Priya Saravanan", "Maria Rama Iseman", "Nikka Grajo", "Abegael Mariano", "Nisha Rawat", "Febie Jean Cañetan", "Ieona Gabrielle Dayo"],
+    title: "Database/SAM Team",
+    members: ["Nisha Rawat"],
   },
   {
-    title: "Administration",
-    members: ["Rachelle Sorronda", "Rajesh", "Shylet Lomuntad", "Shenie Canama", "Lloura Morales", "Chidire Chukwudi", "Marla Balladores", "Ramnik Singh"],
+    title: "MRP Team",
+    members: ["Anjelica Espina", "Eunice Lorainne Acebuque"],
   },
   {
-    title: "Marketing",
-    members: ["Eunice Lorainne Acebuque", "Anjelica Espina", "Carla Mahinay"],
+    title: "Accounting Team",
+    members: ["Shylet Lomuntad", "Shenie Canama", "Rajesh"],
   },
   {
-    title: "Social Media & Design",
-    members: ["Marian Salino", "Jullie Anne de la Cruz"],
+    title: "Admin Team",
+    members: ["Carla Mahinay", "Marla Balladores", "Chidire Chukwudi", "Rachelle Sorronda", "Lloura Morales"],
+  },
+  {
+    title: "Certifications Team",
+    members: ["Priya Saravanan", "Nisha Rawat", "Nikka Grajo", "Ieona Gabrielle Dayo", "Febie Jean Cañetan", "Maricel Dela Cruz"],
+  },
+  {
+    title: "Renewals Team",
+    members: ["Priya Saravanan", "Abegael Mariano", "Maria Rama Iseman"],
+  },
+  {
+    title: "Social Media Team",
+    members: ["Marian Salino", "Ramnik Singh", "Jullie Anne de la Cruz"],
+  },
+  {
+    title: "Technical Team",
+    members: ["Roshini Chandran", "Marla Balladores"],
   },
 ];
 
@@ -152,11 +171,15 @@ const SNAP_CARD = "transform 0.55s ease, opacity 0.55s ease, filter 0.55s ease";
 const BUF       = 3; // clone count on each side
 
 function TeamCarousel({ members }) {
-  const total    = members.length;
+  const total = members.length;
+  // ponytail: BUF (3) clone padding on each side must WRAP (mod), not clamp —
+  // Array.slice(-BUF) silently returns fewer than BUF items when total <= BUF,
+  // which desyncs the visually-centered card from the info panel for small groups.
+  const mod = (n, m) => ((n % m) + m) % m;
   const extended = [
-    ...members.slice(-BUF),
+    ...Array.from({ length: BUF }, (_, i) => members[mod(total - BUF + i, total)]),
     ...members,
-    ...members.slice(0, BUF),
+    ...Array.from({ length: BUF }, (_, i) => members[mod(i, total)]),
   ];
 
   /* only React state needed: what to show in the info panel */

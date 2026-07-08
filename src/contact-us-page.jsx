@@ -1,6 +1,8 @@
 /* global React, ReactDOM, Nav, Footer, ToTop, ContactForm, Ic */
 const { useEffect: useEffectContactPage } = React;
 
+const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=RM+Worthy+Virtual+Assistants%2C+Manuella+Ville+Subdivision%2C+California+St%2C+San+Agustin+II%2C+Dasmarinas%2C+4114+Cavite";
+
 function useScrollRevealContactPage() {
   useEffectContactPage(() => {
     const els = document.querySelectorAll(".reveal");
@@ -51,7 +53,17 @@ function ContactUsPage() {
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                   />
+                  {/* View-only shield: blocks clicks/drags into the embed so it can't accidentally navigate away */}
+                  <div className="contact-page-map-shield" aria-hidden="true" />
                 </div>
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary contact-page-map-cta"
+                >
+                  {Ic.pin} View in Google Maps
+                </a>
                 <div className="contact-page-copy">
                   <p className="contact-page-summary">
                     We are here to answer any question you may have. Feel free to reach us through the contact form or using the details below.
