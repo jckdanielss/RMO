@@ -179,7 +179,7 @@ function CapabilityStatementPage() {
         <section className="pad-y" style={{ background: "var(--green-deep)", color: "#fff" }}>
           <div className="wrap">
             <div className="section-head center reveal">
-              <span className="eyebrow" style={{ color: "#7ff0a0" }}>Why Partner With RMO</span>
+              <span className="eyebrow" style={{ color: "#7ff0a0" }}>Why Partner With R Mo</span>
               <h2 style={{ color: "#fff" }}>A Track Record You Can Verify</h2>
             </div>
             <div style={{

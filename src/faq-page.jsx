@@ -224,11 +224,11 @@ const FAQ_DATA = [
   },
   {
     id: "armo-speaker-series",
-    label: "ARMO Speaker Series",
+    label: "R Mo Speaker Series",
     items: [
       {
-        q: "What is the MRP Speaker Series?",
-        a: "The MRP Speaker Series is a complimentary educational initiative hosted by R Mo Global Diversity Solutions. The series features industry experts, procurement professionals, corporate leaders, and business specialists who share practical knowledge to help businesses grow and succeed.",
+        q: "What is the R Mo Speaker Series?",
+        a: "The R Mo Speaker Series is a complimentary educational initiative hosted by R Mo Global Diversity Solutions. The series features industry experts, procurement professionals, corporate leaders, and business specialists who share practical knowledge to help businesses grow and succeed.",
       },
       {
         q: "Who can attend the Speaker Series?",
@@ -256,7 +256,7 @@ const FAQ_DATA = [
       },
       {
         q: "Is there a cost to attend?",
-        a: "No. The MRP Speaker Series is provided as a complimentary educational resource to support the growth and success of the small business community.",
+        a: "No. The R Mo Speaker Series is provided as a complimentary educational resource to support the growth and success of the small business community.",
       },
       {
         q: "How often are Speaker Series sessions held?",
