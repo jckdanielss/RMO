@@ -20,7 +20,7 @@ const US_STATES = [
 ];
 
 function ContactForm() {
-  const [form, setForm] = useStateC({ name: "", email: "", companyName: "", state: "", message: "", captcha: "" });
+  const [form, setForm] = useStateC({ name: "", email: "", companyName: "", message: "", captcha: "" });
   const [touched, setTouched] = useStateC({});
   const [sum, setSum] = useStateC(rndCaptcha);
   const [sent, setSent] = useStateC(false);
@@ -29,7 +29,6 @@ function ContactForm() {
     name: form.name.trim().length < 2 ? "Please enter your name." : "",
     email: !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email) ? "Enter a valid email address." : "",
     companyName: form.companyName.trim().length < 2 ? "Please enter your company name." : "",
-    state: form.state === "" ? "Please select your state." : "",
     message: form.message.trim().length < 8 ? "Tell us a little more (min 8 characters)." : "",
     captcha: parseInt(form.captcha, 10) !== sum.a + sum.b ? "Incorrect answer." : "",
   };
@@ -43,7 +42,7 @@ function ContactForm() {
 
   const submit = (e) => {
     e.preventDefault();
-    setTouched({ name: true, email: true, companyName: true, state: true, message: true, captcha: true });
+    setTouched({ name: true, email: true, companyName: true, message: true, captcha: true });
     if (Object.values(errors).some(Boolean)) return;
     setSent(true);
   };
@@ -65,7 +64,7 @@ function ContactForm() {
             className="btn btn-ghost"
             onClick={() => {
               setSent(false);
-              setForm({ name: "", email: "", companyName: "", state: "", message: "", captcha: "" });
+              setForm({ name: "", email: "", companyName: "", message: "", captcha: "" });
               setTouched({});
               newCaptcha();
             }}
@@ -87,20 +86,10 @@ function ContactForm() {
               <span className="err">{errors.email}</span>
             </div>
           </div>
-          <div className="field-row">
-            <div className={fieldCls("companyName")}>
-              <label>Company name</label>
-              <input type="text" name="companyName" autoComplete="organization" placeholder="Acme Co." value={form.companyName} onChange={set("companyName")} onBlur={blur("companyName")} />
-              <span className="err">{errors.companyName}</span>
-            </div>
-            <div className={fieldCls("state")}>
-              <label>State</label>
-              <select name="state" autoComplete="address-level1" value={form.state} onChange={set("state")} onBlur={blur("state")}>
-                <option value="">Select a state</option>
-                {US_STATES.map((s) => <option key={s} value={s}>{s}</option>)}
-              </select>
-              <span className="err">{errors.state}</span>
-            </div>
+          <div className={fieldCls("companyName")}>
+            <label>Company name</label>
+            <input type="text" name="companyName" autoComplete="organization" placeholder="Acme Co." value={form.companyName} onChange={set("companyName")} onBlur={blur("companyName")} />
+            <span className="err">{errors.companyName}</span>
           </div>
           <div className={fieldCls("message")}>
             <label>Your message</label>
