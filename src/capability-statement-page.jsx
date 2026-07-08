@@ -16,7 +16,7 @@ function CsImageLightbox({ onClose }) {
   }, [onClose]);
 
   return (
-    <div className="cs-lightbox-backdrop" onClick={onClose}>
+    <div className="cs-lightbox-backdrop" onClick={onClose} role="dialog" aria-modal="true" aria-label="Capability statement full-size image viewer">
       <button className="cs-lightbox-close" onClick={onClose} aria-label="Close image viewer">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
           <path d="M6 6l12 12M18 6 6 18" />
