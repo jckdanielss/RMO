@@ -1,7 +1,7 @@
 /* global React, ReactDOM, Nav, Footer, ToTop, ContactForm, Ic */
 const { useEffect: useEffectContactPage } = React;
 
-const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=RM+Worthy+Virtual+Assistants%2C+Manuella+Ville+Subdivision%2C+California+St%2C+San+Agustin+II%2C+Dasmarinas%2C+4114+Cavite";
+const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=6937+Village+Pkwy+%232422%2C+Dublin%2C+CA+94568%2C+US";
 
 function useScrollRevealContactPage() {
   useEffectContactPage(() => {
@@ -45,7 +45,7 @@ function ContactUsPage() {
                 <div className="contact-page-map-frame">
                   <iframe
                     title="RM Worthy Virtual Assistants Location"
-                    src="https://maps.google.com/maps?q=RM%20Worthy%20Virtual%20Assistants%2C%20Manuella%20Ville%20Subdivision%2C%20California%20St%2C%20San%20Agustin%20II%2C%20Dasmarinas%2C%204114%20Cavite&ll=14.3236013,120.9485632&z=17&output=embed"
+                    src="https://maps.google.com/maps?q=6937+Village+Pkwy+%232422%2C+Dublin%2C+CA+94568%2C+US&z=17&output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0, display: "block" }}
@@ -74,9 +74,8 @@ function ContactUsPage() {
                       <div>
                         <div className="contact-page-detail-label">Office</div>
                         <div className="contact-page-detail-value">
-                          RM Worthy Virtual Assistants<br />
-                          Manuella Ville Subdivision, California St<br />
-                          San Agustin II, Dasmarinas, 4114 Cavite
+                          6937 Village Pkwy #2422<br />
+                          Dublin, California 94568, US
                         </div>
                       </div>
                     </div>
