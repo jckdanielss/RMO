@@ -55,7 +55,7 @@ h1, h2, h3, h4 {
   text-wrap: balance;
 }
 h1, h2 {
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.03em;
 }
 
@@ -444,7 +444,7 @@ section { scroll-margin-top: 80px; }
   display: inline-block;
   background: var(--green-deep);
   color: #fff;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.02em;
   padding: 0.3em 0.55em;
   border-radius: 16px;
@@ -705,7 +705,7 @@ section { scroll-margin-top: 80px; }
   color: var(--line);
   margin-bottom: 16px;
 }
-.card h3 { font-size: 22px; font-weight: 800; color: var(--green-deep); }
+.card h3 { font-size: 22px; font-weight: 700; color: var(--green-deep); }
 .card p { margin-top: 10px; margin-bottom: 22px; font-size: 15px; color: var(--muted); }
 
 /* ============================================================
@@ -1943,7 +1943,7 @@ main.services-page {
 .services-hero h1 {
   color: #fff;
   font-size: clamp(32px, 5vw, 58px);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.08;
   text-wrap: balance;
@@ -1984,7 +1984,7 @@ main.services-page {
    ============================================================ */
 .branch-main-heading {
   font-size: clamp(36px, 5.5vw, 68px);
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: -0.03em;
   margin-top: 12px;
   line-height: 1.05;
@@ -2057,7 +2057,7 @@ main.services-page {
 .branch-card.accent .branch-num { color: rgba(255,255,255,.4); opacity: 1; }
 .branch-card h2 {
   font-size: clamp(22px, 2.6vw, 30px);
-  font-weight: 800;
+  font-weight: 700;
   margin: 0;
   line-height: 1.15;
   letter-spacing: -0.02em;
@@ -2176,7 +2176,7 @@ main.services-page {
 .svc-page-hero h1 {
   color: #fff;
   font-size: clamp(28px, 4.5vw, 52px);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.1;
   text-wrap: balance;
@@ -2224,7 +2224,7 @@ main.services-page {
 }
 .contact-page-head h1 {
   font-size: clamp(36px, 5vw, 64px);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.02;
   letter-spacing: -0.04em;
   margin: 14px 0 12px;

@@ -42,43 +42,50 @@ function ContactUsPage() {
 
             <div className="contact-page-layout">
               <section className="contact-page-map-card reveal">
-                <div className="contact-page-map-frame">
-                  <iframe
-                    title="RM Worthy Virtual Assistants Location"
-                    src="https://maps.google.com/maps?q=6937+Village+Pkwy+%232422%2C+Dublin%2C+CA+94568%2C+US&z=17&output=embed"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0, display: "block" }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  />
-                  {/* View-only shield: blocks clicks/drags into the embed so it can't accidentally navigate away */}
-                  <div className="contact-page-map-shield" aria-hidden="true" />
-                </div>
-                <a
-                  href={MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-primary contact-page-map-cta"
-                >
-                  {Ic.pin} View in Google Maps
-                </a>
+                {/* ponytail: map + Maps button temporarily disabled per request, flip to true to restore */}
+                {false && (
+                  <React.Fragment>
+                    <div className="contact-page-map-frame">
+                      <iframe
+                        title="RM Worthy Virtual Assistants Location"
+                        src="https://maps.google.com/maps?q=6937+Village+Pkwy+%232422%2C+Dublin%2C+CA+94568%2C+US&z=17&output=embed"
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0, display: "block" }}
+                        allowFullScreen=""
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                      />
+                      {/* View-only shield: blocks clicks/drags into the embed so it can't accidentally navigate away */}
+                      <div className="contact-page-map-shield" aria-hidden="true" />
+                    </div>
+                    <a
+                      href={MAPS_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn btn-primary contact-page-map-cta"
+                    >
+                      {Ic.pin} View in Google Maps
+                    </a>
+                  </React.Fragment>
+                )}
                 <div className="contact-page-copy">
                   <p className="contact-page-summary">
                     We are here to answer any question you may have. Feel free to reach us through the contact form or using the details below.
                   </p>
                   <div className="contact-page-detail-list">
-                    <div className="contact-page-detail">
-                      <span className="contact-page-detail-ic">{Ic.pin}</span>
-                      <div>
-                        <div className="contact-page-detail-label">Office</div>
-                        <div className="contact-page-detail-value">
-                          6937 Village Pkwy #2422<br />
-                          Dublin, California 94568, US
+                    {false && (
+                      <div className="contact-page-detail">
+                        <span className="contact-page-detail-ic">{Ic.pin}</span>
+                        <div>
+                          <div className="contact-page-detail-label">Office</div>
+                          <div className="contact-page-detail-value">
+                            6937 Village Pkwy #2422<br />
+                            Dublin, California 94568, US
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    )}
                     <div className="contact-page-detail">
                       <span className="contact-page-detail-ic">{Ic.clock}</span>
                       <div>
