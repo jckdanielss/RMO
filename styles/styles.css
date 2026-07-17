@@ -414,43 +414,41 @@ section { scroll-margin-top: 80px; }
    HERO EDITORIAL — light panel, framed rotating photo stack
    ============================================================ */
 .hero-ed {
-  position: relative;
-  overflow: hidden;
-  background: var(--green-tint);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100svh;
+  background: var(--bg-soft);
 }
 
 .hero-ed-inner {
-  display: flex;
-  align-items: center;
-  gap: clamp(24px, 4vw, 56px);
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: clamp(48px, 6vw, 88px) clamp(24px, 5vw, 64px);
-  min-height: 70vh;
+  display: contents;
 }
 
-.hero-ed-text { flex: 0 0 42%; }
+.hero-ed-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6vw 7vw;
+}
 .hero-ed-text-inner { max-width: 460px; }
 
 .hero-ed-heading {
-  color: var(--green-deep);
-  font-size: clamp(30px, 3.4vw, 50px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.06;
-  margin: 0 0 18px;
-  min-height: 2.2em;
+  margin: 0 0 22px;
+  font-size: clamp(26px, 3vw, 42px);
+  line-height: 1.15;
+  min-height: calc(2 * 1.15em + 0.6em); /* reserves 2 lines + badge padding so slides don't shift */
   display: flex;
   align-items: flex-end;
 }
-
-.hero-ed-sub {
-  color: var(--body);
-  font-size: clamp(15px, 1.4vw, 18px);
-  line-height: 1.6;
-  margin: 0 0 28px;
-  max-width: 420px;
-  min-height: 3.2em;
+.hero-ed-heading span {
+  display: inline-block;
+  background: var(--green-deep);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  padding: 0.3em 0.55em;
+  border-radius: 16px;
+  box-shadow: 0 12px 26px rgba(12,79,32,.28);
 }
 
 .hero-ed-actions {
@@ -518,26 +516,25 @@ section { scroll-margin-top: 80px; }
   background: var(--green);
 }
 
-/* Framed rotating photo stack */
+/* Rotating photo panel */
 .hero-ed-media {
-  flex: 1;
   position: relative;
-  align-self: stretch;
-  display: flex;
-  align-items: center;
-  min-height: 360px;
-}
-
-.hero-ed-photo-frame {
-  position: relative;
-  width: 78%;
-  height: 82%;
-  min-height: 320px;
-  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 24px 60px rgba(12,79,32,.28);
-  z-index: 2;
+  background: var(--bg-soft);
 }
+.hero-ed-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: .7;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-ed-blob-1 { width: 180px; height: 180px; top: -70px; left: 8%; background: #cfe0cc; }
+.hero-ed-blob-2 { width: 130px; height: 130px; top: -40px; left: 34%; background: var(--green-tint); }
+.hero-ed-blob-3 { width: 90px;  height: 90px;  top: 20px;  left: 58%; background: #b9d0b6; opacity: .6; }
+
+.hero-ed-photo-frame { position: absolute; inset: 0; z-index: 1; }
 
 @keyframes heroEdZoom {
   from { transform: scale(1); }
@@ -557,24 +554,11 @@ section { scroll-margin-top: 80px; }
   animation: heroEdZoom 8s ease-out forwards;
 }
 
-.hero-ed-photo-behind {
-  position: absolute;
-  right: 0; bottom: 6%;
-  width: 42%; height: 58%;
-  border-radius: 16px;
-  background-size: cover;
-  background-position: center;
-  box-shadow: 0 16px 40px rgba(12,79,32,.22);
-  z-index: 1;
-}
-
 @media (max-width: 760px) {
-  .hero-ed-inner { flex-direction: column; align-items: stretch; min-height: 0; gap: 28px; }
-  .hero-ed-text { flex: none; width: 100%; }
-  .hero-ed-heading { font-size: clamp(26px, 7.5vw, 38px); }
-  .hero-ed-media { flex: none; width: 100%; min-height: 300px; justify-content: center; }
-  .hero-ed-photo-frame { width: 86%; height: 300px; }
-  .hero-ed-photo-behind { width: 40%; height: 46%; right: 2%; }
+  .hero-ed { grid-template-columns: 1fr; }
+  .hero-ed-media { min-height: 46vh; }
+  .hero-ed-text { padding: 44px 7vw 56px; }
+  .hero-ed-heading { font-size: clamp(22px, 7.5vw, 34px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -584,7 +568,7 @@ section { scroll-margin-top: 80px; }
 /* Certification logo strip */
 .hero-cert-strip {
   position: relative;
-  background: linear-gradient(to bottom, #0a1a10 0%, var(--green-deep) 40%, var(--bg-soft) 100%);
+  background: linear-gradient(to bottom, var(--bg-soft) 0%, #0a1a10 16%, var(--green-deep) 55%, var(--bg-soft) 100%);
   padding: 18px 0 44px;
   overflow: hidden;
 }

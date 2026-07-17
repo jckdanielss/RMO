@@ -368,8 +368,8 @@ const HERO_SLIDES = [
     alt: "Market ready business professionals",
     heading: "Become Market-Ready",
     sub: "Build confidence, sharpen your pitch, and stand out.",
-    btnLabel: "Our Mission",
-    btnHref: "#about",
+    btnLabel: "Get Started",
+    btnHref: "/services/business-growth-programs.html",
   },
   {
     img: "carousel/driving-impact.png",
@@ -462,8 +462,7 @@ function Hero() {
       <div className="hero-ed-inner" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
         <div className="hero-ed-text">
           <div className="hero-ed-text-inner" key={animKey}>
-            <h1 className="hero-ed-heading">{HERO_SLIDES[active].heading}</h1>
-            <p className="hero-ed-sub">{HERO_SLIDES[active].sub}</p>
+            <h1 className="hero-ed-heading"><span>{HERO_SLIDES[active].heading}</span></h1>
             <div className="hero-ed-actions">
               <a
                 href={HERO_SLIDES[active].btnHref}
@@ -497,11 +496,9 @@ function Hero() {
         </div>
 
         <div className="hero-ed-media">
-          <div
-            className="hero-ed-photo-behind"
-            style={{ backgroundImage: "url('" + HERO_SLIDES[(active + 1) % n].img + "')" }}
-            aria-hidden="true"
-          />
+          <span className="hero-ed-blob hero-ed-blob-1" aria-hidden="true" />
+          <span className="hero-ed-blob hero-ed-blob-2" aria-hidden="true" />
+          <span className="hero-ed-blob hero-ed-blob-3" aria-hidden="true" />
           <div className="hero-ed-photo-frame">
             {HERO_SLIDES.map((s, i) => (
               <div

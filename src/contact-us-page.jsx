@@ -34,9 +34,9 @@ function ContactUsPage() {
           <div className="wrap">
             <div className="contact-page-head reveal">
               <span className="eyebrow">We'd love to hear from you</span>
-              <h1>Stay Connected</h1>
+              <h1>Contact Us</h1>
               <p>
-                Reach out with questions, project details, or partnership ideas and we'll get back to you shortly.
+                Reach out with questions, project details, or partnership ideas and we'll get back to you.
               </p>
             </div>
 
