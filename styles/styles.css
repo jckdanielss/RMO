@@ -30,6 +30,7 @@
 
   --font-display: "Schibsted Grotesk", system-ui, sans-serif;
   --font-body: "Hanken Grotesk", system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
 }
 
 * { box-sizing: border-box; }
@@ -89,6 +90,10 @@ section { scroll-margin-top: 80px; }
 .section-head { max-width: 640px; margin-bottom: clamp(36px, 5vw, 56px); }
 .section-head.center { margin-inline: auto; text-align: center; }
 .section-head.center .eyebrow::before { display: none; }
+.section-head h1,
+.section-head h2 {
+  font-family: var(--font-serif);
+}
 .section-head h2 {
   font-size: clamp(28px, 4vw, 44px);
   margin-top: 14px;
@@ -446,8 +451,9 @@ section { scroll-margin-top: 80px; }
   display: inline-block;
   background: var(--green-deep);
   color: #fff;
+  font-family: var(--font-serif);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   padding: 0.3em 0.55em;
   border-radius: 16px;
   box-shadow: 0 12px 26px rgba(12,79,32,.28);
