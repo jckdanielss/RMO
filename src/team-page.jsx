@@ -128,7 +128,7 @@ function OrgChart() {
       </div>
       <div className="org-chart-image-wrap">
         <img
-          src="assets/team/01-28-26_RMo_OrgChart-_Landscape_Border.png"
+          src="assets/team/org-chart-updated.png"
           alt="R Mo Global Diversity Solutions Organizational Chart"
           className="org-chart-image"
         />
