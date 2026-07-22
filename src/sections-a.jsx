@@ -224,6 +224,18 @@ function goToContact(e) {
   document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
 }
 
+function aboutHrefForCurrentPage() {
+  const page = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
+  return page === "index.html" ? "#about" : "index.html#about";
+}
+
+function goToAbout(e) {
+  const href = aboutHrefForCurrentPage();
+  if (href !== "#about") return;
+  e.preventDefault();
+  document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+}
+
 const SCRAPED_ROOT = "rmollc_scraped_data/rmollc_scrape/";
 const CLIENTS = [
   { name: "Meta", alt: "Meta logo", imageSrc: SCRAPED_ROOT + "images/clients/meta-1-1.png" },
@@ -266,6 +278,11 @@ function Nav() {
       setDropdown(null);
       return goToContact(e);
     }
+    if (href === "#about") {
+      setOpen(false);
+      setDropdown(null);
+      return goToAbout(e);
+    }
     if (!href.startsWith("#")) { setOpen(false); setDropdown(null); return; }
     e.preventDefault();
     setOpen(false);
@@ -304,7 +321,7 @@ function Nav() {
         <div className="wrap nav-inner">
           <Brand />
           <div className="nav-links">
-            <NavDropdown id="about" label="About Us" links={ABOUT_LINKS} />
+            <NavDropdown id="about" label="About Us" href={aboutHrefForCurrentPage()} links={ABOUT_LINKS} />
             <NavDropdown id="pro-services" label="Services" href="services.html" links={PROFESSIONAL_SERVICES_LINKS} />
             <a href="capability-statement.html">Capability Statement</a>
             <a href="faq.html">FAQ</a>

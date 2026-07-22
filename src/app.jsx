@@ -18,8 +18,18 @@ function useScrollReveal() {
   }, []);
 }
 
+function useHashScroll() {
+  useEffectApp(() => {
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+    const el = document.getElementById(hash);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  }, []);
+}
+
 function App() {
   useScrollReveal();
+  useHashScroll();
   return (
     <React.Fragment>
       <Nav />
