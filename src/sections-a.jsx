@@ -236,16 +236,16 @@ function goToAbout(e) {
   document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
 }
 
-const SCRAPED_ROOT = "rmollc_scraped_data/rmollc_scrape/";
+const CLIENTS_ROOT = "assets/clients/";
 const CLIENTS = [
-  { name: "Meta", alt: "Meta logo", imageSrc: SCRAPED_ROOT + "images/clients/meta-1-1.png" },
-  { name: "CDW", alt: "CDW logo", imageSrc: SCRAPED_ROOT + "images/clients/logo-1-3.png" },
-  { name: "CBRE", alt: "CBRE logo", imageSrc: SCRAPED_ROOT + "images/clients/unnamed-1.png" },
-  { name: "Google", alt: "Google logo", imageSrc: SCRAPED_ROOT + "images/clients/google-1.png" },
-  { name: "EU based Pharmaceutical Company", alt: "EU based Pharmaceutical Company logo", imageSrc: SCRAPED_ROOT + "images/clients/eu-based-1.jpg" },
-  { name: "FHLBank San Francisco", alt: "FHLBank San Francisco logo", imageSrc: SCRAPED_ROOT + "images/clients/bank-1-1.png" },
-  { name: "California Water Service", alt: "California Water Service logo", imageSrc: SCRAPED_ROOT + "images/clients/water-1.png" },
-  { name: "San Jose Water Company", alt: "San Jose Water Company logo", imageSrc: SCRAPED_ROOT + "images/clients/San_Jose_Water_Company-logo.png" },
+  { name: "Meta", alt: "Meta logo", imageSrc: CLIENTS_ROOT + "meta-1-1.png" },
+  { name: "CDW", alt: "CDW logo", imageSrc: CLIENTS_ROOT + "logo-1-3.png" },
+  { name: "CBRE", alt: "CBRE logo", imageSrc: CLIENTS_ROOT + "unnamed-1.png" },
+  { name: "Google", alt: "Google logo", imageSrc: CLIENTS_ROOT + "google-1.png" },
+  { name: "EU based Pharmaceutical Company", alt: "EU based Pharmaceutical Company logo", imageSrc: CLIENTS_ROOT + "eu-based-1.jpg" },
+  { name: "FHLBank San Francisco", alt: "FHLBank San Francisco logo", imageSrc: CLIENTS_ROOT + "bank-1-1.png" },
+  { name: "California Water Service", alt: "California Water Service logo", imageSrc: CLIENTS_ROOT + "water-1.png" },
+  { name: "San Jose Water Company", alt: "San Jose Water Company logo", imageSrc: CLIENTS_ROOT + "San_Jose_Water_Company-logo.png" },
 ];
 
 function Brand() {
@@ -373,7 +373,7 @@ function Nav() {
 /* ======================= HERO ======================= */
 const HERO_SLIDES = [
   {
-    img: "carousel/diversity.jpg",
+    img: "assets/carousel/diversity.jpg",
     alt: "Diverse business professionals in a meeting",
     heading: "Diversity Certifications",
     sub: "We handle the complexity. You focus on winning contracts.",
@@ -381,7 +381,7 @@ const HERO_SLIDES = [
     btnHref: "#services",
   },
   {
-    img: "carousel/market_ready_program.jpg",
+    img: "assets/carousel/market_ready_program.jpg",
     alt: "Market ready business professionals",
     heading: "Become Market-Ready",
     sub: "Build confidence, sharpen your pitch, and stand out.",
@@ -389,7 +389,7 @@ const HERO_SLIDES = [
     btnHref: "/services/business-growth-programs.html",
   },
   {
-    img: "carousel/driving-impact.png",
+    img: "assets/carousel/driving-impact.png",
     alt: "Community impact and empowerment",
     heading: "Driving Impact",
     sub: "Empowering businesses, strengthening communities.",
@@ -397,7 +397,7 @@ const HERO_SLIDES = [
     btnHref: "#contact",
   },
   {
-    img: "carousel/startup_guidance.jpg",
+    img: "assets/carousel/startup_guidance.jpg",
     alt: "Startup Guidance",
     heading: "Startup Guidance",
     sub: "Strategic mentorship from your first idea to your first contract.",
@@ -405,7 +405,7 @@ const HERO_SLIDES = [
     btnHref: "#contact",
   },
   {
-    img: "carousel/rfd_bid_package.jpg",
+    img: "assets/carousel/rfd_bid_package.jpg",
     alt: "RFD Bidding",
     heading: "RFD Bidding",
     sub: "From proposal writing to submission — expert bid support at every step.",

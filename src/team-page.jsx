@@ -4,28 +4,28 @@ const { useState, useEffect, useRef, useCallback } = React;
 
 /* ─── Data ──────────────────────────────────────────────────────────────── */
 
-const TEAM_ASSET_ROOT = "rmollc_har_extracted_images/rmollc_har_extracted_images";
+const TEAM_ASSET_ROOT = "assets/team";
 
 const TEAM_IMAGE_BY_NAME = {
-  "Ranjani Mohana": `${TEAM_ASSET_ROOT}/team_images/Ranjani-300-dpi-300x212-150x150-1.jpg`,
-  "Roshini Chandran": `${TEAM_ASSET_ROOT}/team_images/Roshini-1-300x200-1-150x150-1.jpg`,
-  "Priya Saravanan": `${TEAM_ASSET_ROOT}/team_images/Priya-S-half-1-1-150x150-1.jpg`,
-  "Lloura Morales": `${TEAM_ASSET_ROOT}/team_images/unnamed-18.png`,
-  "Marian Salino": `${TEAM_ASSET_ROOT}/other_images/Photo-Marian-Salino-1.png`,
-  "Ramnik": `${TEAM_ASSET_ROOT}/team_images/1643562015053.jpg`,
-  "Rajesh CA": `${TEAM_ASSET_ROOT}/team_images/Rajesh-Half-1-150x150-1.jpg`,
-  "Eunice Acebuque": `${TEAM_ASSET_ROOT}/team_images/unnamed-12.jpg`,
-  "Anjelica Espina": `${TEAM_ASSET_ROOT}/other_images/Photo-Anjelica-Espina-1-e1706703331948.png`,
-  "Marla Balladores": `${TEAM_ASSET_ROOT}/team_images/Balladores-Marla-1-2048x1991.jpg`,
-  "Shylet Lomuntad": `${TEAM_ASSET_ROOT}/team_images/49dd6e32-9993-4a26-be02-fbe29a50ffa6.jpg`,
-  "Abegael Mariano": `${TEAM_ASSET_ROOT}/team_images/unnamed4.png`,
-  "Chidire Chukwudi": `${TEAM_ASSET_ROOT}/other_images/rmo3.jpg`,
-  "Nisha Rawat": `${TEAM_ASSET_ROOT}/team_images/unnamed-2-1.png`,
-  "Febie Jean Cañetan": `${TEAM_ASSET_ROOT}/team_images/Febie.jpeg`,
-  "Maria Carla Mahinay": `${TEAM_ASSET_ROOT}/team_images/Picture1.png`,
+  "Ranjani Mohana": `${TEAM_ASSET_ROOT}/Ranjani-300-dpi-300x212-150x150-1.jpg`,
+  "Roshini Chandran": `${TEAM_ASSET_ROOT}/Roshini-1-300x200-1-150x150-1.jpg`,
+  "Priya Saravanan": `${TEAM_ASSET_ROOT}/Priya-S-half-1-1-150x150-1.jpg`,
+  "Lloura Morales": `${TEAM_ASSET_ROOT}/unnamed-18.png`,
+  "Marian Salino": `${TEAM_ASSET_ROOT}/Photo-Marian-Salino-1.png`,
+  "Ramnik": `${TEAM_ASSET_ROOT}/1643562015053.jpg`,
+  "Rajesh CA": `${TEAM_ASSET_ROOT}/Rajesh-Half-1-150x150-1.jpg`,
+  "Eunice Acebuque": `${TEAM_ASSET_ROOT}/unnamed-12.jpg`,
+  "Anjelica Espina": `${TEAM_ASSET_ROOT}/Photo-Anjelica-Espina-1-e1706703331948.png`,
+  "Marla Balladores": `${TEAM_ASSET_ROOT}/Balladores-Marla-1-2048x1991.jpg`,
+  "Shylet Lomuntad": `${TEAM_ASSET_ROOT}/49dd6e32-9993-4a26-be02-fbe29a50ffa6.jpg`,
+  "Abegael Mariano": `${TEAM_ASSET_ROOT}/unnamed4.png`,
+  "Chidire Chukwudi": `${TEAM_ASSET_ROOT}/rmo3.jpg`,
+  "Nisha Rawat": `${TEAM_ASSET_ROOT}/unnamed-2-1.png`,
+  "Febie Jean Cañetan": `${TEAM_ASSET_ROOT}/Febie.jpeg`,
+  "Maria Carla Mahinay": `${TEAM_ASSET_ROOT}/Picture1.png`,
   "Ieona Gabrielle Dayo": "assets/team/WhatsApp_Image_2026-06-25_at_11.02.43_PM.png",
-  "Rachelle Sorronda": `${TEAM_ASSET_ROOT}/team_images/Picture1.jpg`,
-  "Jullie Anne Dela Cruz": `${TEAM_ASSET_ROOT}/team_images/d2d64c64-3821-4074-9f39-db308619a5b7.jpg`,
+  "Rachelle Sorronda": `${TEAM_ASSET_ROOT}/Picture1.jpg`,
+  "Jullie Anne Dela Cruz": `${TEAM_ASSET_ROOT}/d2d64c64-3821-4074-9f39-db308619a5b7.jpg`,
   "Shenie Canama": "assets/team/shenie.png",
 };
 

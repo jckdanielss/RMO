@@ -6,12 +6,12 @@ const LEADERS = [
   {
     name: "Ranjani Mohana",
     role: "The Certification Lady / CEO",
-    image: "rmollc_har_extracted_images/rmollc_har_extracted_images/team_images/Ranjani-300-dpi-300x212-150x150-1.jpg",
+    image: "assets/team/Ranjani-300-dpi-300x212-150x150-1.jpg",
   },
   {
     name: "Roshini Chandran",
     role: "Advisor",
-    image: "rmollc_har_extracted_images/rmollc_har_extracted_images/team_images/Roshini-1-300x200-1-150x150-1.jpg",
+    image: "assets/team/Roshini-1-300x200-1-150x150-1.jpg",
   },
 ];
 
@@ -52,7 +52,7 @@ function Team() {
 }
 
 /* ======================= TESTIMONIALS ======================= */
-const SCRAPED_ROOT_B = "rmollc_scraped_data/rmollc_scrape/";
+const CERTS_ROOT = "assets/certifications/";
 const TESTIMONIALS = [
   {
     quote: "Ranjani helped us get certified as MBE through WRMSDC. Her attention to detail and ability to guide us through the process was commendable. Because of her help, we were able to complete the process within three months and become a proud MBE. I highly recommend her services to any business.",
@@ -235,27 +235,27 @@ function About() {
 const CERTS = [
   {
     name: "SBA 8(a) Certified",
-    imageSrc: SCRAPED_ROOT_B + "images/certifications/download-2-q16jpe99t657zno4ea3c2xc48r9to4vfa7slo6hm2o.png",
+    imageSrc: CERTS_ROOT + "download-2-q16jpe99t657zno4ea3c2xc48r9to4vfa7slo6hm2o.png",
   },
   {
     name: "DBE Certified",
-    imageSrc: SCRAPED_ROOT_B + "images/certifications/dbe-logo-q16jpdbfmc3xo1phjropifknndeggfroy3546wj08w.png",
+    imageSrc: CERTS_ROOT + "dbe-logo-q16jpdbfmc3xo1phjropifknndeggfroy3546wj08w.png",
   },
   {
     name: "CA.Gov Certified",
-    imageSrc: SCRAPED_ROOT_B + "images/certifications/CA.Gov_.Certified-1920w-q16k8qrohemoypkef55vwjkof9wt3uoixz7ea7sw00.png",
+    imageSrc: CERTS_ROOT + "CA.Gov_.Certified-1920w-q16k8qrohemoypkef55vwjkof9wt3uoixz7ea7sw00.png",
   },
   {
     name: "WBENC Certified Women's Business Enterprise",
-    imageSrc: SCRAPED_ROOT_B + "images/certifications/certified-wbenc-womens-business-enterprise-logo-vector-q16jpg4y6u7smvle3awl7wv1fj0k3j2vyh3kmqetq8.png",
+    imageSrc: CERTS_ROOT + "certified-wbenc-womens-business-enterprise-logo-vector-q16jpg4y6u7smvle3awl7wv1fj0k3j2vyh3kmqetq8.png",
   },
   {
     name: "WRMSDC",
-    imageSrc: SCRAPED_ROOT_B + "images/certifications/jmxkKun__400x400-q16jpg4y6u7smvle3awl7wv1fj0k3j2vyh3kmqetq8.png",
+    imageSrc: CERTS_ROOT + "jmxkKun__400x400-q16jpg4y6u7smvle3awl7wv1fj0k3j2vyh3kmqetq8.png",
   },
   {
     name: "USPAACC Certified Asian American Business",
-    imageSrc: SCRAPED_ROOT_B + "images/certifications/download-1-q16jpf74006ib9mr8shynf3ku556vtz5mcg35gg7wg.png",
+    imageSrc: CERTS_ROOT + "download-1-q16jpf74006ib9mr8shynf3ku556vtz5mcg35gg7wg.png",
   },
 ];
 

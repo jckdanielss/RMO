@@ -1,7 +1,7 @@
 /* global React, ReactDOM, Ic, Nav, Footer, ToTop, PreFooterCta, contactHrefForCurrentPage */
 const { useEffect: useEffectCS, useState: useStateCS } = React;
 
-const CS_IMAGE = "capability-statement/RMO-Capability-Statement-June-2026.png";
+const CS_IMAGE = "assets/capability-statement/RMO-Capability-Statement-June-2026.png";
 const CS_QR_IMAGE = "assets/qr-contact-us.png";
 
 function CsImageLightbox({ onClose }) {
@@ -159,7 +159,7 @@ function CapabilityStatementPage() {
             </p>
             <div className="mv-card reveal" style={{ marginTop: "clamp(24px,3vw,36px)", display: "flex", gap: "24px", alignItems: "center", flexWrap: "wrap" }}>
               <img
-                src="rmollc_har_extracted_images/rmollc_har_extracted_images/team_images/Ranjani-300-dpi-300x212-150x150-1.jpg"
+                src="assets/team/Ranjani-300-dpi-300x212-150x150-1.jpg"
                 alt="Ranjani Mohana"
                 style={{ width: "96px", height: "96px", borderRadius: "50%", objectFit: "cover", flexShrink: 0 }}
               />
@@ -232,7 +232,7 @@ function CapabilityStatementPage() {
                 <p style={{ maxWidth: "560px", margin: "0 auto 24px" }}>
                   Download the official R Mo capability statement — certifications, competencies, past performance, and contact details in one procurement-ready PDF.
                 </p>
-                <a href="capability-statement/RMO-Capability-Statement.pdf" className="btn btn-light" download>
+                <a href="assets/capability-statement/RMO-Capability-Statement.pdf" className="btn btn-light" download>
                   Download Capability Statement (PDF) {Ic.arrow}
                 </a>
                 <p style={{ marginTop: "16px", fontSize: "13.5px", opacity: 0.85 }}>

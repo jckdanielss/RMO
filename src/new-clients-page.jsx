@@ -3,7 +3,7 @@
 const NEW_CLIENTS_DATA = [
   {
     id: 1,
-    logo: "new_clients/heal_horizon.png",
+    logo: "assets/clients/heal_horizon.png",
     title: "Celebrating Heal Horizon's WBE Certification with WBEC-Pacific",
     brief: "Congratulations to Heal Horizon on their recent WBE certification from the Women's Business Enterprise Council – Pacific!",
     paragraphs: [
@@ -18,7 +18,7 @@ const NEW_CLIENTS_DATA = [
   },
   {
     id: 2,
-    logo: "new_clients/panzer_solutions.png",
+    logo: "assets/clients/panzer_solutions.png",
     title: "Panzer Solutions LLC Achieves MBE Certification with GNEMSDC",
     brief: "Huge congratulations to Panzer Solutions LLC for their MBE certification from the Greater New England Minority Supplier Development Council.",
     paragraphs: [
@@ -32,7 +32,7 @@ const NEW_CLIENTS_DATA = [
   },
   {
     id: 3,
-    logo: "new_clients/cloud_data_vision.png",
+    logo: "assets/clients/cloud_data_vision.png",
     title: "Cloud Data Vision Achieves WOSB Certification with WBCS",
     brief: "Congratulations to Cloud Data Vision on their recent WOSB certification from the Women's Business Council – Southwest!",
     paragraphs: [
@@ -46,7 +46,7 @@ const NEW_CLIENTS_DATA = [
   },
   {
     id: 4,
-    logo: "new_clients/anveta_inc.png",
+    logo: "assets/clients/anveta_inc.png",
     title: "Anveta, Inc. Secures MBE & SBE Certifications: A Milestone in Healthcare Staffing",
     brief: "Congratulations to Anveta, Inc. on their recent MBE and SBE certifications from the Dallas/Fort Worth Minority Supplier Development Council!",
     paragraphs: [
@@ -60,7 +60,7 @@ const NEW_CLIENTS_DATA = [
   },
   {
     id: 5,
-    logo: "new_clients/datanitiv.png",
+    logo: "assets/clients/datanitiv.png",
     title: "Celebrating Datanitiv's MBE Certification: A Milestone in Growth and Innovation",
     brief: "Congratulations to Datanitiv on their recent MBE certification from the Georgia Minority Supplier Development Council!",
     paragraphs: [
@@ -74,7 +74,7 @@ const NEW_CLIENTS_DATA = [
   },
   {
     id: 6,
-    logo: "new_clients/fortune_minds_llc.png",
+    logo: "assets/clients/fortune_minds_llc.png",
     title: "Fortune Minds Inc. Earns WBE Certification: A Milestone of Excellence",
     brief: "Congratulations to Fortune Minds Inc. and Sandhya Konda on achieving the prestigious WBE Certification!",
     paragraphs: [
@@ -87,7 +87,7 @@ const NEW_CLIENTS_DATA = [
   },
   {
     id: 7,
-    logo: "new_clients/heal_horizon_mbe.png",
+    logo: "assets/clients/heal_horizon_mbe.png",
     title: "Celebrating Heal Horizon's MBE Certification Milestone",
     brief: "Congratulations to Heal Horizon, Inc. on their recent MBE certification from the Southern California Minority Supplier Development Council!",
     paragraphs: [
@@ -101,7 +101,7 @@ const NEW_CLIENTS_DATA = [
   },
   {
     id: 8,
-    logo: "new_clients/opswerks.png",
+    logo: "assets/clients/opswerks.png",
     title: "OpsWerks Earns MBE Certification: A New Chapter of Growth",
     brief: "Congratulations to OpsWerks on becoming MBE certified by the Northwest Mountain Minority Supplier Development Council!",
     paragraphs: [
@@ -114,7 +114,7 @@ const NEW_CLIENTS_DATA = [
   },
   {
     id: 9,
-    logo: "new_clients/vinsari_llc.png",
+    logo: "assets/clients/vinsari_llc.png",
     title: "Vinsari LLC Achieves MBE & SBE Certification with DFW MSDC",
     brief: "Congratulations to Vinsari LLC on becoming MBE and SBE certified by the Dallas/Fort Worth Minority Supplier Development Council!",
     paragraphs: [
