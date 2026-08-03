@@ -1,4 +1,4 @@
-/* global React, ReactDOM, Ic, Nav, Footer, ToTop, PreFooterCta, contactHrefForCurrentPage */
+/* global React, ReactDOM, Ic, Nav, Footer, ToTop, contactHrefForCurrentPage */
 const { useEffect: useEffectCS, useState: useStateCS } = React;
 
 const CS_IMAGE = "assets/capability-statement/RMO-Capability-Statement-June-2026.png";
@@ -247,7 +247,6 @@ function CapabilityStatementPage() {
           </div>
         </section>
       </main>
-      <PreFooterCta />
       <Footer />
       <ToTop />
     </React.Fragment>

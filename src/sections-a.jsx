@@ -325,8 +325,8 @@ function Nav() {
             <NavDropdown id="pro-services" label="Services" href="services.html" links={PROFESSIONAL_SERVICES_LINKS} />
             <a href="capability-statement.html">Capability Statement</a>
             <a href="faq.html">FAQ</a>
-            <a href="blog.html">Blog</a>
-            <a href="calendar.html">Calendar</a>
+            <a href="https://rmollc.com/blogs/">Blog</a>
+            <a href="https://rmollc.com/events/">Calendar</a>
           </div>
           <div className="nav-cta">
             <a href={contactHrefForCurrentPage()} className="btn btn-primary" onClick={(e) => go(e, "#contact")}>
@@ -361,8 +361,8 @@ function Nav() {
         </div>
         <a href="capability-statement.html">Capability Statement</a>
         <a href="faq.html">FAQ</a>
-        <a href="blog.html">Blog</a>
-        <a href="calendar.html">Calendar</a>
+        <a href="https://rmollc.com/blogs/">Blog</a>
+        <a href="https://rmollc.com/events/">Calendar</a>
         <a href={contactHrefForCurrentPage()} onClick={(e) => go(e, "#contact")}>Contact Us</a>
         <a href={contactHrefForCurrentPage()} className="btn btn-primary" onClick={(e) => go(e, "#contact")}>GET IN TOUCH</a>
       </div>

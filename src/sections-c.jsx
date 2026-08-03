@@ -24,6 +24,8 @@ function ContactForm() {
   const [touched, setTouched] = useStateC({});
   const [sum, setSum] = useStateC(rndCaptcha);
   const [sent, setSent] = useStateC(false);
+  const [sendError, setSendError] = useStateC("");
+  const [sending, setSending] = useStateC(false);
 
   const errors = {
     name: form.name.trim().length < 2 ? "Please enter your name." : "",
@@ -40,11 +42,25 @@ function ContactForm() {
     setForm(f => ({ ...f, captcha: "" }));
   };
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     setTouched({ name: true, email: true, companyName: true, message: true, captcha: true });
     if (Object.values(errors).some(Boolean)) return;
-    setSent(true);
+    setSending(true);
+    setSendError("");
+    try {
+      const res = await fetch("/newsite/contact-handler.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: form.name, email: form.email, companyName: form.companyName, message: form.message }),
+      });
+      if (!res.ok) throw new Error("Request failed");
+      setSent(true);
+    } catch {
+      setSendError("Something went wrong sending your message. Please try again or email us directly.");
+    } finally {
+      setSending(false);
+    }
   };
 
   const fieldCls = (k) => "field" + (touched[k] && errors[k] ? " invalid" : "");
@@ -104,8 +120,11 @@ function ContactForm() {
           {touched.captcha && errors.captcha && (
             <div className="form-msg bad">{errors.captcha}</div>
           )}
+          {sendError && <div className="form-msg bad">{sendError}</div>}
           <div className="form-actions">
-            <button type="submit" className="btn btn-primary">Send message {Ic.arrow}</button>
+            <button type="submit" className="btn btn-primary" disabled={sending}>
+              {sending ? "Sending…" : <React.Fragment>Send message {Ic.arrow}</React.Fragment>}
+            </button>
             <span className="form-disclaimer">We never share your details.</span>
           </div>
         </form>
@@ -163,24 +182,6 @@ function goToFooterContact(e) {
   document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
 }
 
-function PreFooterCta() {
-  return (
-    <section className="prefooter-cta">
-      <div className="wrap">
-        <div className="prefooter-inner reveal">
-          <div className="prefooter-text">
-            <h2>Not sure where to start?</h2>
-            <p>Book a free consultation — we'll map out the right certification path for your business, no commitment required.</p>
-          </div>
-          <a href={footerContactHref()} className="btn btn-light" onClick={goToFooterContact}>
-            Book a Free Consultation {Ic.arrow}
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ======================= FOOTER ======================= */
 function Footer() {
   const go = (e, id) => { e.preventDefault(); document.getElementById(id)?.scrollIntoView(); };
@@ -208,7 +209,7 @@ function Footer() {
           <div className="f-col">
             <h4>Useful Links</h4>
             <a href="team.html">Team</a>
-            <a href="blog.html">Blog</a>
+            <a href="https://rmollc.com/blogs/">Blog</a>
             <a href="faq.html">FAQ</a>
           </div>
         </div>
@@ -238,4 +239,4 @@ function ToTop() {
   );
 }
 
-Object.assign(window, { Contact, ContactForm, Footer, ToTop, PreFooterCta });
+Object.assign(window, { Contact, ContactForm, Footer, ToTop });

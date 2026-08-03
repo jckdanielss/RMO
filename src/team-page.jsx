@@ -32,24 +32,24 @@ const TEAM_IMAGE_BY_NAME = {
 /* Roles and groupings below follow the official org chart
    (assets/team/01-28-26_RMo_OrgChart-_Landscape_Border.png). */
 const TEAM_MEMBERS = [
-  { name: "Ranjani Mohana",         role: "The Certification Lady / CEO",           linkedin: "#", bio: [] },
+  { name: "Ranjani Mohana",         role: "The Certification Lady / CEO",           linkedin: "https://www.linkedin.com/in/ranjanimohana/", bio: [] },
   { name: "Roshini Chandran",        role: "Advisor / COO",                          linkedin: "#", bio: [] },
-  { name: "Priya Saravanan",         role: "Principal Global Certification Lead",    linkedin: "#", bio: [] },
+  { name: "Priya Saravanan",         role: "Principal Global Certification Lead",    linkedin: "https://www.linkedin.com/in/priya-saravanan-358482213/", bio: [] },
   { name: "Lloura Morales",          role: "Admin Assistant",                        linkedin: "#", bio: [] },
-  { name: "Marian Salino",           role: "Social Media Assistant",                 linkedin: "#", bio: [] },
+  { name: "Marian Salino",           role: "Social Media Assistant",                 linkedin: "https://www.linkedin.com/in/marian-s-a53798104/", bio: [] },
   { name: "Ramnik",            role: "Web Maintenance",                        linkedin: "#", bio: [] },
   { name: "Rajesh CA",               role: "CPA",                                    linkedin: "#", bio: [] },
-  { name: "Eunice Acebuque",role: "MRP Assistant",                          linkedin: "#", bio: [] },
+  { name: "Eunice Acebuque",role: "MRP Assistant",                          linkedin: "https://www.linkedin.com/in/eunice-lorainne-acebuque-750a31365/", bio: [] },
   { name: "Anjelica Espina",         role: "MRP Lead",                               linkedin: "#", bio: [] },
-  { name: "Marla Balladores",        role: "Resource Admin Assistant",               linkedin: "#", bio: [] },
+  { name: "Marla Balladores",        role: "Resource Admin Assistant",               linkedin: "https://www.linkedin.com/in/marla-b-622046218/", bio: [] },
   { name: "Shylet Lomuntad",         role: "Accounting / Bookkeeper",                linkedin: "#", bio: [] },
-  { name: "Abegael Mariano",         role: "Renewals Assistant",                     linkedin: "#", bio: [] },
-  { name: "Chidire Chukwudi",        role: "Admin / Corporate Assistant",            linkedin: "#", bio: [] },
+  { name: "Abegael Mariano",         role: "Renewals Assistant",                     linkedin: "https://www.linkedin.com/in/abegael-m-016b65259/", bio: [] },
+  { name: "Chidire Chukwudi",        role: "Admin / Corporate Assistant",            linkedin: "https://www.linkedin.com/in/chidire-tochukwu-chukwudi", bio: [] },
   { name: "Nisha Rawat",             role: "GSA Lead / Sr. Certification Specialist",linkedin: "#", bio: [] },
-  { name: "Febie Jean Cañetan",      role: "Certification Assistant",                linkedin: "#", bio: [] },
+  { name: "Febie Jean Cañetan",      role: "Certification Assistant",                linkedin: "https://www.linkedin.com/in/febie-jean-cañetan-955a42277", bio: [] },
   { name: "Ieona Gabrielle Dayo",    role: "Certification Assistant",                linkedin: "#", bio: [] },
   { name: "Maria Carla Mahinay",           role: "Prospect Assistant",                     linkedin: "#", bio: [] },
-  { name: "Rachelle Sorronda",       role: "Executive Assistant",                    linkedin: "#", bio: [] },
+  { name: "Rachelle Sorronda",       role: "Executive Assistant",                    linkedin: "https://www.linkedin.com/in/rachelle-sorronda-826929389", bio: [] },
   { name: "Shenie Canama",           role: "Accounting Assistant",                   linkedin: "#", bio: [] },
   { name: "Jullie Anne Dela Cruz",  role: "Creative Designer",                      linkedin: "#", bio: [] },
   { name: "Maricel Dela Cruz",       role: "Certification Assistant",                linkedin: "#", bio: [] },
@@ -353,16 +353,26 @@ function TeamCarousel({ members }) {
       <div className="tc-info tc-info--visible">
         <h2 className="tc-name">{infoMember.name}</h2>
         <p className="tc-role">{infoMember.role}</p>
-        <a
-          href={infoMember.linkedin}
-          target={infoMember.linkedin !== "#" ? "_blank" : undefined}
-          rel="noopener noreferrer"
-          className="btn-linkedin tc-linkedin"
-          aria-label={`Connect with ${infoMember.name} on LinkedIn`}
-        >
-          {LINKEDIN_ICON}
-          LinkedIn
-        </a>
+        {infoMember.linkedin !== "#" ? (
+          <a
+            href={infoMember.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-linkedin tc-linkedin"
+            aria-label={`Connect with ${infoMember.name} on LinkedIn`}
+          >
+            {LINKEDIN_ICON}
+            LinkedIn
+          </a>
+        ) : (
+          <span
+            className="btn-linkedin tc-linkedin tc-linkedin--disabled"
+            aria-disabled="true"
+          >
+            {LINKEDIN_ICON}
+            LinkedIn
+          </span>
+        )}
       </div>
 
       <div className="tc-dots" role="tablist" aria-label="Team members">

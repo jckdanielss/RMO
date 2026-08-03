@@ -1,4 +1,4 @@
-/* global React, ReactDOM, Nav, Hero, Services, Clients, Team, Testimonials, About, Certifications, Contact, PreFooterCta, Footer, ToTop */
+/* global React, ReactDOM, Nav, Hero, Services, Clients, Team, Testimonials, About, Certifications, Contact, Footer, ToTop */
 const { useEffect: useEffectApp } = React;
 
 function useScrollReveal() {

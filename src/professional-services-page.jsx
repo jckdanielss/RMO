@@ -1,4 +1,4 @@
-/* global React, ReactDOM, Ic, Nav, Footer, ToTop, PreFooterCta */
+/* global React, ReactDOM, Ic, Nav, Footer, ToTop */
 const { useEffect: useEffectPS } = React;
 
 function useScrollRevealPS() {
@@ -23,6 +23,7 @@ const PRO_SERVICE_LIST = [
     sub: CERT_LEVELS,
     subLabel: "Levels we cover:",
     subType: "tags",
+    href: "services/diversity-certifications.html",
   },
   {
     ic: Ic.target,
@@ -30,6 +31,7 @@ const PRO_SERVICE_LIST = [
     desc: "Most bids are lost in the writing, not the work. We build RFP responses that are accurate, tight, and ready to submit.",
     sub: null,
     subType: null,
+    href: "services/rfp-bid-assistance.html",
   },
 ];
 
@@ -76,7 +78,7 @@ function ProServicesPage() {
                       </div>
                     )}
                     {s.href && (
-                      <a href={s.href} className="branch-learn-btn" style={{ marginTop: "16px", display: "inline-flex" }}>
+                      <a href={s.href} className="branch-learn-btn">
                         Learn More {Ic.arrow}
                       </a>
                     )}
@@ -87,7 +89,6 @@ function ProServicesPage() {
           </div>
         </section>
       </main>
-      <PreFooterCta />
       <Footer />
       <ToTop />
     </React.Fragment>

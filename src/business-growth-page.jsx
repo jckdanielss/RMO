@@ -1,4 +1,4 @@
-/* global React, ReactDOM, Ic, Nav, Footer, ToTop, PreFooterCta */
+/* global React, ReactDOM, Ic, Nav, Footer, ToTop */
 const { useEffect: useEffectBG } = React;
 
 function useScrollRevealBG() {
@@ -109,7 +109,6 @@ function BizGrowthPage() {
           </div>
         </section>
       </main>
-      <PreFooterCta />
       <Footer />
       <ToTop />
     </React.Fragment>
