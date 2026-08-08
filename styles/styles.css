@@ -8,6 +8,12 @@
   --green-deep:   #0c4f20;
   --green-tint:   #eef7f0;
 
+  /* brand orange — secondary accent, from the RMO logo's third hex */
+  --orange:       #e0733a;
+  --orange-dark:  #b85a2a;
+  --orange-deep:  #7a3a1c;
+  --orange-tint:  #fdf1e9;
+
   /* ink + neutrals (warm, faintly green) */
   --ink:    #14201a;
   --body:   #3c4a42;
@@ -28,9 +34,10 @@
   --maxw: 1180px;
   --pad: clamp(20px, 5vw, 64px);
 
-  --font-display: "Schibsted Grotesk", system-ui, sans-serif;
+  --font-display: "Hanken Grotesk", system-ui, sans-serif;
   --font-body: "Hanken Grotesk", system-ui, sans-serif;
-  --font-serif: "Playfair Display", Georgia, serif;
+  --font-serif: "Hanken Grotesk", system-ui, sans-serif;
+  --font-heading-alt: "Hanken Grotesk", system-ui, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -421,7 +428,7 @@ section { scroll-margin-top: 80px; }
 .hero-ed {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 100svh;
+  min-height: clamp(480px, 72svh, 680px);
   background: var(--bg-soft);
 }
 
@@ -458,6 +465,14 @@ section { scroll-margin-top: 80px; }
   border-radius: 16px;
   box-shadow: 0 12px 26px rgba(12,79,32,.28);
 }
+.hero-ed-sub {
+  margin: 0 0 26px;
+  font-size: clamp(14px, 1.1vw, 16px);
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 460px;
+  min-height: 4.8em; /* reserves ~3 lines so slides with longer sub text don't shift layout */
+}
 
 .hero-ed-actions {
   display: flex;
@@ -486,6 +501,13 @@ section { scroll-margin-top: 80px; }
   background: var(--green-dark);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(26,156,62,.32);
+}
+.hero-ed-btn.accent-orange {
+  background: var(--orange);
+}
+.hero-ed-btn.accent-orange:hover {
+  background: var(--orange-dark);
+  box-shadow: 0 6px 20px rgba(224,115,58,.32);
 }
 
 /* Control row — arrows flanking dots, under the text */
@@ -660,35 +682,118 @@ section { scroll-margin-top: 80px; }
   background: #fff;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 30px 28px;
   overflow: hidden;
   transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
   display: flex;
   flex-direction: column;
 }
-.card::before {
-  content: "";
-  position: absolute; left: 0; top: 0; bottom: 0;
-  width: 3px; border-radius: var(--radius) 0 0 var(--radius);
-  background: linear-gradient(var(--green), var(--green-deep));
-  opacity: 0;
-  transition: opacity .22s ease;
+.card-banner {
+  width: 100%;
+  height: clamp(140px, 16vw, 180px);
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.card-body {
+  padding: 22px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--green); }
-.card:hover::before { opacity: 1; }
-.card-ic {
-  width: 52px; height: 52px;
-  border-radius: 14px;
-  background: var(--green-tint);
-  color: var(--green-dark);
-  display: grid; place-items: center;
-  flex: none;
-  margin-bottom: 18px;
-  transition: background .22s ease, color .22s ease, transform .22s ease;
-}
-.card-ic svg { width: 26px; height: 26px; }
-.card:hover .card-ic { background: var(--green); color: #fff; transform: scale(1.05); }
 .card-cta { align-self: flex-start; }
+
+.finder-box {
+  max-width: 780px;
+  margin: clamp(28px,4vw,44px) auto 0;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(20px,3vw,28px);
+  box-shadow: var(--shadow-lg);
+}
+.finder-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.finder-tab {
+  flex: 1 1 auto;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  color: var(--body);
+  font-weight: 600;
+  font-size: 13.5px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  transition: background var(--dur-base) ease, color var(--dur-base) ease, border-color var(--dur-base) ease;
+}
+.finder-tab:hover { border-color: var(--green); }
+.finder-tab.on { background: var(--green); border-color: var(--green); color: #fff; }
+.finder-panel {
+  animation: testiFadeIn .35s ease forwards;
+  text-align: center;
+}
+.finder-panel p {
+  color: var(--body);
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+.finder-panel .btn { display: inline-flex; }
+@media (max-width: 640px) {
+  .finder-tab { flex: 1 1 100%; text-align: center; }
+}
+
+.how-box {
+  max-width: 900px;
+  margin: clamp(28px,4vw,44px) auto 0;
+}
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.how-step {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 14px 10px;
+  text-align: center;
+  transition: border-color var(--dur-base) ease, transform var(--dur-base) ease, box-shadow var(--dur-base) ease;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.how-step:hover { border-color: var(--green); transform: translateY(-2px); }
+.how-step.on { border-color: var(--green); background: var(--green-tint, #f0faf3); box-shadow: 0 4px 14px rgba(26,156,62,.14); }
+.how-step-n {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 13px;
+  color: var(--green);
+  letter-spacing: .04em;
+}
+.how-step-label {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink);
+}
+.how-panel {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(20px,3vw,32px);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  animation: testiFadeIn .35s ease forwards;
+}
+.how-panel h3 { font-size: 20px; margin-bottom: 10px; color: var(--ink); }
+.how-panel p { color: var(--body); line-height: 1.65; max-width: 560px; margin: 0 auto; }
+@media (max-width: 640px) {
+  .how-steps { grid-template-columns: repeat(2, 1fr); }
+}
 .card .btn {
   align-self: flex-start;
   margin-top: auto;
@@ -788,7 +893,7 @@ section { scroll-margin-top: 80px; }
   text-align: center;
   transition: transform var(--dur-base) ease, box-shadow var(--dur-base) ease, border-color var(--dur-base) ease;
 }
-.logo-chip:hover { box-shadow: 0 4px 14px rgba(26,156,62,.16), 0 0 0 3px rgba(26,156,62,.12); border-color: var(--green); }
+.logo-chip:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 4px 14px rgba(26,156,62,.16), 0 0 0 3px rgba(26,156,62,.12); border-color: var(--green); }
 .logo-chip img {
   display: block;
   width: 100%;
@@ -954,7 +1059,9 @@ section { scroll-margin-top: 80px; }
 }
 .team-directory-intro h1 {
   color: #fff;
+  font-family: var(--font-serif);
   font-size: clamp(38px, 6vw, 70px);
+  letter-spacing: -0.02em;
   margin-top: 18px;
 }
 .team-directory-intro p {
@@ -1377,7 +1484,7 @@ section { scroll-margin-top: 80px; }
   color: #fff;
   position: relative;
   overflow: hidden;
-  padding-block: clamp(48px, 6vw, 80px);
+  padding-block: clamp(40px, 4.5vw, 64px);
 }
 .testi::before {
   content: "";
@@ -1406,11 +1513,11 @@ section { scroll-margin-top: 80px; }
 .testi-quote {
   display: block;
   align-self: start;
-  min-height: calc(1.45em * 7);
+  min-height: calc(1.45em * 4);
   margin: 10px 0 0;
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(17px, 1.9vw, 26px);
+  font-size: clamp(15px, 1.5vw, 20px);
   line-height: 1.45;
   letter-spacing: -0.02em;
   color: #fff;
@@ -1695,18 +1802,20 @@ section { scroll-margin-top: 80px; }
   background: var(--bg-soft);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 28px;
+  overflow: hidden;
   transition: box-shadow var(--dur-base) ease, transform var(--dur-base) ease;
 }
-.obj-card:hover { box-shadow: var(--shadow); border-color: var(--green); }
-.obj-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-.obj-ic {
-  width: 42px; height: 42px; border-radius: 12px;
-  background: var(--green-tint); color: var(--green-dark);
-  display: grid; place-items: center; flex: none;
+.obj-card:hover { box-shadow: var(--shadow); border-color: var(--green); transform: translateY(-3px); }
+.obj-banner {
+  width: 100%;
+  height: clamp(140px, 16vw, 180px);
+  object-fit: cover;
+  object-position: top center;
+  display: block;
 }
-.obj-ic svg { width: 22px; height: 22px; }
-.obj-head h4 { font-size: 16px; color: var(--ink); margin: 0; }
+.obj-body { padding: 22px 28px 28px; }
+.obj-head { display: flex; align-items: center; margin-bottom: 16px; }
+.obj-head h4 { font-family: var(--font-heading-alt); font-size: 16px; color: var(--ink); margin: 0; }
 .obj-card ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
 .obj-card ul li {
   font-size: 14.5px; color: var(--body);
@@ -1890,7 +1999,7 @@ section { scroll-margin-top: 80px; }
   }
   .org-chart-role { min-width: 110px; font-size: 12px; }
   .brand-logo-wrap { padding: 4px 6px; }
-  .brand-logo { height: 22px; max-width: 52vw; }
+  .brand-logo { height: 30px; max-width: 66vw; }
   .footer-brand .brand-logo { height: 38px; }
 }
 
@@ -1960,9 +2069,10 @@ main.services-page {
 }
 .services-hero h1 {
   color: #fff;
+  font-family: var(--font-serif);
   font-size: clamp(32px, 5vw, 58px);
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   line-height: 1.08;
   text-wrap: balance;
   margin-top: 14px;
@@ -2036,14 +2146,46 @@ main.services-page {
   transform: translateY(-4px);
   border-color: rgba(26,156,62,.4);
 }
+.branch-card.has-banner {
+  padding: 0;
+  gap: 0;
+  overflow: hidden;
+}
+.branch-banner {
+  width: 100%;
+  height: clamp(180px, 20vw, 240px);
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.branch-card.has-banner .branch-body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: clamp(28px, 4vw, 48px);
+}
+.branch-card.has-banner .branch-num {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(0,0,0,.45);
+  color: #fff;
+  opacity: 1;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+.branch-card.has-banner { position: relative; }
+/* Business Growth Programs branch uses orange — distinguishes the two
+   service groups by color, per the team's own color-balance suggestion */
 .branch-card.accent {
-  background: var(--green-deep);
+  background: var(--orange-deep);
   border-color: transparent;
   color: #fff;
 }
 .branch-card.accent h2 { color: #fff; }
 .branch-card.accent p { color: rgba(255,255,255,.78); }
-.branch-card.accent:hover { border-color: rgba(127,240,160,.35); }
+.branch-card.accent:hover { border-color: rgba(255,201,158,.4); }
 .branch-card-top {
   display: flex;
   align-items: flex-start;
@@ -2074,11 +2216,12 @@ main.services-page {
 }
 .branch-card.accent .branch-num { color: rgba(255,255,255,.4); opacity: 1; }
 .branch-card h2 {
+  font-family: var(--font-heading-alt);
   font-size: clamp(22px, 2.6vw, 30px);
   font-weight: 700;
   margin: 0;
   line-height: 1.15;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 .branch-card p {
   font-size: 15px;
@@ -2139,7 +2282,7 @@ main.services-page {
 }
 .branch-card.accent .branch-learn-btn:hover {
   background: #fff;
-  color: var(--green-deep);
+  color: var(--orange-deep);
   border-color: #fff;
 }
 @media (max-width: 700px) {
@@ -2199,9 +2342,10 @@ main.services-page {
 .svc-page-hero .wrap { position: relative; z-index: 1; }
 .svc-page-hero h1 {
   color: #fff;
-  font-size: clamp(28px, 4.5vw, 52px);
+  font-family: var(--font-serif);
   font-weight: 700;
-  letter-spacing: -0.03em;
+  font-size: clamp(28px, 4.5vw, 52px);
+  letter-spacing: -0.02em;
   line-height: 1.1;
   text-wrap: balance;
   margin: 14px 0 0;
@@ -2247,10 +2391,11 @@ main.services-page {
   margin: 0 auto clamp(38px, 5vw, 56px);
 }
 .contact-page-head h1 {
+  font-family: var(--font-serif);
   font-size: clamp(36px, 5vw, 64px);
   font-weight: 700;
   line-height: 1.02;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
   margin: 14px 0 12px;
   color: var(--green-deep);
 }
@@ -2384,7 +2529,26 @@ main.services-page {
 }
 .svc-icon-wrap svg { width: 24px; height: 24px; }
 .svc-detail-body { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+
+/* Banner-image variant — cards with an AI-generated image instead of an
+   icon. Modifier so pages not yet converted keep the plain icon layout. */
+.svc-detail-card.has-banner {
+  padding: 0;
+  overflow: hidden;
+  gap: 0;
+}
+.svc-banner {
+  width: 100%;
+  height: clamp(140px, 16vw, 180px);
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+.svc-detail-card.has-banner .svc-detail-body {
+  padding: 22px clamp(22px, 3vw, 32px) clamp(22px, 3vw, 32px);
+}
 .svc-detail-body h2 {
+  font-family: var(--font-heading-alt);
   font-size: clamp(16px, 1.6vw, 20px);
   font-weight: 700;
   margin: 0 0 8px;

@@ -1,0 +1,86 @@
+<!-- SECTION B: Open Opportunities table — paste in its own HTML widget,
+     inside an Elementor section styled with background #f6faf7 and
+     top/bottom padding (see instructions). No bg/padding baked in here
+     on purpose — Elementor's own section owns that. -->
+<style>
+.rrfp-opps-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.rrfp-opps-head {
+  text-align: center;
+}
+.rrfp-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #1a9c3e;
+  margin-bottom: 8px;
+}
+.rrfp-opps-head h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
+  color: #14201a;
+  margin: 0;
+}
+.rrfp-opps-card {
+  background: #ffffff;
+  border: 1px solid #e5ece7;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-top: clamp(24px, 3vw, 32px);
+}
+.rrfp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+.rrfp-table thead tr {
+  border-bottom: 1px solid #e5ece7;
+}
+.rrfp-table th {
+  padding: 14px 20px;
+  text-align: left;
+  color: #14201a;
+  font-weight: 700;
+}
+.rrfp-table td {
+  padding: 16px 20px;
+  color: #3c4a42;
+}
+.rrfp-table tbody tr {
+  border-bottom: 1px solid #e5ece7;
+}
+.rrfp-table tbody tr:last-child { border-bottom: none; }
+@media (max-width: 600px) {
+  .rrfp-table { font-size: 13px; }
+  .rrfp-table th, .rrfp-table td { padding: 10px 12px; }
+}
+</style>
+
+<div class="rrfp-opps-inner">
+  <div class="rrfp-opps-head">
+    <span class="rrfp-eyebrow">Open Opportunities</span>
+    <h2>Current RFPs &amp; Bids</h2>
+  </div>
+  <div class="rrfp-opps-card">
+    <table class="rrfp-table">
+      <thead>
+        <tr>
+          <th>Due Date</th>
+          <th>Title</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>June 27th</td>
+          <td>County of Sacramento</td>
+          <td>Fentanyl Public Awareness Campaign</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

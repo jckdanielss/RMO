@@ -1,0 +1,222 @@
+/* ============================================================
+  TablePress — Clients table restyle
+  Paste into WP Customizer → Additional CSS (same place as the
+  rest of the site's custom CSS).
+  Matches: #1a9c3e green / #e5ece7 line / #f6faf7 soft bg.
+
+  NOTE: TablePress ships DataTables 2.x, which renamed its wrapper
+  classes (dataTables_wrapper -> dt-container, dataTables_filter ->
+  dt-search, dataTables_length -> dt-length, dataTables_paginate ->
+  dt-paging, paginate_button -> dt-paging-button). Both old (v1) and
+  new (v2) class names are targeted below so this works regardless
+  of which DataTables version is actually loaded.
+  ============================================================ */
+
+.tablepress {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  border: 1px solid #e5ece7 !important;
+  border-radius: 18px;
+  overflow: hidden;
+  font-size: 14.5px;
+}
+
+.tablepress thead th {
+  background: #0d2b18 !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  padding: 14px 20px !important;
+  text-align: left;
+  border: none !important;
+  position: relative;
+}
+
+/* Sort arrows — DataTables renders these dark by default, invisible
+   against the dark green header. Force them light. Covers both the
+   classic ::before/::after arrow glyphs and the DT2 SVG/icon variant. */
+.tablepress thead th.sorting::before,
+.tablepress thead th.sorting::after,
+.tablepress thead th.sorting_asc::before,
+.tablepress thead th.sorting_asc::after,
+.tablepress thead th.sorting_desc::before,
+.tablepress thead th.sorting_desc::after,
+.tablepress thead th.dt-orderable-asc::before,
+.tablepress thead th.dt-orderable-asc::after,
+.tablepress thead th.dt-orderable-desc::before,
+.tablepress thead th.dt-orderable-desc::after,
+.tablepress thead th.dt-ordering-asc::before,
+.tablepress thead th.dt-ordering-asc::after,
+.tablepress thead th.dt-ordering-desc::before,
+.tablepress thead th.dt-ordering-desc::after {
+  color: rgba(255,255,255,.55) !important;
+  opacity: 1 !important;
+}
+.tablepress thead th.sorting_asc::before,
+.tablepress thead th.dt-ordering-asc::before,
+.tablepress thead th.sorting_desc::after,
+.tablepress thead th.dt-ordering-desc::after {
+  color: #ffffff !important;
+}
+.tablepress thead th .dt-column-order {
+  color: rgba(255,255,255,.55) !important;
+}
+.tablepress thead th .dt-column-order::before,
+.tablepress thead th .dt-column-order::after {
+  filter: brightness(0) invert(1) !important;
+  opacity: .6 !important;
+}
+.tablepress thead th svg {
+  fill: rgba(255,255,255,.55) !important;
+  stroke: rgba(255,255,255,.55) !important;
+}
+
+.tablepress tbody td {
+  padding: 14px 20px !important;
+  color: #3c4a42;
+  border-bottom: 1px solid #e5ece7 !important;
+  border-left: none !important;
+  border-right: none !important;
+  vertical-align: top;
+}
+
+.tablepress tbody tr:nth-child(odd) td { background: #f6faf7 !important; }
+.tablepress tbody tr:nth-child(even) td { background: #ffffff !important; }
+.tablepress tbody tr:hover td { background: rgba(26,156,62,.08) !important; }
+
+.tablepress tbody td:first-child {
+  font-weight: 700;
+  color: #14201a;
+}
+
+.tablepress tbody td a {
+  color: #1a9c3e;
+  font-weight: 600;
+  text-decoration: none;
+}
+.tablepress tbody td a:hover { text-decoration: underline; }
+
+/* ---------- wrapper spacing (v1 + v2) ---------- */
+body .dataTables_wrapper,
+body .dt-container {
+  margin-top: 20px !important;
+  font-family: inherit !important;
+}
+
+/* ---------- search box (v1: dataTables_filter, v2: dt-search) ---------- */
+body .dataTables_wrapper .dataTables_filter,
+body .dt-container .dt-search {
+  margin-bottom: 14px !important;
+}
+body .dataTables_wrapper .dataTables_filter label,
+body .dt-container .dt-search {
+  color: #14201a !important;
+  font-size: 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+body .dataTables_wrapper .dataTables_filter input,
+body .dt-container .dt-search input {
+  border: 1.5px solid #e5ece7 !important;
+  border-radius: 999px !important;
+  padding: 8px 16px !important;
+  font-size: 14px !important;
+  color: #14201a !important;
+  outline: none !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
+  margin-left: 4px !important;
+}
+body .dataTables_wrapper .dataTables_filter input:focus,
+body .dt-container .dt-search input:focus {
+  border-color: #1a9c3e !important;
+}
+
+/* ---------- entries-per-page (v1: dataTables_length, v2: dt-length) ---------- */
+body .dataTables_wrapper .dataTables_length,
+body .dt-container .dt-length {
+  color: #14201a !important;
+  font-size: 14px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  margin-bottom: 14px !important;
+}
+body .dataTables_wrapper .dataTables_length select,
+body .dt-container .dt-length select {
+  border: 1.5px solid #e5ece7 !important;
+  border-radius: 999px !important;
+  padding: 8px 32px 8px 16px !important;
+  font-size: 14px !important;
+  color: #14201a !important;
+  outline: none !important;
+  background-color: #ffffff !important;
+  box-shadow: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236c7a72' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 10px center !important;
+  background-size: 14px !important;
+}
+body .dataTables_wrapper .dataTables_length select:focus,
+body .dt-container .dt-length select:focus {
+  border-color: #1a9c3e !important;
+}
+/* kill leftover native dropdown arrow in IE/old Edge */
+body .dataTables_wrapper .dataTables_length select::-ms-expand,
+body .dt-container .dt-length select::-ms-expand {
+  display: none !important;
+}
+
+/* ---------- info text (v1: dataTables_info, v2: dt-info) ---------- */
+body .dataTables_wrapper .dataTables_info,
+body .dt-container .dt-info {
+  color: #6c7a72 !important;
+  font-size: 13px !important;
+  padding-top: 12px !important;
+}
+
+/* ---------- pagination (v1: dataTables_paginate .paginate_button,
+   v2: dt-paging .dt-paging-button) ---------- */
+body .dataTables_wrapper .dataTables_paginate,
+body .dt-container .dt-paging {
+  padding-top: 12px !important;
+}
+body .dataTables_wrapper .dataTables_paginate .paginate_button,
+body .dt-container .dt-paging .dt-paging-button {
+  border-radius: 999px !important;
+  border: 1.5px solid #e5ece7 !important;
+  color: #14201a !important;
+  padding: 6px 14px !important;
+  margin-left: 4px !important;
+  background: #ffffff !important;
+  box-shadow: none !important;
+  transition: background .15s, color .15s, border-color .15s;
+}
+body .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+body .dt-container .dt-paging .dt-paging-button.current {
+  background: #1a9c3e !important;
+  border-color: #1a9c3e !important;
+  color: #ffffff !important;
+}
+body .dataTables_wrapper .dataTables_paginate .paginate_button:hover:not(.disabled):not(.current),
+body .dt-container .dt-paging .dt-paging-button:hover:not(.disabled):not(.current) {
+  background: #eef7f0 !important;
+  border-color: #1a9c3e !important;
+  color: #12722e !important;
+}
+body .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+body .dt-container .dt-paging .dt-paging-button.disabled {
+  color: #6c7a72 !important;
+  background: #ffffff !important;
+  opacity: 0.5;
+  cursor: default;
+}
+
+@media (max-width: 700px) {
+  .tablepress { font-size: 13px; }
+  .tablepress thead th,
+  .tablepress tbody td { padding: 10px 12px !important; }
+}

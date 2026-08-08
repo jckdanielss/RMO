@@ -595,7 +595,8 @@ function BlogPage() {
             R Mo Global Diversity Solutions
           </span>
           <h1 style={{
-            fontSize: "clamp(34px,5vw,58px)", fontWeight: 800,
+            fontFamily: "var(--font-serif)",
+            fontSize: "clamp(34px,5vw,58px)", fontWeight: 700,
             color: "#fff", marginBottom: "18px", lineHeight: 1.06,
           }}>
             Our Blog

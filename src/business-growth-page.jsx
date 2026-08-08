@@ -26,36 +26,34 @@ const MRP_SESSIONS = [
   },
 ];
 
+/* ponytail: Market Ready + Start-Up Guidance reuse the homepage's images
+   (same concept) — Speaker Series + Impact Reports are new generations */
 const GROWTH_PROGRAM_LIST = [
   {
-    ic: Ic.rocket,
+    img: "assets/services/get-market-ready.png",
+    imgPos: "center 30%",
     title: "Market Ready Program",
     desc: "A hands-on program that turns your certification into a contract strategy. You'll know where to find opportunities, how to approach buyers, and how to present your business in a room that matters.",
     // sub: MRP_SESSIONS,
     subType: "sessions",
   },
   {
-    ic: Ic.badge,
+    img: "assets/growth-images/speaker-series.png",
     title: "Speaker Series",
     desc: "Monthly talks with procurement officers, certifying bodies, and business owners who've been through it. Practical, direct built around what diverse business owners actually need to hear.",
     sub: null,
     subType: null,
   },
   {
-    ic: Ic.eye,
+    img: "assets/growth-images/impact-reports.png",
     title: "Impact Reports",
     desc: "We put numbers to what you do economic impact, social outcomes, community reach documented in a format that wins over corporate partners and government buyers.",
     sub: null,
     subType: null,
   },
-  {
-    ic: Ic.rocket,
-    title: "Start-Up Guidance",
-    desc: "New to this? We help you get the structure right, choose the certifications worth pursuing first, and build a foundation that holds as you grow.",
-    sub: null,
-    subType: null,
-  },
 ];
+/* ponytail: Start-Up Guidance moved to the Professional Services page —
+   it belongs there, not here (see professional-services-page.jsx) */
 
 function BizGrowthPage() {
   useScrollRevealBG();
@@ -82,12 +80,10 @@ function BizGrowthPage() {
 
         <section className="pad-y">
           <div className="wrap">
-            <div className="svc-card-grid svc-card-grid--2col reveal d1">
+            <div className="svc-card-grid reveal d1">
               {GROWTH_PROGRAM_LIST.map((s) => (
-                <div className="svc-detail-card" key={s.title}>
-                  <div className="svc-detail-icon">
-                    <span className="svc-icon-wrap">{s.ic}</span>
-                  </div>
+                <div className="svc-detail-card has-banner" key={s.title}>
+                  <img className="svc-banner" src={s.img} alt="" loading="lazy" style={s.imgPos ? { objectPosition: s.imgPos } : undefined} />
                   <div className="svc-detail-body">
                     <h2>{s.title}</h2>
                     <p>{s.desc}</p>

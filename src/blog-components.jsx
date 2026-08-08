@@ -209,7 +209,7 @@ function CategoryPage({ title, data, accent }) {
             </svg>
             Back to Blog
           </a>
-          <h1 style={{ fontSize: "clamp(34px,5vw,56px)", fontWeight: 800, color: "#fff", marginBottom: "14px", lineHeight: 1.06, display: "block" }}>
+          <h1 style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(34px,5vw,56px)", fontWeight: 700, color: "#fff", marginBottom: "14px", lineHeight: 1.06, display: "block" }}>
             {title}
           </h1>
           {hasData && (

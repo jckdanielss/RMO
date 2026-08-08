@@ -443,7 +443,7 @@ function FaqPage() {
       <div style={{ background: "#fff", borderBottom: "1px solid var(--line)", paddingTop: "clamp(80px,10vw,120px)", paddingBottom: "clamp(24px,4vw,48px)" }}>
         <div className="wrap">
           <span className="eyebrow eyebrow-lg" style={{ marginBottom: "14px" }}>FAQ</span>
-          <h1 style={{ fontSize: "clamp(28px,4vw,48px)", fontWeight: 800, color: "var(--ink)", marginBottom: "12px" }}>
+          <h1 style={{ fontFamily: "var(--font-serif)", fontSize: "clamp(28px,4vw,48px)", fontWeight: 700, color: "var(--ink)", marginBottom: "12px" }}>
             Frequently Asked Questions
           </h1>
           <p style={{ fontSize: "17px", color: "var(--muted)", maxWidth: "520px", lineHeight: 1.6 }}>

@@ -1,0 +1,85 @@
+<!-- ============================================================
+  DIVERSITY CERTIFICATIONS — cert table widget
+  Paste into Elementor HTML widget below the hero/breadcrumb section.
+  PREFIX: rdc-  |  No JS — no data-no-optimize needed.
+  ============================================================ -->
+
+<style>
+.rdc-card {
+  background: #ffffff;
+  border: 1px solid #e5ece7;
+  border-radius: 26px;
+  overflow: hidden;
+}
+.rdc-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5ece7;
+}
+.rdc-row:last-child { border-bottom: none; }
+.rdc-label {
+  width: 34%;
+  flex-shrink: 0;
+  font-weight: 700;
+  font-size: 14.5px;
+  color: #14201a;
+}
+.rdc-value {
+  flex: 1;
+  font-weight: 400;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: #3c4a42;
+}
+.rdc-cta-wrap {
+  text-align: center;
+  margin-top: clamp(28px, 4vw, 40px);
+}
+.rdc-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  background: #1a9c3e;
+  color: #ffffff;
+  transition: background .15s, transform .15s;
+}
+.rdc-cta-btn:hover { background: #12722e; transform: translateY(-2px); }
+.rdc-cta-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+@media (max-width: 600px) {
+  .rdc-row { flex-direction: column; gap: 4px; }
+  .rdc-label { width: 100%; }
+}
+</style>
+
+<div class="rdc-card">
+  <div class="rdc-row"><div class="rdc-label">Preliminary to Certifications:</div><div class="rdc-value">DUNS – SAM – NAICS Codes</div></div>
+  <div class="rdc-row"><div class="rdc-label">MBE:</div><div class="rdc-value">Minority Business Enterprise</div></div>
+  <div class="rdc-row"><div class="rdc-label">WBE:</div><div class="rdc-value">Women Business Enterprise (WBENC/WOSB/WDWOSB)</div></div>
+  <div class="rdc-row"><div class="rdc-label">DBE:</div><div class="rdc-value">Disadvantaged Business Enterprise</div></div>
+  <div class="rdc-row"><div class="rdc-label">DVBE:</div><div class="rdc-value">Disabled Veteran Business Enterprise</div></div>
+  <div class="rdc-row"><div class="rdc-label">8(a):</div><div class="rdc-value">Small Business Business Development Program</div></div>
+  <div class="rdc-row"><div class="rdc-label">HUBZone:</div><div class="rdc-value">HUBZone Designated Area Certification</div></div>
+  <div class="rdc-row"><div class="rdc-label">GSA Schedules:</div><div class="rdc-value">General Services Administration</div></div>
+  <div class="rdc-row"><div class="rdc-label">LGBT:</div><div class="rdc-value">Gay, Lesbian, Bisexual, &amp; Transgender Business Certification</div></div>
+  <div class="rdc-row"><div class="rdc-label">County Certifications:</div><div class="rdc-value">Some of the counties have their own eligibility requirement. For example Howard County in the State of Maryland have their own MBE/WBE certification requirement.</div></div>
+  <div class="rdc-row"><div class="rdc-label">State Certifications:</div><div class="rdc-value">States have their own certifications to qualify for their contracts</div></div>
+  <div class="rdc-row"><div class="rdc-label">Specific Business Certifications:</div><div class="rdc-value">Certain business have their own certifications. For example, Utilities Commission of California have their own CPUC certification to qualify for their contracts.</div></div>
+  <div class="rdc-row"><div class="rdc-label">Corporate Supplier Registrations:</div><div class="rdc-value">Corporations require for their supplier</div></div>
+</div>
+
+<div class="rdc-cta-wrap">
+  <!-- ⚠️ Update this URL to your Contact page -->
+  <a href="YOUR-CONTACT-URL" class="rdc-cta-btn">
+    I Want To Know What Certifications I Qualify For!
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M13 6l6 6-6 6"/>
+    </svg>
+  </a>
+</div>

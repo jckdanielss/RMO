@@ -1,0 +1,167 @@
+<!-- ============================================================
+  PROFESSIONAL SERVICES — Sub-service cards widget
+  Paste into Elementor HTML widget on the Professional Services page.
+  PREFIX: rps-  |  No JS, no CSS vars — all hex inlined.
+
+  UPDATE THESE TWO URLs before pasting:
+    - Diversity Certifications page URL (replace YOUR-DIVERSITY-CERT-URL)
+    - RFP / Bid Package page URL       (replace YOUR-RFP-URL)
+  ============================================================ -->
+
+<style>
+.rps-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.rps-card {
+  flex: 1;
+  min-width: 280px;
+  background: #f6faf7;
+  border: 1.5px solid #e5ece7;
+  border-radius: 26px;
+  padding: clamp(22px, 3vw, 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: box-shadow 0.22s, border-color 0.22s, transform 0.22s;
+}
+.rps-card:hover {
+  box-shadow: 0 4px 14px rgba(20,32,26,.08), 0 24px 60px rgba(12,79,32,.10);
+  border-color: rgba(26,156,62,.35);
+  transform: translateY(-2px);
+}
+.rps-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 13px;
+  background: #eef7f0;
+  color: #1a9c3e;
+  flex-shrink: 0;
+}
+.rps-icon svg { width: 24px; height: 24px; }
+.rps-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.rps-body h3 {
+  font-size: clamp(16px, 1.6vw, 20px);
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: #14201a;
+  line-height: 1.25;
+}
+.rps-body p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #3c4a42;
+  margin: 0;
+}
+.rps-tag-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #6c7a72;
+  margin-top: 14px;
+  margin-bottom: 8px;
+}
+.rps-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.rps-tag {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(26,156,62,.08);
+  color: #12722e;
+  border: 1px solid rgba(26,156,62,.18);
+}
+.rps-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 11px 24px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid #1a9c3e;
+  color: #1a9c3e;
+  background: transparent;
+  align-self: flex-start;
+  transition: background .15s, color .15s;
+}
+.rps-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+.rps-btn:hover { background: #1a9c3e; color: #fff; }
+@media (max-width: 600px) {
+  .rps-card { min-width: 100%; }
+}
+</style>
+
+<div class="rps-grid">
+
+  <!-- CARD 1: Diversity Certification -->
+  <div class="rps-card">
+    <div class="rps-icon">
+      <!-- badge icon -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/>
+        <path d="m8.5 13.5-1.8 6 5.3-2.6 5.3 2.6-1.8-6"/>
+      </svg>
+    </div>
+    <div class="rps-body">
+      <h3>Diversity Certification</h3>
+      <p>We walk you through the full application — eligibility check, required documents, submission. We cover every certifying body across all six levels.</p>
+      <span class="rps-tag-label">Levels we cover:</span>
+      <div class="rps-tags">
+        <span class="rps-tag">Local</span>
+        <span class="rps-tag">County</span>
+        <span class="rps-tag">State</span>
+        <span class="rps-tag">National</span>
+        <span class="rps-tag">Federal</span>
+        <span class="rps-tag">Global</span>
+      </div>
+      <!-- ⚠️ Update this URL -->
+      <a href="YOUR-DIVERSITY-CERT-URL" class="rps-btn">
+        Learn More
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- CARD 2: RFP / Bid Package Assistance -->
+  <div class="rps-card">
+    <div class="rps-icon">
+      <!-- target/bullseye icon -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="9"/>
+        <circle cx="12" cy="12" r="5"/>
+        <circle cx="12" cy="12" r="1.4" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="rps-body">
+      <h3>RFP / Bid Package Assistance</h3>
+      <p>Most bids are lost in the writing, not the work. We build RFP responses that are accurate, tight, and ready to submit.</p>
+      <!-- ⚠️ Update this URL -->
+      <a href="YOUR-RFP-URL" class="rps-btn">
+        Learn More
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M13 6l6 6-6 6"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+</div>

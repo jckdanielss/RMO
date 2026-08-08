@@ -1,4 +1,4 @@
-/* global React, ReactDOM, Nav, Hero, Services, Clients, Team, Testimonials, About, Certifications, Contact, Footer, ToTop */
+/* global React, ReactDOM, Nav, Hero, Services, ServiceFinder, HowItWorks, Clients, Team, Testimonials, About, Certifications, Contact, Footer, ToTop */
 const { useEffect: useEffectApp } = React;
 
 function useScrollReveal() {
@@ -36,7 +36,9 @@ function App() {
       <main>
         <Hero />
         <Services />
+        <ServiceFinder />
         <Clients />
+        <HowItWorks />
         <Team />
         <Testimonials />
         <About />

@@ -13,23 +13,26 @@ function useScrollRevealSvc() {
   }, []);
 }
 
+/* ponytail: reusing existing service images for these two broad category
+   cards — closest concept match, no new generation needed */
 const BRANCHES = [
   {
-    ic: Ic.badge,
+    img: "assets/services/get-certified.png",
     num: "01",
     title: "Professional Services",
     desc: "Certifications, capability statements, bid packages. The documentation side of running a diverse business, done right.",
     href: "services/professional-services.html",
-    tags: ["Diversity Certifications", "Capability Statement", "RFP Assistance"],
+    tags: ["Diversity Certifications", "Capability Statement", "RFP Assistance", "Startup Guidance"],
     accent: false,
   },
   {
-    ic: Ic.rocket,
+    img: "assets/services/get-market-ready.png",
+    imgPos: "center 30%",
     num: "02",
     title: "Business Growth Programs",
     desc: "You have the certification. These programs help you use it. We connect you with real buyers, sharpen your pitch, and build the relationships that lead to contracts.",
     href: "services/business-growth-programs.html",
-    tags: ["Market Ready Program", "Speaker Series", "Impact Reports", "Start-Up Guidance"],
+    tags: ["Market Ready Program", "Speaker Series", "Impact Reports"],
     accent: true,
   },
 ];
@@ -47,17 +50,23 @@ function ServicesLanding() {
         </div>
         <div className="branch-grid reveal d1">
           {BRANCHES.map(b => (
-            <div key={b.title} className={"branch-card" + (b.accent ? " accent" : "")}>
-              <div className="branch-card-top">
-                <div className="branch-icon">{b.ic}</div>
-                <span className="branch-num">{b.num}</span>
+            <div key={b.title} className={"branch-card has-banner" + (b.accent ? " accent" : "")}>
+              <img
+                className="branch-banner"
+                src={b.img}
+                alt=""
+                loading="lazy"
+                style={b.imgPos ? { objectPosition: b.imgPos } : undefined}
+              />
+              <span className="branch-num">{b.num}</span>
+              <div className="branch-body">
+                <h2>{b.title}</h2>
+                <p>{b.desc}</p>
+                <div className="branch-tags">
+                  {b.tags.map(t => <span key={t} className="branch-tag">{t}</span>)}
+                </div>
+                <a href={b.href} className="branch-learn-btn">Learn More</a>
               </div>
-              <h2>{b.title}</h2>
-              <p>{b.desc}</p>
-              <div className="branch-tags">
-                {b.tags.map(t => <span key={t} className="branch-tag">{t}</span>)}
-              </div>
-              <a href={b.href} className="branch-learn-btn">Learn More</a>
             </div>
           ))}
         </div>

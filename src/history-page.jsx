@@ -141,7 +141,8 @@ function HistoryPage() {
             R Mo Global Diversity Solutions
           </span>
           <h1 style={{
-            fontSize: "clamp(38px,5.5vw,64px)", fontWeight: 800,
+            fontFamily: "var(--font-serif)",
+            fontSize: "clamp(38px,5.5vw,64px)", fontWeight: 700,
             color: "#fff", marginBottom: "20px", lineHeight: 1.04,
           }}>
             Our History

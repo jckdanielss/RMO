@@ -13,9 +13,12 @@ function useScrollRevealMV() {
   }, []);
 }
 
+/* ponytail: banner images are placeholder carousel assets standing in for
+   the AI-generated images the client wants — swap the img paths once those
+   are ready, no other markup/CSS changes needed */
 const MV_OBJECTIVES = [
   {
-    ic: Ic.badge,
+    img: "assets/objective-images/for-diverse-businesses.png",
     title: "For Diverse Businesses",
     items: [
       "Support businesses in obtaining and maintaining diversity certifications.",
@@ -24,7 +27,7 @@ const MV_OBJECTIVES = [
     ],
   },
   {
-    ic: Ic.handshake,
+    img: "assets/objective-images/for-corporates-government.png",
     title: "For Corporates & Government",
     items: [
       "Assist in certifying and developing their diverse supplier base.",
@@ -33,7 +36,7 @@ const MV_OBJECTIVES = [
     ],
   },
   {
-    ic: Ic.rocket,
+    img: "assets/objective-images/for-rmo-team.png",
     title: "For the R Mo Team",
     items: [
       "Invest in continuous learning and professional growth of our global team.",
@@ -43,61 +46,64 @@ const MV_OBJECTIVES = [
   },
 ];
 
+/* ponytail: 5 of 6 reuse existing images (same concept as other pages) —
+   only Strategic Business Consulting needed a new generation */
 const CORE_COMPETENCIES = [
   {
-    ic: Ic.badge,
+    img: "assets/services/get-certified.png",
     title: "Diversity Certifications",
     desc: "End-to-end support for MBE, WBE, DBE, and other certifications across local, state, and federal levels.",
   },
   {
-    ic: Ic.handshake,
+    img: "assets/objective-images/for-corporates-government.png",
     title: "Supplier Diversity Support",
     desc: "Helping corporate and government supplier diversity programs certify and develop their diverse supplier base.",
   },
   {
-    ic: Ic.rocket,
+    img: "assets/services/driving-impact.png",
     title: "Business Growth Programs",
     desc: "Market readiness, speaker series, and startup guidance that turn a certification into a contract strategy.",
   },
   {
-    ic: Ic.target,
+    img: "assets/services/get-market-ready.png",
+    imgPos: "center 30%",
     title: "Market Readiness",
     desc: "Sharpening your pitch and positioning so you're ready the moment a buyer takes a meeting.",
   },
   {
-    ic: Ic.doc,
+    img: "assets/services/rfp-bid-package.png",
     title: "Procurement Assistance",
     desc: "Capability statements and RFP/bid packages written the way procurement officers actually read them.",
   },
   {
-    ic: Ic.chip,
+    img: "assets/mv-images/strategic-consulting.png",
     title: "Strategic Business Consulting",
     desc: "Direct, practical guidance on the certifications, partnerships, and next steps worth pursuing.",
   },
 ];
 
+/* ponytail: all 4 reuse images already generated for the homepage /
+   business-growth-programs page — same concepts, no new generation */
 const GROWTH_PROGRAM_CARDS = [
   {
-    ic: Ic.rocket,
+    img: "assets/services/get-market-ready.png",
+    imgPos: "center 30%",
     title: "Market Ready Program",
     desc: "A hands-on program that turns your certification into a contract strategy.",
   },
   {
-    ic: Ic.badge,
+    img: "assets/growth-images/speaker-series.png",
     title: "Speaker Series",
     desc: "Monthly talks with procurement officers, certifying bodies, and business owners who've been through it.",
   },
   {
-    ic: Ic.eye,
+    img: "assets/growth-images/impact-reports.png",
     title: "Impact Reports",
     desc: "Economic impact, social outcomes, and community reach, documented for corporate and government partners.",
   },
-  {
-    ic: Ic.rocket,
-    title: "Startup Guidance",
-    desc: "Getting the structure right and choosing the certifications worth pursuing first.",
-  },
 ];
+/* ponytail: Startup Guidance moved to Professional Services — see
+   PRO_SERVICE_LIST in professional-services-page.jsx */
 
 const CERT_CATEGORIES = [
   {
@@ -194,13 +200,15 @@ function MissionVisionPage() {
             <div className="obj-grid reveal">
               {MV_OBJECTIVES.map((o) => (
                 <div className="obj-card" key={o.title}>
-                  <div className="obj-head">
-                    <span className="obj-ic">{o.ic}</span>
-                    <h4>{o.title}</h4>
+                  <img className="obj-banner" src={o.img} alt="" />
+                  <div className="obj-body">
+                    <div className="obj-head">
+                      <h4>{o.title}</h4>
+                    </div>
+                    <ul>
+                      {o.items.map((item) => <li key={item}>{item}</li>)}
+                    </ul>
                   </div>
-                  <ul>
-                    {o.items.map((item) => <li key={item}>{item}</li>)}
-                  </ul>
                 </div>
               ))}
             </div>
@@ -216,10 +224,14 @@ function MissionVisionPage() {
             </div>
             <div className="svc-card-grid reveal d1">
               {CORE_COMPETENCIES.map((c) => (
-                <div className="svc-detail-card" key={c.title}>
-                  <div className="svc-detail-icon">
-                    <span className="svc-icon-wrap">{c.ic}</span>
-                  </div>
+                <div className="svc-detail-card has-banner" key={c.title}>
+                  <img
+                    className="svc-banner"
+                    src={c.img}
+                    alt=""
+                    loading="lazy"
+                    style={c.imgPos ? { objectPosition: c.imgPos } : undefined}
+                  />
                   <div className="svc-detail-body">
                     <h2>{c.title}</h2>
                     <p>{c.desc}</p>
@@ -238,12 +250,16 @@ function MissionVisionPage() {
               <h2>Turning Certification Into Contracts</h2>
               <p>Real buyers, sharper pitches, and the relationships that lead to contracts.</p>
             </div>
-            <div className="svc-card-grid svc-card-grid--2col reveal d1">
+            <div className="svc-card-grid reveal d1">
               {GROWTH_PROGRAM_CARDS.map((c) => (
-                <a className="svc-detail-card" href="services/business-growth-programs.html" key={c.title} style={{ display: "flex", textDecoration: "none", color: "inherit" }}>
-                  <div className="svc-detail-icon">
-                    <span className="svc-icon-wrap">{c.ic}</span>
-                  </div>
+                <a className="svc-detail-card has-banner" href="services/business-growth-programs.html" key={c.title} style={{ textDecoration: "none", color: "inherit" }}>
+                  <img
+                    className="svc-banner"
+                    src={c.img}
+                    alt=""
+                    loading="lazy"
+                    style={c.imgPos ? { objectPosition: c.imgPos } : undefined}
+                  />
                   <div className="svc-detail-body">
                     <h2>{c.title}</h2>
                     <p>{c.desc}</p>

@@ -1,0 +1,131 @@
+<!-- ============================================================
+  RFP / BID PACKAGE ASSISTANCE — body sections widget
+  Paste as ONE HTML widget (or split into two — see note at bottom).
+  PREFIX: rrfp-  |  No JS — no data-no-optimize needed.
+  ============================================================ -->
+
+<style>
+.rrfp-lead-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.rrfp-lead-wrap p {
+  color: #3c4a42;
+  line-height: 1.75;
+  margin: 0 0 18px;
+  font-size: 15.5px;
+}
+.rrfp-lead-wrap p:last-child { margin-bottom: 0; }
+.rrfp-lead-wrap a {
+  color: #1a9c3e;
+  font-weight: 600;
+  text-decoration: none;
+}
+.rrfp-lead-wrap a:hover { text-decoration: underline; }
+
+.rrfp-opps-section {
+  background: #f6faf7;
+  padding: clamp(48px, 6vw, 80px) 24px;
+}
+.rrfp-opps-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.rrfp-opps-head {
+  text-align: center;
+}
+.rrfp-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #1a9c3e;
+  margin-bottom: 8px;
+}
+.rrfp-opps-head h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
+  color: #14201a;
+  margin: 0;
+}
+.rrfp-opps-card {
+  background: #ffffff;
+  border: 1px solid #e5ece7;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-top: clamp(24px, 3vw, 32px);
+}
+.rrfp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+.rrfp-table thead tr {
+  border-bottom: 1px solid #e5ece7;
+}
+.rrfp-table th {
+  padding: 14px 20px;
+  text-align: left;
+  color: #14201a;
+  font-weight: 700;
+}
+.rrfp-table td {
+  padding: 16px 20px;
+  color: #3c4a42;
+}
+.rrfp-table tbody tr {
+  border-bottom: 1px solid #e5ece7;
+}
+.rrfp-table tbody tr:last-child { border-bottom: none; }
+@media (max-width: 600px) {
+  .rrfp-table { font-size: 13px; }
+  .rrfp-table th, .rrfp-table td { padding: 10px 12px; }
+}
+</style>
+
+<!-- SECTION 1: Lead paragraphs -->
+<div class="rrfp-lead-wrap">
+  <p>U.S. government agencies acquire more goods and services than any other group in the world. Similarly, state and local government agencies spend billions of dollars on products and services each year.</p>
+  <p>Government agencies often need to purchase goods and services with public resources and for public purposes to fulfill their functions. Such purchases are generally referred to as government/public procurement.</p>
+  <p>Government related purchasing activity in the United States is often highly regulated. A substantial number of businesses find it profitable to cater almost exclusively to government procurement needs as it presents tremendous business opportunities.</p>
+  <p>We at R Mo Diversity Solutions value the time of our clients. We research on RFPs and contracts that are pertaining to our clients and assist in compiling the bid package, finding a JV partner or teaming partner to be able to collectively procure larger contracts.</p>
+  <p>If you'd like to learn more about RFPs and contracts bidding, please email us at <a href="mailto:info@rmollc.com">info@rmollc.com</a>.</p>
+</div>
+
+<!-- SECTION 2: Open Opportunities table -->
+<div class="rrfp-opps-section">
+  <div class="rrfp-opps-inner">
+    <div class="rrfp-opps-head">
+      <span class="rrfp-eyebrow">Open Opportunities</span>
+      <h2>Current RFPs &amp; Bids</h2>
+    </div>
+    <div class="rrfp-opps-card">
+      <table class="rrfp-table">
+        <thead>
+          <tr>
+            <th>Due Date</th>
+            <th>Title</th>
+            <th>Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>June 27th</td>
+            <td>County of Sacramento</td>
+            <td>Fentanyl Public Awareness Campaign</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!--
+  NOTE: If you'd rather use TWO separate HTML widgets (one per Elementor
+  section, so you can control section background/padding natively):
+  - Widget 1: just the <style> block + the "SECTION 1" div
+  - Widget 2: the "SECTION 2" div only, dropped into an Elementor section
+    with its own bg #f6faf7 (then you can drop .rrfp-opps-section's
+    padding/background rules and just keep .rrfp-opps-inner + table styles)
+-->

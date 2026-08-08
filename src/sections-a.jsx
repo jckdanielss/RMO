@@ -376,7 +376,7 @@ const HERO_SLIDES = [
     img: "assets/carousel/diversity.jpg",
     alt: "Diverse business professionals in a meeting",
     heading: "Diversity Certifications",
-    sub: "We handle the complexity. You focus on winning contracts.",
+    sub: "We help diverse-owned businesses navigate complex certification requirements, avoid costly mistakes, and complete strong, accurate applications that unlock new contracting opportunities.",
     btnLabel: "Explore Services",
     btnHref: "#services",
   },
@@ -384,7 +384,7 @@ const HERO_SLIDES = [
     img: "assets/carousel/market_ready_program.jpg",
     alt: "Market ready business professionals",
     heading: "Become Market-Ready",
-    sub: "Build confidence, sharpen your pitch, and stand out.",
+    sub: "Turn your certification into opportunity. We strengthen your positioning, capability materials, and contracting strategy so you can confidently approach corporate and government buyers.",
     btnLabel: "Get Started",
     btnHref: "/services/business-growth-programs.html",
   },
@@ -392,7 +392,7 @@ const HERO_SLIDES = [
     img: "assets/carousel/driving-impact.png",
     alt: "Community impact and empowerment",
     heading: "Driving Impact",
-    sub: "Empowering businesses, strengthening communities.",
+    sub: "We help businesses and organizations create measurable economic and social impact by expanding supplier diversity, strengthening communities, and supporting inclusive growth.",
     btnLabel: "Get Started",
     btnHref: "#contact",
   },
@@ -400,15 +400,15 @@ const HERO_SLIDES = [
     img: "assets/carousel/startup_guidance.jpg",
     alt: "Startup Guidance",
     heading: "Startup Guidance",
-    sub: "Strategic mentorship from your first idea to your first contract.",
+    sub: "Build your business on a stronger foundation with practical guidance, strategic mentorship, and resources that help you move confidently from idea to execution.",
     btnLabel: "Get Guidance",
     btnHref: "#contact",
   },
   {
     img: "assets/carousel/rfd_bid_package.jpg",
-    alt: "RFD Bidding",
-    heading: "RFD Bidding",
-    sub: "From proposal writing to submission — expert bid support at every step.",
+    alt: "RFP Bidding",
+    heading: "RFP Bidding",
+    sub: "We help you prepare clear, compelling, and compliant bid packages — reducing submission errors and strengthening your chances of securing government and corporate contracts.",
     btnLabel: "Get Bid Support",
     btnHref: "#contact",
   },
@@ -480,10 +480,11 @@ function Hero() {
         <div className="hero-ed-text">
           <div className="hero-ed-text-inner" key={animKey}>
             <h1 className="hero-ed-heading"><span>{HERO_SLIDES[active].heading}</span></h1>
+            <p className="hero-ed-sub">{HERO_SLIDES[active].sub}</p>
             <div className="hero-ed-actions">
               <a
                 href={HERO_SLIDES[active].btnHref}
-                className="hero-ed-btn"
+                className="hero-ed-btn accent-orange"
                 onClick={(e) => go(e, HERO_SLIDES[active].btnHref)}
               >
                 {HERO_SLIDES[active].btnLabel} {Ic.arrow}
@@ -547,36 +548,44 @@ function Hero() {
 }
 
 /* ======================= SERVICES ======================= */
+/* ponytail: banner images are AI-generated (client-approved direction,
+   replacing the flat icon set) — img files live in assets/services/ */
 const SERVICES = [
   {
-    ic: Ic.badge,
+    img: "assets/services/get-certified.png",
     t: "Get Certified",
     d: "We guide you through complex certification requirements and ensure complete, accurate applications so you earn certifications faster and open doors to new opportunities.",
     href: "services/professional-services.html",
+    cta: "Start Certifying",
   },
   {
-    ic: Ic.rocket,
+    img: "assets/services/get-market-ready.png",
+    imgPos: "center 30%",
     t: "Get Market Ready",
     d: "Our Market Ready Program equips you with tools, connections, and confidence to present your business effectively, leverage your certification, and turn recognition into real results.",
     href: "services/business-growth-programs.html",
+    cta: "Explore the Program",
   },
   {
-    ic: Ic.handshake,
+    img: "assets/services/driving-impact.png",
     t: "Driving Impact",
     d: "We create lasting economic and social impact by empowering diverse businesses, strengthening supplier diversity, and fostering inclusive growth across communities and supply chains.",
     href: "services.html",
+    cta: "See Our Impact",
   },
   {
-    ic: Ic.target,
+    img: "assets/services/startup-guidance.png",
     t: "Startup Guidance",
     d: "From idea to execution — strategic mentorship and resources to navigate startup challenges and build a strong foundation for lasting business success.",
     href: "services.html",
+    cta: "Get Guidance",
   },
   {
-    ic: Ic.doc,
-    t: "RFD Bid Package",
-    d: "Expert support for your RFD bid submissions — well-crafted, fully compliant proposals that maximize your chances of securing valuable government and corporate contracts.",
+    img: "assets/services/rfp-bid-package.png",
+    t: "RFP Bid Package",
+    d: "Expert support for your RFP bid submissions — well-crafted, fully compliant proposals that maximize your chances of securing valuable government and corporate contracts.",
     href: "services.html",
+    cta: "Win the Bid",
   },
 ];
 
@@ -592,14 +601,139 @@ function Services() {
         <div className="cards">
           {SERVICES.map((s, i) => (
             <article className={"card reveal d" + (i + 1)} key={s.t}>
-              <span className="card-ic">{s.ic}</span>
-              <h3>{s.t}</h3>
-              <p>{s.d}</p>
-              <a className="btn card-cta" href={s.href}>
-                Learn More {Ic.arrow}
-              </a>
+              <img className="card-banner" src={s.img} alt="" loading="lazy" style={s.imgPos ? { objectPosition: s.imgPos } : undefined} />
+              <div className="card-body">
+                <h3>{s.t}</h3>
+                <p>{s.d}</p>
+                <a className="btn card-cta" href={s.href}>
+                  {s.cta} {Ic.arrow}
+                </a>
+              </div>
             </article>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ======================= SERVICE FINDER ======================= */
+const FINDER_PATHS = [
+  {
+    key: "certify",
+    label: "Getting Certified",
+    blurb: "New to certification or mid-application? We handle the paperwork, requirements, and follow-through so you earn your certification faster and without the guesswork.",
+    ctaLabel: "Start Certifying",
+    href: "services/professional-services.html",
+  },
+  {
+    key: "growth",
+    label: "Already Certified, Want Growth",
+    blurb: "Certified and ready for what's next? Our Market Ready Program turns your certification into real opportunities — positioning, connections, and confidence to win contracts.",
+    ctaLabel: "Explore Growth Programs",
+    href: "services/business-growth-programs.html",
+  },
+  {
+    key: "corporate",
+    label: "Corporate Buyer",
+    blurb: "Building or strengthening a supplier diversity program? We help you certify and develop your diverse supplier base and hit your diversity spend goals.",
+    ctaLabel: "Talk to Us",
+    href: "contact-us.html",
+  },
+];
+
+function ServiceFinder() {
+  const [active, setActive] = useState(0);
+  const path = FINDER_PATHS[active];
+  return (
+    <section className="finder pad-y" id="finder">
+      <div className="wrap">
+        <div className="section-head center reveal">
+          <span className="eyebrow">Find Your Path</span>
+          <h2>Which One Is You?</h2>
+        </div>
+        <div className="finder-box reveal">
+          <div className="finder-tabs" role="tablist">
+            {FINDER_PATHS.map((p, i) => (
+              <button
+                key={p.key}
+                role="tab"
+                aria-selected={i === active}
+                className={"finder-tab" + (i === active ? " on" : "")}
+                onClick={() => setActive(i)}
+              >
+                {p.label}
+              </button>
+            ))}
+          </div>
+          <div className="finder-panel" key={path.key}>
+            <p>{path.blurb}</p>
+            <a className="btn btn-primary" href={path.href}>
+              {path.ctaLabel} {Ic.arrow}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ======================= HOW IT WORKS ======================= */
+const PROCESS_STEPS = [
+  {
+    n: "01",
+    label: "Apply",
+    title: "We Scope Your Application",
+    d: "We review your business against the certification requirements you qualify for and map out exactly what documentation and steps are needed.",
+  },
+  {
+    n: "02",
+    label: "Review",
+    title: "We Handle the Details",
+    d: "We prepare and submit a complete, accurate application — catching the errors and omissions that cause most delays and rejections.",
+  },
+  {
+    n: "03",
+    label: "Certify",
+    title: "You Get Certified",
+    d: "We stay engaged through agency review, respond to follow-ups on your behalf, and get you across the finish line faster.",
+  },
+  {
+    n: "04",
+    label: "Grow",
+    title: "We Help You Win Work",
+    d: "Certification in hand, we help you position, present, and pursue real government and corporate contracting opportunities.",
+  },
+];
+
+function HowItWorks() {
+  const [active, setActive] = useState(0);
+  const step = PROCESS_STEPS[active];
+  return (
+    <section className="how pad-y" id="how-it-works">
+      <div className="wrap">
+        <div className="section-head center reveal">
+          <span className="eyebrow">How It Works</span>
+          <h2>From Application to Opportunity</h2>
+        </div>
+        <div className="how-box reveal">
+          <div className="how-steps">
+            {PROCESS_STEPS.map((s, i) => (
+              <button
+                key={s.n}
+                className={"how-step" + (i === active ? " on" : "")}
+                onClick={() => setActive(i)}
+                aria-current={i === active}
+              >
+                <span className="how-step-n">{s.n}</span>
+                <span className="how-step-label">{s.label}</span>
+              </button>
+            ))}
+          </div>
+          <div className="how-panel" key={step.n}>
+            <h3>{step.title}</h3>
+            <p>{step.d}</p>
+          </div>
         </div>
       </div>
     </section>
@@ -612,7 +746,7 @@ function Clients() {
       <div className="wrap">
         <div className="section-head center reveal">
           <span className="eyebrow">Who We Serve</span>
-          <h2>Our Clients</h2>
+          <h2>Trusted By Leading Organizations</h2>
           <p>Working with leading organizations across government and corporate sectors.</p>
         </div>
         <div className="reveal d1">
@@ -633,4 +767,4 @@ function Clients() {
   );
 }
 
-Object.assign(window, { Ic, Avatar, Nav, Hero, Services, Clients, LogoCarousel });
+Object.assign(window, { Ic, Avatar, Nav, Hero, Services, ServiceFinder, HowItWorks, Clients, LogoCarousel });

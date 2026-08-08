@@ -146,9 +146,13 @@ function Testimonials() {
 }
 
 /* ======================= ABOUT (mission + vision) ======================= */
+/* ponytail: banner images are placeholder carousel assets standing in for
+   the AI-generated images the client wants — swap the img paths once those
+   are ready, no other markup/CSS changes needed. Keep in sync with the
+   duplicate OBJECTIVES data in mission-vision-page.jsx (MV_OBJECTIVES). */
 const OBJECTIVES = [
   {
-    ic: Ic.badge,
+    img: "assets/objective-images/for-diverse-businesses.png",
     title: "For Diverse Businesses",
     items: [
       "Support businesses in obtaining and maintaining diversity certifications.",
@@ -157,7 +161,7 @@ const OBJECTIVES = [
     ],
   },
   {
-    ic: Ic.handshake,
+    img: "assets/objective-images/for-corporates-government.png",
     title: "For Corporates & Government",
     items: [
       "Assist in certifying and developing their diverse supplier base.",
@@ -166,7 +170,7 @@ const OBJECTIVES = [
     ],
   },
   {
-    ic: Ic.rocket,
+    img: "assets/objective-images/for-rmo-team.png",
     title: "For the R Mo Team",
     items: [
       "Invest in continuous learning and professional growth of our global team.",
@@ -214,15 +218,17 @@ function About() {
           <h2>Objectives</h2>
         </div>
         <div className="obj-grid reveal">
-          {OBJECTIVES.map((o, i) => (
+          {OBJECTIVES.map((o) => (
             <div className="obj-card" key={o.title}>
-              <div className="obj-head">
-                <span className="obj-ic">{o.ic}</span>
-                <h4>{o.title}</h4>
+              <img className="obj-banner" src={o.img} alt="" />
+              <div className="obj-body">
+                <div className="obj-head">
+                  <h4>{o.title}</h4>
+                </div>
+                <ul>
+                  {o.items.map((item) => <li key={item}>{item}</li>)}
+                </ul>
               </div>
-              <ul>
-                {o.items.map((item) => <li key={item}>{item}</li>)}
-              </ul>
             </div>
           ))}
         </div>
